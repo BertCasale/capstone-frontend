@@ -6,6 +6,7 @@ const API = process.env.REACT_APP_API_URL;
 // To be determined
 
 export default function Dashboard() {
+  const [user, setUser] = useState({})
   const [currentLesson, setCurrentLesson] = useState({});
   const [completedLessons, setCompletedLessons] = useState([]);
 //   const [remainingLessons, setRemainingLessons] = useState([]);
@@ -43,4 +44,10 @@ export default function Dashboard() {
     )
   }
 
+  return (
+    <section className="dashboard">
+        <h1 className="greeting">Welcome to your journey into art {user.username}!</h1>
+        <img className="profile-pic" src="profile_pic.jpg" alt="profile pic" width="200" height="200"/>
+    </section>
+  )
 }
