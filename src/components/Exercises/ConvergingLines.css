@@ -1,0 +1,23 @@
+.correct-button {
+    height: 130px;
+    width: 130px;
+    z-index: 100;
+    position: absolute;
+    left: 40px;
+    top: 50px;
+    border-radius: 50%;
+
+    opacity: .5;
+    background-color: red;
+}
+
+.artwork {
+    max-width: 100%;
+    position: relative;
+}
+
+.interactive-container {
+    width: 500px;
+    position: relative;
+    border: solid white 1px;
+}
