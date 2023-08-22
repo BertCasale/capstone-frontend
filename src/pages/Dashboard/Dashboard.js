@@ -11,7 +11,6 @@ export default function Dashboard() {
   const [completedLessons, setCompletedLessons] = useState([]);
 //   const [remainingLessons, setRemainingLessons] = useState([]);
   const [allLessons, setAllLessons] = useState([]);
-  const [nextLessons, setNextLessons] = useState([]);
 //   const { id } = useParams();
 
   useEffect(() => {
@@ -29,21 +28,14 @@ export default function Dashboard() {
     )
   }
 
-  // Filters through all lessons to set next lessons to the ones that share the same category as the current, and have not been started
-  function lessonsInSameCategory() {
-    setNextLessons(
-      allLessons.filter(lesson => lesson.category === currentLesson.category && 
-        lesson.completionStatus === 'not started')
-    )
-  }
-
   return (
     <section class="dashboard">
       <section>
         <h1 class="greeting">Welcome to your journey into art {user.username}!</h1>
         <img class="profile-pic" src="profile_pic.jpg" alt="profile pic" width="200" height="200"/>
       </section>
-      <CurrentLessonCard allLessons={allLessons}/>
+      <CurrentLessonCard allLessons={allLessons} />
+      <NextLessons allLessons={allLessons} />
     </section>
   )
 }
