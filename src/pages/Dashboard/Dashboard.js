@@ -3,13 +3,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import './Dashboard.css'
 import CompletedLessons from "../../components/Dashboard/CompletedLessons";
+import NextLessonCard from "../../components/Dashboard/NextLessonCard";
+import CurrentLessonCard from "../../components/Dashboard/CurrentLessonCard";
 
 const API = process.env.REACT_APP_API_URL;
 // To be determined
 
 export default function Dashboard() {
+    
   const [user, setUser] = useState({})
-//   const [remainingLessons, setRemainingLessons] = useState([]);
   const [allLessons, setAllLessons] = useState([]);
 //   const { id } = useParams();
 
@@ -28,7 +30,7 @@ export default function Dashboard() {
         <img class="profile-pic" src="profile_pic.jpg" alt="profile pic" width="200" height="200"/>
       </section>
       <CurrentLessonCard allLessons={allLessons} />
-      <NextLessons allLessons={allLessons} />
+      <NextLessonCard allLessons={allLessons} />
       <CompletedLessons allLessons={allLessons} />
     </section>
   )

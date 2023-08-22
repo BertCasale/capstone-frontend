@@ -1,7 +1,7 @@
 
 
 
-export default function NextLessons({ allLessons }) {
+export default function NextLessonCard({ allLessons }) {
 
   const [nextLessons, setNextLessons] = useState([]);
 
