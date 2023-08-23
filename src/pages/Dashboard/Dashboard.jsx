@@ -5,6 +5,7 @@ import './Dashboard.css'
 import CompletedLessons from "../../components/Dashboard/CompletedLessons";
 import NextLessonCard from "../../components/Dashboard/NextLessonCard";
 import CurrentLessonCard from "../../components/Dashboard/CurrentLessonCard";
+import GrowingTree from "../../components/Dashboard/GrowingTree";
 
 // const API = process.env.REACT_APP_API_URL;
 // To be determined
@@ -24,99 +25,79 @@ export default function Dashboard() {
   // }, [])
 
   return (
-    <div class="section">
-      {/* <div class="columns">
-        <div class="column">
-          <div class="level">
-            <div class="level-left">
-              <div class="title">Dashboard</div>
-            </div>
+    <main className="section">
+      <div className="level">
+        <div className="level-left">
+          <div className="level-item">
+            <div className="title">Dashboard</div>
           </div>
         </div>
+      </div>
       
+      <div className="columns">
 
-        <CurrentLessonCard allLessons={allLessons} />
-        <NextLessonCard allLessons={allLessons} />
-        <CompletedLessons allLessons={allLessons} />
-      </div> */}
-      <main>
-        <div class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <div class="title">Dashboard</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="columns is-multiline">
-
-          <div class="column">
-            <div class="box">
-              <div class="title">Welcome to your art journey!</div>
-              <div class="level">
-                <div class="level-item">
-                    <div class="title">Profile Pic</div>
-                </div>
-                <div class="level-item">
-                  <div class="">
-                    <div class="title">Username</div>
-                  </div>
+        <div className="column">
+          <div className="box">
+            <div className="title">Welcome to your art journey!</div>
+            <div className="level">
+              <div className="level-item">
+                  <div className="title">Profile Pic</div>
+              </div>
+              <div className="level-item">
+                <div className="">
+                  <div className="title">Username</div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="column">
-            <div class="box">
-              <div class="title">Growing Tree Animation</div>
-            </div>
-          </div>
-          
         </div>
+
+        <GrowingTree/>
         
-        <div class="columns is-multiline">
-          
-          <div class="column is-6">
-            <div class="panel">
-              <p class="panel-heading">
-                Current Lesson
-              </p>
-              <div class="panel-block">
-                <figure class="image is-16x9">
-                  <img src="https://placehold.it/1280x720"/>
-                </figure>
-              </div>
+      </div>
+      
+      <div className="columns is-multiline">
+
+        <div className="column is-6">
+          <div className="panel">
+            <p className="panel-heading">
+              Current Lesson
+            </p>
+            <div className="panel-block">
+              <figure className="image is-16x9">
+                <img src="https://placehold.it/1280x720"/>
+              </figure>
             </div>
           </div>
-
-          <div class="column is-6">
-            <div class="panel">
-              <p class="panel-heading">
-                Next Lesson
-              </p>
-              <div class="panel-block">
-                <figure class="image is-16x9">
-                  <img src="https://placehold.it/1280x720"/>
-                </figure>
-              </div>
-            </div>
-          </div>
-
-          <div class="column is-full">
-            <div class="panel">
-              <p class="panel-heading">
-                Collapsible Syllabus
-              </p>
-              <div class="panel-block">
-                <figure class="image is-16x9">
-                  <img src="https://placehold.it/1280x720"/>
-                </figure>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </main>
-    </div>
+
+        <div className="column is-6">
+          <div className="panel">
+            <p className="panel-heading">
+              Next Lesson
+            </p>
+            <div className="panel-block">
+              <figure className="image is-16x9">
+                <img src="https://placehold.it/1280x720"/>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div className="column is-full">
+          <div className="panel">
+            <p className="panel-heading">
+              Collapsible Syllabus
+            </p>
+            <div className="panel-block">
+              <figure className="image is-16x9">
+                <img src="https://placehold.it/1280x720"/>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
   )
 }
