@@ -1,20 +1,27 @@
 //!!! WORK IN PROGRESS
 //lazy allows importing a file later/dynamically (useful for exercises), Suspense allows a loading section while the component is getting dynamically imported and rendered
-import { useState , useEffect, lazy, Suspense } from "react"
-
-//delete exercise import later to get dynamic imports
-import ConvergingLines from "../Exercises/ConvergingLines";
+import { useState , useEffect, lazy, Suspense } from "react";
+import { useParams } from "react-router-dom";
 
 export default function Section(){
     //create state for the next button, which changes based on if the exercise was completed or not
     const [completed, setCompleted] = useState(false);
+    const [sectionData, setSectionData] = useState({
 
-    //let url = "ConvergingLines";
-   //const Exercise = lazy(() => import(`../Exercises/${url}`))
+    });
+    const {sectionId} = useParams();
 
+
+    let url = "ConvergingLines";
+    let Exercise = lazy(() => import(`../Exercises/${url}.jsx`));
+
+    useEffect(() => {
+    
+    }, [sectionId]);
+    
     return (<div className="lesson-section">
         
-        <div className="columns is-multiline is-centered">
+        <div className="columns is-multiline">
 
             <div className="column is-full">
 
@@ -36,8 +43,12 @@ export default function Section(){
 
             </div>
 
-            <div className="column is-centered">
-                <ConvergingLines/>
+            <div className="column">
+
+                <Suspense fallback={<h2>Exercise Loading...</h2>}>
+                    <Exercise/>
+                </Suspense>
+                
             </div>
 
         </div>
