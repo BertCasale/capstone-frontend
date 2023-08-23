@@ -1,7 +1,8 @@
 import artwork from "../../assets/images/LePontdelEurope.jpg"
 import "./ConvergingLines.css";
 
-export default function ConvergingLines() {
+//setCompleted and sectionData come from section
+export default function ConvergingLines({setCompleted, sectionData, setAttempted}) {
 
     return (<div className="converging-lines">
         
