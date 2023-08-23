@@ -26,6 +26,7 @@ export default function Dashboard() {
 
   return (
     <main className="section">
+
       <div className="level">
         <div className="level-left">
           <div className="level-item">
@@ -58,20 +59,9 @@ export default function Dashboard() {
       
       <div className="columns is-multiline">
 
-      <CurrentLessonCard />
+      <CurrentLessonCard/>
 
-        <div className="column is-half">
-          <div className="panel">
-            <p className="panel-heading">
-              Next Lesson
-            </p>
-            <div className="panel-block">
-              <figure className="image is-16x9">
-                <img src="https://placehold.it/1280x720"/>
-              </figure>
-            </div>
-          </div>
-        </div>
+      <NextLessonCard/>
 
         <div className="column is-full">
           <div className="panel">
