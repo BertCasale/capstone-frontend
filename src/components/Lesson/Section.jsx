@@ -1,7 +1,16 @@
-import ConvergingLines from "../../components/Exercises/ConvergingLines"
+//!!! WORK IN PROGRESS
+//lazy allows importing a file later/dynamically (useful for exercises), Suspense allows a loading section while the component is getting dynamically imported and rendered
+import { useState , useEffect, lazy, Suspense } from "react"
+
+//delete exercise import later to get dynamic imports
+import ConvergingLines from "../Exercises/ConvergingLines";
 
 export default function Section(){
+    //create state for the next button, which changes based on if the exercise was completed or not
+    const [completed, setCompleted] = useState(false);
 
+    //let url = "ConvergingLines";
+   //const Exercise = lazy(() => import(`../Exercises/${url}`))
 
     return (<div className="lesson-section">
         
@@ -28,14 +37,14 @@ export default function Section(){
             </div>
 
             <div className="column is-centered">
-                    <ConvergingLines/>
+                <ConvergingLines/>
             </div>
 
         </div>
 
         {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
         {/* should start disabled until the user completes an exercise */}
-        <button disabled={true} className="button">Next</button>
+        <button disabled={!completed} className="button">Next</button>
 
     </div>)
 }
