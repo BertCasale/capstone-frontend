@@ -1,4 +1,4 @@
-
+import React, {useState} from "react";
 
 export default function CurrentLessonCard({ allLessons }) {
 
@@ -12,8 +12,8 @@ export default function CurrentLessonCard({ allLessons }) {
   }
 
   return (
-    <div class="card">
-        
+    <div class="column">
+      <p>Current lesson card</p>
     </div>
   )
 }
