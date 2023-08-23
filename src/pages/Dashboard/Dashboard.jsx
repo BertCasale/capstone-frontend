@@ -6,6 +6,7 @@ import CompletedLessons from "../../components/Dashboard/CompletedLessons";
 import NextLessonCard from "../../components/Dashboard/NextLessonCard";
 import CurrentLessonCard from "../../components/Dashboard/CurrentLessonCard";
 import GrowingTree from "../../components/Dashboard/GrowingTree";
+import Syllabus from "../../components/Dashboard/Syllabus";
 
 // const API = process.env.REACT_APP_API_URL;
 // To be determined
@@ -63,18 +64,7 @@ export default function Dashboard() {
 
       <NextLessonCard/>
 
-        <div className="column is-full">
-          <div className="panel">
-            <p className="panel-heading">
-              Collapsible Syllabus
-            </p>
-            <div className="panel-block">
-              <figure className="image is-16x9">
-                <img src="https://placehold.it/1280x720"/>
-              </figure>
-            </div>
-          </div>
-        </div>
+      <Syllabus/>
 
       </div>
     </main>
