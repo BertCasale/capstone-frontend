@@ -1,18 +1,29 @@
 import artwork from "../../assets/images/LePontdelEurope.jpg"
 import "./ConvergingLines.css";
 
-//setCompleted and sectionData come from section
-export default function ConvergingLines({setCompleted, sectionData, setAttempted}) {
+//setCompleted and setAttempted come from section
+export default function ConvergingLines({setCompleted, setAttempted, completed}) {
+
+    //what should be done when the correct area is clicked
+    function handleCorrectClick() {
+        setAttempted(true);
+        setCompleted(true);
+    }
+
+    //what should be done when the incorrect area is clicked
+    function handleIncorrectClick() {
+        setAttempted(true);
+    }
 
     return (<div className="converging-lines">
         
         <div className="interactive-container">
             {/* the button that contains the image will give "incorrect_feedback" when clicked */}
-            <img src={artwork} alt="Le Pont de l'Europe" className="artwork is-clickable" />
+            <img src={artwork} alt="Le Pont de l'Europe" className="artwork is-clickable" onClick={handleIncorrectClick}/>
 
             {/* this button is styled over the correct area on the image button */}
             {/* will give the "correct_feedback" message when clicked, and allow the user to move on to the next section */}
-            <button className="correct-button"></button>
+            <button className="correct-button" onClick={handleCorrectClick} style={completed ? {opacity:"50%"} : {opacity:"0%"}}></button>
         </div>
 
         <div className="content">

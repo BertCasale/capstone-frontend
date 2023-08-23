@@ -60,7 +60,7 @@ export default function Section({lessonSections}){
             <div className="column">
 
                 <Suspense fallback={<h2>Exercise Loading...</h2>}>
-                    <Exercise setCompleted={setCompleted} sectionData={sectionData} setAttempted={setAttempted}/>
+                    <Exercise setCompleted={setCompleted} setAttempted={setAttempted} completed={completed}/>
                 </Suspense>
                 
             </div>
