@@ -1,21 +1,11 @@
 import HeroImage from "../assets/acorn_squirrel.png"
-import LogIn from "./NavBar/LogIn"
-import { useState } from "react"
 
 
 export default function Hero() {
 
-    const [isActive, setIsActive] = useState(false)
-
-const closeModal = () => {
-    setIsActive(false);
-}
-
     return (
         <div>
-            <div>
-                <LogIn isActive={isActive} closeModal={closeModal}/>
-            </div>
+           
             <section className="hero is-white is-fullheight block">
                 <div className="hero-head">
                  
