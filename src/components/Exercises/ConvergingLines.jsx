@@ -1,7 +1,7 @@
 import artwork from "../../assets/images/LePontdelEurope.jpg"
 import "./ConvergingLines.css";
 
-//setCompleted and setAttempted come from section
+//setCompleted, completed, and setAttempted come from section
 export default function ConvergingLines({setCompleted, setAttempted, completed}) {
 
     //what should be done when the correct area is clicked
@@ -34,15 +34,7 @@ export default function ConvergingLines({setCompleted, setAttempted, completed})
                 <p>Image credit to Wikipedia</p>
             </div>
 
-
         </div>
-        
-
-    
-        
-
-        
-        
 
     </div>)
 }
