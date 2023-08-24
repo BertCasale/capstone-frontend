@@ -60,11 +60,11 @@ export default function Dashboard() {
       
       <div className="columns is-multiline">
 
-      <CurrentLessonCard/>
+        <CurrentLessonCard allLessons={allLessons}/>
 
-      <NextLessonCard/>
+        <NextLessonCard allLessons={allLessons}/>
 
-      <Syllabus/>
+        <Syllabus allLessons={allLessons}/>
 
       </div>
     </main>

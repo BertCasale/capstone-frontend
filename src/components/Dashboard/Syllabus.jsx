@@ -1,6 +1,6 @@
 
 
-export default function Syllabus() {
+export default function Syllabus({ allLessons }) {
   return (
     <div className="column is-full">
       <div className="panel">
