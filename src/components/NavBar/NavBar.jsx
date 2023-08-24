@@ -1,19 +1,38 @@
-
+import { useState } from "react"
+import LogIn from "./LogIn";
 
 export default function NavBar() {
+    const [isActive, setIsActive] = useState(false)
+    const [isMenuActive, setIsMenuActive] = useState(false)
+
+    const closeModal = () => {
+        setIsActive(false);
+    }
+
+    const handleMenuToggle = () => {
+       setIsMenuActive(!isMenuActive)
+       console.log(isMenuActive)
+    }
+
     return (
         <div>
-            <nav className="navbar card has-background-lighter ">
+            <div>
+                <LogIn isActive={isActive} closeModal={closeModal} />
+            </div>
+
+            <nav className="navbar  ">
                 <div className="container">
                     <div className="navbar-brand is-size-4">
                         <a className="navbar-item">Art Acorn</a>
-                        <span className="navbar-burger" data-target="navbarMenuHeroB">
+                        <span className="navbar-burger" onClick= {handleMenuToggle} > 
                             <span></span>
                             <span></span>
                             <span></span>
                         </span>
                     </div>
-                    <div id="navbarMenuHeroB" className="navbar-menu">
+                    {/* The navbar-menu state toggles visible menu in mobile mode- is-active */}
+                
+                    <div className={`navbar-menu  ${isMenuActive ? 'is-active' : ''}`} > 
                         <div className="navbar-end">
                             <a className="navbar-item">
                                 Dashboard
@@ -37,3 +56,7 @@ export default function NavBar() {
         </div>
     )
 }
+
+// const burgerMenu = document.querySelector('#navbar-menu');
+// onClick={navbarMenu.classList.toggle('is-active')}
+
