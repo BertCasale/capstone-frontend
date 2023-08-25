@@ -1,10 +1,9 @@
-import { useState } from "react";
 import artwork from "../../assets/images/TheMonkByTheSea.jpg";
 import line from "../../assets/images/Horizontal.png"
 import "./HorizontalLines.css";
 
 //setCompleted, completed, and setAttempted come from section
-export default function HorizontalLines({ setCompleted, setAttempted, completed }) {
+export default function HorizontalLines({ setCompleted }) {
 
 
   //allow the div to accept a dropped element
@@ -23,6 +22,7 @@ export default function HorizontalLines({ setCompleted, setAttempted, completed 
   function handleDrop(event) {
     const data = event.dataTransfer.getData("image");
     event.target.appendChild(document.getElementById(data));
+    setCompleted(true);
   }
 
   return (<div className="horizontal-lines">
