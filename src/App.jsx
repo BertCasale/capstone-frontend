@@ -1,15 +1,18 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Dashboard from './pages/Dashboard/Dashboard'
+import NavBar from './components/NavBar/NavBar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-
-    <Dashboard/>
+    <div className="App">
+      <NavBar/>
+      <Routes>
+        <Route path='/' element={<Landing/>} />
+      </Routes>
+    </div>
   )
 }
 
