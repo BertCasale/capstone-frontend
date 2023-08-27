@@ -1,6 +1,7 @@
 .empty-box {
   width: 90px;
   position: absolute;
+  text-align: center;
 }
 
 .first-box {
@@ -17,7 +18,7 @@
 
 .third-box {
   height: 250px;
-  left: 300px;
+  left: 290px;
   top: 230px;
 }
 
@@ -33,10 +34,6 @@
   background-color: green;
 }
 
-.starting-box img {
-  height: 550px;
-}
-
 .artwork {
   max-width: 100%;
   position: relative;
@@ -45,4 +42,13 @@
 .interactive-container {
   width: 550px;
   position: relative;
+}
+
+.line-1 {
+  height: 525px;
+}
+
+.line-2 {
+  height: 250px;
+  width: 75px;
 }
