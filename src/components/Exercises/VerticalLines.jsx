@@ -1,5 +1,5 @@
 import artwork from "../../assets/images/ChurchofSaintBevo.jpg";
-import line from "../../assets/images/Vertical.jpg";
+import line from "../../assets/images/Vertical.png";
 import "./VerticalLines.css";
 
 export default function VerticalLines({ setCompleted }) {
@@ -20,13 +20,22 @@ export default function VerticalLines({ setCompleted }) {
         <div className="empty-box second-box" >
 
         </div>
+        <div className="empty-box third-box" >
+
+        </div>
+        <div className="empty-box fourth-box" >
+
+        </div>
+
+          {/* the box the contains the line at the start */}
+        <div className="starting-box">
+          <img draggable src={line} alt="vertical line" id="draggable-line-1" />
+          <img draggable src={line} alt="vertical line" id="draggable-line-2" />
+        </div>
 
       </div>
 
-      {/* the box the contains the line at the start */}
-      <div className="starting-box">
-        <img draggable src={line} alt="vertical line" id="draggable-line-1" />
-      </div>
+      
 
     </div>
 

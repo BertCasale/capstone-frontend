@@ -1,0 +1,48 @@
+.empty-box {
+  width: 90px;
+  position: absolute;
+}
+
+.first-box {
+  height: 525px;
+  left: 70px;
+  top: 0px;
+}
+
+.second-box {
+  height: 250px;
+  left: 150px;
+  top: 230px;
+}
+
+.third-box {
+  height: 250px;
+  left: 300px;
+  top: 230px;
+}
+
+.fourth-box {
+  height: 525px;
+  left: 390px;
+  top: 0px;
+}
+
+/* remove later */
+.starting-box, .empty-box {
+  opacity: 50%;
+  background-color: green;
+}
+
+.starting-box img {
+  height: 550px;
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.interactive-container {
+  width: 550px;
+  position: relative;
+}
