@@ -1,11 +1,12 @@
 
 
-export default function LogIn({isActive, closeModal}) {
+// eslint-disable-next-line react/prop-types
+export default function LogIn({isModalActive, closeModal}) {
     //
 
     return (
         <div>
-            <div className={`modal ${isActive ? 'is-active' : ''}`}>
+            <div className={`modal ${isModalActive ? 'is-active' : ''}`}>
                 <div className="modal-background is-primary"></div>
                 <div className="modal-content">
                     <div className="card">
@@ -45,7 +46,7 @@ export default function LogIn({isActive, closeModal}) {
                             </form>
                         </div>
                     </div>
-                    <button className={`modal-close`} onClick={closeModal}>Close</button>
+                    {/* <button className={`delete`} onClick={closeModal}>Close</button> */}
                 </div>
             </div>
 
