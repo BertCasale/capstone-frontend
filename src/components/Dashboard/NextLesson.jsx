@@ -24,7 +24,7 @@ export default function NextLesson({ allLessons, client }) {
           </figure>
           <div className="has-text-centered">
             <Link to={`/lesson/${nextLesson.title}`}>
-              <button className="button is-rounded is-danger">Start Lesson</button>
+              <button className="button is-rounded is-success">Start Lesson</button>
             </Link>
           </div>
         </div>

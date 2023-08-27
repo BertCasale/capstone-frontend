@@ -4,7 +4,8 @@ import React, {useState} from "react";
 export default function OtherLessons({ allLessons, client }) {
 
   const [otherLessons, setOtherLessons] = useState([
-    {title: 'Shades Lesson'}, {title: 'Colors Lesson'}
+    {title: 'Shades Lesson', description: 'Description for Shades Lesson'}, 
+    {title: 'Colors Lesson', description: 'Description for Colors Lesson'}
   ]);
 
 
@@ -33,7 +34,8 @@ export default function OtherLessons({ allLessons, client }) {
                 otherLessons.map((otherLesson) => {
                   return (
                     <li className="has-text-centered"> 
-                      {otherLesson.title} <Link to={`/lesson/${otherLesson.title}`}><button className="button is-rounded is-danger">Start Lesson</button></Link>
+                      {otherLesson.title} <Link to={`/lesson/${otherLesson.title}`}><button className="button is-rounded is-success">Start Lesson</button></Link>
+                      <p>{otherLesson.description}</p>
                     </li>
                   )
                 })
