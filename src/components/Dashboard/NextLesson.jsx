@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 
-export default function CurrentLessonCard({ allLessons }) {
+export default function NextLesson({ allLessons, client }) {
 
-  const [currentLesson, setCurrentLesson] = useState({});
+  const [nextLesson, setNextLesson] = useState({});
 
-  // Filters through all lessons to set current lesson to the one in progress
-  // function getCurrentLesson() {
+  // Sets next lesson to be the one next in sequence
+  // function getNextLesson() {
   //   setCurrentLesson(     
-  //     allLessons.filter(lesson => lesson.completionStatus === 'in progress')
+  //     ??
   //   )
   // }
 
@@ -15,14 +15,14 @@ export default function CurrentLessonCard({ allLessons }) {
     <div className="column is-half">
       <div className="panel">
         <p className="panel-heading">
-          Current Lesson
+          Suggested Next Lesson
         </p>
         <div className="panel-block">
           <figure className="image is-16x9">
             <img src="https://placehold.it/1280x720"/>
           </figure>
           <div className="has-text-centered">
-            <button className="button is-rounded is-orange">Resume Lesson</button>
+            <button className="button is-rounded is-orange">Start Lesson</button>
           </div>
         </div>
       </div>

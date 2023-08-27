@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 
-export default function NextLessonCard({ allLessons }) {
+export default function OtherLessons({ allLessons, client }) {
 
-  const [nextLessons, setNextLessons] = useState([]);
+  const [otherLessons, setOtherLessons] = useState([]);
 
 
   // Filters through all lessons to set next lessons to the ones that share the same category as the current, and have not been started
@@ -17,7 +17,7 @@ export default function NextLessonCard({ allLessons }) {
     <div className="column is-half">
       <div className="panel">
         <p className="panel-heading">
-          Next Lesson
+          Module Name
         </p>
         <div className="panel-block">
           <figure className="image is-16x9">

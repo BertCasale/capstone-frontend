@@ -2,9 +2,8 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import './Dashboard.css'
-import CompletedLessons from "../../components/Dashboard/CompletedLessons";
-import NextLessonCard from "../../components/Dashboard/NextLessonCard";
-import CurrentLessonCard from "../../components/Dashboard/CurrentLessonCard";
+import NextLesson from "../../components/Dashboard/NextLesson";
+import OtherLessons from "../../components/Dashboard/OtherLessons";
 import GrowingTree from "../../components/Dashboard/GrowingTree";
 import Syllabus from "../../components/Dashboard/Syllabus";
 
@@ -13,12 +12,12 @@ import Syllabus from "../../components/Dashboard/Syllabus";
 
 export default function Dashboard() {
 
-  const [user, setUser] = useState({})
+  const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
 //   const { id } = useParams();
 
   // useEffect(() => {
-  //   axios.get(`${API}/${user.username}/lessons/`)
+  //   axios.get(`${API}/${client.username}/lessons/`)
   //     .then((res) => {
   //       setAllLessons(res.data)
   //     })
@@ -60,11 +59,11 @@ export default function Dashboard() {
       
       <div className="columns is-multiline">
 
-        <CurrentLessonCard allLessons={allLessons}/>
+        <NextLesson allLessons={allLessons} client={client}/>
 
-        <NextLessonCard allLessons={allLessons}/>
+        <OtherLessons allLessons={allLessons} client={client}/>
 
-        <Syllabus allLessons={allLessons}/>
+        <Syllabus allLessons={allLessons} client={client}/>
 
       </div>
     </main>
