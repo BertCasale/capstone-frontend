@@ -5,6 +5,9 @@ import NavBar from './components/NavBar/NavBar'
 import Landing from './pages/Landing/Landing'
 import Lesson from './pages/Lesson/Lesson'
 import Profile from './pages/Profile/Profile'
+import Sandbox from './pages/Sandbox/Sandbox'
+import {Routes, Route} from 'react-router-dom'
+
 
 function App() {
 
