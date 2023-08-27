@@ -45,9 +45,9 @@ export default function VerticalLines({ setCompleted }) {
 
   return (<div className="vertical-lines">
 
-    <div className="interactive-container">
+    <div className="interactive-container level">
 
-      <div className="image-div">
+      <div className="image-div level-item">
 
         <img src={artwork} alt="Church of Saint Bevo" />
 
@@ -66,13 +66,13 @@ export default function VerticalLines({ setCompleted }) {
 
         </div>
 
-        {/* the box the contains the line at the start */}
-        <div className="starting-box">
-          {/* disable the draggability if the line was placed */}
-          <img draggable={!linesPlaced.line1} src={line} alt="vertical line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
-          <img draggable={!linesPlaced.line2} src={line} alt="vertical line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
-        </div>
+      </div>
 
+      {/* the box the contains the line at the start */}
+      <div className="starting-box level-item">
+        {/* disable the draggability if the line was placed */}
+        <img draggable={!linesPlaced.line1} src={line} alt="vertical line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line2} src={line} alt="vertical line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
       </div>
 
     </div>

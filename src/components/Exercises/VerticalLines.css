@@ -28,12 +28,6 @@
   top: 0px;
 }
 
-/* remove later */
-.starting-box, .empty-box {
-  opacity: 50%;
-  background-color: green;
-}
-
 .artwork {
   max-width: 100%;
   position: relative;
@@ -42,6 +36,10 @@
 .interactive-container {
   width: 550px;
   position: relative;
+}
+
+.image-div {
+  width: 550px;
 }
 
 .line-1 {
