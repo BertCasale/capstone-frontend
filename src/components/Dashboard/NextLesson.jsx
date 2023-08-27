@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 
 export default function NextLesson({ allLessons, client }) {
 
@@ -22,7 +23,9 @@ export default function NextLesson({ allLessons, client }) {
             <img src="https://placehold.it/1280x720"/>
           </figure>
           <div className="has-text-centered">
-            <button className="button is-rounded is-orange">Start Lesson</button>
+            <Link to={`/lesson/${nextLesson.title}`}>
+              <button className="button is-rounded is-danger">Start Lesson</button>
+            </Link>
           </div>
         </div>
       </div>
