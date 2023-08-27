@@ -1,4 +1,4 @@
-
+import 'bulma/css/bulma.min.css'
 import './App.css'
 import Dashboard from './pages/Dashboard/Dashboard'
 import NavBar from './components/NavBar/NavBar'

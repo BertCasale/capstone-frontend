@@ -1,0 +1,20 @@
+.empty-box {
+  width: 550px;
+  position: absolute;
+  top: 240px;
+  height: 75px;
+}
+
+.starting-box {
+  height: 75px;
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.interactive-container {
+  width: 550px;
+  position: relative;
+}
