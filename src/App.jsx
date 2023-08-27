@@ -11,6 +11,8 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<Landing/>} />
+        <Route path='/dashboard/:username' element={<Dashboard/>} />
+        
       </Routes>
     </div>
   )
