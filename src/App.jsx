@@ -12,7 +12,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing/>} />
         <Route path='/dashboard/:username' element={<Dashboard/>} />
-        
+        <Route path='/lesson/:lesson_id/:section_id' element={<Lesson/>}/>
+        {/* Is having two path params the best way around this? Could we use section_id alone? */}
+
       </Routes>
     </div>
   )
