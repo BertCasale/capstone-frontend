@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom'
 import 'bulma/css/bulma.min.css'
 import './App.css'
 import Dashboard from './pages/Dashboard/Dashboard'
