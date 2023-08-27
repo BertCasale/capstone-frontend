@@ -13,7 +13,7 @@ export default function Section({lessonSections}){
     const [sectionData, setSectionData] = useState({
         title: "Converging Lines",
         informationText: "Converging lines, or lines that point in the same direction, draw your eye in to the point where they meet.",
-        interactiveElement: "ConvergingLines",
+        interactiveElement: "HorizontalLines",
         correctFeedback: "Correct! The lines of the bridge, bridge shadow, sidewalk, and even the building in the back seem to be directing your attention to the couple walking.",
         incorrectFeedback: "Hint: Follow the bridge and sidewalk lines to find where they meet."
     });
@@ -44,13 +44,13 @@ export default function Section({lessonSections}){
             </div>
 
             {/* hide the content div if theres no content to show */}
-            <div className="content column is-half" style={sectionData.informationText || attempted && (sectionData.correctFeedback || sectionData.incorrectFeedback) ? null : {display:"none"}}>
+            <div className="content column is-half" style={sectionData.informationText || (attempted && sectionData.incorrectFeedback) || (completed && sectionData.correctFeedback) ? null : {display:"none"}}>
 
                 {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
                 <h2 className="learning-info">{sectionData.informationText}</h2>
 
                 {/* hide the feedback until the user attempts the exercise*/}
-                <div className="feedback" style={attempted ? null : {display:"none"}}>
+                <div className="feedback" style={attempted || completed ? null : {display:"none"}}>
                     {/* chenge the color of the feedback based on whether it's completed successfully or not */}
                     <h3 style = {completed ? {color:"green"} : {color:"red"}}>{completed ? sectionData.correctFeedback : sectionData.incorrectFeedback}</h3>
                 </div>
