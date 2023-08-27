@@ -13,11 +13,11 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<Landing/>} />
-        <Route path='/dashboard/:username' element={<Dashboard/>} />
-        <Route path='/lesson/:lesson_id/:section_id' element={<Lesson/>} />
+        <Route path='/:username/dashboard' element={<Dashboard/>} />
+        <Route path='/lesson/:lesson_title' element={<Lesson/>} />
         {/* Is having two path params the best way around this? Could we use section_id alone? */}
-        <Route path='/profile/:username' element={<Profile/>} />
-        <Route path='/canvas' element={<Sandbox/>} />
+        <Route path='/:username/profile' element={<Profile/>} />
+        <Route path='/sandbox' element={<Sandbox/>} />
       </Routes>
     </div>
   )
