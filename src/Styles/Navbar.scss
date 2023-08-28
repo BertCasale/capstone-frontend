@@ -1,0 +1,12 @@
+@import "../Variables/Variables.scss";
+$grayColor: rgb(154, 147, 147);
+
+
+.navbar {
+  width: 100%;
+  background-color: $purpleColor;
+}
+
+.navbar a {
+  color: $whiteColor;
+}
