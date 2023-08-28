@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function NextLesson({ allLessons, client }) {
 
-  const [nextLesson, setNextLesson] = useState({});
+  const [nextLesson, setNextLesson] = useState({
+    title: 'Lines Lesson', 
+    description: 'Description for Lines Lesson', 
+    id: 1, 
+    preview: 'lesson preview image'
+  });
 
   // Sets next lesson to be the one next in sequence
   // function getNextLesson() {
@@ -20,8 +25,9 @@ export default function NextLesson({ allLessons, client }) {
         </p>
         <div className="panel-block">
           <figure className="image is-16x9">
-            <img src="https://placehold.it/1280x720"/>
+            <p>{nextLesson.preview}</p>
           </figure>
+          <p>{nextLesson.description}</p>
           <div className="has-text-centered">
             <Link to={`/lesson/${nextLesson.title}`}>
               <button className="button is-rounded is-success">Start Lesson</button>
