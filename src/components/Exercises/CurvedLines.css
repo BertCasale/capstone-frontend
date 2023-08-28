@@ -6,16 +6,16 @@
 
 .first-box {
   height: 150px;
-  width: 200px;
+  width: 220px;
   left: 0px;
-  top: 20px;
+  top: 29px;
 }
 
 .second-box {
-  height: 175px;
-  width: 340px;
-  left: 210px;
-  top: 120px;
+  height: 166px;
+  width: 327px;
+  right: 10px;
+  top: 122px;
 }
 
 .artwork {
@@ -33,13 +33,12 @@
 }
 
 .line-1 {
-  height: 150px;
-  width: 200px;
+  width: 220px;
 }
 
 .line-2 {
-  height: 175px;
-  width: 340px;
+  height: 166px;
+  width: 327px;
 }
 
 .empty-box {
