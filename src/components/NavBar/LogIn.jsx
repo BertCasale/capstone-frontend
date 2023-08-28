@@ -46,7 +46,7 @@ export default function LogIn({isModalActive, closeModal}) {
                             </form>
                         </div>
                     </div>
-                    {/* <button className={`delete`} onClick={closeModal}>Close</button> */}
+                    <button className={`modal-close is-large`} onClick={closeModal}></button>
                 </div>
             </div>
 

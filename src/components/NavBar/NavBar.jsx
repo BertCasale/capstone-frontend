@@ -1,5 +1,7 @@
 import { useState } from "react"
 import LogIn from "./LogIn";
+import "../../Styles/Navbar.css"
+
 
 export default function NavBar() {
     //usestate functions for login modal and hamburger menu
@@ -23,7 +25,7 @@ export default function NavBar() {
                 <LogIn isModalActive={isModalActive} closeModal={closeModal} />
             </div>
 
-            <nav className="navbar is-link ">
+            <nav className="navbar ">
                 <div className="container">
                     <div className="navbar-brand is-size-4">
                         <a className="navbar-item">Art Acorn</a>
@@ -43,8 +45,8 @@ export default function NavBar() {
                             <a className="navbar-item">
                                 About Us
                             </a>
-                            <a className="navbar-item">
-                                Contact
+                            <a className="navbar-item" href="/hamster">
+                                Hamster
                             </a>
 
                             <span className="navbar-item">
