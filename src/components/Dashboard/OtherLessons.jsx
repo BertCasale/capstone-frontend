@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import React, {useState} from "react";
+import LessonInModule from "./LessonInModule";
 
 export default function OtherLessons({ allLessons, client }) {
 
   const [otherLessons, setOtherLessons] = useState([
-    {title: 'Shades Lesson', description: 'Description for Shades Lesson'}, 
-    {title: 'Colors Lesson', description: 'Description for Colors Lesson'}
+    {title: 'Shades Lesson', description: 'Description for Shades Lesson', id: 1}, 
+    {title: 'Colors Lesson', description: 'Description for Colors Lesson', id: 2}
   ]);
 
 
@@ -32,12 +33,7 @@ export default function OtherLessons({ allLessons, client }) {
             <ul className="menu-list">
               {
                 otherLessons.map((otherLesson) => {
-                  return (
-                    <li className="has-text-centered"> 
-                      {otherLesson.title} <Link to={`/lesson/${otherLesson.title}`}><button className="button is-rounded is-success">Start Lesson</button></Link>
-                      <p>{otherLesson.description}</p>
-                    </li>
-                  )
+                  return <LessonInModule key={otherLesson.id} otherLesson={otherLesson} />
                 })
               }
             </ul>
