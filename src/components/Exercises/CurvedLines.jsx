@@ -1,5 +1,8 @@
 
-import artwork from "../../assets/images/TheGreatWaveOffKanagawa.jpg"
+import artwork from "../../assets/images/TheGreatWaveOffKanagawa.jpg";
+import lineOne from "../../assets/images/CurvedOne.png";
+import lineTwo from "../../assets/images/CurvedTwo.png";
+import "./CurvedLines.css"
 
 //setCompleted from Section
 export default function CurvedLines({ setCompleted }) {
@@ -27,8 +30,8 @@ export default function CurvedLines({ setCompleted }) {
       {/* the box the contains the line at the start */}
       <div className="starting-box">
         {/* disable the draggability if the line was placed */}
-        <img draggable={true} src={""} alt="vertical line" id="line-1" className="line-1" />
-        <img draggable={true} src={""} alt="vertical line" id="line-2" className="line-2" />
+        <img draggable src={lineOne} alt="curved line" id="line-1" className="line-1" />
+        <img draggable src={lineTwo} alt="curved line" id="line-2" className="line-2" />
       </div>
 
       </div>

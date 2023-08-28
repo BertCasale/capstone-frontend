@@ -1,0 +1,48 @@
+.empty-box {
+  width: 90px;
+  position: absolute;
+  text-align: center;
+}
+
+.first-box {
+  height: 150px;
+  width: 200px;
+  left: 0px;
+  top: 20px;
+}
+
+.second-box {
+  height: 175px;
+  width: 340px;
+  left: 210px;
+  top: 120px;
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.interactive-container {
+  width: 550px;
+  position: relative;
+}
+
+.image-div {
+  width: 550px;
+}
+
+.line-1 {
+  height: 150px;
+  width: 200px;
+}
+
+.line-2 {
+  height: 175px;
+  width: 340px;
+}
+
+.empty-box {
+  background-color: green;
+  opacity: 50%;
+}

@@ -13,7 +13,7 @@ export default function Section({lessonSections}){
     const [sectionData, setSectionData] = useState({
         title: "Converging Lines",
         informationText: "Converging lines, or lines that point in the same direction, draw your eye in to the point where they meet.",
-        interactiveElement: "VerticalLines",
+        interactiveElement: "CurvedLines",
         correctFeedback: "Correct! The lines of the bridge, bridge shadow, sidewalk, and even the building in the back seem to be directing your attention to the couple walking.",
         incorrectFeedback: "Hint: Follow the bridge and sidewalk lines to find where they meet."
     });
