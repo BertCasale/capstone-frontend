@@ -5,7 +5,7 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import NavBar from './components/NavBar/NavBar'
 import Landing from './pages/Landing/Landing'
 import Lesson from './pages/Lesson/Lesson'
-// import Profile from './pages/Profile/Profile'
+import Profile from './pages/Profile/Profile'
 
 function App() {
 
@@ -17,8 +17,8 @@ function App() {
         <Route path='/:username/dashboard' element={<Dashboard/>} />
         <Route path='/lesson/:lesson_title' element={<Lesson/>} />
         {/* Is having two path params the best way around this? Could we use section_id alone? */}
-        {/* <Route path='/:username/profile' element={<Profile/>} /> */}
-        {/* <Route path='/sandbox' element={<Sandbox/>} /> */}
+        <Route path='/:username/profile' element={<Profile/>} />
+        <Route path='/sandbox' element={<Sandbox/>} />
       </Routes>
     </div>
   )
