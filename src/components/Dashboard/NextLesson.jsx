@@ -21,6 +21,13 @@ export default function NextLesson({ allLessons, client }) {
     <div className="column is-half">
 
       <div className="card">
+      
+        <header className="card-header">
+          <p className="card-header-title">
+            Your Next Lesson
+          </p>
+        </header>
+
         <div className="card-image">
           <figure className="image is-4by3">
             <img src="https://bulma.io/images/placeholders/1280x960.png" alt={nextLesson.preview}/>
