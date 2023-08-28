@@ -53,11 +53,16 @@ export default function NextLesson({ allLessons, client }) {
 
           <div className="content">
             {nextLesson.description}
-            <br/>
           </div>
 
         </div>
-        
+
+        <footer className="card-footer">
+          <Link to={`/lesson/${nextLesson.title}`} className="card-footer-item">
+            <button className="button is-rounded is-success"><span className="is-bold">Start Lesson</span></button>
+          </Link>
+        </footer>
+
       </div>
 
     </div>
