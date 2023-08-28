@@ -14,7 +14,7 @@ export default function NextLesson({ allLessons, client }) {
   // Sets next lesson to be the one next in sequence
   // function getNextLesson() {
   //   setCurrentLesson(     
-  //     ??
+  //     
   //   )
   // }
 
@@ -59,7 +59,9 @@ export default function NextLesson({ allLessons, client }) {
 
         <footer className="card-footer">
           <Link to={`/lesson/${nextLesson.title}`} className="card-footer-item">
-            <button className="button is-rounded is-success"><span className="is-bold">Start Lesson</span></button>
+            <button className="button is-rounded is-success">
+              <span className="has-text-weight-bold">Start Lesson</span>
+            </button>
           </Link>
         </footer>
 
@@ -68,20 +70,3 @@ export default function NextLesson({ allLessons, client }) {
     </div>
   )
 }
-
-{/* <div className="panel">
-  <p className="panel-heading">
-    Suggested Next Lesson
-  </p>
-  <div className="panel-block">
-    <figure className="image is-16x9">
-      <p>{nextLesson.preview}</p>
-    </figure>
-    <p>{nextLesson.description}</p>
-    <div className="has-text-centered">
-      <Link to={`/lesson/${nextLesson.title}`}>
-        <button className="button is-rounded is-success">Start Lesson</button>
-      </Link>
-    </div>
-  </div>
-</div> */}

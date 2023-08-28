@@ -20,26 +20,38 @@ export default function OtherLessons({ allLessons, client }) {
 
   return (
     <div className="column is-half">
-      <div className="panel">
-        <p className="panel-heading">
-          Module Name
-        </p>
-        <div className="panel-block">
-          {/* <figure className="image is-16x9">
-            <img src="https://placehold.it/1280x720"/>
-          </figure> */}
-          {/* map all other lessons within the same module/category as the suggested next lesson */}
-          <section className="menu">
-            <ul className="menu-list">
-              {
-                otherLessons.map((otherLesson) => {
-                  return <LessonInModule key={otherLesson.id} otherLesson={otherLesson} />
-                })
-              }
-            </ul>
-          </section>
-        </div>
+
+      <div className="card">
+        
+        <header className="card-header">
+          <p className="card-header-title">
+            Other Lessons
+          </p>
+        </header>
+
       </div>
+
     </div>
   )
 }
+
+{/* <div className="panel">
+  <p className="panel-heading">
+    Module Name
+  </p>
+  <div className="panel-block">
+    <figure className="image is-16x9">
+      <img src="https://placehold.it/1280x720"/>
+    </figure>
+    map all other lessons within the same module/category as the suggested next lesson
+    <section className="menu">
+      <ul className="menu-list">
+        {
+          otherLessons.map((otherLesson) => {
+            return <LessonInModule key={otherLesson.id} otherLesson={otherLesson} />
+          })
+        }
+      </ul>
+    </section>
+  </div>
+</div> */}
