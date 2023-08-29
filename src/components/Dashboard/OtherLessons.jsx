@@ -29,6 +29,14 @@ export default function OtherLessons({ allLessons, client }) {
           </p>
         </header>
 
+        <div className="card-content">
+          {
+            otherLessons.map((otherLesson) => {
+              return <LessonInModule key={otherLesson.id} otherLesson={otherLesson} />
+            })
+          }
+        </div>
+
       </div>
 
     </div>
@@ -55,3 +63,37 @@ export default function OtherLessons({ allLessons, client }) {
     </section>
   </div>
 </div> */}
+
+
+
+
+
+
+{/* <div className="card-content">
+
+  <div className="media">
+    <div className="media-left">
+      module icon
+      <figure className="image is-48x48">
+        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Module Icon"/>
+      </figure>
+    </div>
+    <div className="media-content">
+      <p className="title is-4">{nextLesson.title}</p>
+      <p className="subtitle is-6">{nextLesson.module}</p>
+    </div>
+  </div>
+
+  <div className="content">
+    {nextLesson.description}
+  </div>
+
+</div>
+
+<footer className="card-footer">
+  <Link to={`/lesson/${nextLesson.title}`} className="card-footer-item">
+    <button className="button is-rounded is-success">
+      <span className="has-text-weight-bold">Start Lesson</span>
+    </button>
+  </Link>
+</footer> */}
