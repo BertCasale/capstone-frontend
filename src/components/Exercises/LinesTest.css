@@ -1,0 +1,9 @@
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.interactive-container {
+  width: 550px;
+  position: relative;
+}
