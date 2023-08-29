@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function LessonInModule({ otherLesson }) {
+export default function LessonInCategory({ otherLesson }) {
   return (
     <div className="level"> 
 

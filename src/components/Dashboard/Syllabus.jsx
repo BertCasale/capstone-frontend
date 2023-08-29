@@ -1,9 +1,11 @@
 import { useState } from "react"
+import Category from "./Category";
+
 
 export default function Syllabus({ allLessons, client }) {
 
   const [selected, setSelected] = useState(false);
-  const modules = [
+  const categories = [
     {
       title: 'Elements of Art',
       lessons: ['Lines Lesson', 'Shapes Lesson', 'Value Lesson']
@@ -29,7 +31,9 @@ export default function Syllabus({ allLessons, client }) {
         <div className="container">
           <div className="is-multiline section-accordion">
             {
-
+              categories.map((category) => {
+                return <Category/>
+              })
             }
           </div>
         </div>

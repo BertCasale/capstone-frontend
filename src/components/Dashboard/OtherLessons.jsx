@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LessonInModule from "./LessonInModule";
+import LessonInCategory from "./LessonInCategory";
 
 export default function OtherLessons({ allLessons, client }) {
 
@@ -31,7 +31,7 @@ export default function OtherLessons({ allLessons, client }) {
         <div className="card-content">
           {
             otherLessons.map((otherLesson) => {
-              return <LessonInModule key={otherLesson.id} otherLesson={otherLesson} />
+              return <LessonInCategory key={otherLesson.id} otherLesson={otherLesson} />
             })
           }
         </div>
