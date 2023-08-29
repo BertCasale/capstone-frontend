@@ -1,6 +1,13 @@
-
+import { useState } from "react"
 
 export default function Syllabus({ allLessons, client }) {
+
+  const [selected, setSelected] = useState(false);
+
+  function toggleSelected() {
+    setSelected(!selected);
+  }
+  
   return (
     <div className="column is-full">
       <div className="panel">
@@ -8,9 +15,7 @@ export default function Syllabus({ allLessons, client }) {
           Collapsible Syllabus
         </p>
         <div className="panel-block">
-          <figure className="image is-16x9">
-            <img src="https://placehold.it/1280x720"/>
-          </figure>
+
         </div>
       </div>
     </div>
