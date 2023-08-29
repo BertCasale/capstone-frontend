@@ -1,0 +1,48 @@
+.empty-box {
+  width: 90px;
+  position: absolute;
+  text-align: center;
+}
+
+.first-box {
+  height: 500px;
+  width: 180px;
+  left: 90px;
+  top: 95px;
+  border-radius: 70% 0 0 90% / 40% 0 0 60%;
+}
+
+.second-box {
+  height: 500px;
+  width: 160px;
+  left: 285px;
+  top: 100px;
+  border-radius: 0 70% 90% 0 / 0 40% 60% 0;
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.interactive-container {
+  width: 550px;
+  position: relative;
+}
+
+.image-div {
+  width: 550px;
+}
+
+.line-1 {
+  
+}
+
+.line-2 {
+  
+}
+
+.empty-box {
+  background-color: green;
+  opacity: 50%;
+}
