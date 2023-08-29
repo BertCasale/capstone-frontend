@@ -13,7 +13,7 @@ export default function LessonInModule({ otherLesson }) {
         <h6 className="level-item">{otherLesson.title}</h6>
         {/* <p className="level-item">{otherLesson.description}</p> */}
       </div>
-
+      
       <div className="level-right">
         <Link to={`/lesson/${otherLesson.title}`} className="level-item">
           <button className="button is-rounded is-success">
