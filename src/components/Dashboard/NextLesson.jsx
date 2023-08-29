@@ -29,9 +29,9 @@ export default function NextLesson({ allLessons, client }) {
           </p>
         </header>
 
-        <div className="card-image">
+        <div className="card-image ">
           {/* preview image for next lesson */}
-          <figure className="image is-4by3">
+          <figure className="image is-3by1 ">
             <img src="https://bulma.io/images/placeholders/1280x960.png" alt={nextLesson.preview}/>
           </figure>
         </div>
