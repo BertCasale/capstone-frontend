@@ -57,8 +57,3 @@
   height: 145px;
   transform: rotate(-45deg);
 }
-
-.empty-box {
-  background-color: green;
-  opacity: 50%;
-}
