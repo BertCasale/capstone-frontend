@@ -8,7 +8,7 @@ export default function NextLesson({ allLessons, client }) {
     description: 'Description for Lines Lesson', 
     id: 1, 
     preview: 'lesson preview image',
-    module: 'Elements of Art'
+    category: 'Elements of Art'
   });
 
   // Sets next lesson to be the one next in sequence
@@ -40,14 +40,14 @@ export default function NextLesson({ allLessons, client }) {
 
           <div className="media">
             <div className="media-left">
-              {/* module icon */}
+              {/* category icon */}
               <figure className="image is-48x48">
-                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Module Icon"/>
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Category Icon"/>
               </figure>
             </div>
             <div className="media-content">
               <p className="title is-4">{nextLesson.title}</p>
-              <p className="subtitle is-6">{nextLesson.module}</p>
+              <p className="subtitle is-6">{nextLesson.category}</p>
             </div>
           </div>
 
