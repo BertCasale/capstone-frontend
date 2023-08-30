@@ -55,4 +55,12 @@
   .artwork-div {
     width: 300px;
   }
+
+  .line-1 {
+    max-height: 285px;
+  }
+
+  .line-2 {
+    max-height: 140px;
+  }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import artwork from "../../assets/images/JarWithZigzagPanels.jpg"
-import line from "../../assets/images/ZigzagOne.png"
+import line from "../../assets/images/Zigzag.png"
 import "./ZigzagLines.css";
 
 //setCompleted from section
@@ -40,30 +40,30 @@ export default function ZigzagLines({ setCompleted }) {
 
   return (<div className="zigzag-lines">
 
-    <div className="interactive-container">
+    <div className="interactive is-flex is-justify-content-center is-flex-direction-column">
 
-      <div className="image-div">
+      <div className="artwork-div is-align-self-center">
 
-        <img src={artwork} alt="The Swing" />
+        <img src={artwork} alt="The Swing" className="artwork"/>
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
-        <div className="empty-box first-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
+        <div className="empty-box first-box is-flex is-align-items-center is-justify-content-center" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
 
         </div>
-        <div className="empty-box second-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
+        <div className="empty-box second-box is-flex is-align-items-center is-justify-content-center" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
 
         </div>
 
       </div>
 
       {/* the box the contains the line at the start */}
-      <div className="starting-box">
+      <div className="starting-box is-flex is-justify-content-center">
         {/* disable the draggability if the line was placed */}
         {/* remove the rotation angle and the margins when placed */}
-        <img draggable={!linesPlaced.line1} src={line} alt="zigzag line" id="line-1" className="line-1 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line1 ? {marginTop:"160px"} : {}}/>
+        <img draggable={!linesPlaced.line1} src={line} alt="zigzag line" id="line-1" className="line-1 line" onDragStart={(e) => handleDragStart(e)} />
 
-        <img draggable={!linesPlaced.line2} src={line} alt="zigzag line" id="line-2" className="line-2 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line2 ? {marginTop:"160px"} : {}}/>
+        <img draggable={!linesPlaced.line2} src={line} alt="zigzag line" id="line-2" className="line-2 line" onDragStart={(e) => handleDragStart(e)} />
       </div>
 
     </div>

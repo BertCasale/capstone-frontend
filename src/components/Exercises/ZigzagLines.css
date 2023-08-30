@@ -1,22 +1,20 @@
 .empty-box {
-  width: 90px;
   position: absolute;
-  text-align: center;
 }
 
 .first-box {
-  height: 500px;
-  width: 180px;
-  left: 85px;
-  top: 95px;
+  height: 72%;
+  width: 33%;
+  left: 15%;
+  top: 14%;
   border-radius: 70% 0 0 90% / 40% 0 0 60%;
 }
 
 .second-box {
-  height: 500px;
-  width: 160px;
-  left: 295px;
-  top: 105px;
+  height: 72%;
+  width: 30%;
+  left: 53%;
+  top: 14%;
   border-radius: 0 70% 90% 0 / 0 40% 60% 0;
 }
 
@@ -25,15 +23,22 @@
   position: relative;
 }
 
-.interactive-container {
+.artwork-div {
   width: 550px;
   position: relative;
 }
 
-.image-div {
-  width: 550px;
+.line {
+  max-width: 130px;
+  width: 100%;
 }
 
-.line {
-  width: 130px;
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+
+  .line {
+    max-width: 71px;
+  }
 }
