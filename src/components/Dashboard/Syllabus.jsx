@@ -33,16 +33,19 @@ export default function Syllabus({ allLessons, client }) {
   return (
     <div className="column is-full">
 
+      <header className="is-flex is-align-items-center is-justify-content-center">
+        <p className="p-4 is-size-3">Syllabus</p>
+      </header>
 
-        <div className="container">
-          <div className="is-multiline ">
-            {
-              categories.map((category) => {
-                return <CategoryCard key={category.id} category={category} />
-              })
-            }
-          </div>
+      <div className="container">
+        <div className="is-multiline ">
+          {
+            categories.map((category) => {
+              return <CategoryCard key={category.id} category={category} />
+            })
+          }
         </div>
+      </div>
 
     </div>
   )
