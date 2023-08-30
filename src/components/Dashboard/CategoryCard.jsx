@@ -14,7 +14,7 @@ export default function CategoryCard({ category }) {
       <div className="card" aria-hidden={selected ? "false" : "true"}>
 
         <header
-          className="card-header is-flex is-align-items-center"
+          className="card-header is-flex is-align-items-center is-justify-content-center"
           style={{ cursor: "pointer" }}
           onClick={toggleSelected}
         >
@@ -35,7 +35,7 @@ export default function CategoryCard({ category }) {
             transition: "padding 250ms ease",
           }}
         >
-          <div className="content accordion-content is-flex is-flex-direction-column is-align-content-center is-justify-content is-align-items-center">
+          <div className="content accordion-content is-flex is-flex-direction-column">
             {
               category.lessons.map((lesson) => {
                 return <LessonInCategory key={lesson.id} lesson={lesson} />

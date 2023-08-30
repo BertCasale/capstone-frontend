@@ -33,10 +33,9 @@ export default function Syllabus({ allLessons, client }) {
   return (
     <div className="column is-full">
 
-      <section className="container-accordion">
 
         <div className="container">
-          <div className="is-multiline section-accordion">
+          <div className="is-multiline ">
             {
               categories.map((category) => {
                 return <CategoryCard key={category.id} category={category} />
@@ -44,8 +43,6 @@ export default function Syllabus({ allLessons, client }) {
             }
           </div>
         </div>
-
-      </section>
 
     </div>
   )
