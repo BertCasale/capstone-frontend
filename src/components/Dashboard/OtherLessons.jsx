@@ -30,8 +30,8 @@ export default function OtherLessons({ allLessons, client }) {
 
         <div className="card-content">
           {
-            otherLessons.map((otherLesson) => {
-              return <LessonInCategory key={otherLesson.id} otherLesson={otherLesson} />
+            otherLessons.map((lesson) => {
+              return <LessonInCategory key={lesson.id} lesson={lesson} />
             })
           }
         </div>

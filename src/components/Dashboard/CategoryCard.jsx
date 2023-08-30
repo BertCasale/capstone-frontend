@@ -25,6 +25,22 @@ export default function CategoryCard({ category }) {
           <p className="p-4 has-text-weight-medium is-size-5">{category.title}</p>
         </header>
 
+        <div 
+          className="card-content" 
+          style={{
+            maxHeight: selected ? 1000 : 0,
+            padding: selected ? null : 0,
+            overflow: "hidden",
+            transition: "padding 250ms ease",
+          }}
+        >
+          <div className="content accordion-content is-flex is-flex-direction-column is-align-content-center is-justify-content is-align-items-center">
+            {/* {
+              category.lessons.map((lesson))
+            } */}
+          </div>
+        </div>
+
       </div>
     </div>
   )
