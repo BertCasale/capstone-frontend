@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LessonInCategory from "./LessonInCategory";
 
 export default function CategoryCard({ category }) {
 
@@ -35,9 +36,11 @@ export default function CategoryCard({ category }) {
           }}
         >
           <div className="content accordion-content is-flex is-flex-direction-column is-align-content-center is-justify-content is-align-items-center">
-            {/* {
-              category.lessons.map((lesson))
-            } */}
+            {
+              category.lessons.map((lesson) => {
+                return <LessonInCategory key={lesson.id} lesson={lesson} />
+              })
+            }
           </div>
         </div>
 
