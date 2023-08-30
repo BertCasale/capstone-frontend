@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LessonInCategory from "./LessonInCategory";
+import { FaPlus, FaMinus } from "react-icons/fa"
 
 export default function CategoryCard({ category }) {
 
@@ -24,6 +25,9 @@ export default function CategoryCard({ category }) {
           </figure>
 
           <p className="p-4 has-text-weight-medium is-size-5">{category.title}</p>
+
+          {selected ? <FaMinus/> : <FaPlus />}
+          
         </header>
 
         <div 
