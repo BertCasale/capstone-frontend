@@ -45,11 +45,11 @@ export default function VerticalLines({ setCompleted }) {
 
   return (<div className="vertical-lines">
 
-    <div className="interactive-container level">
+    <div className="interactive is-flex is-justify-content-center is-flex-direction-column">
 
-      <div className="image-div level-item">
+      <div className="artwork-div is-align-self-center">
 
-        <img src={artwork} alt="Church of Saint Bevo" />
+        <img src={artwork} alt="Church of Saint Bevo" className="artwork"/>
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
@@ -69,10 +69,10 @@ export default function VerticalLines({ setCompleted }) {
       </div>
 
       {/* the box the contains the line at the start */}
-      <div className="starting-box level-item">
+      <div className="starting-box is-flex is-justify-content-center">
         {/* disable the draggability if the line was placed */}
-        <img draggable={!linesPlaced.line1} src={line} alt="vertical line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
-        <img draggable={!linesPlaced.line2} src={line} alt="vertical line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line1} src={line} alt="vertical line" id="line-1" className="line-1 line" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line2} src={line} alt="vertical line" id="line-2" className="line-2 line" onDragStart={(e) => handleDragStart(e)} />
       </div>
 
     </div>
