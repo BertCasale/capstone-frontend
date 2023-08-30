@@ -18,9 +18,9 @@ export default function LinesTest({ setCompleted, setAttempted, completed }) {
 
   return (<div className="lines-test">
 
-    <div className="interactive-container">
+    <div className="interactive is-flex is-justify-content-center">
 
-      <div className="image-div">
+      <div className="artwork-div">
 
         <img src={correctArtwork} alt="Breezing Up" className="artwork is-clickable" onClick={handleCorrectClick} style={completed ? {border:"green 3px solid"} : {}}/>
         <img src={incorrectArtwork} alt="Red Boats at Argenteuil" className="artwork is-clickable" onClick={handleIncorrectClick} style={completed ? {border:"red 3px solid"} : {}}/>
