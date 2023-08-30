@@ -27,11 +27,11 @@ export default function HorizontalLines({ setCompleted }) {
 
   return (<div className="horizontal-lines">
 
-    <div className="interactive-container">
+    <div className="interactive is-flex is-justify-content-center is-flex-direction-column">
 
-      <div className="image-div">
+      <div className="artwork-div is-align-self-center">
 
-        <img src={artwork} alt="The Monk by the Sea" />
+        <img src={artwork} alt="The Monk by the Sea" className="artwork"/>
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
@@ -42,10 +42,9 @@ export default function HorizontalLines({ setCompleted }) {
       </div>
 
       {/* the box the contains the line at the start */}
-      <div className="starting-box">
-        <img draggable src={line} alt="horizontal line" id="draggable-line" onDragStart={(e) => handleDragStart(e)} />
+      <div className="starting-box is-flex is-justify-content-center">
+        <img draggable src={line} alt="horizontal line" id="draggable-line" className="line" onDragStart={(e) => handleDragStart(e)} />
       </div>
-
 
     </div>
 
