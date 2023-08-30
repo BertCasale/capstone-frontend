@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
-import artwork from "../../assets/images/ChurchofSaintBevo.jpg";
+import artwork from "../../assets/images/TheSwing.jpg"
 import line from "../../assets/images/Vertical.png";
-import "./VerticalLines.css";
+import "./DiagonalLines.css"
 
-//setCompleted from Section
-export default function VerticalLines({ setCompleted }) {
+//setCompleted from sections
+export default function DiagonalLines({ setCompleted }) {
   //state to make the lines nondraggable and set complete 
   const [linesPlaced, setLinesPlaced] = useState({
     line1: false,
-    line2: false
+    line2: false,
+    line3: false
   });
 
-  //whenever a line is placed check to see if both are placed, to set complete
+  //whenever a line is placed check to see if all are placed, to set complete
   useEffect(() => {
-    if (linesPlaced.line1 && linesPlaced.line2) {
+    if (linesPlaced.line1 && linesPlaced.line2 && linesPlaced.line3) {
       setCompleted(true);
     }
   }, [linesPlaced]);
@@ -43,13 +44,12 @@ export default function VerticalLines({ setCompleted }) {
     }
   }
 
-  return (<div className="vertical-lines">
+  return (<div className="diagonal-lines">
+    <div className="interactive-container">
 
-    <div className="interactive-container level">
+      <div className="image-div">
 
-      <div className="image-div level-item">
-
-        <img src={artwork} alt="Church of Saint Bevo" />
+        <img src={artwork} alt="The Swing" />
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
@@ -59,34 +59,34 @@ export default function VerticalLines({ setCompleted }) {
         <div className="empty-box second-box" id="line-2-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
 
         </div>
-        <div className="empty-box third-box" id="line-2-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
-
-        </div>
-        <div className="empty-box fourth-box" id="line-1-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
+        <div className="empty-box third-box" id="line-3-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
 
         </div>
 
       </div>
 
       {/* the box the contains the line at the start */}
-      <div className="starting-box level-item">
+      <div className="starting-box">
         {/* disable the draggability if the line was placed */}
-        <img draggable={!linesPlaced.line1} src={line} alt="vertical line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
-        <img draggable={!linesPlaced.line2} src={line} alt="vertical line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
+        {/* remove the rotation angle and the margins when placed */}
+        <img draggable={!linesPlaced.line1} src={line} alt="diagonal line" id="line-1" className="line-1 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line1 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
+
+        <img draggable={!linesPlaced.line2} src={line} alt="diagonal line" id="line-2" className="line-2 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line2 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
+
+        <img draggable={!linesPlaced.line3} src={line} alt="diagonal line" id="line-3" className="line-3 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line3 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
       </div>
 
     </div>
 
 
     <div className="content">
-      <h3 className="question">Place the lines above on some of the prominent vertical lines in the image above.</h3>
+      <h3 className="question">Place the lines above on some of the prominent diagonal lines in the image above.</h3>
 
       <div className="credit">
-        <p>The Choir and North Ambulatory of the Church of Saint Bavo, Haarlem, Pieter Jansz, 1634</p>
-        <p>Image credit to Getty</p>
+        <p>The Swing, Jean-Honoré Fragonard, 1767-8</p>
+        <p>Image credit to Wikipedia</p>
       </div>
 
     </div>
-
   </div>)
 }

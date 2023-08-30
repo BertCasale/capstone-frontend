@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import artwork from "../../assets/images/ChurchofSaintBevo.jpg";
-import line from "../../assets/images/Vertical.png";
-import "./VerticalLines.css";
+import { useEffect, useState } from "react";
+import artwork from "../../assets/images/TheGreatWaveOffKanagawa.jpg";
+import lineOne from "../../assets/images/CurvedOne.png";
+import lineTwo from "../../assets/images/CurvedTwo.png";
+import "./CurvedLines.css"
 
 //setCompleted from Section
-export default function VerticalLines({ setCompleted }) {
+export default function CurvedLines({ setCompleted }) {
   //state to make the lines nondraggable and set complete 
   const [linesPlaced, setLinesPlaced] = useState({
     line1: false,
@@ -43,13 +44,13 @@ export default function VerticalLines({ setCompleted }) {
     }
   }
 
-  return (<div className="vertical-lines">
+  return (<div className="curved-lines">
 
-    <div className="interactive-container level">
+    <div className="interactive-container">
 
-      <div className="image-div level-item">
+      <div className="image-div">
 
-        <img src={artwork} alt="Church of Saint Bevo" />
+        <img src={artwork} alt="The Great Wave off Kanagawa" />
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
@@ -59,31 +60,25 @@ export default function VerticalLines({ setCompleted }) {
         <div className="empty-box second-box" id="line-2-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
 
         </div>
-        <div className="empty-box third-box" id="line-2-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
-
-        </div>
-        <div className="empty-box fourth-box" id="line-1-box" onDragOver={(e) => handleDragOver(e)} onDrop={(e) => handleDrop(e)}>
-
-        </div>
 
       </div>
 
       {/* the box the contains the line at the start */}
-      <div className="starting-box level-item">
+      <div className="starting-box">
         {/* disable the draggability if the line was placed */}
-        <img draggable={!linesPlaced.line1} src={line} alt="vertical line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
-        <img draggable={!linesPlaced.line2} src={line} alt="vertical line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line1} src={lineOne} alt="curved line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line2} src={lineTwo} alt="curved line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
       </div>
 
     </div>
 
 
     <div className="content">
-      <h3 className="question">Place the lines above on some of the prominent vertical lines in the image above.</h3>
+      <h3 className="question">Place the lines above on some of the prominent curved lines in the image above.</h3>
 
       <div className="credit">
-        <p>The Choir and North Ambulatory of the Church of Saint Bavo, Haarlem, Pieter Jansz, 1634</p>
-        <p>Image credit to Getty</p>
+        <p>The Great Wave off Kanagawa, Katsushika Hokusai, 1831</p>
+        <p>Image credit to Wikipedia</p>
       </div>
 
     </div>

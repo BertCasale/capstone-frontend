@@ -5,27 +5,17 @@
 }
 
 .first-box {
-  height: 525px;
-  left: 70px;
-  top: 0px;
+  height: 150px;
+  width: 220px;
+  left: 0px;
+  top: 29px;
 }
 
 .second-box {
-  height: 250px;
-  left: 150px;
-  top: 230px;
-}
-
-.third-box {
-  height: 250px;
-  left: 290px;
-  top: 230px;
-}
-
-.fourth-box {
-  height: 525px;
-  left: 390px;
-  top: 0px;
+  height: 166px;
+  width: 327px;
+  right: 10px;
+  top: 122px;
 }
 
 .artwork {
@@ -43,10 +33,10 @@
 }
 
 .line-1 {
-  height: 525px;
+  width: 220px;
 }
 
 .line-2 {
-  height: 250px;
-  width: 75px;
+  height: 166px;
+  width: 327px;
 }

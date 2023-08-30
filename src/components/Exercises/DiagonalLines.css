@@ -1,0 +1,60 @@
+.empty-box {
+  width: 90px;
+  position: absolute;
+  text-align: center;
+}
+
+.first-box {
+  height: 280px;
+  left: 260px;
+  top: 110px;
+  transform: rotate(25deg);
+}
+
+.second-box {
+  height: 200px;
+  left: 330px;
+  top: 190px;
+  transform: rotate(35deg);
+}
+
+.third-box {
+  height: 145px;
+  right: 95px;
+  top: 370px;
+  transform: rotate(-45deg);
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.interactive-container {
+  width: 550px;
+  position: relative;
+}
+
+.image-div {
+  width: 550px;
+}
+
+.line {
+  width: 70px;
+  margin: 30px;
+}
+
+.line-1 {
+  height: 280px;
+  transform: rotate(25deg);
+}
+
+.line-2 {
+  height: 200px;
+  transform: rotate(35deg);
+}
+
+.line-3 {
+  height: 145px;
+  transform: rotate(-45deg);
+}
