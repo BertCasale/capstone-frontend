@@ -14,19 +14,21 @@ export default function Hero() {
                     <div className="container">
                         <div className="columns is-hcentered">
                             <div className="column is-half">
-                                <p className="title is-1 ">
+                                <p className="title is-1 has-text-link">
                                     The free, fun and interactive way to learn art!
                                 </p>
                                 <p className="subtitle">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit dignissimos nam quae sit. Commodi dolorem, explicabo alias consequatur saepe nam!
+                                Art is a universal language that goes beyond boundaries, expressing emotions, ideas, and perspectives.
                                 </p>
                                 <section className="features is-flex is-flex-direction-column ml-4">
-                                <p className="is-flex is-align-content-start">✅  Learn about lines and color mixing</p>
-                                <p className="is-flex is-align-content-start">✅  Apply your learning within every lesson</p>
-                                <p className="is-flex is-align-content-start">✅  Practice freely within the sandbox area</p>
+                                <p className="is-flex is-align-content-start">✅  Learn about lines and color mixing.</p>
+                                <p className="is-flex is-align-content-start">✅  Apply your learning within every lesson.</p>
+                                <p className="is-flex is-align-content-start">✅  Practice freely within the sandbox area.</p>
                                 </section>
                                 <br/>
+                                <section className="callToAction is-flex">
                                 <button className="button is-link is-rounded">Start Your First Lesson Now!</button>
+                                </section>
                             </div>
                             <div>
                                 <div className="column ">
