@@ -45,11 +45,12 @@ export default function DiagonalLines({ setCompleted }) {
   }
 
   return (<div className="diagonal-lines">
-    <div className="interactive-container">
 
-      <div className="image-div">
+    <div className="interactive is-flex is-flex-direction-column is-align-items-center">
 
-        <img src={artwork} alt="The Swing" />
+      <div className="artwork-div">
+
+        <img src={artwork} alt="The Swing" className="artwork"/>
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
@@ -66,7 +67,7 @@ export default function DiagonalLines({ setCompleted }) {
       </div>
 
       {/* the box the contains the line at the start */}
-      <div className="starting-box">
+      <div className="starting-box is-flex is-justify-content-center">
         {/* disable the draggability if the line was placed */}
         {/* remove the rotation angle and the margins when placed */}
         <img draggable={!linesPlaced.line1} src={line} alt="diagonal line" id="line-1" className="line-1 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line1 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>

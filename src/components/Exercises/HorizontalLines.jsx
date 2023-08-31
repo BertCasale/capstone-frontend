@@ -27,9 +27,9 @@ export default function HorizontalLines({ setCompleted }) {
 
   return (<div className="horizontal-lines">
 
-    <div className="interactive is-flex is-justify-content-center is-flex-direction-column">
+    <div className="interactive is-flex is-align-items-center is-flex-direction-column">
 
-      <div className="artwork-div is-align-self-center">
+      <div className="artwork-div">
 
         <img src={artwork} alt="The Monk by the Sea" className="artwork"/>
 

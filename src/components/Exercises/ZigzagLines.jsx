@@ -40,9 +40,9 @@ export default function ZigzagLines({ setCompleted }) {
 
   return (<div className="zigzag-lines">
 
-    <div className="interactive is-flex is-justify-content-center is-flex-direction-column">
+    <div className="interactive is-flex is-align-items-center is-flex-direction-column">
 
-      <div className="artwork-div is-align-self-center">
+      <div className="artwork-div">
 
         <img src={artwork} alt="The Swing" className="artwork"/>
 
