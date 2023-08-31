@@ -1,20 +1,26 @@
 .correct-button {
-    height: 150px;
-    width: 150px;
-    z-index: 100;
-    position: absolute;
-    left: 35px;
-    top: 40px;
-    border-radius: 50%;
-    background-color: green;
+  height: 40%;
+  width: 27%;
+  z-index: 100;
+  position: absolute;
+  left: 6%;
+  top: 11%;
+  border-radius: 50%;
+  background-color: green;
 }
 
 .artwork {
-    max-width: 100%;
-    position: relative;
+  max-width: 100%;
+  position: relative;
 }
 
-.interactive-container {
-    width: 550px;
-    position: relative;
+.artwork-div {
+  width: 550px;
+  position: relative;
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
 }
