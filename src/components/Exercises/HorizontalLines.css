@@ -1,12 +1,12 @@
 .empty-box {
-  width: 550px;
+  width: 100%;
   position: absolute;
-  top: 240px;
-  height: 75px;
+  top: 67%;
+  height: 23%;
 }
 
-.starting-box {
-  height: 75px;
+.line{
+  max-width: 550px;
 }
 
 .artwork {
@@ -14,7 +14,17 @@
   position: relative;
 }
 
-.interactive-container {
+.artwork-div {
   width: 550px;
   position: relative;
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+
+  .line {
+    max-width: 300px;
+  }
 }

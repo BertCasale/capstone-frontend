@@ -1,0 +1,44 @@
+.empty-box {
+  position: absolute;
+}
+
+.first-box {
+  height: 72%;
+  width: 33%;
+  left: 15%;
+  top: 14%;
+  border-radius: 70% 0 0 90% / 40% 0 0 60%;
+}
+
+.second-box {
+  height: 72%;
+  width: 30%;
+  left: 53%;
+  top: 14%;
+  border-radius: 0 70% 90% 0 / 0 40% 60% 0;
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.artwork-div {
+  width: 550px;
+  position: relative;
+}
+
+.line {
+  max-width: 130px;
+  width: 100%;
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+
+  .line {
+    max-width: 71px;
+  }
+}

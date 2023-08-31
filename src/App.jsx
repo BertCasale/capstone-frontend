@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom'
 import 'bulma/css/bulma.min.css'
 import './App.css'
 import Dashboard from './pages/Dashboard/Dashboard'
@@ -13,6 +14,7 @@ import { db } from './services/config/firebase' // setup for firestore - may nee
 import { getDocs, collection} from 'firebase/firestore' // setup for firestore
 import { useEffect, useState } from 'react'
 // import SignUp from './components/NavBar/SignUp'
+
 
 
 function App() {
@@ -44,7 +46,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<Landing/>} />
-        <Route path='/:username/dashboard' element={<Dashboard/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
         <Route path='/lesson/:lesson_title' element={<Lesson/>} />
         {/* Is having two path params the best way around this? Could we use section_id alone? */}
         <Route path='/:username/profile' element={<Profile/>} />

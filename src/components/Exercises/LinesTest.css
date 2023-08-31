@@ -1,0 +1,19 @@
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.artwork-div {
+  width: 550px;
+  position: relative;
+}
+
+.content {
+  margin: 20px;
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+}

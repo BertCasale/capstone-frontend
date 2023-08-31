@@ -1,8 +1,10 @@
 
+
 export default function Profile() {
-  return (
+  return(
     <div>
       
     </div>
   )
 }
+
