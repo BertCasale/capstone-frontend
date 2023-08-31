@@ -1,21 +1,20 @@
 .empty-box {
-  width: 90px;
   position: absolute;
   text-align: center;
 }
 
 .first-box {
-  height: 150px;
-  width: 220px;
-  left: 0px;
-  top: 29px;
+  height: 37%;
+  width: 40%;
+  left: 0%;
+  top: 7%;
 }
 
 .second-box {
-  height: 166px;
-  width: 327px;
-  right: 10px;
-  top: 122px;
+  height: 47%;
+  width: 59%;
+  right: 2%;
+  top: 32%;
 }
 
 .artwork {
@@ -23,13 +22,9 @@
   position: relative;
 }
 
-.interactive-container {
+.artwork-div {
   width: 550px;
   position: relative;
-}
-
-.image-div {
-  width: 550px;
 }
 
 .line-1 {
@@ -37,6 +32,19 @@
 }
 
 .line-2 {
-  height: 166px;
   width: 327px;
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+
+  .line-1 {
+    max-width: 111px;
+  }
+
+  .line-2 {
+    max-width: 178px;
+  }
 }
