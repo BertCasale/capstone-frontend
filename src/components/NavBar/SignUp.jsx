@@ -85,6 +85,7 @@ export default function SignUp() {
             value={confirmPassword}
             color="link"
             placeholder='Confirm password'
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Field>
         <Form.Field>
