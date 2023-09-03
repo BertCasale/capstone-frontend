@@ -1,5 +1,6 @@
 import { useState } from "react"
 import LogIn from "./LogIn";
+import LoginBtn from "./LoginBtn";
 import "../../Styles/Navbar.css"
 
 
@@ -22,7 +23,7 @@ export default function NavBar() {
     return (
         <div>
             <div>
-                <LogIn isModalActive={isModalActive} closeModal={closeModal} />
+                <LogIn isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} />
             </div>
 
             <nav className="navbar ">
@@ -50,9 +51,7 @@ export default function NavBar() {
                             </a>
 
                             <span className="navbar-item">
-                                <button className={`button is-link-outlined is-rounded`} onClick={() => { setIsModalActive(true) }}>
-                                    <span>Sign in</span>
-                                </button>
+                               <LoginBtn setIsModalActive={setIsModalActive}/>
                             </span>
                         </div>
                     </div>

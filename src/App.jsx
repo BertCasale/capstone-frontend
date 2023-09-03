@@ -9,7 +9,6 @@ import Profile from './pages/Profile/Profile'
 import Sandbox from './pages/Sandbox/Sandbox'
 import SignUpPage from './pages/SignUpPage'
 import Hamster from './pages/Hamster'
-import {Routes, Route} from 'react-router-dom'
 import { db } from './services/config/firebase' // setup for firestore - may need to move this
 import { getDocs, collection} from 'firebase/firestore' // setup for firestore
 import { useEffect, useState } from 'react'

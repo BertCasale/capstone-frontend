@@ -1,11 +1,12 @@
 import { useState } from "react"
+import { useNavigate} from "react-router-dom"
 import {FcGoogle} from "react-icons/fc"
 import { auth, googleProvider } from "../../services/config/firebase"
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 
 
 // eslint-disable-next-line react/prop-types
-export default function LogIn({isModalActive, closeModal}) {
+export default function LogIn({isModalActive, closeModal, setIsModalActive}) {
 //props passed from Navbar
 
 
@@ -13,14 +14,19 @@ export default function LogIn({isModalActive, closeModal}) {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
+    const navigate = useNavigate()
+
     // console.log(auth?.currentUser?.email);
     const logIn = async (e) => {
         e.preventDefault();
         try{
         await signInWithEmailAndPassword(auth,`${username}@domain.com`, password);
+        setIsModalActive(false)
+        navigate('/dashboard');
        console.log(`${username} login successful`);
         } catch(error){
             setErrorMessage('Invalid email or password');
+            setPassword('')
             console.error('login error', error.message);
         }
     };
@@ -36,7 +42,6 @@ export default function LogIn({isModalActive, closeModal}) {
                 <div className="modal-background is-primary"></div>
                 <div className="modal-content">
                     <div className="card">
-                        {/* <div className="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, ab.</div> */}
                         <div className="box">
                             <form className="form" onSubmit={logIn}>
                                 <label className="label">
@@ -61,6 +66,9 @@ export default function LogIn({isModalActive, closeModal}) {
                                         onChange={(e) => setPassword(e.target.value)} /> 
                                     </p>
                                 </div>
+                                <div className="errorMessage">
+                                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                                </div>
                                 <div className="field">
                                     <a>Forgot Your Password?</a>
                                 </div>
@@ -80,7 +88,7 @@ export default function LogIn({isModalActive, closeModal}) {
                                 </div>
                                 <div className="field is-flex is-justify-content-center">
                                     <p className="ml-2">Don`t have an account?</p>
-                                    <a className="ml-2">Sign up today!</a>
+                                    <a className="ml-2" href="/signup">Sign up today!</a>
                                 </div>
                             </form>
                         </div>
@@ -92,3 +100,4 @@ export default function LogIn({isModalActive, closeModal}) {
         </div>
     )
 }
+
