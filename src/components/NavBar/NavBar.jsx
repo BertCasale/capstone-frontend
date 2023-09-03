@@ -1,6 +1,7 @@
 import { useState } from "react"
 import LogIn from "./LogIn";
 import LoginBtn from "./LoginBtn";
+import ProtectedDashboard from "./ProtectedDashboard";
 import "../../Styles/Navbar.css"
 
 
@@ -8,6 +9,7 @@ export default function NavBar() {
     //usestate functions for login modal and hamburger menu
     const [isModalActive, setIsModalActive] = useState(false)
     const [isMenuActive, setIsMenuActive] = useState(false)
+    const [user, setUser] = useState(null)
 
     //close modal function
     const closeModal = () => {
@@ -23,7 +25,7 @@ export default function NavBar() {
     return (
         <div>
             <div>
-                <LogIn isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} />
+                <LogIn isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} user={user} setUser={setUser}/>
             </div>
 
             <nav className="navbar ">
@@ -40,9 +42,7 @@ export default function NavBar() {
                 
                     <div className={`navbar-menu  ${isMenuActive ? 'is-active' : ''}`} > 
                         <div className="navbar-end">
-                            <a className="navbar-item" href="/dashboard">
-                                Dashboard
-                            </a>
+                            <ProtectedDashboard user={user} setUser={setUser}/>
                             <a className="navbar-item">
                                 About Us
                             </a>
@@ -51,7 +51,7 @@ export default function NavBar() {
                             </a>
 
                             <span className="navbar-item">
-                               <LoginBtn setIsModalActive={setIsModalActive}/>
+                               <LoginBtn setIsModalActive={setIsModalActive} user={user} setUser={setUser}/>
                             </span>
                         </div>
                     </div>
