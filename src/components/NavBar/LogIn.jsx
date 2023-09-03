@@ -1,44 +1,31 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { FcGoogle } from "react-icons/fc"
+import { useNavigate} from "react-router-dom"
+import {FcGoogle} from "react-icons/fc"
 import { auth, googleProvider } from "../../services/config/firebase"
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 
 
 // eslint-disable-next-line react/prop-types
-export default function LogIn({ isModalActive, closeModal, setIsModalActive, authUser, setUser}) {
-    //props passed from Navbar component
+export default function LogIn({isModalActive, closeModal, setIsModalActive}) {
+//props passed from Navbar
 
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    // const [user, setUser] = useState(null);
-
-    //variable to capture current auth user
-    // const currentUser = auth.currentUser
-    const user = authUser
-
-
 
     const navigate = useNavigate()
 
-    // console.log(currentUser); // log for testing - can be cleaned up later
-
-    
+    // console.log(auth?.currentUser?.email);
     const logIn = async (e) => {
         e.preventDefault();
-        try {
-            await signInWithEmailAndPassword(auth, `${username}@domain.com`, password);
-            setIsModalActive(false)
-            navigate('/dashboard');
-            setUser(user.email);
-
-
-            // console.log(`${user.email} login successful`);
-
-        } catch (error) {
-            setErrorMessage('Invalid username or password');
+        try{
+        await signInWithEmailAndPassword(auth,`${username}@domain.com`, password);
+        setIsModalActive(false)
+        navigate('/dashboard');
+       console.log(`${username} login successful`);
+        } catch(error){
+            setErrorMessage('Invalid email or password');
             setPassword('')
             console.error('login error', error.message);
         }
@@ -80,9 +67,9 @@ export default function LogIn({ isModalActive, closeModal, setIsModalActive, aut
                                     </p>
                                 </div>
                                 <div className="errorMessage">
-                                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                                 </div>
-                                <div className="field is-flex is-justify-content-center">
+                                <div className="field">
                                     <a>Forgot Your Password?</a>
                                 </div>
 
@@ -100,12 +87,6 @@ export default function LogIn({ isModalActive, closeModal, setIsModalActive, aut
                                     <p className="ml-2">Don`t have an account?</p>
                                     <a className="ml-2" href="/signup">Sign up today!</a>
                                 </div>
-                                <hr></hr>
-                                <div className="field is-flex is-justify-content-center">
-                                <a className={`button is-white ml-2`} onClick={googleLogIn}>
-                                        <p>Sign in with</p> <FcGoogle className="ml-2" />
-                                    </a>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -116,4 +97,5 @@ export default function LogIn({ isModalActive, closeModal, setIsModalActive, aut
         </div>
     )
 }
+
 

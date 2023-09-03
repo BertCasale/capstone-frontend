@@ -1,8 +1,6 @@
 import { useState } from "react"
 import LogIn from "./LogIn";
 import LoginBtn from "./LoginBtn";
-import ProtectedDashboard from "./ProtectedDashboard";
-import useAuthState from "../../services/config/useAuthState";
 import "../../Styles/Navbar.css"
 
 
@@ -29,7 +27,7 @@ export default function NavBar() {
     return (
         <div>
             <div>
-                <LogIn isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
+                <LogIn isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} />
             </div>
 
             <nav className="navbar ">
@@ -55,7 +53,7 @@ export default function NavBar() {
                             </a>
 
                             <span className="navbar-item">
-                               <LoginBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
+                               <LoginBtn setIsModalActive={setIsModalActive}/>
                             </span>
                         </div>
                     </div>

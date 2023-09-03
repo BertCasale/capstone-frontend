@@ -1,8 +1,15 @@
 import HeroImage from "../assets/acorn_squirrel.png"
-import { useNavigate } from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 
 
 export default function Hero() {
+
+    // this function handles the start your first lesson button
+    // needs to adjust useNav to correct route, /dashboard is a place holder
+    const navigate = useNavigate()
+    const handleOnClick = () => {
+        navigate("/dashboard")
+    }
 
     // this function handles the start your first lesson button
     // needs to adjust useNav to correct route, /dashboard is a place holder
@@ -35,7 +42,7 @@ export default function Hero() {
                                 </section>
                                 <br />
                                 <section className="callToAction is-flex">
-                                    <button className="button is-link is-rounded" onClick={handleOnClick}>Start Your First Lesson Now!</button>
+                                <button className="button is-link is-rounded" onClick={handleOnClick}>Start Your First Lesson Now!</button>
                                 </section>
                             </div>
                             <div>
