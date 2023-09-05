@@ -21,17 +21,17 @@ export default function SignUp() {
 
     //check if username already exists 
     // const usernameExists = await checkUsername(username);
-    
+
     // if(usernameExists) {
     //   setErrorMessage('Username already exists. Please choose another.')
     // }
 
     try {
       // Treat the username as the email and create a user account in firebase Auth
-      await createUserWithEmailAndPassword(auth,`${username}@domain.com`, password);
+      await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password);
       console.log('Signup successful');
       //add the new user data to firestore db
-      await addDoc(userCollectionRef, {username: username, password: password });
+      await addDoc(userCollectionRef, { username: username, password: password });
       //clear fields
       setUsername('');
       setPassword('')
