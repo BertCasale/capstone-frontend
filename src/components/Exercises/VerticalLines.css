@@ -1,0 +1,66 @@
+.empty-box {
+  width: 16%;
+  position: absolute;
+  text-align: center;
+}
+
+.first-box {
+  height: 97%;
+  left: 13%;
+  top: 0%;
+}
+
+.second-box {
+  height: 45%;
+  left: 28%;
+  top: 43%;
+}
+
+.third-box {
+  height: 45%;
+  left: 53%;
+  top: 43%;
+}
+
+.fourth-box {
+  height: 97%;
+  left: 71%;
+  top: 0%;
+}
+
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.artwork-div {
+  width: 550px;
+  position: relative;
+}
+
+.line {
+  height: 100%;
+  width: 75px;
+}
+
+.line-1 {
+  max-height: 525px;
+}
+
+.line-2 {
+  max-height: 250px;
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+
+  .line-1 {
+    max-height: 285px;
+  }
+
+  .line-2 {
+    max-height: 140px;
+  }
+}

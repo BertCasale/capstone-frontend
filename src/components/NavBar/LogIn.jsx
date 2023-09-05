@@ -1,8 +1,34 @@
+import { useState } from "react"
+import {FcGoogle} from "react-icons/fc"
+import { auth, googleProvider } from "../../services/config/firebase"
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 
 
 // eslint-disable-next-line react/prop-types
 export default function LogIn({isModalActive, closeModal}) {
-    //
+//props passed from Navbar
+
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
+    // console.log(auth?.currentUser?.email);
+    const logIn = async (e) => {
+        e.preventDefault();
+        try{
+        await signInWithEmailAndPassword(auth,`${username}@domain.com`, password);
+       console.log(`${username} login successful`);
+        } catch(error){
+            setErrorMessage('Invalid email or password');
+            console.error('login error', error.message);
+        }
+    };
+
+    const googleLogIn = async () => {
+        await signInWithPopup(auth, googleProvider)
+    };
+
 
     return (
         <div>
@@ -12,18 +38,27 @@ export default function LogIn({isModalActive, closeModal}) {
                     <div className="card">
                         {/* <div className="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, ab.</div> */}
                         <div className="box">
-                            <form className="form" onSubmit={console.log('logged in')}>
+                            <form className="form" onSubmit={logIn}>
                                 <label className="label">
                                     <p className="is-size-3">Sign In</p>
                                 </label>
                                 <div className="field">
                                     <p className="control">
-                                        <input className="input is-link" type="text" placeholder="Username" />
+                                        <input 
+                                        className={`input is-link`} 
+                                        type="text" 
+                                        value={username}
+                                        placeholder="Username" 
+                                        onChange={(e) => setUsername(e.target.value)} />
                                     </p>
                                 </div>
                                 <div className="field">
                                     <p className="control ">
-                                        <input className="input is-link" type="password" placeholder="Password" />
+                                        <input className={`input is-link`} 
+                                        value={password}
+                                        type="password" 
+                                        placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)} /> 
                                     </p>
                                 </div>
                                 <div className="field">
@@ -33,9 +68,13 @@ export default function LogIn({isModalActive, closeModal}) {
                                 <div className="field ">
                                     {/* <p className="control"> */}
                                     <button className={`button is-white-ter`} onClick={closeModal}>Close</button>
-                                    <button className={`button is-link ml-2`} type="submit">
+                                    <button className={`button is-link ml-2`} 
+                                    type="submit">
                                         Login
                                     </button>
+                                    <a className={`button is-white ml-2`} onClick={googleLogIn}>
+                                        <p>Sign in with</p> <FcGoogle className="ml-2" />
+                                    </a>
 
                                     {/* </p> */}
                                 </div>

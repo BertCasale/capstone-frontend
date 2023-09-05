@@ -28,7 +28,7 @@ export default function NavBar() {
             <nav className="navbar ">
                 <div className="container">
                     <div className="navbar-brand is-size-4">
-                        <a className="navbar-item">Art Acorn</a>
+                        <a className="navbar-item" href="/">Art Acorn</a>
                         <span className="navbar-burger" onClick= {handleMenuToggle} > 
                             <span></span>
                             <span></span>
@@ -39,7 +39,7 @@ export default function NavBar() {
                 
                     <div className={`navbar-menu  ${isMenuActive ? 'is-active' : ''}`} > 
                         <div className="navbar-end">
-                            <a className="navbar-item">
+                            <a className="navbar-item" href="/dashboard">
                                 Dashboard
                             </a>
                             <a className="navbar-item">
