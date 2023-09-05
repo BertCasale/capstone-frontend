@@ -7,6 +7,16 @@ import Landing from './pages/Landing/Landing'
 import Lesson from './pages/Lesson/Lesson'
 import Profile from './pages/Profile/Profile'
 import Sandbox from './pages/Sandbox/Sandbox'
+import NotFound from './pages/NotFound/NotFound'
+import SignUpPage from './pages/SignUpPage'
+import Hamster from './pages/Hamster'
+import {Routes, Route} from 'react-router-dom'
+import { db } from './services/config/firebase' // setup for firestore - may need to move this
+import { getDocs, collection} from 'firebase/firestore' // setup for firestore
+import { useEffect, useState } from 'react'
+// import SignUp from './components/NavBar/SignUp'
+
+
 
 function App() {
 
