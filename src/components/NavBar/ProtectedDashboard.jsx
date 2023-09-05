@@ -1,8 +1,10 @@
 
 
-export default function ProtectedDashboard({user, setUser}) {
+export default function ProtectedDashboard({ setUser, authUser}) {
   //props passed from Navbar
-  console.log(user);
+
+  const user = authUser
+  // console.log(user);
   return (
       user ? ( <a className="navbar-item" href="/dashboard">
       Dashboard

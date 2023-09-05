@@ -6,7 +6,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 
 
 // eslint-disable-next-line react/prop-types
-export default function LogIn({ isModalActive, closeModal, setIsModalActive, user, setUser}) {
+export default function LogIn({ isModalActive, closeModal, setIsModalActive, authUser, setUser}) {
     //props passed from Navbar component
 
 
@@ -16,7 +16,8 @@ export default function LogIn({ isModalActive, closeModal, setIsModalActive, use
     // const [user, setUser] = useState(null);
 
     //variable to capture current auth user
-    const currentUser = auth.currentUser
+    // const currentUser = auth.currentUser
+    const user = authUser
 
 
 
@@ -24,19 +25,20 @@ export default function LogIn({ isModalActive, closeModal, setIsModalActive, use
 
     // console.log(currentUser); // log for testing - can be cleaned up later
 
+    
     const logIn = async (e) => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, `${username}@domain.com`, password);
             setIsModalActive(false)
             navigate('/dashboard');
-            setUser(currentUser.email);
+            setUser(user.email);
 
 
-            console.log(`${currentUser.email} login successful`);
+            // console.log(`${user.email} login successful`);
 
         } catch (error) {
-            setErrorMessage('Invalid email or password');
+            setErrorMessage('Invalid username or password');
             setPassword('')
             console.error('login error', error.message);
         }
