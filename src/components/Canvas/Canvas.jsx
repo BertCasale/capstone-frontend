@@ -465,6 +465,7 @@ export default function Canvas() {
 
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
+  const [isDrawing, setIsDrawing] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -486,10 +487,12 @@ export default function Canvas() {
     const {offsetX, offsetY} = nativeEvent;
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
+    setIsDrawing(true);
   }
 
   const endDrawing = () => {
-
+    contextRef.current.closePath();
+    setIsDrawing(false);
   }
 
   const draw = () => {
