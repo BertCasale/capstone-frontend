@@ -10,6 +10,7 @@ import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
 import Hamster from './pages/Hamster'
+import {Routes, Route} from 'react-router-dom'
 import { db } from './services/config/firebase' // setup for firestore - may need to move this
 import { getDocs, collection} from 'firebase/firestore' // setup for firestore
 import { useEffect, useState } from 'react'
@@ -53,11 +54,9 @@ function App() {
         {/* Is having two path params the best way around this? Could we use section_id alone? */}
         <Route path='/:username/profile' element={<Profile/>} />
         <Route path='/sandbox' element={<Sandbox/>} />
-
         <Route path='*' element={<NotFound/>} />
         <Route path='/signup' element={<SignUpPage/>} />
         <Route path='/hamster' element={<Hamster/>} />
-
       </Routes>
     </div>
   )
