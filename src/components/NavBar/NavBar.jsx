@@ -1,5 +1,4 @@
 import { useState } from "react"
-import LogIn from "./Modal";
 import NavBarBtn from "./UserAuthBtn";
 import ProtectedDashboard from "./ProtectedDashboard";
 import useAuthState from "../../services/config/useAuthState";

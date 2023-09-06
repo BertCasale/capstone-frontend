@@ -1,12 +1,9 @@
 // import { auth } from "../../services/config/firebase"
-import { useState, useEffect } from "react"
 import SignOut from "../Auth/SignOut";
 
 // eslint-disable-next-line react/prop-types
 export default function UserAuthBtn({ setIsModalActive, user, setUser}) {
   // setIsModalActive prop being passed from NavBar component
-
-// const [errorMessage, setErrorMessage] = useState("");
 
  const handleButtonState = () => {
  
