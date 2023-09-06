@@ -9,3 +9,4 @@ export default function LoginBtn({setIsModalActive}) {
     </div>
   )
 }
+
