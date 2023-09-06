@@ -30,18 +30,16 @@ export default function Canvas() {
     setIsDrawing(true);
   }
 
-  const endDrawing = () => {
-    contextRef.current.closePath();
-    setIsDrawing(false);
-  }
-
   const draw = ({nativeEvent}) => {
-    if (!isDrawing) {
-      return;
-    }
+    if (!isDrawing) return;
     const {offsetX, offsetY} = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
+  }
+
+  const endDrawing = () => {
+    contextRef.current.closePath();
+    setIsDrawing(false);
   }
 
   return (
