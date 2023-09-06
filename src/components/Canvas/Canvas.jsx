@@ -22,8 +22,10 @@ export default function Canvas() {
     contextRef.current = context;
   }, [])
 
-  const startDrawing = () => {
-
+  const startDrawing = ({nativeEvent}) => {
+    const {offsetX, offsetY} = nativeEvent;
+    contextRef.current.beginPath();
+    contextRef.current.moveTo(offsetX, offsetY);
   }
 
   const endDrawing = () => {
