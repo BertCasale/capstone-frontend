@@ -13,7 +13,7 @@ export default function Sandbox() {
     </section>
 =======
     <>
-      
+      <Canvas/>
     </>
 >>>>>>> 836a45c (add canvas element and event listeners to Canvas)
   )
