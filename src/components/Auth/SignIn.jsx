@@ -16,8 +16,6 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
   // const currentUser = auth.currentUser
   const user = authUser
 
-
-
   const navigate = useNavigate()
 
   // console.log(currentUser); // log for testing - can be cleaned up later
