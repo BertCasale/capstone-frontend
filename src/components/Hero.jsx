@@ -11,12 +11,6 @@ export default function Hero() {
         navigate("/dashboard")
     }
 
-    // this function handles the start your first lesson button
-    // needs to adjust useNav to correct route, /dashboard is a place holder
-    const navigate = useNavigate()
-    const handleOnClick = () => {
-        navigate("/dashboard")
-    }
 
     return (
         <div>
