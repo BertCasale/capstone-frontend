@@ -1,31 +1,81 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { Button, Form } from 'react-bulma-components'
+import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+import { auth } from "../../services/config/firebase"
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { addDoc, collection } from 'firebase/firestore'
+import { db } from '../../services/config/firebase'
 
-function SignUp() {
-  const [email, setEmail] = useState('');
+// import { useAuth } from '../../contexts/AuthContexts'
+
+export default function SignUp() {
+
+  const userCollectionRef = collection(db, "users");
+  const navigate = useNavigate()
+
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { signUp } = useAuth();
-  const history = useHistory();
+  const [confirmPassword, setConfirmPassword] = useState('');
+  // const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
     try {
-      await signUp(email, password);
-      history.push('/dashboard'); // Redirect to the dashboard after successful sign-up
+      // Treat the username as the email and create a user account in firebase Auth
+      await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password);
+      console.log('Signup successful');
+      //add the new user data to firestore db
+      await addDoc(userCollectionRef, { username: username, password: password });
+      //clear fields
+      setUsername('');
+      setPassword('')
+      setConfirmPassword('')
+      //redirect user
+      navigate('/')
+
     } catch (error) {
-      console.error('Sign-up error:', error.message);
+      console.error('Signup error', error.message);
+      // Look into prompt if error relates to username already in use
     }
   };
 
   return (
-    <div>
-      <h2>Sign Up</h2>
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={handleSignUp}>Sign Up</button>
-    </div>
-  );
+    <form className='form' onSubmit={handleSignUp}>
+      <Form.Control>
+        <Form.Field>
+          <Form.Input
+            type='text'
+            value={username}
+            color="link"
+            placeholder='Username'
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Form.Input
+            type='password'
+            value={password}
+            color="link"
+            placeholder='Password'
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Form.Input
+            type='password'
+            value={confirmPassword}
+            color="link"
+            placeholder='Confirm password'
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Button className='is-link'>Sign Up</Button>
+        </Form.Field>
+      </Form.Control>
+    </form>
+
+
+  )
 }
-
-export default SignUp;
-

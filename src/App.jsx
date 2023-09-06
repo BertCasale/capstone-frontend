@@ -12,13 +12,14 @@ import Hamster from './pages/Hamster'
 import { db } from './services/config/firebase' // setup for firestore - may need to move this
 import { getDocs, collection} from 'firebase/firestore' // setup for firestore
 import { useEffect, useState } from 'react'
-// import SignUp from './components/NavBar/SignUp'
+
 
 
 
 function App() {
+
+  const [user, setUser] = useState(null)
   const [usersList, setUsersList] = useState([]);
-  
   const userCollectionRef = collection(db, "users")
   useEffect(() => {
      const getUserList = async () => {
@@ -27,6 +28,7 @@ function App() {
       const data = await getDocs(userCollectionRef)
         const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
       setUsersList(filteredData);
+      console.log(usersList);
       }catch(err) {
         console.error(err);
       }
@@ -42,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar user={user} setUser={setUser}/>
       <Routes>
         <Route path='/' element={<Landing/>} />
         <Route path='/dashboard' element={<Dashboard/>} />

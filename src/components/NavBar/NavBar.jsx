@@ -1,22 +1,28 @@
 import { useState } from "react"
-import LogIn from "./LogIn";
-import LoginBtn from "./LoginBtn";
+import LogIn from "./Modal";
+import NavBarBtn from "./UserAuthBtn";
 import ProtectedDashboard from "./ProtectedDashboard";
 import useAuthState from "../../services/config/useAuthState";
 import "../../Styles/Navbar.css"
+import Modal from "./Modal";
 
 
-export default function NavBar() {
+// eslint-disable-next-line react/prop-types
+export default function NavBar({user, setUser}) {
     //usestate functions for login modal and hamburger menu
     const [isModalActive, setIsModalActive] = useState(false)
     const [isMenuActive, setIsMenuActive] = useState(false)
-    const [user, setUser] = useState(null)
+    const [errorMessage, setErrorMessage] = useState("");
+    
 
     const authUser = useAuthState()
+
+    console.log(user, 'logged from NavBar');
 
     //close modal function
     const closeModal = () => {
         setIsModalActive(false);
+        setErrorMessage('')
     }
 
     //toggle hamburger menu
@@ -29,7 +35,7 @@ export default function NavBar() {
     return (
         <div>
             <div>
-                <LogIn isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
+                <Modal isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
             </div>
 
             <nav className="navbar ">
@@ -55,7 +61,7 @@ export default function NavBar() {
                             </a>
 
                             <span className="navbar-item">
-                               <LoginBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
+                               <NavBarBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
                             </span>
                         </div>
                     </div>

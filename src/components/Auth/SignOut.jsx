@@ -1,15 +1,16 @@
-import { auth } from "./firebase";
+import { auth } from "../../services/config/firebase";
 import { signOut} from "firebase/auth"
 import {useNavigate} from "react-router-dom"
 
 
-export default function LogOut() {
+export default function SignOut({user, setUser}) {
  const navigate = useNavigate()
 
   async function logOut() {
 
     try {
       await signOut(auth);
+      setUser(null)
       navigate('/')
       console.log('User has been logged out');
     } catch (error) {
@@ -17,26 +18,13 @@ export default function LogOut() {
     }
   }
 
-  const handleLogOut = async () => {
+  const handleSignOut = async () => {
     await logOut()
   };
 
   return (
     
-      <div className="button is-rounded" onClick={handleLogOut}>Log Out</div>
+      <div className="button is-rounded" onClick={handleSignOut}>Log Out</div>
     
   )
 }
-
-
-
-
-// import React from 'react'
-
-// export default function LogOut() {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }

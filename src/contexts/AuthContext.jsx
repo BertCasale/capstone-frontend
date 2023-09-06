@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const signUp = async (email, password) => {
-    return auth.createUserWithEmailAndPassword(email, password);
+    return await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
   };
 
   const signIn = async (email, password) => {
