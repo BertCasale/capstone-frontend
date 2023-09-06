@@ -5,8 +5,6 @@ import SignOut from "../Auth/SignOut";
 export default function UserAuthBtn({ setIsModalActive, user, setUser}) {
   // setIsModalActive prop being passed from NavBar component
 
-// const [errorMessage, setErrorMessage] = useState("");
-
  const handleButtonState = () => {
  
   // if (isLoading) {
