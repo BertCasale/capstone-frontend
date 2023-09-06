@@ -14,7 +14,7 @@ import {Routes, Route} from 'react-router-dom'
 import { db } from './services/config/firebase' // setup for firestore - may need to move this
 import { getDocs, collection} from 'firebase/firestore' // setup for firestore
 import { useEffect, useState } from 'react'
-// import SignUp from './components/NavBar/SignUp'
+
 
 
 
