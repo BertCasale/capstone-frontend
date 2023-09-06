@@ -8,10 +8,12 @@ export default function Canvas() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    canvas.width = window.innerWidth * 2;
-    canvas.height = window.innerHeight * 2;
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`
+
+    const canvasOffsetX = canvas.offsetLeft;
+    const canvasOffsetY = canvas.offsetTop;
+
+    canvas.width = window.innerWidth - canvasOffsetX;
+    canvas.height = window.innerHeight - canvasOffsetY;
 
     const context = canvas.getContext("2d");
     context.lineCap = "round";
