@@ -3,6 +3,7 @@ import { signOut} from "firebase/auth"
 import {useNavigate} from "react-router-dom"
 
 
+// eslint-disable-next-line react/prop-types, no-unused-vars
 export default function SignOut({user, setUser}) {
  const navigate = useNavigate()
 
