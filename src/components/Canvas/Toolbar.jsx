@@ -1,11 +1,12 @@
 
 
-export default function Toolbar() {
+export default function Toolbar({ clearCanvas }) {
+
   return (
     <div>
       <aside className="menu">
         <ul className="menu-list">
-          <li><button>Hello</button></li>
+          <li><button onClick={clearCanvas}>Clear</button></li>
           <li></li>
           <li></li>
           <li></li>

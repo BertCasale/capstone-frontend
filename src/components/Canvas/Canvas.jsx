@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Toolbar from "./Toolbar";
 
 
 export default function Canvas({ canvasWidth, canvasHeight }) {
@@ -47,7 +48,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   return (
-    <>
+    <div>
+      <Toolbar clearCanvas={clearCanvas} />
       <canvas
         onMouseDown={startDrawing}
         onMouseUp={stopDrawing}
@@ -58,7 +60,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         style={{ border: '1px solid black' }}
       >
       </canvas>
-      <button onClick={clearCanvas}>Clear</button>
-    </>
+    </div>
   )
 }

@@ -1,11 +1,9 @@
 import Canvas from "../../components/Canvas/Canvas"
-import Toolbar from "../../components/Canvas/Toolbar"
 
 export default function Sandbox() {
   return(
-    <section className="container">
-      <Toolbar/>
-      <Canvas canvasWidth={500} canvasHeight={500}/>
+    <section className="section is-flex is-align-items-center is-justify-content-center">
+      <Canvas canvasWidth={1000} canvasHeight={600}/>
     </section>
   )
 }
