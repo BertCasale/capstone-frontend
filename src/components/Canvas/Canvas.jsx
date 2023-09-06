@@ -10,11 +10,13 @@ export default function Canvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
 
-    const canvasOffsetX = canvas.offsetLeft;
-    const canvasOffsetY = canvas.offsetTop;
+    // const canvasOffsetX = canvas.offsetLeft;
+    // const canvasOffsetY = canvas.offsetTop;
 
-    canvas.width = window.innerWidth - canvasOffsetX;
-    canvas.height = window.innerHeight - canvasOffsetY;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
 
     const context = canvas.getContext("2d");
     context.lineCap = "round";
@@ -23,16 +25,16 @@ export default function Canvas() {
     contextRef.current = context;
   }, [])
 
-  const startDrawing = ({nativeEvent}) => {
-    const {offsetX, offsetY} = nativeEvent;
+  const startDrawing = ({ nativeEvent }) => {
+    const { offsetX, offsetY } = nativeEvent;
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
   }
 
-  const draw = ({nativeEvent}) => {
+  const draw = ({ nativeEvent }) => {
     if (!isDrawing) return;
-    const {offsetX, offsetY} = nativeEvent;
+    const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
   }
@@ -42,14 +44,23 @@ export default function Canvas() {
     setIsDrawing(false);
   }
 
+  const clearCanvas = () => {
+    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+  }
+
   return (
-    <canvas
-      onMouseDown={startDrawing}
-      onMouseUp={endDrawing}
-      onMouseMove={draw}
-      ref={canvasRef}
-    >
-      
-    </canvas>
+    <>
+      <canvas
+        onMouseDown={startDrawing}
+        onMouseUp={endDrawing}
+        onMouseMove={draw}
+        ref={canvasRef}
+        width={200}
+        height={200}
+        style={{ border: '1px solid black' }}
+      >
+      </canvas>
+      <button onClick={clearCanvas}>Clear</button>
+    </>
   )
 }
