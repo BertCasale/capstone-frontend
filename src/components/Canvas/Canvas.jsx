@@ -464,6 +464,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 export default function Canvas() {
 
   const canvasRef = useRef(null);
+  const contextRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -472,7 +473,11 @@ export default function Canvas() {
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`
 
-    const context = canvas.getContext("2d")
+    const context = canvas.getContext("2d");
+    context.lineCap = "round";
+    context.strokeStyle = "black";
+    context.lineWidth = 5;
+    contextRef.current = context;
   }, [])
 
   const startDrawing = () => {
