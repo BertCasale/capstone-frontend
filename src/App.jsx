@@ -54,6 +54,9 @@ function App() {
         {/* Is having two path params the best way around this? Could we use section_id alone? */}
         <Route path='/:username/profile' element={<Profile/>} />
         <Route path='/sandbox' element={<Sandbox/>} />
+        <Route path='*' element={<NotFound/>} />
+        <Route path='/signup' element={<SignUpPage/>} />
+        <Route path='/hamster' element={<Hamster/>} />
       </Routes>
     </div>
   )
