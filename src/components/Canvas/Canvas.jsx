@@ -495,8 +495,13 @@ export default function Canvas() {
     setIsDrawing(false);
   }
 
-  const draw = () => {
-
+  const draw = ({nativeEvent}) => {
+    if (!isDrawing) {
+      return;
+    }
+    const {offsetX, offsetY} = nativeEvent;
+    contextRef.current.lineTo(offsetX, offsetY);
+    contextRef.current.stroke();
   }
 
   return (
