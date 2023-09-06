@@ -461,7 +461,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 }
 
 
-export default function Canvas() {
+export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
@@ -470,13 +470,11 @@ export default function Canvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
 
-    // const canvasOffsetX = canvas.offsetLeft;
-    // const canvasOffsetY = canvas.offsetTop;
+    const canvasOffsetX = canvas.offsetLeft;
+    const canvasOffsetY = canvas.offsetTop;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${window.innerHeight}px`;
+    canvas.width = canvasWidth - canvasOffsetX;
+    canvas.height = canvasHeight - canvasOffsetY;
 
     const context = canvas.getContext("2d");
     context.lineCap = "round";
@@ -499,7 +497,7 @@ export default function Canvas() {
     contextRef.current.stroke();
   }
 
-  const endDrawing = () => {
+  const stopDrawing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
   }
@@ -512,7 +510,7 @@ export default function Canvas() {
     <>
       <canvas
         onMouseDown={startDrawing}
-        onMouseUp={endDrawing}
+        onMouseUp={stopDrawing}
         onMouseMove={draw}
         ref={canvasRef}
         width={200}

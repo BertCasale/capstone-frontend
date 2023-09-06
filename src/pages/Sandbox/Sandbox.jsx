@@ -3,7 +3,7 @@ import ImageGenerator from "../../components/Canvas/ImageGenerator";
 
 export default function Sandbox() {
   return(
-<<<<<<< HEAD
+
     <section key={1} className="section is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
 
       <Canvas canvasWidth={1000} canvasHeight={600}/>
@@ -11,11 +11,7 @@ export default function Sandbox() {
       <ImageGenerator />
 
     </section>
-=======
-    <>
-      <Canvas/>
-    </>
->>>>>>> 836a45c (add canvas element and event listeners to Canvas)
+
   )
 }
 
