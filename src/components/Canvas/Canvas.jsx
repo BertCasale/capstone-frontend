@@ -507,7 +507,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   return (
-    <>
+    <div>
+      <Toolbar clearCanvas={clearCanvas} />
       <canvas
         onMouseDown={startDrawing}
         onMouseUp={stopDrawing}
@@ -518,7 +519,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         style={{ border: '1px solid black' }}
       >
       </canvas>
-      <button onClick={clearCanvas}>Clear</button>
-    </>
+    </div>
   )
 }
