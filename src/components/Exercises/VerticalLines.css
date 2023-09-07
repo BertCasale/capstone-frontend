@@ -1,7 +1,7 @@
 .vertical-lines .empty-box {
-  width: 16%;
   position: absolute;
   text-align: center;
+  width: 16%;
 }
 
 .vertical-lines .first-box {
@@ -34,8 +34,8 @@
 }
 
 .vertical-lines .artwork-div {
-  width: 550px;
   position: relative;
+  width: 550px;
 }
 
 .vertical-lines .line {
