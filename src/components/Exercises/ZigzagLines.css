@@ -3,19 +3,19 @@
 }
 
 .zigzag-lines .first-box {
+  border-radius: 70% 0 0 90% / 40% 0 0 60%;
   height: 72%;
-  width: 33%;
   left: 15%;
   top: 14%;
-  border-radius: 70% 0 0 90% / 40% 0 0 60%;
+  width: 33%;
 }
 
 .zigzag-lines .second-box {
+  border-radius: 0 70% 90% 0 / 0 40% 60% 0;
   height: 72%;
-  width: 30%;
   left: 53%;
   top: 14%;
-  border-radius: 0 70% 90% 0 / 0 40% 60% 0;
+  width: 30%;
 }
 
 .zigzag-lines .artwork {
@@ -24,8 +24,8 @@
 }
 
 .zigzag-lines .artwork-div {
-  width: 550px;
   position: relative;
+  width: 550px;
 }
 
 .zigzag-lines .line {

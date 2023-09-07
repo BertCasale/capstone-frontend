@@ -82,7 +82,7 @@ export default function Section({ lessonSections }) {
       <div className="content column is-half" style={sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? null : { display: "none" }}>
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
-        <h2 className="learning-info">{sectionData.information_text}</h2>
+        <h2 className="learning-info" style={{whiteSpace: 'pre-wrap'}}>{sectionData.information_text}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
         <div className="feedback" style={attempted || completed ? null : { display: "none" }}>
@@ -97,7 +97,6 @@ export default function Section({ lessonSections }) {
 
         <Suspense fallback={<h2>Exercise Loading...</h2>}>
           {exercise}
-          {/* <Exercise setCompleted={setCompleted} setAttempted={setAttempted} completed={completed}/> */}
         </Suspense>
 
 

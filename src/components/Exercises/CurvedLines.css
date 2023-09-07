@@ -5,16 +5,16 @@
 
 .curved-lines .first-box {
   height: 37%;
-  width: 40%;
   left: 0%;
   top: 7%;
+  width: 40%;
 }
 
 .curved-lines .second-box {
   height: 47%;
-  width: 59%;
   right: 2%;
   top: 32%;
+  width: 59%;
 }
 
 .curved-lines .artwork {
@@ -23,8 +23,8 @@
 }
 
 .curved-lines .artwork-div {
-  width: 550px;
   position: relative;
+  width: 550px;
 }
 
 .curved-lines .line-1 {

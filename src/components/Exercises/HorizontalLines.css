@@ -1,8 +1,8 @@
 .horizontal-lines .empty-box {
-  width: 100%;
+  height: 23%;
   position: absolute;
   top: 67%;
-  height: 23%;
+  width: 100%;
 }
 
 .horizontal-lines .line{
@@ -15,8 +15,8 @@
 }
 
 .horizontal-lines .artwork-div {
-  width: 550px;
   position: relative;
+  width: 550px;
 }
 
 @media (max-width: 650px) {

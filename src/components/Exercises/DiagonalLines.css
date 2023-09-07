@@ -1,7 +1,7 @@
 .diagonal-lines .empty-box {
-  width: 16%;
   position: absolute;
   text-align: center;
+  width: 16%;
 }
 
 .diagonal-lines .first-box {
@@ -31,13 +31,13 @@
 }
 
 .diagonal-lines .artwork-div {
-  width: 550px;
   position: relative;
+  width: 550px;
 }
 
 .diagonal-lines .line {
-  width: 70px;
   margin: 30px;
+  width: 70px;
 }
 
 .diagonal-lines .line-1 {

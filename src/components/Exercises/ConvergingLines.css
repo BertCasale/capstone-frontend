@@ -1,12 +1,12 @@
 .converging-lines .correct-button {
-  height: 40%;
-  width: 27%;
-  z-index: 90;
-  position: absolute;
-  left: 6%;
-  top: 11%;
-  border-radius: 50%;
   background-color: green;
+  border-radius: 50%;
+  height: 40%;
+  left: 6%;
+  position: absolute;
+  top: 11%;
+  width: 27%;
+  z-index: 5;
 }
 
 .converging-lines .artwork {
@@ -15,8 +15,8 @@
 }
 
 .converging-lines .artwork-div {
-  width: 550px;
   position: relative;
+  width: 550px;
 }
 
 @media (max-width: 650px) {
