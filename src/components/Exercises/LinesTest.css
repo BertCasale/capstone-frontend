@@ -1,19 +1,19 @@
-.artwork {
+.lines-test .artwork {
   max-width: 100%;
   position: relative;
 }
 
-.artwork-div {
+.lines-test .artwork-div {
   width: 550px;
   position: relative;
 }
 
-.content {
+.lines-test .content {
   margin: 20px;
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
+  .lines-test .artwork-div {
     width: 300px;
   }
 }
