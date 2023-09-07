@@ -1,66 +1,66 @@
-.empty-box {
+.vertical-lines .empty-box {
   width: 16%;
   position: absolute;
   text-align: center;
 }
 
-.first-box {
+.vertical-lines .first-box {
   height: 97%;
   left: 13%;
   top: 0%;
 }
 
-.second-box {
+.vertical-lines .second-box {
   height: 45%;
   left: 28%;
   top: 43%;
 }
 
-.third-box {
+.vertical-lines .third-box {
   height: 45%;
   left: 53%;
   top: 43%;
 }
 
-.fourth-box {
+.vertical-lines .fourth-box {
   height: 97%;
   left: 71%;
   top: 0%;
 }
 
-.artwork {
+.vertical-lines .artwork {
   max-width: 100%;
   position: relative;
 }
 
-.artwork-div {
+.vertical-lines .artwork-div {
   width: 550px;
   position: relative;
 }
 
-.line {
+.vertical-lines .line {
   height: 100%;
   width: 75px;
 }
 
-.line-1 {
+.vertical-lines .line-1 {
   max-height: 525px;
 }
 
-.line-2 {
+.vertical-lines .line-2 {
   max-height: 250px;
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
+  .vertical-lines .artwork-div {
     width: 300px;
   }
 
-  .line-1 {
+  .vertical-lines .line-1 {
     max-height: 285px;
   }
 
-  .line-2 {
+  .vertical-lines .line-2 {
     max-height: 140px;
   }
 }

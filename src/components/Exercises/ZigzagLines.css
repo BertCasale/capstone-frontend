@@ -1,8 +1,8 @@
-.empty-box {
+.zigzag-lines .empty-box {
   position: absolute;
 }
 
-.first-box {
+.zigzag-lines .first-box {
   height: 72%;
   width: 33%;
   left: 15%;
@@ -10,7 +10,7 @@
   border-radius: 70% 0 0 90% / 40% 0 0 60%;
 }
 
-.second-box {
+.zigzag-lines .second-box {
   height: 72%;
   width: 30%;
   left: 53%;
@@ -18,27 +18,27 @@
   border-radius: 0 70% 90% 0 / 0 40% 60% 0;
 }
 
-.artwork {
+.zigzag-lines .artwork {
   max-width: 100%;
   position: relative;
 }
 
-.artwork-div {
+.zigzag-lines .artwork-div {
   width: 550px;
   position: relative;
 }
 
-.line {
+.zigzag-lines .line {
   max-width: 130px;
   width: 100%;
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
+  .zigzag-lines .artwork-div {
     width: 300px;
   }
 
-  .line {
+  .zigzag-lines .line {
     max-width: 71px;
   }
 }

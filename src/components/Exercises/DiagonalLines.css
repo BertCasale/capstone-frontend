@@ -1,78 +1,78 @@
-.empty-box {
+.diagonal-lines .empty-box {
   width: 16%;
   position: absolute;
   text-align: center;
 }
 
-.first-box {
+.diagonal-lines .first-box {
   height: 40%;
   left: 47%;
   top: 17%;
   transform: rotate(25deg);
 }
 
-.second-box {
+.diagonal-lines .second-box {
   height: 31%;
   left: 60%;
   top: 27%;
   transform: rotate(35deg);
 }
 
-.third-box {
+.diagonal-lines .third-box {
   height: 22%;
   right: 18%;
   top: 54%;
   transform: rotate(-45deg);
 }
 
-.artwork {
+.diagonal-lines .artwork {
   max-width: 100%;
   position: relative;
 }
 
-.artwork-div {
+.diagonal-lines .artwork-div {
   width: 550px;
   position: relative;
 }
 
-.line {
+.diagonal-lines .line {
   width: 70px;
   margin: 30px;
 }
 
-.line-1 {
+.diagonal-lines .line-1 {
   height: 280px;
   transform: rotate(25deg);
 }
 
-.line-2 {
+.diagonal-lines .line-2 {
   height: 200px;
   transform: rotate(35deg);
 }
 
-.line-3 {
+.diagonal-lines .line-3 {
   height: 145px;
   transform: rotate(-45deg);
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
+  .diagonal-lines .artwork-div {
     width: 300px;
   }
 
-  .line-1 {
+  .diagonal-lines .line-1 {
     max-height: 151px;
   }
 
-  .line-2 {
+  .diagonal-lines .line-2 {
     max-height: 117px;
   }
 
-  .line-3 {
+  .diagonal-lines .line-3 {
     max-height: 82px;
   }
 
-  .line {
+  .diagonal-lines .line {
     width: 34px;
   }
 }
