@@ -36,7 +36,7 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
             </button>
           </li>
 
-          <li><button onClick={undoAction}>Undo</button></li>
+          <li><button onClick={() => undoAction()}>Undo</button></li>
 
           <li><button onClick={clearCanvas}>Clear</button></li>
 
