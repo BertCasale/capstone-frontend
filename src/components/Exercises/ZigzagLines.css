@@ -1,44 +1,35 @@
-.empty-box {
+.zigzag-lines .empty-box {
   position: absolute;
 }
 
-.first-box {
+.zigzag-lines .first-box {
+  border-radius: 70% 0 0 90% / 40% 0 0 60%;
   height: 72%;
-  width: 33%;
   left: 15%;
   top: 14%;
-  border-radius: 70% 0 0 90% / 40% 0 0 60%;
+  width: 33%;
 }
 
-.second-box {
+.zigzag-lines .second-box {
+  border-radius: 0 70% 90% 0 / 0 40% 60% 0;
   height: 72%;
-  width: 30%;
   left: 53%;
   top: 14%;
-  border-radius: 0 70% 90% 0 / 0 40% 60% 0;
+  width: 30%;
 }
 
-.artwork {
-  max-width: 100%;
-  position: relative;
+.zigzag-lines .line {
+  max-width: 110px;
 }
 
-.artwork-div {
-  width: 550px;
-  position: relative;
-}
-
-.line {
-  max-width: 130px;
-  width: 100%;
+@media (max-width: 950px) {
+  .zigzag-lines .line {
+    max-width: 90px;
+  }
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
-    width: 300px;
-  }
-
-  .line {
+  .zigzag-lines .line {
     max-width: 71px;
   }
 }

@@ -1,0 +1,9 @@
+.light-source-value .correct-button {
+  background-color: green;
+  height: 98%;
+  left: 0%;
+  position: absolute;
+  top: 0%;
+  width: 40%;
+  z-index: 5;
+}

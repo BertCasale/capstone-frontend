@@ -77,16 +77,5 @@ export default function VerticalLines({ setCompleted }) {
 
     </div>
 
-
-    <div className="content">
-      <h3 className="question">Place the lines above on some of the prominent vertical lines in the image above.</h3>
-
-      <div className="credit">
-        <p>The Choir and North Ambulatory of the Church of Saint Bavo, Haarlem, Pieter Jansz, 1634</p>
-        <p>Image credit to Getty</p>
-      </div>
-
-    </div>
-
   </div>)
 }

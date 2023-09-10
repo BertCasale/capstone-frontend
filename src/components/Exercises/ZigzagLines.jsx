@@ -67,15 +67,6 @@ export default function ZigzagLines({ setCompleted }) {
       </div>
 
     </div>
-
-    <div className="content">
-      <h3 className="question">Place the lines above on the areas with zigzag lines in the image above.</h3>
-
-      <div className="credit">
-        <p>Jar with Zigzag Panels, ca. 3500-3300 B.C.E.</p>
-        <p>Image credit to Brooklyn Museum</p>
-      </div>
-
-    </div>
+    
   </div>)
 }

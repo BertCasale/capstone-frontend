@@ -1,26 +1,10 @@
-.correct-button {
-  height: 40%;
-  width: 27%;
-  z-index: 100;
-  position: absolute;
-  left: 6%;
-  top: 11%;
-  border-radius: 50%;
+.converging-lines .correct-button {
   background-color: green;
-}
-
-.artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.artwork-div {
-  width: 550px;
-  position: relative;
-}
-
-@media (max-width: 650px) {
-  .artwork-div {
-    width: 300px;
-  }
+  border-radius: 50%;
+  height: 40%;
+  left: 6%;
+  position: absolute;
+  top: 11%;
+  width: 27%;
+  z-index: 5;
 }
