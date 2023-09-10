@@ -48,15 +48,5 @@ export default function HorizontalLines({ setCompleted }) {
 
     </div>
 
-    <div className="content">
-      <h3 className="question">Place the line above on the prominent horizontal line in the image above.</h3>
-
-      <div className="credit">
-        <p>The Monk by the Sea, Caspar David Friedrich, 1808-10</p>
-        <p>Image credit to Wikipedia</p>
-      </div>
-
-    </div>
-
   </div>)
 }

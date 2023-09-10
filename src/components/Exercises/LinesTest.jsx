@@ -29,18 +29,5 @@ export default function LinesTest({ setCompleted, setAttempted, completed }) {
 
     </div>
 
-    <div className="content">
-
-      <h3 className="question">Select the artwork above that has a stronger sense of motion.</h3>
-
-      <div className="credit">
-          <p>Breezing Up (A Fair Wind), Winslow Homer, 1873-1876</p>
-          <p>Image credit to Wikipedia</p>
-          <p>Red Boats at Argenteuil, Claude Monet, 1875</p>
-          <p>Image credit to Wikipedia</p>
-      </div>
-
-    </div>
-
   </div>)
 }
