@@ -18,26 +18,17 @@
   width: 30%;
 }
 
-.zigzag-lines .artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.zigzag-lines .artwork-div {
-  position: relative;
-  width: 550px;
-}
-
 .zigzag-lines .line {
-  max-width: 130px;
-  width: 100%;
+  max-width: 110px;
+}
+
+@media (max-width: 950px) {
+  .zigzag-lines .line {
+    max-width: 90px;
+  }
 }
 
 @media (max-width: 650px) {
-  .zigzag-lines .artwork-div {
-    width: 300px;
-  }
-
   .zigzag-lines .line {
     max-width: 71px;
   }

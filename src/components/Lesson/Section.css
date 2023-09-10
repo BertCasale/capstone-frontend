@@ -1,0 +1,21 @@
+.artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.artwork-div {
+  position: relative;
+  width: 450px;
+}
+
+@media (max-width: 950px) {
+  .artwork-div {
+    width: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .artwork-div {
+    width: 300px;
+  }
+}

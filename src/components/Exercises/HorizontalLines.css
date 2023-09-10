@@ -6,24 +6,16 @@
 }
 
 .horizontal-lines .line{
-  max-width: 550px;
+  max-width: 450px;
 }
 
-.horizontal-lines .artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.horizontal-lines .artwork-div {
-  position: relative;
-  width: 550px;
+@media (max-width: 950px) {
+  .horizontal-lines .line {
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 650px) {
-  .horizontal-lines .artwork-div {
-    width: 300px;
-  }
-
   .horizontal-lines .line {
     max-width: 300px;
   }

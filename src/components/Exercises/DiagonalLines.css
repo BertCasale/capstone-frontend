@@ -19,25 +19,16 @@
 }
 
 .diagonal-lines .third-box {
-  height: 22%;
+  height: 19%;
   right: 18%;
-  top: 54%;
+  top: 55%;
   transform: rotate(-45deg);
-}
-
-.diagonal-lines .artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.diagonal-lines .artwork-div {
-  position: relative;
-  width: 550px;
 }
 
 .diagonal-lines .line {
   margin: 30px;
-  width: 70px;
+  width: 60px;
+  max-height: 100%;
 }
 
 .diagonal-lines .line-1 {
@@ -55,21 +46,36 @@
   transform: rotate(-45deg);
 }
 
-@media (max-width: 650px) {
-  .diagonal-lines .artwork-div {
-    width: 300px;
-  }
-
+@media (max-width: 950px) {
   .diagonal-lines .line-1 {
-    max-height: 151px;
+    height: 200px;
   }
 
   .diagonal-lines .line-2 {
-    max-height: 117px;
+    height: 155px;
   }
 
   .diagonal-lines .line-3 {
-    max-height: 82px;
+    height: 95px;
+  }
+
+  .diagonal-lines .line {
+    width: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .diagonal-lines .line-1 {
+    height: 151px;
+  }
+
+  .diagonal-lines .line-2 {
+    height: 117px;
+  }
+
+  .diagonal-lines .line-3 {
+    height: 82px;
   }
 
   .diagonal-lines .line {

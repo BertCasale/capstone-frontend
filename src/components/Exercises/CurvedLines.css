@@ -17,29 +17,25 @@
   width: 59%;
 }
 
-.curved-lines .artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.curved-lines .artwork-div {
-  position: relative;
-  width: 550px;
-}
-
 .curved-lines .line-1 {
-  width: 220px;
+  max-width: 185px;
 }
 
 .curved-lines .line-2 {
-  width: 327px;
+  max-width: 270px;
+}
+
+@media (max-width: 950px) {
+  .curved-lines .line-1 {
+    max-width: 160px;
+  }
+
+  .curved-lines .line-2 {
+    max-width: 240px;
+  }
 }
 
 @media (max-width: 650px) {
-  .curved-lines .artwork-div {
-    width: 300px;
-  }
-
   .curved-lines .line-1 {
     max-width: 111px;
   }

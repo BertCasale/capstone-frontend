@@ -28,34 +28,30 @@
   top: 0%;
 }
 
-.vertical-lines .artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.vertical-lines .artwork-div {
-  position: relative;
-  width: 550px;
-}
-
 .vertical-lines .line {
   height: 100%;
   width: 75px;
 }
 
 .vertical-lines .line-1 {
-  max-height: 525px;
+  max-height: 425px;
 }
 
 .vertical-lines .line-2 {
-  max-height: 250px;
+  max-height: 195px;
+}
+
+@media (max-width: 900px) {
+  .vertical-lines .line-1 {
+    max-height: 375px;
+  }
+
+  .vertical-lines .line-2 {
+    max-height: 180px;
+  }
 }
 
 @media (max-width: 650px) {
-  .vertical-lines .artwork-div {
-    width: 300px;
-  }
-
   .vertical-lines .line-1 {
     max-height: 285px;
   }
