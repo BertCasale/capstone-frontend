@@ -467,6 +467,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [brushColor, setBrushColor] = useState('black');
+  const [isErasing, setIsErasing] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -524,6 +525,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     } else {
       contextRef.current.strokeStyle = brushColor;
     }
+    setIsErasing(!isErasing);
   }
 
   return (
@@ -533,6 +535,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         handleColorChange={handleColorChange} 
         handleLineWidthChange={handleLineWidthChange}
         toggleEraseMode={toggleEraseMode}
+        isErasing={isErasing}
       />
       <canvas
         onMouseDown={startDrawing}
