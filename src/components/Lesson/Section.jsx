@@ -1,6 +1,8 @@
 //lazy allows importing a file later/dynamically (useful for exercises), Suspense allows a loading section while the component is getting dynamically imported and rendered
 import { useState, useEffect, lazy, Suspense } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
 export default function Section({ lessonSections }) {
@@ -23,7 +25,8 @@ export default function Section({ lessonSections }) {
     image_credit: ""
   });
   const [sectionIndex, setSectionIndex] = useState(0);
-  const [exercise, setExercise] = useState([])
+  const [exercise, setExercise] = useState([]);
+  const navigate = useNavigate();
 
   function importExercise(exerciseName) {
     return lazy(() => import(`../Exercises/${exerciseName}.jsx`))
@@ -55,13 +58,29 @@ export default function Section({ lessonSections }) {
   }, [sectionData])
 
 
-
-
   //for the testing buttons to change the index of the sections
   function changeSectionIndex(num) {
     console.log(sectionIndex + num)
     setSectionIndex(sectionIndex + num)
   }
+
+
+
+  //move to the next section when clicked 
+  //if theres no next section in the lesson, set the users completion status
+  function handleNextClick() {
+    if (lessonSections[sectionIndex + 1]){
+      setSectionIndex(sectionIndex + 1);
+    } else {
+      //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
+      //axios.post(`${API}/clientLessonsProgress`, progress)
+      //  .then(() => {
+      //    navigate(/dashboard)
+      //  })
+      //  .catch((e) => console.warn(e))
+    }
+  }
+
 
   return (<div className="lesson-section">
 
@@ -107,7 +126,7 @@ export default function Section({ lessonSections }) {
 
     {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
     {/* should start disabled until the user completes an exercise */}
-    <button disabled={!completed} className="button">Next</button>
+    <button disabled={!completed} className="button" onClick={handleNextClick}>Next</button>
 
   </div>)
 }

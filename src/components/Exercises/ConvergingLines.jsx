@@ -32,15 +32,5 @@ export default function ConvergingLines({ setCompleted, setAttempted, completed 
       
     </div>
 
-    <div className="content">
-      <h3 className="question">In the image above, click on the area that the converging lines seem to be directing your eyes toward.</h3>
-
-      <div className="credit">
-        <p>Le Pont de l'Europe, Gustav Caillebotte, 1876</p>
-        <p>Image credit to Wikipedia</p>
-      </div>
-
-    </div>
-
   </div>)
 }
