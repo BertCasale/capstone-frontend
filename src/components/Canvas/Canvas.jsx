@@ -466,6 +466,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [brushColor, setBrushColor] = useState('black');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -478,7 +479,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
     const context = canvas.getContext("2d");
     context.lineCap = "round";
-    context.strokeStyle = "black";
+    context.strokeStyle = brushColor;
     context.lineWidth = 5;
     contextRef.current = context;
   }, [])
@@ -508,7 +509,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const toggleColor = (event) => {
     event.preventDefault();
+    setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
+    console.log(`toggleColor: ${brushColor}`)
   }
 
   const toggleLineWidth = (event) => {
@@ -516,8 +519,12 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.lineWidth = event.target.value;
   }
 
-  const eraseMode = () => {
-    contextRef.current.strokeStyle = "white";
+  const toggleEraseMode = () => {
+    if (contextRef.current.strokeStyle != "#ffffff") {
+      contextRef.current.strokeStyle = "white";
+    } else {
+      contextRef.current.strokeStyle = brushColor;
+    }
   }
 
   return (
@@ -527,7 +534,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         toggleColor={toggleColor} 
         toggleLineWidth={toggleLineWidth}
         contextRef={contextRef}
-        eraseMode={eraseMode}
+        toggleEraseMode={toggleEraseMode}
+        brushColor={brushColor}
       />
       <canvas
         onMouseDown={startDrawing}
