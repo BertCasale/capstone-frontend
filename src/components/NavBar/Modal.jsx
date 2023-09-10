@@ -5,10 +5,6 @@ import SignIn from "../Auth/SignIn"
 export default function Modal({ isModalActive, closeModal, setIsModalActive, setUser, authUser, errorMessage, setErrorMessage }) {
     //props passed from Navbar component
 
-
-
-
-
     return (
         <div>
             <div className={`modal ${isModalActive ? 'is-active' : ''}`}>

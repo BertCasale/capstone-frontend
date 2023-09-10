@@ -6,6 +6,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 
 // eslint-disable-next-line react/prop-types
 export default function SignIn({ authUser, setUser, setIsModalActive, closeModal, errorMessage, setErrorMessage}) {
+//props passed from Modal
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +15,7 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
 
   //variable to capture current auth user
   // const currentUser = auth.currentUser
-  const user = authUser
+  // const user = authUser
 
   const navigate = useNavigate()
 
@@ -24,21 +25,24 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
   const logIn = async (e) => {
     e.preventDefault();
     try {
+      // const result = 
       await signInWithEmailAndPassword(auth, `${username}@domain.com`, password);
       setIsModalActive(false)
-      setUser(user.email);
+      setUser(authUser);
       navigate('/dashboard');
       setUsername('');
       setPassword('')
       setErrorMessage('')
-      // console.log(`${user.email} login successful`);
-
+      console.log(`${authUser.email} login successful`);
+      // console.log (result)
+      // console.log(auth.currentUser.getIdToken());
     } catch (error) {
       setErrorMessage('Invalid username or password');
       setPassword('')
       console.error('login error', error.message);
     }
   };
+
 
   const googleLogIn = async () => {
     await signInWithPopup(auth, googleProvider)

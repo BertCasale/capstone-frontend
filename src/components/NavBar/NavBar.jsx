@@ -1,22 +1,24 @@
 import { useState } from "react"
-import NavBarBtn from "./UserAuthBtn";
+import UserAuthBtn from "./UserAuthBtn";
 import ProtectedDashboard from "./ProtectedDashboard";
-import useAuthState from "../../services/config/useAuthState";
+// import useAuthState from "../../services/config/useAuthState";
 import "../../Styles/Navbar.css"
 import Modal from "./Modal";
 
 
 // eslint-disable-next-line react/prop-types
-export default function NavBar({user, setUser}) {
+export default function NavBar({user, setUser, authUser}) {
+
     //usestate functions for login modal and hamburger menu
     const [isModalActive, setIsModalActive] = useState(false)
     const [isMenuActive, setIsMenuActive] = useState(false)
     const [errorMessage, setErrorMessage] = useState("");
     
 
-    const authUser = useAuthState()
+    // const authUser = useAuthState()
 
-    console.log(user, 'logged from NavBar');
+    // console.log(user, 'user from NavBar');
+    // console.log(authUser.email, 'authUser from NavBar');
 
     //close modal function
     const closeModal = () => {
@@ -28,7 +30,7 @@ export default function NavBar({user, setUser}) {
     const handleMenuToggle = () => {
        setIsMenuActive(!isMenuActive)
        console.log('menu toggle status',isMenuActive)
-       console.log(authUser.email);
+    //    console.log(authUser.email);
     }
 
     return (
@@ -60,7 +62,7 @@ export default function NavBar({user, setUser}) {
                             </a>
 
                             <span className="navbar-item">
-                               <NavBarBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
+                               <UserAuthBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
                             </span>
                         </div>
                     </div>

@@ -2,18 +2,20 @@
 import SignOut from "../Auth/SignOut";
 
 // eslint-disable-next-line react/prop-types
-export default function UserAuthBtn({ setIsModalActive, user, setUser}) {
+export default function UserAuthBtn({ setIsModalActive, authUser, user, setUser}) {
   // setIsModalActive prop being passed from NavBar component
+
+// const user = authUser
 
  const handleButtonState = () => {
  
   // if (isLoading) {
   //   return <p>Loading...</p>;
   // } else
-   if (user) {
+   if (authUser) {
     return (
       <div>
-        <p style={{ color: 'white' }}>{user}</p>
+        {/* <p style={{ color: 'white' }}>{user}</p> */}
         <p style={{ color: 'white' }}>logged in</p>
         {/* <button onClick={handleLogout}>Logout</button> */}
         {/* Render the user profile icon here */}
@@ -22,7 +24,7 @@ export default function UserAuthBtn({ setIsModalActive, user, setUser}) {
           alt="User Profile"
           width="50"
         /> */}
-        <SignOut user={user} setUser={setUser}/>
+        <SignOut user={user} setUser={setUser} authUser={authUser}/>
       </div>
     );
   } else {
