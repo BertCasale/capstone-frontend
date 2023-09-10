@@ -9,11 +9,13 @@ export default function LinesTest({ setCompleted, setAttempted, completed }) {
     function handleCorrectClick() {
       setAttempted(true);
       setCompleted(true);
+      event.target.style = "border: green 3px solid"
     }
 
     //what should be done when the incorrect area is clicked
-    function handleIncorrectClick() {
+    function handleIncorrectClick(event) {
         setAttempted(true);
+        event.target.style = "border: red 3px solid"
     }
 
   return (<div className="lines-test">
@@ -22,8 +24,8 @@ export default function LinesTest({ setCompleted, setAttempted, completed }) {
 
       <div className="artwork-div">
 
-        <img src={correctArtwork} alt="Breezing Up" className="artwork is-clickable" onClick={handleCorrectClick} style={completed ? {border:"green 3px solid"} : {}}/>
-        <img src={incorrectArtwork} alt="Red Boats at Argenteuil" className="artwork is-clickable" onClick={handleIncorrectClick} style={completed ? {border:"red 3px solid"} : {}}/>
+        <img src={correctArtwork} alt="Breezing Up" className="artwork is-clickable" onClick={handleCorrectClick} />
+        <img src={incorrectArtwork} alt="Red Boats at Argenteuil" className="artwork is-clickable" onClick={handleIncorrectClick} />
 
       </div>
 

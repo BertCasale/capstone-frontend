@@ -3,24 +3,9 @@
   border-radius: 50%;
   height: 40%;
   left: 6%;
+  opacity: 0%;
   position: absolute;
   top: 11%;
   width: 27%;
   z-index: 5;
-}
-
-.converging-lines .artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.converging-lines .artwork-div {
-  position: relative;
-  width: 550px;
-}
-
-@media (max-width: 650px) {
-  .converging-lines .artwork-div {
-    width: 300px;
-  }
 }

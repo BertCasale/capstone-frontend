@@ -5,9 +5,10 @@ import "./LightSourceValue.css";
 export default function LightSourceValue({ setCompleted, setAttempted, completed }) {
 
   //what should be done when the correct area is clicked
-  function handleCorrectClick() {
+  function handleCorrectClick(event) {
     setAttempted(true);
     setCompleted(true);
+    event.target.style = "opacity:50%"
   }
 
   //what should be done when the incorrect area is clicked
@@ -26,7 +27,7 @@ export default function LightSourceValue({ setCompleted, setAttempted, completed
 
         {/* this button is styled over the correct area on the image button */}
         {/* will give the "correct_feedback" message when clicked, and allow the user to move on to the next section */}
-        <button className="correct-button is-clickable" onClick={handleCorrectClick} style={completed ? {opacity:"50%"} : {opacity:"0%"}}></button>
+        <button className="correct-button is-clickable" onClick={handleCorrectClick}></button>
 
       </div>
       

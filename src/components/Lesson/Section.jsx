@@ -2,6 +2,7 @@
 import { useState, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./Section.css"
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
