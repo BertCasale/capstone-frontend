@@ -1,6 +1,6 @@
 
 
-export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, isErasing }) {
+export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, isErasing, undoAction }) {
 
   return (
     <div>
@@ -35,6 +35,8 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
               Erase Mode: {isErasing ? 'On': 'Off'}
             </button>
           </li>
+
+          <li><button onClick={undoAction}>Undo</button></li>
 
           <li><button onClick={clearCanvas}>Clear</button></li>
 
