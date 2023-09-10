@@ -511,9 +511,19 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.strokeStyle = event.target.value;
   }
 
+  const toggleLineWidth = (event) => {
+    event.preventDefault();
+    contextRef.current.lineWidth = event.target.value;
+  }
+
   return (
     <div>
-      <Toolbar clearCanvas={clearCanvas} toggleColor={toggleColor}/>
+      <Toolbar 
+        clearCanvas={clearCanvas} 
+        toggleColor={toggleColor} 
+        toggleLineWidth={toggleLineWidth}
+      
+      />
       <canvas
         onMouseDown={startDrawing}
         onMouseUp={stopDrawing}
