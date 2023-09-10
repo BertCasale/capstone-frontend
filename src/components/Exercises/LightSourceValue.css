@@ -1,0 +1,25 @@
+.light-source-value .correct-button {
+  background-color: green;
+  height: 100%;
+  left: 0%;
+  position: absolute;
+  top: 0%;
+  width: 50%;
+  z-index: 5;
+}
+
+.light-source-value .artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.light-source-value .artwork-div {
+  position: relative;
+  width: 550px;
+}
+
+@media (max-width: 650px) {
+  .light-source-value .artwork-div {
+    width: 300px;
+  }
+}
