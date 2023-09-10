@@ -488,16 +488,16 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current = context;
   }, [])
 
-  const startDrawing = ({ nativeEvent }) => {
-    const { offsetX, offsetY } = nativeEvent;
+  const startDrawing = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent;
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
     setIsDrawing(true);
   }
 
-  const draw = ({ nativeEvent }) => {
+  const draw = (event) => {
     if (!isDrawing) return;
-    const { offsetX, offsetY } = nativeEvent;
+    const { offsetX, offsetY } = event.nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
   }
@@ -537,6 +537,16 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setIsErasing(!isErasing);
   }
 
+  const undoAction = () => {
+    if (index <= 0) {
+      clearCanvas();
+    } else {
+      setIndex(index - 1);
+      setRestoreArray([...restoreArray.slice(0, -1)]);
+      contextRef.current.putImageData(restoreArray[index - 1], 0, 0);
+    }
+  }
+
   const toggleLineMode = () => {
     setLineMode(!lineMode);
   }
@@ -548,13 +558,19 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.stroke();
   }
 
-  const undoAction = () => {
-    if (index <= 0) {
-      clearCanvas();
-    } else {
-      setIndex(index - 1);
-      setRestoreArray([...restoreArray.slice(0, -1)]);
-      contextRef.current.putImageData(restoreArray[index - 1], 0, 0);
+  const handleCanvasClick = (event) => {
+    if (lineMode) {
+      const { offsetX, offsetY } = event.nativeEvent;
+      if (!isDrawing) {
+        // Start a new line
+        setIsDrawing(true);
+        setStartPoint({ x: offsetX, y: offsetY});
+      } else {
+        //End the line and draw it
+        setIsDrawing(false);
+        const { x, y } = startPoint;
+        drawLine(x, y, offsetX, offsetY);
+      }
     }
   }
 
