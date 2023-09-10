@@ -53,6 +53,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     event.preventDefault();
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
+    setIsErasing(false);
   }
 
   const handleLineWidthChange = (event) => {
@@ -84,8 +85,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         onMouseMove={draw}
         ref={canvasRef}
         style={{ border: '1px solid black' }}
-      >
-      </canvas>
+      />
     </div>
   )
 }

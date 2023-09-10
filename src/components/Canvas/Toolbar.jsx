@@ -22,10 +22,10 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
             <input 
               name="lineWidth" 
               id="lineWidth" 
-              type="number" 
+              type="range" 
               defaultValue="5" 
               onChange={handleLineWidthChange} 
-              max="10" 
+              max="50" 
               min="1"
             />
           </li>
