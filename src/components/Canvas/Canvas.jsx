@@ -515,7 +515,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const toggleLineWidth = (event) => {
     event.preventDefault();
     contextRef.current.lineWidth = event.target.value;
-    console.log(contextRef.current.lineWidth)
   }
 
   return (
