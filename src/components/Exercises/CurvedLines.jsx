@@ -74,16 +74,5 @@ export default function CurvedLines({ setCompleted }) {
 
     </div>
 
-
-    <div className="content">
-      <h3 className="question">Place the lines above on some of the prominent curved lines in the image above.</h3>
-
-      <div className="credit">
-        <p>The Great Wave off Kanagawa, Katsushika Hokusai, 1831</p>
-        <p>Image credit to Wikipedia</p>
-      </div>
-
-    </div>
-
   </div>)
 }

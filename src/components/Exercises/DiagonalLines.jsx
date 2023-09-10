@@ -79,15 +79,5 @@ export default function DiagonalLines({ setCompleted }) {
 
     </div>
 
-
-    <div className="content">
-      <h3 className="question">Place the lines above on some of the prominent diagonal lines in the image above.</h3>
-
-      <div className="credit">
-        <p>The Swing, Jean-Honoré Fragonard, 1767-8</p>
-        <p>Image credit to Wikipedia</p>
-      </div>
-
-    </div>
   </div>)
 }

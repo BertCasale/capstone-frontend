@@ -1,5 +1,6 @@
 //lazy allows importing a file later/dynamically (useful for exercises), Suspense allows a loading section while the component is getting dynamically imported and rendered
 import { useState, useEffect, lazy, Suspense } from "react";
+import axios from "axios";
 
 //lessonSections from lesson
 export default function Section({ lessonSections }) {
@@ -31,7 +32,7 @@ export default function Section({ lessonSections }) {
   //when the sectionindex gets changed, set the section data to the section with the new index
   //also reset the complete and attempted status
   useEffect(() => {
-    if (lessonSections[0]) {
+    if (lessonSections[sectionIndex]) {
       setSectionData(lessonSections[sectionIndex])
     }
     setCompleted(false);
@@ -62,8 +63,6 @@ export default function Section({ lessonSections }) {
     setSectionIndex(sectionIndex + num)
   }
 
-
-
   return (<div className="lesson-section">
 
     <div className="columns is-multiline is-centered">
@@ -82,7 +81,7 @@ export default function Section({ lessonSections }) {
       <div className="content column is-half" style={sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? null : { display: "none" }}>
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
-        <h2 className="learning-info" style={{whiteSpace: 'pre-wrap'}}>{sectionData.information_text}</h2>
+        <h2 className="learning-info" style={{whiteSpace:"pre-wrap"}}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
         <div className="feedback" style={attempted || completed ? null : { display: "none" }}>
@@ -92,13 +91,15 @@ export default function Section({ lessonSections }) {
 
       </div>
 
-      <div className="column exercise" style={sectionData.interactive_element && sectionData.interactive_element !== "none" ? null : { display: "none" }}>
+      <div className="column exercise content" style={sectionData.interactive_element && sectionData.interactive_element !== "none" ? null : { display: "none" }}>
 
+        <h3 className="question">{sectionData.question}</h3>
 
         <Suspense fallback={<h2>Exercise Loading...</h2>}>
           {exercise}
         </Suspense>
 
+        <p className="credit" style={{whiteSpace:"pre-wrap"}}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </p>
 
       </div>
 
