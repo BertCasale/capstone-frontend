@@ -33,7 +33,7 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
       setUsername('');
       setPassword('')
       setErrorMessage('')
-      console.log(`${authUser.email} login successful`);
+      // console.log(`${authUser.email} login successful`);
       // console.log (result)
       console.log(auth.currentUser.getIdToken());
     } catch (error) {

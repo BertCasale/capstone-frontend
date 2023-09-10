@@ -40,7 +40,8 @@ function App() {
   },[]);
 
   //console log of created users on firestore db
-  // console.log(usersList);
+  // console.log(authUser.auth.currentUser.uid);
+  // console.log(authUser.auth.currentUser.uid);
 
 
  
