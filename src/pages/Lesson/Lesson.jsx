@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Section from "../../components/Lesson/Section";
@@ -25,7 +25,6 @@ export default function Lesson() {
     //get the lesson for the page we are on
     axios.get(`${API}/lessons/${lessonId}`)
       .then((res) => {
-        console.log(res.data)
         setLesson(res.data);
       })
       .catch((e) => console.warn(e));
@@ -36,7 +35,6 @@ export default function Lesson() {
     //get the sections for the lesson we are on
     axios.get(`${API}/lessonSections/${lessonId}`)
       .then((res) => {
-        console.log(res.data[0])
         setLessonSections(res.data)
       })
       .catch((e) => console.warn(e))

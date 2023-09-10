@@ -1,14 +1,16 @@
+import { useState } from "react";
 import artwork from "../../assets/images/LePontdelEurope.jpg"
 import "./ConvergingLines.css";
 
 //setCompleted, completed, and setAttempted come from section
-export default function ConvergingLines({ setCompleted, setAttempted, completed }) {
+export default function ConvergingLines({ setCompleted, setAttempted}) {
+  const [success, setSuccess] = useState(false);
 
   //what should be done when the correct area is clicked
-  function handleCorrectClick(event) {
+  function handleCorrectClick() {
     setAttempted(true);
     setCompleted(true);
-    event.target.style = "opacity:50%"
+    setSuccess(true);
   }
 
   //what should be done when the incorrect area is clicked
@@ -27,7 +29,7 @@ export default function ConvergingLines({ setCompleted, setAttempted, completed 
 
         {/* this button is styled over the correct area on the image button */}
         {/* will give the "correct_feedback" message when clicked, and allow the user to move on to the next section */}
-        <button className="correct-button is-clickable" onClick={handleCorrectClick}></button>
+        <button className={`correct-button is-clickable ${success ? "completed-area" : "incompleted-area"} `} onClick={handleCorrectClick}></button>
 
       </div>
       
