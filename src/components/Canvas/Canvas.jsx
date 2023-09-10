@@ -468,6 +468,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [isDrawing, setIsDrawing] = useState(false);
   const [brushColor, setBrushColor] = useState('black');
   const [isErasing, setIsErasing] = useState(false);
+  const [restoreArray, setRestoreArray] = useState([]);
+  const [index, setIndex] = useState(-1);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -502,10 +504,17 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const stopDrawing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
+    setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)])
+    // restoreArray.push(contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height));
+    setIndex(index + 1);
+    console.log(restoreArray)
+    console.log(index)
   }
 
   const clearCanvas = () => {
     contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+    setRestoreArray([]);
+    setIndex(-1);
   }
 
   const handleColorChange = (event) => {
@@ -529,6 +538,16 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setIsErasing(!isErasing);
   }
 
+  const undoAction = () => {
+    if (index <= 0) {
+      clearCanvas();
+    } else {
+      setIndex(index - 1);
+      setRestoreArray([...restoreArray.slice(0, -1)]);
+      contextRef.current.putImageData(restoreArray[index], 0, 0);
+    }
+  }
+
   return (
     <div>
       <Toolbar 
@@ -537,6 +556,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         handleLineWidthChange={handleLineWidthChange}
         toggleEraseMode={toggleEraseMode}
         isErasing={isErasing}
+        undoAction={undoAction}
       />
       <canvas
         onMouseDown={startDrawing}
