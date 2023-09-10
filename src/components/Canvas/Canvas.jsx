@@ -481,6 +481,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     context.strokeStyle = "black";
     context.lineWidth = 5;
     contextRef.current = context;
+    console.log(`useEffect: ${contextRef.current.lineWidth}`)
   }, [])
 
   const startDrawing = ({ nativeEvent }) => {
@@ -514,6 +515,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const toggleLineWidth = (event) => {
     event.preventDefault();
     contextRef.current.lineWidth = event.target.value;
+    console.log(contextRef.current.lineWidth)
   }
 
   return (
@@ -522,7 +524,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         clearCanvas={clearCanvas} 
         toggleColor={toggleColor} 
         toggleLineWidth={toggleLineWidth}
-      
+        contextRef={contextRef}
       />
       <canvas
         onMouseDown={startDrawing}
