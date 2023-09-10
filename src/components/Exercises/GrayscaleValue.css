@@ -1,8 +1,8 @@
-.jigsaw-puzzle {
+.grayscale-value .jigsaw-puzzle {
   border: solid #7F7F7F 2px;
 }
 
-.jigsaw-puzzle__piece.jigsaw-puzzle__piece--solved {
+.grayscale-value .jigsaw-puzzle__piece.jigsaw-puzzle__piece--solved {
   border: none;
   cursor: default;
 }
