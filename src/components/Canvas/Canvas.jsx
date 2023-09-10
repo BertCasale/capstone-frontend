@@ -583,6 +583,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         toggleEraseMode={toggleEraseMode}
         isErasing={isErasing}
         undoAction={undoAction}
+        lineMode={lineMode}
+        toggleLineMode={toggleLineMode}
       />
       <canvas
         onMouseDown={startDrawing}
