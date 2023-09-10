@@ -7,7 +7,7 @@ export default function Toolbar({ clearCanvas }) {
       <aside className="menu">
         <ul className="menu-list">
           <li><button onClick={clearCanvas}>Clear</button></li>
-          <li></li>
+          <li><input id="stroke" name="stroke" type="color"></input></li>
           <li></li>
           <li></li>
           <li></li>
