@@ -481,7 +481,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     canvas.width = canvasWidth - canvasOffsetX;
     canvas.height = canvasHeight - canvasOffsetY;
 
-    const context = canvas.getContext("2d");
+    const context = canvas.getContext("2d", { willReadFrequently: true });
     context.lineCap = "round";
     context.strokeStyle = brushColor;
     context.lineWidth = 5;
@@ -505,11 +505,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const stopDrawing = () => {
     contextRef.current.closePath();
     setIsDrawing(false);
-    setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)])
-    // restoreArray.push(contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height));
+    setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
     setIndex(index + 1);
-    console.log(`stop: ${restoreArray}`)
-    console.log(index)
   }
 
   const clearCanvas = () => {
@@ -552,8 +549,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   const undoAction = () => {
-    console.log(restoreArray)
-    console.log(index)
     if (index <= 0) {
       clearCanvas();
     } else {
