@@ -3,14 +3,14 @@ import "./GrayscaleValue.css";
 import {JigsawPuzzle} from "react-jigsaw-puzzle/lib";
 import "react-jigsaw-puzzle/lib/jigsaw-puzzle.css";
 
-//setCompleted, completed, and setAttempted come from section
-export default function ConvergingLines({ setCompleted }) {
+//setCompleted come from section
+export default function GrayscaleValue({ setCompleted }) {
 
   function handlePuzzleSolved() {
     setCompleted(true);
   }
 
-  return (<div className="converging-lines">
+  return (<div className="grayscale-value">
 
     <div className="interactive is-flex is-justify-content-center">
 
