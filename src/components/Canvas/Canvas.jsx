@@ -507,14 +507,13 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
   }
 
-  const toggleColor = (event) => {
+  const handleColorChange = (event) => {
     event.preventDefault();
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
-    console.log(`toggleColor: ${brushColor}`)
   }
 
-  const toggleLineWidth = (event) => {
+  const handleLineWidthChange = (event) => {
     event.preventDefault();
     contextRef.current.lineWidth = event.target.value;
   }
@@ -531,11 +530,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     <div>
       <Toolbar 
         clearCanvas={clearCanvas} 
-        toggleColor={toggleColor} 
-        toggleLineWidth={toggleLineWidth}
-        contextRef={contextRef}
+        handleColorChange={handleColorChange} 
+        handleLineWidthChange={handleLineWidthChange}
         toggleEraseMode={toggleEraseMode}
-        brushColor={brushColor}
       />
       <canvas
         onMouseDown={startDrawing}
