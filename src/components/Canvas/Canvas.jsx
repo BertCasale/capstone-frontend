@@ -506,9 +506,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
   }
 
+  const toggleColor = (event) => {
+    event.preventDefault();
+    contextRef.current.strokeStyle = event.target.value;
+  }
+
   return (
     <div>
-      <Toolbar clearCanvas={clearCanvas} />
+      <Toolbar clearCanvas={clearCanvas} toggleColor={toggleColor}/>
       <canvas
         onMouseDown={startDrawing}
         onMouseUp={stopDrawing}
