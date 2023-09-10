@@ -1,6 +1,6 @@
 
 
-export default function Toolbar({ clearCanvas, toggleColor, toggleLineWidth, contextRef }) {
+export default function Toolbar({ clearCanvas, toggleColor, toggleLineWidth }) {
 
   return (
     <div>
