@@ -1,6 +1,6 @@
 
 
-export default function Toolbar({ clearCanvas, toggleColor }) {
+export default function Toolbar({ clearCanvas, toggleColor, toggleLineWidth }) {
 
   return (
     <div>
@@ -9,7 +9,7 @@ export default function Toolbar({ clearCanvas, toggleColor }) {
           <label for="stroke">Color Stroke</label>
           <li><input name="stroke" type="color" onChange={toggleColor}></input></li>
           <label for="lineWidth">Line Width</label>
-          <li><input name="lineWidth" type="number" value="5"></input></li>
+          <li><input name="lineWidth" type="number" value="5" onChange={toggleLineWidth}></input></li>
           <li><button onClick={clearCanvas}>Clear</button></li>
           <li></li>
           <li></li>
