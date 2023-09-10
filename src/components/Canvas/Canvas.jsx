@@ -11,6 +11,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [isErasing, setIsErasing] = useState(false);
   const [restoreArray, setRestoreArray] = useState([]);
   const [index, setIndex] = useState(-1);
+  const [lineMode, setLineMode] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -63,6 +64,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
     setIsErasing(false);
+    setLineMode(false);
   }
 
   const handleLineWidthChange = (event) => {
@@ -77,6 +79,17 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
       contextRef.current.strokeStyle = brushColor;
     }
     setIsErasing(!isErasing);
+  }
+
+  const toggleLineMode = () => {
+    setLineMode(!lineMode);
+  }
+
+  const drawLine = (startX, startY, endX, endY) => {
+    contextRef.current.beginPath();
+    contextRef.current.moveTo(startX, startY);
+    contextRef.current.lineTo(endX, endY);
+    contextRef.current.stroke();
   }
 
   const undoAction = () => {
