@@ -481,7 +481,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     context.strokeStyle = "black";
     context.lineWidth = 5;
     contextRef.current = context;
-    console.log(`useEffect: ${contextRef.current.lineWidth}`)
   }, [])
 
   const startDrawing = ({ nativeEvent }) => {
@@ -517,6 +516,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.lineWidth = event.target.value;
   }
 
+  const eraseMode = () => {
+    contextRef.current.strokeStyle = "white";
+  }
+
   return (
     <div>
       <Toolbar 
@@ -524,6 +527,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         toggleColor={toggleColor} 
         toggleLineWidth={toggleLineWidth}
         contextRef={contextRef}
+        eraseMode={eraseMode}
       />
       <canvas
         onMouseDown={startDrawing}
