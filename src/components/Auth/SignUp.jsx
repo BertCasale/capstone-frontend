@@ -23,8 +23,19 @@ export default function SignUp() {
 
     try {
       // Treat the username as the email and create a user account in firebase Auth
-      await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password);
-      console.log('Signup successful');
+      await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
+      // console.log(`Signup successful`);
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const uid = user.uid;
+        const registrationDate = user.metadata.creationTime
+        const userEmail = user.email
+
+        console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registrationDate}`);
+        // console.log(user.email);
+        // console.log(registrationDate);
+        // console.log(userCredential);
+      })
       //add the new user data to firestore db
       await addDoc(userCollectionRef, { username: username, password: password });
       //clear fields
@@ -75,7 +86,5 @@ export default function SignUp() {
         </Form.Field>
       </Form.Control>
     </form>
-
-
   )
 }
