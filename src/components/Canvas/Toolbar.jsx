@@ -1,17 +1,43 @@
 
 
-export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode }) {
+export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, isErasing }) {
 
   return (
     <div>
       <aside className="menu">
         <ul className="menu-list">
-          <label htmlFor="stroke">Color Stroke</label>
-          <li><input name="stroke" id="stroke" type={"color"} onChange={(e) => handleColorChange(e)}></input></li>
-          <label htmlFor="lineWidth">Line Width</label>
-          <li><input name="lineWidth" id="lineWidth" type="number" defaultValue="5" onChange={handleLineWidthChange} max="10" min="1"></input></li>
-          <li><button onClick={toggleEraseMode}>Erase</button></li>
+
+          <label htmlFor="stroke">Color:</label>
+          <li>
+            <input 
+              name="stroke" 
+              id="stroke" 
+              type={"color"} 
+              onChange={(e) => handleColorChange(e)}
+            />
+          </li>
+
+          <label htmlFor="lineWidth">Line Width:</label>
+          <li>
+            <input 
+              name="lineWidth" 
+              id="lineWidth" 
+              type="number" 
+              defaultValue="5" 
+              onChange={handleLineWidthChange} 
+              max="10" 
+              min="1"
+            />
+          </li>
+
+          <li>
+            <button onClick={toggleEraseMode}>
+              Erase Mode: {isErasing ? 'On': 'Off'}
+            </button>
+          </li>
+
           <li><button onClick={clearCanvas}>Clear</button></li>
+
         </ul>
       </aside>
     </div>
