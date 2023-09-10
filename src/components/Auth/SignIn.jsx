@@ -35,7 +35,7 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
       setErrorMessage('')
       console.log(`${authUser.email} login successful`);
       // console.log (result)
-      // console.log(auth.currentUser.getIdToken());
+      console.log(auth.currentUser.getIdToken());
     } catch (error) {
       setErrorMessage('Invalid username or password');
       setPassword('')
