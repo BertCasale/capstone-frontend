@@ -55,8 +55,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         onMouseUp={stopDrawing}
         onMouseMove={draw}
         ref={canvasRef}
-        width={200}
-        height={200}
         style={{ border: '1px solid black' }}
       >
       </canvas>
