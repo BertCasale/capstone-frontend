@@ -48,7 +48,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)])
     // restoreArray.push(contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height));
     setIndex(index + 1);
-    console.log(restoreArray)
+    console.log(`stop: ${restoreArray}`)
     console.log(index)
   }
 
@@ -80,12 +80,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   const undoAction = () => {
+    console.log(restoreArray)
+    console.log(index)
     if (index <= 0) {
       clearCanvas();
     } else {
       setIndex(index - 1);
       setRestoreArray([...restoreArray.slice(0, -1)]);
-      contextRef.current.putImageData(restoreArray[index], 0, 0);
+      contextRef.current.putImageData(restoreArray[index - 1], 0, 0);
     }
   }
 
