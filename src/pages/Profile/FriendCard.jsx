@@ -3,7 +3,8 @@
 export default function FriendCard() {
   return (
     <div>
-      friend card
+      friend card,
+      
     </div>
   )
 }
