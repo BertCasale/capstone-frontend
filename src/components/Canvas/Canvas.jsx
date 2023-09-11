@@ -502,7 +502,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.stroke();
   }
 
-  const stopDrawing = () => {
+  const stopDrawing = (event) => {
+    if (!isDrawing) return;
+    console.log(event._reactName)
     contextRef.current.closePath();
     setIsDrawing(false);
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
@@ -588,8 +590,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
       />
       <canvas
         onMouseDown={startDrawing}
-        onMouseUp={stopDrawing}
         onMouseMove={draw}
+        onMouseUp={stopDrawing}
+        onMouseLeave={stopDrawing}
         ref={canvasRef}
         style={{ border: '1px solid black' }}
       />
