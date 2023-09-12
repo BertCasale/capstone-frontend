@@ -1,0 +1,65 @@
+.value-test .artwork {
+  border: 3px solid gray;
+}
+
+.value-test .empty-area {
+  position: absolute;
+  text-align: center;
+
+  background-color: green;
+  opacity: 50%;
+}
+
+.value-test .empty-area p {
+  margin: auto;
+  width: 20%;
+  
+  color: blue;
+  opacity:1;
+  background-color: red ;
+}
+
+.value-test .first-area {
+  height: 15%;
+  left: 36%;
+  top: 31%;
+  width: 28%;
+
+  /* need to adjust shape */
+}
+
+.value-test .second-area {
+  height: 28%;
+  left: 35%;
+  top: 39%;
+  width: 15%;
+
+  /* need to adjust shape */
+}
+
+.value-test .third-area {
+  height: 28%;
+  left: 50%;
+  top: 39%;
+  width: 15%;
+
+  /* need to adjust shape */
+}
+
+.value-test .fourth-area {
+  height: 25%;
+  left: 22%;
+  top: 60%;
+  width: 27%;
+
+  /* need to adjust shape */
+}
+
+.value-test .fifth-area {
+  height: 25%;
+  left: 51%;
+  top: 60%;
+  width: 27%;
+
+  /* need to adjust shape */
+}
