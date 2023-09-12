@@ -467,7 +467,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [brushColor, setBrushColor] = useState('black');
-  const [isErasing, setIsErasing] = useState(false);
+  const [eraseMode, setEraseMode] = useState(false); // controls erase mode
   const [restoreArray, setRestoreArray] = useState([]);
   const [index, setIndex] = useState(-1);
 
@@ -497,15 +497,13 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setStartPoint({ x: offsetX, y: offsetY }); // sets start point to be the current mouse position
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
-    // console.log(canvasRef.current.width)
     // sets snapshot to be the current canvas data
     setSnapshot(contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height));
   }
 
   const draw = (event) => {
     if (!isDrawing) return;
-    contextRef.current.putImageData(snapshot, 0, 0); 
-    // adds copied canvas data on to the current canvas
+    contextRef.current.putImageData(snapshot, 0, 0); // adds copied canvas data on to the current canvas
     const { offsetX, offsetY } = event.nativeEvent;
 
     if (lineMode) {
@@ -541,7 +539,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     event.preventDefault();
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
-    setIsErasing(false);
+    setEraseMode(false);
     setLineMode(false);
   }
 
@@ -553,10 +551,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const toggleEraseMode = () => {
     if (contextRef.current.strokeStyle != "#ffffff") {
       contextRef.current.strokeStyle = "white";
-    } else {
-      contextRef.current.strokeStyle = brushColor;
     }
-    setIsErasing(!isErasing);
+    setEraseMode(!eraseMode);
   }
 
   const undoAction = () => {
@@ -587,7 +583,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         handleColorChange={handleColorChange} 
         handleLineWidthChange={handleLineWidthChange}
         toggleEraseMode={toggleEraseMode}
-        isErasing={isErasing}
+        eraseMode={eraseMode}
         undoAction={undoAction}
         lineMode={lineMode}
         toggleLineMode={toggleLineMode}
