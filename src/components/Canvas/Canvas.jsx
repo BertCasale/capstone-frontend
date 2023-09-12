@@ -11,7 +11,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [isErasing, setIsErasing] = useState(false);
   const [restoreArray, setRestoreArray] = useState([]);
   const [index, setIndex] = useState(-1);
+
   const [lineMode, setLineMode] = useState(false);
+  const [startPointX, setStartPointX] = useState('');
+  const [startPointY, setStartPointY] = useState('');
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -31,21 +34,39 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const startDrawing = (event) => {
     const { offsetX, offsetY } = event.nativeEvent;
+    setIsDrawing(true);
+
+    if (lineMode) {
+      setStartPointX(offsetX);
+      setStartPointY(offsetY);
+    }
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
-    setIsDrawing(true);
+    
   }
 
   const draw = (event) => {
     if (!isDrawing) return;
     const { offsetX, offsetY } = event.nativeEvent;
+
+    if (lineMode) {
+      
+      contextRef.current.lineTo(offsetX, offsetY);
+      contextRef.current.stroke();
+      return;
+    }
+
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
   }
 
-  const stopDrawing = (event) => {
+  const stopDrawing = () => {
     if (!isDrawing) return;
-    console.log(event._reactName)
+    
+    if (lineMode) {
+      contextRef.current.stroke();
+    }
+    
     contextRef.current.closePath();
     setIsDrawing(false);
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
