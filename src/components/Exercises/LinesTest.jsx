@@ -17,7 +17,6 @@ export default function LinesTest({ setCompleted, setAttempted }) {
   //what should be done when the incorrect area is clicked
   function handleIncorrectClick() {
     setAttempted(true);
-    event.target.style = "border: red 3px solid"
   }
 
   return (<div className="lines-test">
