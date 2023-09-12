@@ -10,8 +10,11 @@ const API = import.meta.env.VITE_API_URL;
 
 // import { useAuth } from '../../contexts/AuthContexts'
 
+console.log(API)
 export default function SignUp() {
 
+  
+  
   const userCollectionRef = collection(db, "users");
   const navigate = useNavigate()
 
@@ -20,31 +23,31 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const [client, setClient] = useState({
-    registration_date: '',
+    registration_datetime: '2023-09-12T01:59:14.000Z',
     username: '',
-    email: '',
+    email: 'email@example.com',
     password: '',
-    profile_picture: '',
-    role: ''
+    profile_picture: 'none',
+    role: 'student',
   });
 
 
 
-  const newClient = () => {
-    let newUser = client;
-    axios
-      .post(`${API}/clients`, newUser)
-      .then(() => {
-        navigate('/dashboard');
-      })
-      .catch((error) => console.log(error))
+  const newClient = async () => { // Make it async
+    try {
+      await axios.post(`${API}/clients`, client); // Use client object directly
+      // navigate('/dashboard');
+    } catch (error) {
+      console.log(error);
+    }
   }
   // const [errorMessage, setErrorMessage] = useState('');
 
+
+  //---------------------------------------
   const handleSignUp = async (e) => {
     e.preventDefault();
-    newClient();
-
+   
     try {
       // Treat the username as the email and create a user account in firebase Auth
       // await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
@@ -54,13 +57,18 @@ export default function SignUp() {
         const user = userCredential.user;
         const uid = user.uid;
         const registrationDate = user.metadata.creationTime
+        const dateObj = new Date(registrationDate)
+        const registered = dateObj.toISOString();
         const userEmail = user.email
+        // const recordDate = {...client, registration_datetime: registered}
+      
+        console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registered}`);
+ 
+        console.log(client)
+        
+      });
 
-        console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registrationDate}`);
-        // console.log(user.email);
-        // console.log(registrationDate);
-        // console.log(userCredential);
-      })
+      await newClient();
       //add the new user data to firestore db
       await addDoc(userCollectionRef, { username: username, password: password });
       //clear fields
@@ -75,6 +83,11 @@ export default function SignUp() {
       // Look into prompt if error relates to username already in use
     }
   };
+//-------------------------------------------------
+//used for testing
+
+
+//-----------------------
 
   const handleTextChange = (e) => {
     setClient({...client, [e.target.id]: e.target.value })
