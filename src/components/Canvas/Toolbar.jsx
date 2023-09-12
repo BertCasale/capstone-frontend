@@ -1,6 +1,6 @@
 
 
-export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, isErasing, undoAction, lineMode, toggleLineMode }) {
+export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, eraseMode, undoAction, lineMode, toggleLineMode }) {
 
   return (
     <div>
@@ -32,7 +32,7 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
 
           <li>
             <button onClick={toggleEraseMode}>
-              Erase Mode: {isErasing ? 'On': 'Off'}
+              Erase Mode: {eraseMode ? 'On': 'Off'}
             </button>
           </li>
 
