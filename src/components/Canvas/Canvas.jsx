@@ -490,6 +490,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current = context;
   }, [])
 
+  // Executes on mouse down in the canvas and triggers isDrawing to true
   const startDrawing = (event) => {
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     setIsDrawing(true);
@@ -500,21 +501,21 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setSnapshot(contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height));
   }
 
+  // Executes on mouse move in the canvas while isDrawing is true
   const draw = (event) => {
     if (!isDrawing) return; // if mouse moves on canvas when isDrawing is false, nothing happens
     contextRef.current.putImageData(snapshot, 0, 0); // adds copied canvas data on to the current canvas
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
-
     if (lineMode) {
       const { x, y } = startPoint;
       drawLine(x, y, offsetX, offsetY); // draws a temporary line from the saved start point to current mouse position
       return;
     }
-
     contextRef.current.lineTo(offsetX, offsetY); // defines an end point to draw to
     contextRef.current.stroke(); // executes the drawing
   }
 
+  // Executes on mouse up in the canvas or on mouse leave, while isDrawing is true
   const stopDrawing = () => {
     if (!isDrawing) return; // if mouse leaves the canvas when isDrawing is false, nothing happens
     if (lineMode) {
@@ -524,7 +525,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
     // adds an instance of the canvas data that includes the last drawing
     setIndex(index + 1); // sets index of the last drawing so it can be removed with the undo button
-    console.log('stopDrawing:', restoreArray)
   }
 
   const clearCanvas = () => {
@@ -557,12 +557,11 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (index <= 0) {
       clearCanvas();
     } else {
-      console.log(restoreArray)
-      setIndex(index - 1);
       setRestoreArray([...restoreArray.slice(0, -1)]); 
       // sets the restoreArray to itself without the last instance of canvas, i.e. without the last drawing
       contextRef.current.putImageData(restoreArray[index - 1], 0, 0); 
       // displays all drawings except for the last one on the canvas. 
+      setIndex(index - 1);
     }
   }
 
@@ -571,10 +570,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   const drawLine = (startX, startY, endX, endY) => {
-    contextRef.current.beginPath();
-    contextRef.current.moveTo(startX, startY);
-    contextRef.current.lineTo(endX, endY);
-    contextRef.current.stroke();
+    contextRef.current.beginPath(); // defines a new path
+    contextRef.current.moveTo(startX, startY); // defines a start point
+    contextRef.current.lineTo(endX, endY); // defines an end point
+    contextRef.current.stroke(); // executes line drawing
   }
 
   return (
