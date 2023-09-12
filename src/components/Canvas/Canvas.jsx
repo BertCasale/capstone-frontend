@@ -13,8 +13,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [index, setIndex] = useState(-1);
 
   const [lineMode, setLineMode] = useState(false);
-  const [startPointX, setStartPointX] = useState('');
-  const [startPointY, setStartPointY] = useState('');
+  const [startPoint, setStartPoint] = useState({ x: null, y: null });
+  const [snapshot, setSnapshot] = useState({});
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -35,24 +35,23 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const startDrawing = (event) => {
     const { offsetX, offsetY } = event.nativeEvent;
     setIsDrawing(true);
-
-    if (lineMode) {
-      setStartPointX(offsetX);
-      setStartPointY(offsetY);
-    }
+    setStartPoint({ x: offsetX, y: offsetY }); // sets start point to be the current mouse position
     contextRef.current.beginPath();
     contextRef.current.moveTo(offsetX, offsetY);
-    
+    // console.log(canvasRef.current.width)
+    // sets snapshot to be the current canvas data
+    setSnapshot(contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height));
   }
 
   const draw = (event) => {
     if (!isDrawing) return;
+    contextRef.current.putImageData(snapshot, 0, 0); 
+    // adds copied canvas data on to the current canvas
     const { offsetX, offsetY } = event.nativeEvent;
 
     if (lineMode) {
-      
-      contextRef.current.lineTo(offsetX, offsetY);
-      contextRef.current.stroke();
+      const { x, y } = startPoint;
+      drawLine(x, y, offsetX, offsetY);
       return;
     }
 
@@ -120,22 +119,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.moveTo(startX, startY);
     contextRef.current.lineTo(endX, endY);
     contextRef.current.stroke();
-  }
-
-  const handleCanvasClick = (event) => {
-    if (lineMode) {
-      const { offsetX, offsetY } = event.nativeEvent;
-      if (!isDrawing) {
-        // Start a new line
-        setIsDrawing(true);
-        setStartPoint({ x: offsetX, y: offsetY});
-      } else {
-        //End the line and draw it
-        setIsDrawing(false);
-        const { x, y } = startPoint;
-        drawLine(x, y, offsetX, offsetY);
-      }
-    }
   }
 
   return (
