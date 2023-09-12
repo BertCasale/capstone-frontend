@@ -516,6 +516,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   const stopDrawing = () => {
+    if (!isDrawing) return; // if mouse leaves the canvas when isDrawing is false, nothing happens
     if (lineMode) {
       contextRef.current.stroke(); // draws the final line on mouse up or mouse leave
     }
@@ -523,6 +524,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
     // adds an instance of the canvas data that includes the last drawing
     setIndex(index + 1); // sets index of the last drawing so it can be removed with the undo button
+    console.log('stopDrawing:', restoreArray)
   }
 
   const clearCanvas = () => {
@@ -555,9 +557,12 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (index <= 0) {
       clearCanvas();
     } else {
+      console.log(restoreArray)
       setIndex(index - 1);
-      setRestoreArray([...restoreArray.slice(0, -1)]);
-      contextRef.current.putImageData(restoreArray[index - 1], 0, 0);
+      setRestoreArray([...restoreArray.slice(0, -1)]); 
+      // sets the restoreArray to itself without the last instance of canvas, i.e. without the last drawing
+      contextRef.current.putImageData(restoreArray[index - 1], 0, 0); 
+      // displays all drawings except for the last one on the canvas. 
     }
   }
 
