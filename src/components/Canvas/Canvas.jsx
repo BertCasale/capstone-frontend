@@ -555,7 +555,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (contextRef.current.strokeStyle != "#ffffff") {
       contextRef.current.strokeStyle = "white";
     }
+    if (eraseMode) contextRef.current.strokeStyle = brushColor;
     if (lineMode) setLineMode(false);
+    if (rectangleMode) setRectangleMode(false);
     setEraseMode(!eraseMode);
   }
 
@@ -573,7 +575,11 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const toggleLineMode = () => {
     setLineMode(!lineMode);
-    if (eraseMode) setEraseMode(false);
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+    }
+    if (rectangleMode) setRectangleMode(false);
   }
 
   const drawLine = (startX, startY, endX, endY) => {
@@ -585,7 +591,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const toggleRectangleMode = () => {
     setRectangleMode(!rectangleMode);
-    if (eraseMode) setEraseMode(false);
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+    }
     if (lineMode) setLineMode(false);
   }
 
