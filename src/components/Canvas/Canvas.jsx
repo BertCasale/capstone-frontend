@@ -55,7 +55,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     }
     if (rectangleMode) {
       const { x, y } = startPoint;
-      drawRectangle();
+      drawRectangle(offsetX, offsetY, x - offsetX, y - offsetY);
       return;
     }
 
@@ -115,6 +115,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const toggleLineMode = () => {
     setLineMode(!lineMode);
+    if (eraseMode) setEraseMode(false);
   }
 
   const drawLine = (startX, startY, endX, endY) => {
@@ -126,10 +127,12 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   const toggleRectangleMode = () => {
     setRectangleMode(!rectangleMode);
+    if (eraseMode) setEraseMode(false);
+    if (lineMode) setLineMode(false);
   }
 
-  const drawRectangle = () => {
-
+  const drawRectangle = (endX, endY, startX, startY) => {
+    contextRef.current.strokeRect(endX, endY, startX - endX, startY - endY);
   }
 
   return (
