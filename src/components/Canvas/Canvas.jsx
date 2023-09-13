@@ -511,6 +511,12 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
       drawLine(x, y, offsetX, offsetY); // draws a temporary line from the saved start point to current mouse position
       return;
     }
+    if (rectangleMode) {
+      const { x, y } = startPoint;
+      drawRectangle();
+      return;
+    }
+
     contextRef.current.lineTo(offsetX, offsetY); // defines an end point to draw to
     contextRef.current.stroke(); // executes the drawing
   }
@@ -576,6 +582,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.stroke(); // executes line drawing
   }
 
+  const toggleRectangleMode = () => {
+    setRectangleMode(!rectangleMode);
+  }
+
+  const drawRectangle = () => {
+
+  }
+
   return (
     <div>
       <Toolbar 
@@ -587,6 +601,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         undoAction={undoAction}
         lineMode={lineMode}
         toggleLineMode={toggleLineMode}
+        rectangleMode={rectangleMode}
+        toggleRectangleMode={toggleRectangleMode}
       />
       <canvas
         onMouseDown={startDrawing}
