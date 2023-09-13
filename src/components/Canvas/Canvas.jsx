@@ -86,7 +86,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
     setEraseMode(false);
-    setLineMode(false);
   }
 
   const handleLineWidthChange = (event) => {
@@ -98,6 +97,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (contextRef.current.strokeStyle != "#ffffff") {
       contextRef.current.strokeStyle = "white";
     }
+    if (lineMode) setLineMode(false);
     setEraseMode(!eraseMode);
   }
 
