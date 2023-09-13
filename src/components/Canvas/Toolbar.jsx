@@ -1,6 +1,6 @@
 
 
-export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, eraseMode, undoAction, lineMode, toggleLineMode, rectangleMode, toggleRectangleMode }) {
+export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, eraseMode, undoAction, lineMode, toggleLineMode, rectangleMode, toggleRectangleMode, circleMode, toggleCircleMode }) {
 
   return (
     <div>
@@ -45,6 +45,12 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           <li>
             <button onClick={toggleRectangleMode}>
               Rectangle Mode: {rectangleMode ? 'On': 'Off'}
+            </button>
+          </li>
+
+          <li>
+            <button onClick={toggleCircleMode}>
+              Circle Mode: {circleMode ? 'On': 'Off'}
             </button>
           </li>
 
