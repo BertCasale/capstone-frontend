@@ -507,13 +507,11 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.putImageData(snapshot, 0, 0); // adds copied canvas data on to the current canvas
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     if (lineMode) {
-      const { x, y } = startPoint;
-      drawLine(x, y, offsetX, offsetY); // draws a temporary line from the saved start point to current mouse position
+      drawLine(event); // draws a temporary line from the saved start point to current mouse position
       return;
     }
     if (rectangleMode) {
-      const { x, y } = startPoint;
-      drawRectangle(offsetX, offsetY, x - offsetX, y - offsetY);
+      drawRectangle(event);
       return;
     }
 
@@ -586,10 +584,12 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setLineMode(!lineMode);
   }
 
-  const drawLine = (startX, startY, endX, endY) => {
+  const drawLine = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
     contextRef.current.beginPath(); // defines a new path
-    contextRef.current.moveTo(startX, startY); // defines a start point
-    contextRef.current.lineTo(endX, endY); // defines an end point
+    contextRef.current.moveTo(x, y); // defines a start point
+    contextRef.current.lineTo(offsetX, offsetY); // defines an end point
     contextRef.current.stroke(); // executes line drawing
   }
 
@@ -604,8 +604,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setRectangleMode(!rectangleMode);
   }
 
-  const drawRectangle = (endX, endY, width, height) => {
-    contextRef.current.strokeRect(endX, endY, width, height);
+  const drawRectangle = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
+    contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY);
   }
 
   const toggleCircleMode = () => {
@@ -617,6 +619,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (lineMode) setLineMode(false);
     if (rectangleMode) setRectangleMode(false);
     setCircleMode(!circleMode);
+  }
+
+  const drawCircle = () => {
+
   }
 
   return (
