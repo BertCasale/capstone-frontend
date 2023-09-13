@@ -8,7 +8,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth"
 import axios from 'axios'
 const API = import.meta.env.VITE_API_URL;
 
-// import { useAuth } from '../../contexts/AuthContexts'
+// // import { useAuth } from '../../contexts/AuthContexts'
 
 export default function SignUp() {
  
@@ -84,16 +84,16 @@ export default function SignUp() {
       // //redirect user
       // navigate('/')
 
-    } catch (error) {
-      console.error('Signup error', error.message);
-      // Look into prompt if error relates to username already in use
-    }
-  };
-//-------------------------------------------------
-//used for testing
+//     } catch (error) {
+//       console.error('Signup error', error.message);
+//       // Look into prompt if error relates to username already in use
+//     }
+//   };
+// //-------------------------------------------------
+// //used for testing
 
 
-//-----------------------
+// //-----------------------
 
   const handleTextChange = async (e) => {
     await setClient({...client, [e.target.id]: e.target.value })

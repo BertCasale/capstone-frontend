@@ -13,7 +13,7 @@ import Hamster from './pages/Hamster'
 // import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
 // import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
 import { useEffect, useState } from 'react'
-import useAthState from './services/config/useAuthState'
+// import useAthState from './services/config/useAuthState'
 
 
 
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar user={user} setUser={setUser} authUser={authUser}/>
+      {/* <NavBar user={user} setUser={setUser} authUser={authUser}/> */}
       <Routes>
         <Route path='/' element={<Landing/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
