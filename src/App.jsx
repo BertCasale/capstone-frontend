@@ -22,26 +22,26 @@ function App() {
 
   const [user, setUser] = useState(null)
   const authUser = useAthState();
-  const [usersList, setUsersList] = useState([]);
-  const userCollectionRef = collection(db, "users")
-  useEffect(() => {
-     const getUserList = async () => {
-      //read db data
-      try{
-      const data = await getDocs(userCollectionRef)
-        const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-      setUsersList(filteredData);
-      console.log(usersList);
-      }catch(err) {
-        console.error(err);
-      }
-  };
-  getUserList()
-  },[]);
+  // const [usersList, setUsersList] = useState([]);
+  // const userCollectionRef = collection(db, "users")
+  // useEffect(() => {
+  //    const getUserList = async () => {
+  //     //read db data
+  //     try{
+  //     const data = await getDocs(userCollectionRef)
+  //       const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
+  //     setUsersList(filteredData);
+  //     console.log(usersList);
+  //     }catch(err) {
+  //       console.error(err);
+  //     }
+  // };
+  // getUserList()
+  // },[]);
 
   //console log of created users on firestore db
   // console.log(authUser.auth.currentUser.uid);
-  // console.log(authUser.auth.currentUser.uid);
+  // console.log(authUser.auth.currentUser.email);
 
 
  

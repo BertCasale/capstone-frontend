@@ -18,7 +18,7 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
   // const user = authUser
 
   const navigate = useNavigate()
-
+  
   // console.log(currentUser); // log for testing - can be cleaned up later
 
 
@@ -26,7 +26,8 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
     e.preventDefault();
     try {
       // const result = 
-      await signInWithEmailAndPassword(auth, `${username}@domain.com`, password);
+      // await signInWithEmailAndPassword(auth, `${username}@domain.com`, password);
+      await signInWithEmailAndPassword(auth, `${username}`, password);
       setIsModalActive(false)
       setUser(authUser);
       navigate('/dashboard');
@@ -35,7 +36,9 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
       setErrorMessage('')
       // console.log(`${authUser.email} login successful`);
       // console.log (result)
-      console.log(auth.currentUser.getIdToken());
+      // console.log(auth.currentUser.getIdToken());
+      console.log(auth.currentUser);
+     
     } catch (error) {
       setErrorMessage('Invalid username or password');
       setPassword('')

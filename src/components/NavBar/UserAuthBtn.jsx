@@ -15,7 +15,7 @@ export default function UserAuthBtn({ setIsModalActive, authUser, user, setUser}
    if (authUser) {
     return (
       <div>
-        {/* <p style={{ color: 'white' }}>{user}</p> */}
+        <p style={{ color: 'white' }}>{authUser.auth.currentUser.email}</p>
         <p style={{ color: 'white' }}>logged in</p>
         {/* <button onClick={handleLogout}>Logout</button> */}
         {/* Render the user profile icon here */}
