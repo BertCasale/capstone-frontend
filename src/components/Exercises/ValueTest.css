@@ -20,46 +20,73 @@
 }
 
 .value-test .first-area {
+  clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
   height: 15%;
   left: 36%;
   top: 31%;
   width: 28%;
-
-  /* need to adjust shape */
 }
 
 .value-test .second-area {
+  clip-path: polygon(2% 1%, 99% 28%, 99% 100%, 2% 72%);
   height: 28%;
   left: 35%;
   top: 39%;
   width: 15%;
-
-  /* need to adjust shape */
 }
 
 .value-test .third-area {
+  clip-path: polygon(2% 28%, 99% 1%, 99% 72%, 2% 100%);
   height: 28%;
   left: 50%;
   top: 39%;
   width: 15%;
-
-  /* need to adjust shape */
 }
 
 .value-test .fourth-area {
-  height: 25%;
-  left: 22%;
+  border-radius: 50%;
+  clip-path: polygon(0% 0%, 59% 1%, 83% 100%, 0% 100%);
+  height: 19%;
+  left: 20.5%;
   top: 60%;
-  width: 27%;
-
-  /* need to adjust shape */
+  transform: rotate(-38deg);
+  width: 34%;
 }
 
 .value-test .fifth-area {
-  height: 25%;
-  left: 51%;
+  border-radius: 50%;
+  clip-path: polygon(41% 1%, 100% 0%, 100% 100%, 17% 100%);
+  height: 19%;
+  left: 46%;
   top: 60%;
-  width: 27%;
+  transform: rotate(38deg);
+  width: 34%;
+}
 
-  /* need to adjust shape */
+.value-test .shade {
+  border: solid gray 3px;
+  height: 45px;
+  margin: 20px;
+  position: relative;
+  width: 45px;
+}
+
+.value-test .white {
+  background-color: white;
+}
+
+.value-test .light-gray {
+  background-color: #BFBFBF;
+}
+
+.value-test .middle-gray {
+  background-color: #7F7F7F;
+}
+
+.value-test .dark-gray {
+  background-color: #3F3F3F;
+}
+
+.value-test .black {
+  background-color: black;
 }
