@@ -589,8 +589,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (lineMode) setLineMode(false);
   }
 
-  const drawRectangle = (endX, endY, startX, startY) => {
-    contextRef.current.strokeRect(endX, endY, startX - endX, startY - endY);
+  const drawRectangle = (endX, endY, width, height) => {
+    contextRef.current.strokeRect(endX, endY, width, height);
   }
 
   return (
