@@ -4,18 +4,18 @@ import { FcGoogle } from "react-icons/fc"
 import { auth, googleProvider } from "../../services/config/firebase"
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
 
-// eslint-disable-next-line react/prop-types
+// // eslint-disable-next-line react/prop-types
 export default function SignIn({ authUser, setUser, setIsModalActive, closeModal, errorMessage, setErrorMessage}) {
-//props passed from Modal
+// //props passed from Modal
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
   
-  // const [user, setUser] = useState(null);
+//   // const [user, setUser] = useState(null);
 
-  //variable to capture current auth user
-  // const currentUser = auth.currentUser
-  // const user = authUser
+//   //variable to capture current auth user
+//   // const currentUser = auth.currentUser
+//   // const user = authUser
 
   const navigate = useNavigate()
   

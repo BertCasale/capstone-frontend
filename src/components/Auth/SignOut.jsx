@@ -1,31 +1,31 @@
-import { auth } from "../../services/config/firebase";
-import { signOut} from "firebase/auth"
-import {useNavigate} from "react-router-dom"
+// import { auth } from "../../services/config/firebase";
+// import { signOut} from "firebase/auth"
+// import {useNavigate} from "react-router-dom"
 
 
-// eslint-disable-next-line react/prop-types, no-unused-vars
-export default function SignOut({user, setUser}) {
- const navigate = useNavigate()
+// // eslint-disable-next-line react/prop-types, no-unused-vars
+// export default function SignOut({user, setUser}) {
+//  const navigate = useNavigate()
 
-  async function logOut() {
+//   async function logOut() {
 
-    try {
-      await signOut(auth);
-      setUser(null)
-      navigate('/')
-      console.log('User has been logged out');
-    } catch (error) {
-      console.error ('Error while logging out', error);
-    }
-  }
+//     try {
+//       await signOut(auth);
+//       setUser(null)
+//       navigate('/')
+//       console.log('User has been logged out');
+//     } catch (error) {
+//       console.error ('Error while logging out', error);
+//     }
+//   }
 
-  const handleSignOut = async () => {
-    await logOut()
-  };
+//   const handleSignOut = async () => {
+//     await logOut()
+//   };
 
-  return (
+//   return (
     
-      <div className="button is-rounded" onClick={handleSignOut}>Log Out</div>
+//       <div className="button is-rounded" onClick={handleSignOut}>Log Out</div>
     
-  )
-}
+//   )
+// }

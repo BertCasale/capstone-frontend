@@ -1,9 +1,11 @@
-// import { auth } from "../../services/config/firebase"
-import SignOut from "../Auth/SignOut";
+// // import { auth } from "../../services/config/firebase"
+// import SignOut from "../Auth/SignOut";
 
-// eslint-disable-next-line react/prop-types
-export default function UserAuthBtn({ setIsModalActive, authUser, user, setUser}) {
-  // setIsModalActive prop being passed from NavBar component
+// // eslint-disable-next-line react/prop-types
+// export default function UserAuthBtn({ setIsModalActive, authUser, user, setUser}) {
+//   // setIsModalActive prop being passed from NavBar component
+
+// // const user = authUser
 
 // const user = authUser
 
