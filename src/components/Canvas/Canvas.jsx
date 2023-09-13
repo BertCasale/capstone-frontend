@@ -102,6 +102,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     // if eraseMode is being turned off, sets the brush color to the previous one
     if (lineMode) setLineMode(false);
     if (rectangleMode) setRectangleMode(false);
+    if (circleMode) setCircleMode(false);
     setEraseMode(!eraseMode);
   }
 
@@ -124,6 +125,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
       // if eraseMode was on, sets it to off and sets the brush color to the previous one
     }
     if (rectangleMode) setRectangleMode(false);
+    if (circleMode) setCircleMode(false);
     setLineMode(!lineMode);
   }
 
@@ -141,6 +143,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
       // if eraseMode was on, sets it to off and sets the brush color to the previous one
     }
     if (lineMode) setLineMode(false);
+    if (circleMode) setCircleMode(false);
     setRectangleMode(!rectangleMode);
   }
 
@@ -154,6 +157,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
       contextRef.current.strokeStyle = brushColor;
       // if eraseMode was on, sets it to off and sets the brush color to the previous one
     }
+    if (lineMode) setLineMode(false);
+    if (rectangleMode) setRectangleMode(false);
     setCircleMode(!circleMode);
   }
 
