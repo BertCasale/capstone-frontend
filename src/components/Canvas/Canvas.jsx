@@ -118,13 +118,13 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   const toggleLineMode = () => {
-    setLineMode(!lineMode);
     if (eraseMode) {
       setEraseMode(false);
       contextRef.current.strokeStyle = brushColor; 
       // if eraseMode was on, sets it to off and sets the brush color to the previous one
     }
     if (rectangleMode) setRectangleMode(false);
+    setLineMode(!lineMode);
   }
 
   const drawLine = (startX, startY, endX, endY) => {
@@ -135,17 +135,26 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   const toggleRectangleMode = () => {
-    setRectangleMode(!rectangleMode);
     if (eraseMode) {
       setEraseMode(false);
       contextRef.current.strokeStyle = brushColor;
       // if eraseMode was on, sets it to off and sets the brush color to the previous one
     }
     if (lineMode) setLineMode(false);
+    setRectangleMode(!rectangleMode);
   }
 
   const drawRectangle = (endX, endY, width, height) => {
     contextRef.current.strokeRect(endX, endY, width, height);
+  }
+
+  const toggleCircleMode = () => {
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+      // if eraseMode was on, sets it to off and sets the brush color to the previous one
+    }
+    setCircleMode(!circleMode);
   }
 
   return (
@@ -161,6 +170,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         toggleLineMode={toggleLineMode}
         rectangleMode={rectangleMode}
         toggleRectangleMode={toggleRectangleMode}
+        circleMode={circleMode}
+        toggleCircleMode={toggleCircleMode}
       />
       <canvas
         onMouseDown={startDrawing}
