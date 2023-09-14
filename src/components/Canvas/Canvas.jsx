@@ -81,6 +81,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     event.preventDefault();
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
+    contextRef.current.fillStyle = event.target.value;
     setEraseMode(false);
   }
 
@@ -118,6 +119,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (lineMode) setLineMode(false);
     if (rectangleMode) setRectangleMode(false);
     if (circleMode) setCircleMode(false);
+    if (fillMode) setFillMode(false);
     setEraseMode(!eraseMode);
   }
 
@@ -177,6 +179,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const drawRectangle = (event) => {
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     const { x, y } = startPoint;
+    if (fillMode) {
+      contextRef.current.fillRect(offsetX, offsetY, x - offsetX, y - offsetY);
+      return;
+    }
     contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY); 
   }
 
@@ -187,7 +193,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     let radius = Math.sqrt(Math.pow((x - offsetX), 2) + Math.pow((y - offsetY), 2));
     // sets radius for circle based on current mouse position
     contextRef.current.arc(x, y, radius, 0, 2 * Math.PI); // defines the circle
-    contextRef.current.stroke(); // executes the drawing
+    fillMode ? contextRef.current.fill() : contextRef.current.stroke(); // executes the drawing
   }
 
   return (
