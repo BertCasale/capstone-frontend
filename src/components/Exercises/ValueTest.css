@@ -5,18 +5,6 @@
 .value-test .empty-area {
   position: absolute;
   text-align: center;
-
-  opacity: 100%;
-}
-
-.value-test .empty-area p {
-  margin: auto;
-  width: 0;
-  height: 0;
-  
-  color: blue;
-  opacity:1;
-  background-color: red ;
 }
 
 .value-test .first-area {
