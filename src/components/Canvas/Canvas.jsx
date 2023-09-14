@@ -537,6 +537,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     event.preventDefault();
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
+    contextRef.current.fillStyle = event.target.value;
     setEraseMode(false);
   }
 
@@ -574,6 +575,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (lineMode) setLineMode(false);
     if (rectangleMode) setRectangleMode(false);
     if (circleMode) setCircleMode(false);
+    if (fillMode) setFillMode(false);
     setEraseMode(!eraseMode);
   }
 
@@ -633,6 +635,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const drawRectangle = (event) => {
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     const { x, y } = startPoint;
+    if (fillMode) {
+      contextRef.current.fillRect(offsetX, offsetY, x - offsetX, y - offsetY);
+      return;
+    }
     contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY); 
   }
 
