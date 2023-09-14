@@ -1,50 +1,46 @@
-.empty-box {
+.curved-lines .empty-box {
   position: absolute;
   text-align: center;
 }
 
-.first-box {
+.curved-lines .first-box {
   height: 37%;
-  width: 40%;
   left: 0%;
   top: 7%;
+  width: 40%;
 }
 
-.second-box {
+.curved-lines .second-box {
   height: 47%;
-  width: 59%;
   right: 2%;
   top: 32%;
+  width: 59%;
 }
 
-.artwork {
-  max-width: 100%;
-  position: relative;
+.curved-lines .line-1 {
+  max-width: 185px;
 }
 
-.artwork-div {
-  width: 550px;
-  position: relative;
+.curved-lines .line-2 {
+  max-width: 270px;
 }
 
-.line-1 {
-  width: 220px;
-}
+@media (max-width: 950px) {
+  .curved-lines .line-1 {
+    max-width: 160px;
+  }
 
-.line-2 {
-  width: 327px;
+  .curved-lines .line-2 {
+    max-width: 240px;
+  }
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
-    width: 300px;
-  }
-
-  .line-1 {
+  .curved-lines .line-1 {
     max-width: 111px;
   }
 
-  .line-2 {
+  .curved-lines .line-2 {
     max-width: 178px;
   }
 }

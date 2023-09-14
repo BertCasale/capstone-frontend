@@ -1,78 +1,84 @@
-.empty-box {
-  width: 16%;
+.diagonal-lines .empty-box {
   position: absolute;
   text-align: center;
+  width: 16%;
 }
 
-.first-box {
+.diagonal-lines .first-box {
   height: 40%;
   left: 47%;
   top: 17%;
   transform: rotate(25deg);
 }
 
-.second-box {
+.diagonal-lines .second-box {
   height: 31%;
   left: 60%;
   top: 27%;
   transform: rotate(35deg);
 }
 
-.third-box {
-  height: 22%;
+.diagonal-lines .third-box {
+  height: 19%;
   right: 18%;
-  top: 54%;
+  top: 55%;
   transform: rotate(-45deg);
 }
 
-.artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.artwork-div {
-  width: 550px;
-  position: relative;
-}
-
-.line {
-  width: 70px;
+.diagonal-lines .line {
   margin: 30px;
+  width: 60px;
+  max-height: 100%;
 }
 
-.line-1 {
+.diagonal-lines .line-1 {
   height: 280px;
   transform: rotate(25deg);
 }
 
-.line-2 {
+.diagonal-lines .line-2 {
   height: 200px;
   transform: rotate(35deg);
 }
 
-.line-3 {
+.diagonal-lines .line-3 {
   height: 145px;
   transform: rotate(-45deg);
 }
 
+@media (max-width: 950px) {
+  .diagonal-lines .line-1 {
+    height: 200px;
+  }
+
+  .diagonal-lines .line-2 {
+    height: 155px;
+  }
+
+  .diagonal-lines .line-3 {
+    height: 95px;
+  }
+
+  .diagonal-lines .line {
+    width: 50px;
+  }
+}
+
 @media (max-width: 650px) {
-  .artwork-div {
-    width: 300px;
+
+  .diagonal-lines .line-1 {
+    height: 151px;
   }
 
-  .line-1 {
-    max-height: 151px;
+  .diagonal-lines .line-2 {
+    height: 117px;
   }
 
-  .line-2 {
-    max-height: 117px;
+  .diagonal-lines .line-3 {
+    height: 82px;
   }
 
-  .line-3 {
-    max-height: 82px;
-  }
-
-  .line {
+  .diagonal-lines .line {
     width: 34px;
   }
 }

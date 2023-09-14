@@ -1,30 +1,22 @@
-.empty-box {
-  width: 100%;
+.horizontal-lines .empty-box {
+  height: 23%;
   position: absolute;
   top: 67%;
-  height: 23%;
+  width: 100%;
 }
 
-.line{
-  max-width: 550px;
+.horizontal-lines .line{
+  max-width: 450px;
 }
 
-.artwork {
-  max-width: 100%;
-  position: relative;
-}
-
-.artwork-div {
-  width: 550px;
-  position: relative;
+@media (max-width: 950px) {
+  .horizontal-lines .line {
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 650px) {
-  .artwork-div {
-    width: 300px;
-  }
-
-  .line {
+  .horizontal-lines .line {
     max-width: 300px;
   }
 }

@@ -1,0 +1,45 @@
+.exercise .artwork {
+  max-width: 100%;
+  position: relative;
+}
+
+.exercise .artwork-div {
+  position: relative;
+  width: 450px;
+}
+
+.exercise .completed-area {
+  opacity: 50%;
+}
+
+.exercise .incompleted-area {
+  opacity: 0%;
+}
+
+.exercise .completed-correct-selection {
+  border: green 3px solid;
+}
+
+.exercise .completed-incorrect-selection {
+  border: red 3px solid;
+}
+
+.exercise .correct-selection {
+  background-color: green;
+}
+
+.exercise .incorrect-selection {
+  background-color: red;
+}
+
+@media (max-width: 950px) {
+  .exercise .artwork-div {
+    width: 400px;
+  }
+}
+
+@media (max-width: 650px) {
+  .exercise .artwork-div {
+    width: 300px;
+  }
+}
