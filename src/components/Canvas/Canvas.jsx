@@ -16,6 +16,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [snapshot, setSnapshot] = useState({}); // holds the current canvas data
   const [rectangleMode, setRectangleMode] = useState(false);
   const [circleMode, setCircleMode] = useState(false);
+  const [fillMode, setFillMode] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -153,8 +154,17 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setCircleMode(!circleMode);
   }
 
+  const toggleFillMode = () => {
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+      // if eraseMode was on, sets it to off and sets the brush color to the previous one
+    }
+    setFillMode(!fillMode);
+  }
+
   /* LINES AND SHAPES DRAW FUNCTIONS */
-  
+
   const drawLine = (event) => {
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     const { x, y } = startPoint;
@@ -184,17 +194,19 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     <div>
       <Toolbar 
         clearCanvas={clearCanvas} 
+        undoAction={undoAction}
         handleColorChange={handleColorChange} 
         handleLineWidthChange={handleLineWidthChange}
         toggleEraseMode={toggleEraseMode}
-        eraseMode={eraseMode}
-        undoAction={undoAction}
-        lineMode={lineMode}
         toggleLineMode={toggleLineMode}
-        rectangleMode={rectangleMode}
         toggleRectangleMode={toggleRectangleMode}
-        circleMode={circleMode}
         toggleCircleMode={toggleCircleMode}
+        toggleFillMode={toggleFillMode}
+        eraseMode={eraseMode}
+        lineMode={lineMode}
+        rectangleMode={rectangleMode}        
+        circleMode={circleMode}        
+        fillMode={fillMode}        
       />
       <canvas
         onMouseDown={startDrawing}
