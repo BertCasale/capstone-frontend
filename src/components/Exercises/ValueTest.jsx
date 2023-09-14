@@ -128,6 +128,27 @@ export default function ValueTest({ setCompleted, setAttempted }) {
           onClick={(e) => handleClick(e)}>
         </div>
 
+        {/* divs to outline the correct or incorrect areas  */}
+        <div className={`empty-area first-background-area 
+          ${areaFilledAmount === 5 && areasFilled[0].correct ? "correct-selection" : ""}
+          ${areaFilledAmount === 5 && !areasFilled[0].correct ? "incorrect-selection" : ""}`}></div>
+
+        <div className={`empty-area second-background-area 
+          ${areaFilledAmount === 5 && areasFilled[1].correct ? "correct-selection" : ""}
+          ${areaFilledAmount === 5 && !areasFilled[1].correct ? "incorrect-selection" : ""}`}></div>
+
+        <div className={`empty-area third-background-area 
+          ${areaFilledAmount === 5 && areasFilled[2].correct ? "correct-selection" : ""}
+          ${areaFilledAmount === 5 && !areasFilled[2].correct ? "incorrect-selection" : ""}`}></div>
+
+        <div className={`empty-area fourth-background-area 
+          ${areaFilledAmount === 5 && areasFilled[3].correct ? "correct-selection" : ""}
+          ${areaFilledAmount === 5 && !areasFilled[3].correct ? "incorrect-selection" : ""}`}></div>
+
+        <div className={`empty-area fifth-background-area 
+          ${areaFilledAmount === 5 && areasFilled[4].correct ? "correct-selection" : ""}
+          ${areaFilledAmount === 5 && !areasFilled[4].correct ? "incorrect-selection" : ""}`}></div>
+
       </div>
 
       {/* the box the contains the shades at the start */}

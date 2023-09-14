@@ -24,6 +24,14 @@
   border: red 3px solid;
 }
 
+.exercise .correct-selection {
+  background-color: green;
+}
+
+.exercise .incorrect-selection {
+  background-color: red;
+}
+
 @media (max-width: 950px) {
   .exercise .artwork-div {
     width: 400px;
