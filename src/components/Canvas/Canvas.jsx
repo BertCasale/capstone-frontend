@@ -507,14 +507,17 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.putImageData(snapshot, 0, 0); // adds copied canvas data on to the current canvas
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     if (lineMode) {
-      drawLine(event); // draws a temporary line from the saved start point to current mouse position
+      drawLine(event); 
       return;
     }
     if (rectangleMode) {
       drawRectangle(event);
       return;
     }
-
+    if (circleMode) {
+      drawCircle(event);
+      return;
+    }
     contextRef.current.lineTo(offsetX, offsetY); // defines an end point to draw to
     contextRef.current.stroke(); // executes the drawing
   }
@@ -522,9 +525,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   // Executes on mouse up in the canvas or on mouse leave, while isDrawing is true
   const stopDrawing = () => {
     if (!isDrawing) return; // if mouse leaves the canvas when isDrawing is false, nothing happens
-    if (lineMode) {
-      contextRef.current.stroke(); // draws the final line on mouse up or mouse leave
-    }
     setIsDrawing(false);
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
     // adds an instance of the canvas data that includes the last drawing
@@ -607,7 +607,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const drawRectangle = (event) => {
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     const { x, y } = startPoint;
-    contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY);
+    contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY); 
   }
 
   const toggleCircleMode = () => {
@@ -621,8 +621,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setCircleMode(!circleMode);
   }
 
-  const drawCircle = () => {
-
+  const drawCircle = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
+    contextRef.current.beginPath(); // creates new path to draw circle
+    let radius = Math.sqrt(Math.pow((x - offsetX), 2) + Math.pow((y - offsetY), 2));
+    // sets radius for circle based on current mouse position
+    contextRef.current.arc(x, y, radius, 0, 2 * Math.PI); // defines the circle
+    contextRef.current.stroke(); // executes the drawing
   }
 
   return (
