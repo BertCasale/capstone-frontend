@@ -476,10 +476,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-
     const canvasOffsetX = canvas.offsetLeft;
     const canvasOffsetY = canvas.offsetTop;
-
     canvas.width = canvasWidth - canvasOffsetX; // sets correct canvas horizontal position in the page
     canvas.height = canvasHeight - canvasOffsetY; // sets correct canvas vertical position in the page
 
@@ -489,6 +487,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     context.lineWidth = 5;
     contextRef.current = context;
   }, [])
+
+  /* MAIN DRAW FUNCTIONS */ 
 
   // Executes on mouse down in the canvas and triggers isDrawing to true
   const startDrawing = (event) => {
@@ -531,11 +531,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setIndex(index + 1); // sets index of the last drawing so it can be removed with the undo button
   }
 
-  const clearCanvas = () => {
-    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); // clears the canvas
-    setRestoreArray([]); // clears all canvas instances from the restoreArray
-    setIndex(-1);
-  }
+  /* HANDLERS, CLEAR AND UNDO FUNCTIONS */
 
   const handleColorChange = (event) => {
     event.preventDefault();
@@ -549,16 +545,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.lineWidth = event.target.value;
   }
 
-  const toggleEraseMode = () => {
-    if (contextRef.current.strokeStyle != "#ffffff") {
-      contextRef.current.strokeStyle = "white";
-    }
-    if (eraseMode) contextRef.current.strokeStyle = brushColor; 
-    // if eraseMode is being turned off, sets the brush color to the previous one
-    if (lineMode) setLineMode(false);
-    if (rectangleMode) setRectangleMode(false);
-    if (circleMode) setCircleMode(false);
-    setEraseMode(!eraseMode);
+  const clearCanvas = () => {
+    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); // clears the canvas
+    setRestoreArray([]); // clears all canvas instances from the restoreArray
+    setIndex(-1);
   }
 
   const undoAction = () => {
@@ -573,6 +563,20 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     }
   }
 
+  /* MODE TOGGLERS */ 
+
+  const toggleEraseMode = () => {
+    if (contextRef.current.strokeStyle != "#ffffff") {
+      contextRef.current.strokeStyle = "white";
+    }
+    if (eraseMode) contextRef.current.strokeStyle = brushColor; 
+    // if eraseMode is being turned off, sets the brush color to the previous one
+    if (lineMode) setLineMode(false);
+    if (rectangleMode) setRectangleMode(false);
+    if (circleMode) setCircleMode(false);
+    setEraseMode(!eraseMode);
+  }
+
   const toggleLineMode = () => {
     if (eraseMode) {
       setEraseMode(false);
@@ -582,15 +586,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (rectangleMode) setRectangleMode(false);
     if (circleMode) setCircleMode(false);
     setLineMode(!lineMode);
-  }
-
-  const drawLine = (event) => {
-    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
-    const { x, y } = startPoint;
-    contextRef.current.beginPath(); // defines a new path
-    contextRef.current.moveTo(x, y); // defines a start point
-    contextRef.current.lineTo(offsetX, offsetY); // defines an end point
-    contextRef.current.stroke(); // executes line drawing
   }
 
   const toggleRectangleMode = () => {
@@ -604,12 +599,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     setRectangleMode(!rectangleMode);
   }
 
-  const drawRectangle = (event) => {
-    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
-    const { x, y } = startPoint;
-    contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY); 
-  }
-
   const toggleCircleMode = () => {
     if (eraseMode) {
       setEraseMode(false);
@@ -619,6 +608,23 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     if (lineMode) setLineMode(false);
     if (rectangleMode) setRectangleMode(false);
     setCircleMode(!circleMode);
+  }
+
+  /* LINES AND SHAPES DRAW FUNCTIONS */
+  
+  const drawLine = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
+    contextRef.current.beginPath(); // defines a new path
+    contextRef.current.moveTo(x, y); // defines a start point
+    contextRef.current.lineTo(offsetX, offsetY); // defines an end point
+    contextRef.current.stroke(); // executes line drawing
+  }
+
+  const drawRectangle = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
+    contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY); 
   }
 
   const drawCircle = (event) => {
