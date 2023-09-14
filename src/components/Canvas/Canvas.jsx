@@ -193,7 +193,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     let radius = Math.sqrt(Math.pow((x - offsetX), 2) + Math.pow((y - offsetY), 2));
     // sets radius for circle based on current mouse position
     contextRef.current.arc(x, y, radius, 0, 2 * Math.PI); // defines the circle
-    fillMode ? contextRef.current.fill() : contextRef.current.stroke(); // executes the drawing
+    fillMode ? contextRef.current.fill() : contextRef.current.stroke(); 
+    // executes the drawing either filled or not depending on whether fillMode is on
   }
 
   return (
