@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Toolbar from "./Toolbar";
+import ImageGenerator from "./ImageGenerator";
 
 
 export default function Canvas({ canvasWidth, canvasHeight }) {
@@ -678,6 +679,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         ref={canvasRef}
         style={{ border: '1px solid black' }}
       />
+
+      <ImageGenerator
+        // setTextPrompt={setTextPrompt}
+        // setGeneratedImage={setGeneratedImage}
+        // textPrompt={textPrompt}
+        // generatedImage={generatedImage}
+      />
+
     </div>
   )
 }
