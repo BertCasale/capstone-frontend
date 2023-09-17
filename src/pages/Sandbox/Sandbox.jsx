@@ -1,5 +1,5 @@
 import Canvas from "../../components/Canvas/Canvas";
-// import ImageGenerator from "../../components/Canvas/ImageGenerator";
+import ImageGenerator from "../../components/Canvas/ImageGenerator";
 
 export default function Sandbox() {
   return(
@@ -7,7 +7,7 @@ export default function Sandbox() {
 
       <Canvas canvasWidth={1000} canvasHeight={600}/>
 
-      {/* <ImageGenerator /> */}
+      <ImageGenerator />
 
     </section>
   )

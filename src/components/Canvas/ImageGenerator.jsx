@@ -12,16 +12,16 @@ export default function ImageGenerator() {
   const generateImageFromText = async () => {
     // Requests image url from Dall-E based on text prompt
     try {
-      const response = await openai.createImage({
+      const response = await openai.images.generate({
         prompt: textPrompt,
         n: 1,
         size: "512x512",
       })
 
-      console.log(response.data)
+      console.log(response)
 
-      if (response.data.created) {
-        const generatedImageUrl = await response.data.data[0].url;
+      if (response.created) {
+        const generatedImageUrl = await response.data[0].url;
 
         // Displays the generated image
         setGeneratedImage(generatedImageUrl);
