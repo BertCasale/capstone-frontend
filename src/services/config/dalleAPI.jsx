@@ -8,11 +8,4 @@ export const openai = new OpenAI({
 }); 
 
 
-// const generateImage = async () => {
-//   await openai.createImage({
-//     prompt: textPrompt,
-//     n: 1,
-//     size: "512x512",
-//   })
-// }
 
