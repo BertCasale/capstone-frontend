@@ -1,0 +1,23 @@
+.secondary-colors .color {
+  border: solid 3px black;
+  color: white;
+  height: 75px;
+  margin: 0px 20px;
+  position: relative;
+  white-space: normal;
+  width: 75px;
+}
+
+.secondary-colors .red {
+  background-color: red;
+}
+.secondary-colors .yellow {
+  background-color: yellow;
+}
+.secondary-colors .blue {
+  background-color: blue;
+}
+
+.secondary-colors .mixing {
+
+}
