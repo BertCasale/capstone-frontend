@@ -34,7 +34,8 @@ export default function ImageGenerator() {
   }
 
   const promptHelper = (input) => {
-    return `${input}, in the real world`
+    // return `${input}, in the real world`
+    return input;
   }
 
   return (
