@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Toolbar from "./Toolbar";
-import ImageGenerator from "./ImageGenerator";
 
 
 export default function Canvas({ canvasWidth, canvasHeight }) {
