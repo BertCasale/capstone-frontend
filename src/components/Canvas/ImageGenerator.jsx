@@ -1,5 +1,6 @@
-import { Configuration, OpenAIApi } from "openai";
-import { useState } from 'react'
+import { useState } from 'react';
+import { openai } from '../../services/config/dalleAPI'
+
 
 export default function ImageGenerator() {
 
@@ -9,21 +10,19 @@ export default function ImageGenerator() {
   /* IMAGE GENERATOR FUNCTION */
 
   const generateImageFromText = async () => {
-    // Sends the text prompt to the AI image generation service
+    // Requests image url from Dall-E based on text prompt
     try {
-      const response = await fetch('AI_IMAGE_GENERATOR_API_URL', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ textPrompt }),
+      const response = await openai.createImage({
+        promp: textPrompt,
+        n: 1,
+        size: "512x512",
       })
 
       if (response.ok) {
-        const generatedImageData = await response.json();
+        const generatedImageUrl = await response;
 
         // Displays the generated image
-        setGeneratedImage(generatedImageData.url);
+        setGeneratedImage(generatedImageUrl);
       } else {
         console.error('Error generating image:', response.statusText);
       }
