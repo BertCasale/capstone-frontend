@@ -18,6 +18,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [circleMode, setCircleMode] = useState(false);
   const [fillMode, setFillMode] = useState(false);
 
+  const [textPrompt, setTextPrompt] = useState('');
+  const [generatedImage, setGeneratedImage] = useState(null);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const canvasOffsetX = canvas.offsetLeft;
@@ -197,6 +200,31 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     // executes the drawing either filled or not depending on whether fillMode is on
   }
 
+  /* IMAGE GENERATOR FUNCTION */
+
+  const generateImageFromText = async () => {
+    // Sends the text prompt to the AI image generation service
+    try {
+      const response = await fetch('AI_IMAGE_GENERATOR_API_URL', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ textPrompt }),
+      })
+      if (response.ok) {
+        const generatedImageData = await response.json();
+
+        // Displays the generated image
+        setGeneratedImage(generatedImageData.url);
+      } else {
+        console.error('Error generating image:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
   return (
     <div>
       <Toolbar 
@@ -214,6 +242,9 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         rectangleMode={rectangleMode}        
         circleMode={circleMode}        
         fillMode={fillMode}        
+      />
+      <input
+        
       />
       <canvas
         onMouseDown={startDrawing}
