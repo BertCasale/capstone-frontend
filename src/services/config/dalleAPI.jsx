@@ -6,3 +6,11 @@ const configuration = new Configuration({
 
 export const openai = new OpenAIApi(configuration); // Core function of openAI
 
+// const generateImage = async () => {
+//   await openai.createImage({
+//     prompt: textPrompt,
+//     n: 1,
+//     size: "512x512",
+//   })
+// }
+

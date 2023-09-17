@@ -5,7 +5,7 @@ import { openai } from '../../services/config/dalleAPI'
 export default function ImageGenerator() {
 
   const [textPrompt, setTextPrompt] = useState(''); // Text prompt to be sent to image generator API
-  const [generatedImage, setGeneratedImage] = useState(null); // AI generated image sent back from API based on textPrompt 
+  const [generatedImage, setGeneratedImage] = useState(''); // Url of AI generated image sent back from API based on textPrompt 
 
   /* IMAGE GENERATOR FUNCTION */
 
@@ -13,13 +13,15 @@ export default function ImageGenerator() {
     // Requests image url from Dall-E based on text prompt
     try {
       const response = await openai.createImage({
-        promp: textPrompt,
+        prompt: textPrompt,
         n: 1,
         size: "512x512",
       })
 
-      if (response.ok) {
-        const generatedImageUrl = await response;
+      console.log(response.data)
+
+      if (response.data.created) {
+        const generatedImageUrl = await response.data.data[0].url;
 
         // Displays the generated image
         setGeneratedImage(generatedImageUrl);
