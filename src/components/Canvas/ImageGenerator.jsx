@@ -1,9 +1,10 @@
+import { Configuration, OpenAIApi } from "openai";
 import { useState } from 'react'
 
 export default function ImageGenerator() {
 
-  const [textPrompt, setTextPrompt] = useState('');
-  const [generatedImage, setGeneratedImage] = useState(null);
+  const [textPrompt, setTextPrompt] = useState(''); // Text prompt to be sent to image generator API
+  const [generatedImage, setGeneratedImage] = useState(null); // AI generated image sent back from API based on textPrompt 
 
   /* IMAGE GENERATOR FUNCTION */
 
