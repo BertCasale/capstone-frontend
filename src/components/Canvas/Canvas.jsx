@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Toolbar from "./Toolbar";
+import ImageGenerator from "./ImageGenerator";
 
 
 export default function Canvas({ canvasWidth, canvasHeight }) {
@@ -17,9 +18,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [rectangleMode, setRectangleMode] = useState(false);
   const [circleMode, setCircleMode] = useState(false);
   const [fillMode, setFillMode] = useState(false);
-
-  const [textPrompt, setTextPrompt] = useState('');
-  const [generatedImage, setGeneratedImage] = useState(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -200,31 +198,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     // executes the drawing either filled or not depending on whether fillMode is on
   }
 
-  /* IMAGE GENERATOR FUNCTION */
-
-  const generateImageFromText = async () => {
-    // Sends the text prompt to the AI image generation service
-    try {
-      const response = await fetch('AI_IMAGE_GENERATOR_API_URL', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ textPrompt }),
-      })
-      if (response.ok) {
-        const generatedImageData = await response.json();
-
-        // Displays the generated image
-        setGeneratedImage(generatedImageData.url);
-      } else {
-        console.error('Error generating image:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }
-
   return (
     <div>
       <Toolbar 
@@ -243,13 +216,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         circleMode={circleMode}        
         fillMode={fillMode}        
       />
-      <input
-        type="text"
-        placeholder="Enter a text prompt"
-        value={textPrompt}
-        onChange={(e) => setTextPrompt(e.target.value)}
-      />
-      <button onClick={generateImageFromText}>Generate Image</button>
+
       <canvas
         onMouseDown={startDrawing}
         onMouseMove={draw}
@@ -258,6 +225,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         ref={canvasRef}
         style={{ border: '1px solid black' }}
       />
+
+      <ImageGenerator
+        // setTextPrompt={setTextPrompt}
+        // setGeneratedImage={setGeneratedImage}
+        // textPrompt={textPrompt}
+        // generatedImage={generatedImage}
+      />
+
     </div>
   )
 }
