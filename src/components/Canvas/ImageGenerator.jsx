@@ -13,7 +13,7 @@ export default function ImageGenerator() {
     // Requests image url from Dall-E based on text prompt
     try {
       const response = await openai.images.generate({
-        prompt: textPrompt,
+        prompt: promptHelper(textPrompt),
         n: 1,
         size: "512x512",
       })
@@ -31,6 +31,10 @@ export default function ImageGenerator() {
     } catch (error) {
       console.error('Error:', error);
     }
+  }
+
+  const promptHelper = (input) => {
+    return `${input}, in the real world`
   }
 
   return (
