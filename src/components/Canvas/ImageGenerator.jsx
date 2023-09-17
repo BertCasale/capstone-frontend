@@ -18,8 +18,6 @@ export default function ImageGenerator() {
         size: "512x512",
       })
 
-      console.log(response)
-
       if (response.created) {
         const generatedImageUrl = await response.data[0].url;
 
@@ -51,7 +49,7 @@ export default function ImageGenerator() {
       {generatedImage && (
         <div>
           <h2>Generated Image</h2>
-          <img src={generatedImage} alt='Generated Image' style={{ position: 'absolute' }} />
+          <img src={generatedImage} alt='Generated Image' />
         </div>
       )}
     </div>
