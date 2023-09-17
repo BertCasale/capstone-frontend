@@ -244,8 +244,12 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         fillMode={fillMode}        
       />
       <input
-        
+        type="text"
+        placeholder="Enter a text prompt"
+        value={textPrompt}
+        onChange={(e) => setTextPrompt(e.target.value)}
       />
+      <button onClick={generateImageFromText}>Generate Image</button>
       <canvas
         onMouseDown={startDrawing}
         onMouseMove={draw}
