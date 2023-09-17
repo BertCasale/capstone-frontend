@@ -1,0 +1,10 @@
+.primary-colors .color{
+  border: solid 3px black;
+  border-radius: 50%;
+  color: white;
+  height: 75px;
+  margin: 0px 20px;
+  position: relative;
+  white-space: normal;
+  width: 75px;
+}
