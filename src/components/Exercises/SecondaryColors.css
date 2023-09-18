@@ -1,23 +1,39 @@
 .secondary-colors .color {
   border: solid 3px black;
-  color: white;
   height: 75px;
-  margin: 0px 20px;
-  position: relative;
+  margin: 20px;
+  position: absolute;
   white-space: normal;
   width: 75px;
+
+}
+
+.secondary-colors .button {
+  top: 0%;
+}
+
+.secondary-colors .stationary {
+  top:50%;
 }
 
 .secondary-colors .red {
   background-color: red;
+  color: white;
 }
 .secondary-colors .yellow {
   background-color: yellow;
+  color: black;
 }
 .secondary-colors .blue {
   background-color: blue;
+  color: white;
 }
 
 .secondary-colors .mixing {
+  position: relative;
 
+  min-height: 75px;
+  width: 100px;
+  margin: 20px;
+  border: solid 1px black;
 }
