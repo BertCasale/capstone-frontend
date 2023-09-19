@@ -1,20 +1,20 @@
 import { useState } from "react"
-// import UserAuthBtn from "./UserAuthBtn";
-// import ProtectedDashboard from "./ProtectedDashboard";
+import UserAuthBtn from "./UserAuthBtn";
+import ProtectedDashboard from "./ProtectedDashboard";
 // import useAuthState from "../../services/config/useAuthState";
 import "../../Styles/Navbar.css"
-// import Modal from "./Modal";
+import Modal from "./Modal";
 import { Link } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 
 // eslint-disable-next-line react/prop-types
-export default function NavBar() {
+export default function NavBar({user, setUser, authUser}) {
 
     //usestate functions for login modal and hamburger menu
-    // const [isModalActive, setIsModalActive] = useState(false)
+    const [isModalActive, setIsModalActive] = useState(false)
     const [isMenuActive, setIsMenuActive] = useState(false)
-    // const [errorMessage, setErrorMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     
 
     // const authUser = useAuthState()
@@ -23,10 +23,10 @@ export default function NavBar() {
     // console.log(authUser.email, 'authUser from NavBar');
 
     //close modal function
-    // const closeModal = () => {
-    //     setIsModalActive(false);
-    //     setErrorMessage('')
-    // }
+    const closeModal = () => {
+        setIsModalActive(false);
+        setErrorMessage('')
+    }
 
     //toggle hamburger menu
     const handleMenuToggle = () => {
@@ -38,7 +38,7 @@ export default function NavBar() {
     return (
         <div>
             <div>
-                {/* <Modal isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/> */}
+                <Modal isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
             </div>
 
             <nav className="navbar ">
@@ -55,7 +55,7 @@ export default function NavBar() {
                 
                     <div className={`navbar-menu  ${isMenuActive ? 'is-active' : ''}`} > 
                         <div className="navbar-end">
-                            {/* <ProtectedDashboard authUser={authUser} user={user} setUser={setUser}/> */}
+                            <ProtectedDashboard authUser={authUser} user={user} setUser={setUser}/>
                             <a className="navbar-item">
                                 About Us
                             </a>
@@ -67,7 +67,7 @@ export default function NavBar() {
                             </a>
 
                             <span className="navbar-item">
-                               {/* <UserAuthBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/> */}
+                               <UserAuthBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
                             </span>
                         </div>
                     </div>
