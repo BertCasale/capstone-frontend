@@ -1,22 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 
-export default function NextLesson({ allLessons, client }) {
+export default function NextLesson({ allLessons }) {
 
-  const [nextLesson, setNextLesson] = useState({
-    title: 'Lines Lesson', 
-    description: 'Description for Lines Lesson', 
-    id: 1, 
-    preview: 'lesson preview image',
-    category: 'Elements of Art'
-  });
+  const [nextLesson, setNextLesson] = useState({});
+
 
   // Sets next lesson to be the one next in sequence
   // function getNextLesson() {
-  //   setCurrentLesson(     
-  //     
-  //   )
+  //   setNextLesson(allLessons[0])
   // }
+
+  useEffect(() => {
+    setNextLesson(allLessons[0])
+  }, [])
 
   return (
     <div className="column is-half">
