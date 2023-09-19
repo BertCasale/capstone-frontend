@@ -58,7 +58,7 @@ export default function NextLesson({ allLessons, client }) {
         </div>
 
         <footer className="card-footer">
-          <Link to={`/lesson/${nextLesson.title}`} className="card-footer-item">
+          <Link to={`/lesson/${nextLesson.id}`} className="card-footer-item">
             <button className="button is-rounded is-success">
               <span className="has-text-weight-bold">Start Lesson</span>
             </button>
