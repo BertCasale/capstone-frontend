@@ -10,10 +10,10 @@ import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
 import Hamster from './pages/Hamster'
-// import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
-// import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
+import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
+import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
 import { useEffect, useState } from 'react'
-// import useAthState from './services/config/useAuthState'
+import useAthState from './services/config/useAuthState'
 
 
 
@@ -22,22 +22,22 @@ function App() {
 
   const [user, setUser] = useState(null)
   const authUser = useAthState();
-  // const [usersList, setUsersList] = useState([]);
-  // const userCollectionRef = collection(db, "users")
-  // useEffect(() => {
-  //    const getUserList = async () => {
-  //     //read db data
-  //     try{
-  //     const data = await getDocs(userCollectionRef)
-  //       const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-  //     setUsersList(filteredData);
-  //     console.log(usersList);
-  //     }catch(err) {
-  //       console.error(err);
-  //     }
-  // };
-  // getUserList()
-  // },[]);
+  const [usersList, setUsersList] = useState([]);
+  const userCollectionRef = collection(db, "users")
+  useEffect(() => {
+     const getUserList = async () => {
+      //read db data
+      try{
+      const data = await getDocs(userCollectionRef)
+        const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
+      setUsersList(filteredData);
+      console.log(usersList);
+      }catch(err) {
+        console.error(err);
+      }
+  };
+  getUserList()
+  },[]);
 
 
   //console log of created users on firestore db
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <NavBar user={user} setUser={setUser} authUser={authUser}/> */}
+      <NavBar user={user} setUser={setUser} authUser={authUser}/>
       <Routes>
         <Route path='/' element={<Landing/>} />
         <Route path='/dashboard' element={<Dashboard/>} />
