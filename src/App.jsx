@@ -10,8 +10,8 @@ import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
 import Hamster from './pages/Hamster'
-import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
-import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
+// import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
+// import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
 import { useEffect, useState } from 'react'
 import useAthState from './services/config/useAuthState'
 
@@ -38,6 +38,7 @@ function App() {
   // };
   // getUserList()
   // },[]);
+
 
   //console log of created users on firestore db
   // console.log(authUser.auth.currentUser.uid);
