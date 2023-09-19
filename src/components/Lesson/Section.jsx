@@ -92,8 +92,8 @@ export default function Section({ lessonSections }) {
         <h1 className="title is-2">{sectionData.title}</h1>
 
         {/* testing buttons */}
-        <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button>
+        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
+        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
 
       </div>
 
