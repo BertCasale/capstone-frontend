@@ -15,7 +15,7 @@ export default function LessonInCategory({ lesson }) {
       </div>
       
       <div className="level-right">
-        <Link to={`/lesson/${lesson.title}`} className="level-item">
+        <Link to={`/lesson/${lesson.id}`} className="level-item">
           <button className="button is-rounded is-success">
             <span className="has-text-weight-bold">Start Lesson</span>
           </button>
