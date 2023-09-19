@@ -5,6 +5,7 @@ import ProtectedDashboard from "./ProtectedDashboard";
 import "../../Styles/Navbar.css"
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 // eslint-disable-next-line react/prop-types
@@ -61,9 +62,9 @@ export default function NavBar({user, setUser, authUser}) {
                             <a className="navbar-item" href="/hamster">
                                 Hamster
                             </a>
-                            <a className="navbar-item" href="/sandbox">
-                                Sandbox
-                            </a>
+                            <Link to={'/sandbox'}>
+                                <span>Sandbox</span>  
+                            </Link>
 
                             <span className="navbar-item">
                                <UserAuthBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
