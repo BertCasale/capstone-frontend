@@ -14,13 +14,14 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const [lineMode, setLineMode] = useState(false); // controls lineMode
   const [startPoint, setStartPoint] = useState({ x: null, y: null }); 
   const [snapshot, setSnapshot] = useState({}); // holds the current canvas data
+  const [rectangleMode, setRectangleMode] = useState(false);
+  const [circleMode, setCircleMode] = useState(false);
+  const [fillMode, setFillMode] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-
     const canvasOffsetX = canvas.offsetLeft;
     const canvasOffsetY = canvas.offsetTop;
-
     canvas.width = canvasWidth - canvasOffsetX; // sets correct canvas horizontal position in the page
     canvas.height = canvasHeight - canvasOffsetY; // sets correct canvas vertical position in the page
 
@@ -30,6 +31,8 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     context.lineWidth = 5;
     contextRef.current = context;
   }, [])
+
+  /* MAIN DRAW FUNCTIONS */ 
 
   // Executes on mouse down in the canvas and triggers isDrawing to true
   const startDrawing = (event) => {
@@ -48,8 +51,15 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.putImageData(snapshot, 0, 0); // adds copied canvas data on to the current canvas
     const { offsetX, offsetY } = event.nativeEvent; // current mouse position
     if (lineMode) {
-      const { x, y } = startPoint;
-      drawLine(x, y, offsetX, offsetY); // draws a temporary line from the saved start point to current mouse position
+      drawLine(event); 
+      return;
+    }
+    if (rectangleMode) {
+      drawRectangle(event);
+      return;
+    }
+    if (circleMode) {
+      drawCircle(event);
       return;
     }
     contextRef.current.lineTo(offsetX, offsetY); // defines an end point to draw to
@@ -59,27 +69,20 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   // Executes on mouse up in the canvas or on mouse leave, while isDrawing is true
   const stopDrawing = () => {
     if (!isDrawing) return; // if mouse leaves the canvas when isDrawing is false, nothing happens
-    if (lineMode) {
-      contextRef.current.stroke(); // draws the final line on mouse up or mouse leave
-    }
     setIsDrawing(false);
     setRestoreArray([...restoreArray, contextRef.current.getImageData(0, 0, canvasRef.current.width, canvasRef.current.height)]);
     // adds an instance of the canvas data that includes the last drawing
     setIndex(index + 1); // sets index of the last drawing so it can be removed with the undo button
   }
 
-  const clearCanvas = () => {
-    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); // clears the canvas
-    setRestoreArray([]); // clears all canvas instances from the restoreArray
-    setIndex(-1);
-  }
+  /* HANDLERS, CLEAR AND UNDO FUNCTIONS */
 
   const handleColorChange = (event) => {
     event.preventDefault();
     setBrushColor(event.target.value);
     contextRef.current.strokeStyle = event.target.value;
+    contextRef.current.fillStyle = event.target.value;
     setEraseMode(false);
-    setLineMode(false);
   }
 
   const handleLineWidthChange = (event) => {
@@ -87,11 +90,10 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     contextRef.current.lineWidth = event.target.value;
   }
 
-  const toggleEraseMode = () => {
-    if (contextRef.current.strokeStyle != "#ffffff") {
-      contextRef.current.strokeStyle = "white";
-    }
-    setEraseMode(!eraseMode);
+  const clearCanvas = () => {
+    contextRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height); // clears the canvas
+    setRestoreArray([]); // clears all canvas instances from the restoreArray
+    setIndex(-1);
   }
 
   const undoAction = () => {
@@ -106,29 +108,114 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
     }
   }
 
+  /* MODE TOGGLERS */ 
+
+  const toggleEraseMode = () => {
+    if (contextRef.current.strokeStyle != "#ffffff") {
+      contextRef.current.strokeStyle = "white";
+    }
+    if (eraseMode) contextRef.current.strokeStyle = brushColor; 
+    // if eraseMode is being turned off, sets the brush color to the previous one
+    if (lineMode) setLineMode(false);
+    if (rectangleMode) setRectangleMode(false);
+    if (circleMode) setCircleMode(false);
+    if (fillMode) setFillMode(false);
+    setEraseMode(!eraseMode);
+  }
+
   const toggleLineMode = () => {
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor; 
+      // if eraseMode was on, sets it to off and sets the brush color to the previous one
+    }
+    if (rectangleMode) setRectangleMode(false);
+    if (circleMode) setCircleMode(false);
     setLineMode(!lineMode);
   }
 
-  const drawLine = (startX, startY, endX, endY) => {
+  const toggleRectangleMode = () => {
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+      // if eraseMode was on, sets it to off and sets the brush color to the previous one
+    }
+    if (lineMode) setLineMode(false);
+    if (circleMode) setCircleMode(false);
+    setRectangleMode(!rectangleMode);
+  }
+
+  const toggleCircleMode = () => {
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+      // if eraseMode was on, sets it to off and sets the brush color to the previous one
+    }
+    if (lineMode) setLineMode(false);
+    if (rectangleMode) setRectangleMode(false);
+    setCircleMode(!circleMode);
+  }
+
+  const toggleFillMode = () => {
+    if (eraseMode) {
+      setEraseMode(false);
+      contextRef.current.strokeStyle = brushColor;
+      // if eraseMode was on, sets it to off and sets the brush color to the previous one
+    }
+    setFillMode(!fillMode);
+  }
+
+  /* LINES AND SHAPES DRAW FUNCTIONS */
+
+  const drawLine = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
     contextRef.current.beginPath(); // defines a new path
-    contextRef.current.moveTo(startX, startY); // defines a start point
-    contextRef.current.lineTo(endX, endY); // defines an end point
+    contextRef.current.moveTo(x, y); // defines a start point
+    contextRef.current.lineTo(offsetX, offsetY); // defines an end point
     contextRef.current.stroke(); // executes line drawing
+  }
+
+  const drawRectangle = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
+    if (fillMode) {
+      contextRef.current.fillRect(offsetX, offsetY, x - offsetX, y - offsetY);
+      return;
+    }
+    contextRef.current.strokeRect(offsetX, offsetY, x - offsetX, y - offsetY); 
+  }
+
+  const drawCircle = (event) => {
+    const { offsetX, offsetY } = event.nativeEvent; // current mouse position
+    const { x, y } = startPoint;
+    contextRef.current.beginPath(); // creates new path to draw circle
+    let radius = Math.sqrt(Math.pow((x - offsetX), 2) + Math.pow((y - offsetY), 2));
+    // sets radius for circle based on current mouse position
+    contextRef.current.arc(x, y, radius, 0, 2 * Math.PI); // defines the circle
+    fillMode ? contextRef.current.fill() : contextRef.current.stroke(); 
+    // executes the drawing either filled or not depending on whether fillMode is on
   }
 
   return (
     <div>
       <Toolbar 
         clearCanvas={clearCanvas} 
+        undoAction={undoAction}
         handleColorChange={handleColorChange} 
         handleLineWidthChange={handleLineWidthChange}
         toggleEraseMode={toggleEraseMode}
-        eraseMode={eraseMode}
-        undoAction={undoAction}
-        lineMode={lineMode}
         toggleLineMode={toggleLineMode}
+        toggleRectangleMode={toggleRectangleMode}
+        toggleCircleMode={toggleCircleMode}
+        toggleFillMode={toggleFillMode}
+        eraseMode={eraseMode}
+        lineMode={lineMode}
+        rectangleMode={rectangleMode}        
+        circleMode={circleMode}        
+        fillMode={fillMode}        
       />
+
       <canvas
         onMouseDown={startDrawing}
         onMouseMove={draw}
@@ -137,6 +224,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         ref={canvasRef}
         style={{ border: '1px solid black' }}
       />
+
     </div>
   )
 }
