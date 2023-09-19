@@ -61,9 +61,9 @@ export default function NavBar() {
                             <a className="navbar-item" href="/hamster">
                                 Hamster
                             </a>
-                            <Link to={'/sandbox'}>
-                                <span>Sandbox</span>  
-                            </Link>
+                            <a className="navbar-item" href="/sandbox">
+                                Sandbox
+                            </a>
 
                             <span className="navbar-item">
                                {/* <UserAuthBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/> */}
