@@ -76,7 +76,7 @@ export default function Section({ lessonSections }) {
       //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
       //axios.post(`${API}/clientLessonsProgress`, progress)
       //  .then(() => {
-      //    navigate(/dashboard)
+          navigate("/dashboard")
       //  })
       //  .catch((e) => console.warn(e))
     }
@@ -128,6 +128,5 @@ export default function Section({ lessonSections }) {
     {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
     {/* should start disabled until the user completes an exercise */}
     <button disabled={!completed} className="button" onClick={handleNextClick}>Next</button>
-
   </div>)
 }
