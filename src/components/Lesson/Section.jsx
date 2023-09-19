@@ -76,7 +76,7 @@ export default function Section({ lessonSections }) {
       //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
       //axios.post(`${API}/clientLessonsProgress`, progress)
       //  .then(() => {
-      //    navigate(/dashboard)
+          navigate("/dashboard")
       //  })
       //  .catch((e) => console.warn(e))
     }
