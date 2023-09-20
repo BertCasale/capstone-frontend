@@ -58,9 +58,9 @@ export default function NavBar({user, setUser, authUser}) {
                             <a className="navbar-item">
                                 About Us
                             </a>
-                            <a className="navbar-item" href="/hamster">
+                            {/* <a className="navbar-item" href="/hamster">
                                 Hamster
-                            </a>
+                            </a> */}
                             <a className="navbar-item" href="/sandbox">
                                 Sandbox
                             </a>

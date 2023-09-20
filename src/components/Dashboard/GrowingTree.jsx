@@ -9,7 +9,7 @@ export default function GrowingTree() {
         <div className="title">Growing Tree Animation</div>
         <div className="media">
           <figure className="image">
-            <img src="https://placehold.it/1280x720" />
+            <img src="https://classroomclipart.com/image/static7/preview2/large-oak-tree-with-knotted-trunk-clip-art-58849.jpg" />
           </figure>
         </div>
       </div>
