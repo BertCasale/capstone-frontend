@@ -1,14 +1,14 @@
 import CategoryCard from "./CategoryCard";
 
 
-export default function Syllabus({ allLessons, client }) {
+export default function Syllabus() {
   const categories = [
     { 
       title: 'Elements of Art', 
       lessons: [
-        { title: 'Lines Lesson', id: 7 }, 
-        { title: 'Shapes Lesson', id: 8 }, 
-        { title: 'Value Lesson', id: 9 }
+        { title: 'Lines Lesson', id: 1 }, 
+        { title: 'Value Lesson', id: 2 }, 
+        { title: 'Color Lesson', id: 3 }
       ], 
       id: 1 
     },
@@ -16,7 +16,7 @@ export default function Syllabus({ allLessons, client }) {
       title: 'Principles of Art', 
       lessons: [
         { title: 'Shades Lesson', id: 10 }, 
-        { title: 'Colors Lesson', id: 11 }
+        { title: 'Shapes Lesson', id: 11 }
       ], 
       id: 2 
     },
