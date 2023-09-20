@@ -10,7 +10,7 @@ import Syllabus from "../../components/Dashboard/Syllabus";
 // const API = process.env.REACT_APP_API_URL;
 // To be determined
 
-export default function Dashboard({userName}) {
+export default function Dashboard() {
 
   const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
@@ -46,7 +46,7 @@ export default function Dashboard({userName}) {
               </div>
               <div className="level-item">
                 <div className="">
-                  <div className="title">Username:{userName}</div>
+                  <div className="title">Username</div>
                 </div>
               </div>
             </div>
