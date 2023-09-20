@@ -7,4 +7,3 @@ export const openai = new OpenAI({
   dangerouslyAllowBrowser: true
 }); 
 
-
