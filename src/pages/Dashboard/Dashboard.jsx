@@ -1,28 +1,33 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import './Dashboard.css'
 import NextLesson from "../../components/Dashboard/NextLesson";
 import OtherLessons from "../../components/Dashboard/OtherLessons";
 import GrowingTree from "../../components/Dashboard/GrowingTree";
 import Syllabus from "../../components/Dashboard/Syllabus";
-
-// const API = process.env.REACT_APP_API_URL;
-// To be determined
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 export default function Dashboard() {
 
-  const [client, setClient] = useState({})
+  // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
-//   const { id } = useParams();
+  const [nextLesson, setNextLesson] = useState({});
+  const [otherLessons, setOtherLessons] = useState([]);
+  // const { id } = useParams();
 
-  // useEffect(() => {
-  //   axios.get(`${API}/${client.username}/lessons/`)
-  //     .then((res) => {
-  //       setAllLessons(res.data)
-  //     })
-  //     .catch((e) => console.warn('catch', e))
-  // }, [])
+  useEffect(() => {
+    axios.get(`${API}/lessons`)
+      .then((res) => {
+        setAllLessons(res.data);
+        setNextLesson(res.data[0]);
+        setOtherLessons([res.data[1], res.data[2]])
+      })
+      .catch((e) => console.warn('catch', e))
+      console.log(allLessons)
+      console.log(nextLesson)
+      console.log(otherLessons)
+  }, [])
 
   return (
     <main className="section">
@@ -59,11 +64,11 @@ export default function Dashboard() {
       
       <div className="columns is-multiline">
 
-        <NextLesson allLessons={allLessons} client={client}/>
+        <NextLesson nextLesson={nextLesson} />
 
-        <OtherLessons allLessons={allLessons} client={client}/>
+        <OtherLessons otherLessons={otherLessons} />
 
-        <Syllabus allLessons={allLessons} client={client}/>
+        <Syllabus />
 
       </div>
     </main>
