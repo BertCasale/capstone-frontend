@@ -48,7 +48,7 @@ export default function Section({ lessonSections }) {
   useEffect(() => {
     if (sectionData.interactive_element && sectionData.interactive_element !== "none") {
       async function loadExercise() {
-        const ExerciseLoaded = importExercise(sectionData.interactive_element);
+        const ExerciseLoaded = await importExercise(sectionData.interactive_element);
 
         return <ExerciseLoaded setCompleted={setCompleted} setAttempted={setAttempted} completed={completed} />
       }
@@ -59,11 +59,11 @@ export default function Section({ lessonSections }) {
   }, [sectionData])
 
 
-  // //for the testing buttons to change the index of the sections
-  // function changeSectionIndex(num) {
-  //   console.log(sectionIndex + num)
-  //   setSectionIndex(sectionIndex + num)
-  // }
+  //for the testing buttons to change the index of the sections
+  function changeSectionIndex(num) {
+    console.log(sectionIndex + num)
+    setSectionIndex(sectionIndex + num)
+  }
 
 
 
@@ -91,11 +91,9 @@ export default function Section({ lessonSections }) {
 
         <h1 className="title is-2">{sectionData.title}</h1>
 
-
         {/* testing buttons */}
         {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
         <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
-
 
       </div>
 
@@ -129,6 +127,6 @@ export default function Section({ lessonSections }) {
 
     {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
     {/* should start disabled until the user completes an exercise */}
-    <button disabled={!completed} className="button" onClick={handleNextClick}>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</button>
+    <button disabled={!completed} className="button" onClick={handleNextClick}>Next</button>
   </div>)
 }
