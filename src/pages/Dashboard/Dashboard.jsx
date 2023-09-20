@@ -68,7 +68,7 @@ export default function Dashboard() {
 
         <OtherLessons otherLessons={otherLessons} />
 
-        <Syllabus allLessons={allLessons} />
+        <Syllabus />
 
       </div>
     </main>
