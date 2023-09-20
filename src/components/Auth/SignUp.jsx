@@ -1,5 +1,5 @@
 import { Button, Form } from 'react-bulma-components'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import { auth } from "../../services/config/firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth"
@@ -23,27 +23,22 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const [client, setClient] = useState({
-
-    providerid: '',
-    registration_datetime: '',
+    registration_datetime: '2023-09-12T01:59:14.000Z',
     username: '',
     email: 'email@example.com',
     password: '',
     profile_picture: 'none',
-    role: ''
+    role: 'student',
   });
 
 
 
-//POST request to the backend for creating new user account
-  const newClient = async (newUserDetails) => { // Make it async
-   
+  const newClient = async () => { // Make it async
     try {
-      await axios.post(`${API}/clients`, newUserDetails) //  Use client object directly
-      .then(navigate('/:userName/dashboard'));
+      await axios.post(`${API}/clients`, client); // Use client object directly
+      // navigate('/dashboard');
     } catch (error) {
       console.log(error);
-      console.log(newUserDetails);
     }
   }
   // const [errorMessage, setErrorMessage] = useState('');
@@ -56,10 +51,7 @@ export default function SignUp() {
     try {
       // Treat the username as the email and create a user account in firebase Auth
       // await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
-
-      
-      //uses firebase creatUserWithEmailAndPassword builtin function
-      await createUserWithEmailAndPassword(auth, client.email, client.password)
+      await createUserWithEmailAndPassword(auth, `${client.username}@domain.com`, client.password)
       // console.log(`Signup successful`);
       .then((userCredential) => {
         const user = userCredential.user;
@@ -68,10 +60,8 @@ export default function SignUp() {
         const dateObj = new Date(registrationDate)
         const registered = dateObj.toISOString();
         const userEmail = user.email
-
-        //update the registration_datetime key in client object
-        const recordDate = {...client, providerid: uid, registration_datetime: registered} //
-        newClient(recordDate)
+        // const recordDate = {...client, registration_datetime: registered}
+      
         console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registered}`);
  
         console.log(client)
