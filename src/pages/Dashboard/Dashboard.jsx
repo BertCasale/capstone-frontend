@@ -8,7 +8,7 @@ import GrowingTree from "../../components/Dashboard/GrowingTree";
 import Syllabus from "../../components/Dashboard/Syllabus";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-export default function Dashboard() {
+export default function Dashboard({userName}) {
 
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
@@ -51,7 +51,7 @@ export default function Dashboard() {
               </div>
               <div className="level-item">
                 <div className="">
-                  <div className="title">Username</div>
+                  <div className="title">Username:{userName}</div>
                 </div>
               </div>
             </div>
