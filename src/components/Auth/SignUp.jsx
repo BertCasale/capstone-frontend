@@ -23,6 +23,7 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const [client, setClient] = useState({
+
     providerid: '',
     registration_datetime: '',
     username: '',
@@ -55,6 +56,7 @@ export default function SignUp() {
     try {
       // Treat the username as the email and create a user account in firebase Auth
       // await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
+
       
       //uses firebase creatUserWithEmailAndPassword builtin function
       await createUserWithEmailAndPassword(auth, client.email, client.password)
@@ -66,10 +68,10 @@ export default function SignUp() {
         const dateObj = new Date(registrationDate)
         const registered = dateObj.toISOString();
         const userEmail = user.email
+
         //update the registration_datetime key in client object
         const recordDate = {...client, providerid: uid, registration_datetime: registered} //
         newClient(recordDate)
-
         console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registered}`);
  
         console.log(client)
