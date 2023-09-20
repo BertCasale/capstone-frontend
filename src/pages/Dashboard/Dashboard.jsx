@@ -12,23 +12,21 @@ export default function Dashboard() {
 
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
-  const [nextLesson, setNextLesson] = useState({})
+  const [nextLesson, setNextLesson] = useState({});
+  const [otherLessons, setOtherLessons] = useState([]);
   // const { id } = useParams();
-
-  useEffect(() => {
-    axios.get(`${API}/lessons/1`)
-      .then((res) => {
-        setNextLesson(res.data)
-      })
-      .catch((e) => console.warn('catch', e))
-  }, [])
 
   useEffect(() => {
     axios.get(`${API}/lessons`)
       .then((res) => {
-        setAllLessons(res.data)
+        setAllLessons(res.data);
+        setNextLesson(res.data[0]);
+        setOtherLessons([res.data[1], res.data[2]])
       })
       .catch((e) => console.warn('catch', e))
+      console.log(allLessons)
+      console.log(nextLesson)
+      console.log(otherLessons)
   }, [])
 
   return (
@@ -68,7 +66,7 @@ export default function Dashboard() {
 
         <NextLesson nextLesson={nextLesson} />
 
-        <OtherLessons allLessons={allLessons} />
+        <OtherLessons otherLessons={otherLessons} />
 
         <Syllabus allLessons={allLessons} />
 

@@ -1,21 +1,7 @@
 import { useState } from "react";
 import LessonInCategory from "./LessonInCategory";
 
-export default function OtherLessons({ allLessons, client }) {
-
-  const [otherLessons, setOtherLessons] = useState([
-    {title: 'Shades Lesson', description: 'Description for Shades Lesson', id: 1}, 
-    {title: 'Colors Lesson', description: 'Description for Colors Lesson', id: 2}
-  ]);
-
-
-  // Filters through all lessons to set other lessons to the ones that share the same category as the suggested next, and have not been completed
-  // function lessonsInSameCategory() {
-  //   setOtherLessons(
-  //     allLessons.filter(lesson => lesson.category === nextLesson.category && 
-  //       lesson.completionStatus === false)
-  //   )
-  // }
+export default function OtherLessons({ otherLessons }) {
 
   return (
     <div className="column is-half">
