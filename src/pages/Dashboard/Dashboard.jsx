@@ -12,10 +12,19 @@ export default function Dashboard() {
 
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
+  const [nextLesson, setNextLesson] = useState({})
   // const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`${API}/lessons/`)
+    axios.get(`${API}/lessons/1`)
+      .then((res) => {
+        setNextLesson(res.data)
+      })
+      .catch((e) => console.warn('catch', e))
+  }, [])
+
+  useEffect(() => {
+    axios.get(`${API}/lessons`)
       .then((res) => {
         setAllLessons(res.data)
       })
@@ -57,11 +66,11 @@ export default function Dashboard() {
       
       <div className="columns is-multiline">
 
-        <NextLesson allLessons={allLessons} client={client}/>
+        <NextLesson nextLesson={nextLesson} />
 
-        <OtherLessons allLessons={allLessons} client={client}/>
+        <OtherLessons allLessons={allLessons} />
 
-        <Syllabus allLessons={allLessons} client={client}/>
+        <Syllabus allLessons={allLessons} />
 
       </div>
     </main>

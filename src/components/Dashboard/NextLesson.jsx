@@ -1,19 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-export default function NextLesson({ allLessons }) {
-
-  const [nextLesson, setNextLesson] = useState({});
-
-
-  // Sets next lesson to be the one next in sequence
-  // function getNextLesson() {
-  //   setNextLesson(allLessons[0])
-  // }
-
-  useEffect(() => {
-    setNextLesson(allLessons[0])
-  }, [])
+export default function NextLesson({ nextLesson }) {
 
   return (
     <div className="column is-half">
@@ -27,9 +17,8 @@ export default function NextLesson({ allLessons }) {
         </header>
 
         <div className="card-image ">
-          {/* preview image for next lesson */}
           <figure className="image is-3by1 ">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt={nextLesson.preview}/>
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt='nextLesson preview'/>
           </figure>
         </div>
 
@@ -37,7 +26,6 @@ export default function NextLesson({ allLessons }) {
 
           <div className="media">
             <div className="media-left">
-              {/* category icon */}
               <figure className="image is-48x48">
                 <img src="https://bulma.io/images/placeholders/96x96.png" alt="Category Icon"/>
               </figure>
@@ -62,7 +50,7 @@ export default function NextLesson({ allLessons }) {
           </Link>
         </footer>
 
-      </div>
+      </div> 
 
     </div>
   )
