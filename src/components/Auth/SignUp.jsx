@@ -21,24 +21,29 @@ export default function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] = useState(null)
 
   const [client, setClient] = useState({
-    registration_datetime: '2023-09-12T01:59:14.000Z',
+    providerid: '',
+    registration_datetime: '',
     username: '',
-    email: 'email@example.com',
+    email: '',
     password: '',
     profile_picture: 'none',
-    role: 'student',
+    role: ''
   });
 
 
 
-  const newClient = async () => { // Make it async
+//POST request to the backend for creating new user account
+  const newClient = async (newUserDetails) => { // Make it async
+   
     try {
-      await axios.post(`${API}/clients`, client); // Use client object directly
-      // navigate('/dashboard');
+      await axios.post(`${API}/clients`, newUserDetails) //  Use client object directly
+      .then(navigate('/:userName/dashboard'));
     } catch (error) {
       console.log(error);
+      console.log(newUserDetails);
     }
   }
   // const [errorMessage, setErrorMessage] = useState('');
@@ -51,7 +56,9 @@ export default function SignUp() {
     try {
       // Treat the username as the email and create a user account in firebase Auth
       // await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
-      await createUserWithEmailAndPassword(auth, `${client.username}@domain.com`, client.password)
+      
+      //uses firebase creatUserWithEmailAndPassword builtin function
+      await createUserWithEmailAndPassword(auth, client.email, client.password)
       // console.log(`Signup successful`);
       .then((userCredential) => {
         const user = userCredential.user;
@@ -60,8 +67,10 @@ export default function SignUp() {
         const dateObj = new Date(registrationDate)
         const registered = dateObj.toISOString();
         const userEmail = user.email
-        // const recordDate = {...client, registration_datetime: registered}
-      
+        //update the registration_datetime key in client object
+        const recordDate = {...client, providerid: uid, registration_datetime: registered} //
+        newClient(recordDate)
+
         console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registered}`);
  
         console.log(client)
@@ -93,6 +102,7 @@ export default function SignUp() {
     setClient({...client, [e.target.id]: e.target.value })
   }
 
+
   return (
     <form className='form' onSubmit={handleSignUp}>
       <Form.Control>
@@ -103,6 +113,17 @@ export default function SignUp() {
             value={client.username}
             color="link"
             placeholder='Username'
+            // onChange={(e) => setUsername(e.target.value)}
+            onChange={handleTextChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Form.Input
+            id='email'
+            type='text'
+            value={client.email}
+            color="link"
+            placeholder='Email'
             // onChange={(e) => setUsername(e.target.value)}
             onChange={handleTextChange}
           />
@@ -126,6 +147,26 @@ export default function SignUp() {
             placeholder='Confirm password'
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+        </Form.Field>
+        <Form.Field>
+          <Form.Control>
+            <Form.Radio
+            id="role"
+            value={'student'}
+            checked={client.role === 'student'}
+            onChange={handleTextChange}
+            >
+              Student
+            </Form.Radio>
+            <Form.Radio
+             id="role"
+            value={"administrator"}
+            checked={client.role === 'administrator'}
+            onChange={handleTextChange}
+            >
+              Administrator
+            </Form.Radio>
+          </Form.Control>
         </Form.Field>
         <Form.Field>
           <Button className='is-link'>Sign Up</Button>
