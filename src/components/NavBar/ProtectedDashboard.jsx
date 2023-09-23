@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export default function ProtectedDashboard({ setUser, authUser}) {
@@ -6,8 +7,8 @@ export default function ProtectedDashboard({ setUser, authUser}) {
   // const user = authUser
   // console.log(user);
   return (
-      authUser ? ( <a className="navbar-item" href="/dashboard">
+      authUser ? ( <Link className="navbar-item" to="/dashboard">
       Dashboard
-    </a>) : null  
+    </Link>) : null  
   )
 }

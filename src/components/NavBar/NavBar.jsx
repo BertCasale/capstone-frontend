@@ -43,7 +43,7 @@ export default function NavBar({user, setUser, authUser}) {
             <nav className="navbar ">
                 <div className="container">
                     <div className="navbar-brand is-size-4">
-                        <a className="navbar-item" href="/">Art Acorn</a>
+                        <Link className="navbar-item" to="/">Art Acorn</Link>
                         <span className="navbar-burger" onClick= {handleMenuToggle} > 
                             <span></span>
                             <span></span>
@@ -55,15 +55,15 @@ export default function NavBar({user, setUser, authUser}) {
                     <div className={`navbar-menu  ${isMenuActive ? 'is-active' : ''}`} > 
                         <div className="navbar-end">
                             <ProtectedDashboard authUser={authUser} user={user} setUser={setUser}/>
-                            <a className="navbar-item">
+                            <Link className="navbar-item">
                                 About Us
-                            </a>
+                            </Link>
                             {/* <a className="navbar-item" href="/hamster">
                                 Hamster
                             </a> */}
-                            <a className="navbar-item" href="/sandbox">
+                            <Link className="navbar-item" to="/sandbox">
                                 Sandbox
-                            </a>
+                            </Link>
 
                             <span className="navbar-item">
                                <UserAuthBtn setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser}/>
