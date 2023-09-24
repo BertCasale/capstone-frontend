@@ -21,7 +21,7 @@ export default function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [role, setRole] = useState(null)
+ 
 
   const [client, setClient] = useState({
     providerid: '',
@@ -73,7 +73,7 @@ export default function SignUp() {
 
         console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registered}`);
  
-        console.log(client)
+        console.log(recordDate)
         
       });
 
@@ -152,16 +152,16 @@ export default function SignUp() {
           <Form.Control>
             <Form.Radio
             id="role"
-            value={'student'}
-            checked={client.role === 'student'}
+            value={'Student'}
+            checked={client.role === 'Student'}
             onChange={handleTextChange}
             >
               Student
             </Form.Radio>
             <Form.Radio
              id="role"
-            value={"administrator"}
-            checked={client.role === 'administrator'}
+            value={"Administrator"}
+            checked={client.role === 'Administrator'}
             onChange={handleTextChange}
             >
               Administrator

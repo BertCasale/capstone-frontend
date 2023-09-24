@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 
 // eslint-disable-next-line react/prop-types
-export default function NavBar({user, setUser, authUser}) {
+export default function NavBar({user, setUser, authUser, clientList}) {
 
     //usestate functions for login modal and hamburger menu
     const [isModalActive, setIsModalActive] = useState(false)
@@ -37,7 +37,14 @@ export default function NavBar({user, setUser, authUser}) {
     return (
         <div>
             <div>
-                <Modal isModalActive={isModalActive} closeModal={closeModal} setIsModalActive={setIsModalActive} authUser={authUser} user={user} setUser={setUser} errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
+                <Modal 
+                isModalActive={isModalActive} setIsModalActive={setIsModalActive}
+                closeModal={closeModal}  
+                authUser={authUser} 
+                user={user} setUser={setUser} 
+                clientList={clientList}
+                errorMessage={errorMessage} setErrorMessage={setErrorMessage}
+                />
             </div>
 
             <nav className="navbar ">

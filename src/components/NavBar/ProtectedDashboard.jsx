@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 
-export default function ProtectedDashboard({ setUser, authUser}) {
+// eslint-disable-next-line react/prop-types
+export default function ProtectedDashboard({ authUser}) {
   //props passed from Navbar
 
   // const user = authUser
