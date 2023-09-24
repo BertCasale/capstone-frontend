@@ -32,6 +32,18 @@
   background-color: red;
 }
 
+.lesson-section .confetti-div {
+  z-index: 5;
+}
+
+.lesson-section .confetti, .lesson-section .confetti-div {
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
 @media (max-width: 950px) {
   .exercise .artwork-div {
     width: 400px;
