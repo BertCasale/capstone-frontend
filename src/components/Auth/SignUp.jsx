@@ -30,17 +30,20 @@ export default function SignUp() {
     email: '',
     password: '',
     profile_picture: 'none',
-    role: 'student',
+    role: ''
   });
 
 
 
-  const newClient = async () => { // Make it async
+//POST request to the backend for creating new user account
+  const newClient = async (newUserDetails) => { // Make it async
+   
     try {
-      await axios.post(`${API}/clients`, client); // Use client object directly
-      // navigate('/dashboard');
+      await axios.post(`${API}/clients`, newUserDetails) //  Use client object directly
+      .then(navigate('/:userName/dashboard'));
     } catch (error) {
       console.log(error);
+      console.log(newUserDetails);
     }
   }
   // const [errorMessage, setErrorMessage] = useState('');
