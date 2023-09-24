@@ -85,4 +85,3 @@ export default function NavBar({user, setUser, authUser, clientList}) {
 
 // const burgerMenu = document.querySelector('#navbar-menu');
 // onClick={navbarMenu.classList.toggle('is-active')}
-
