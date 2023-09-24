@@ -8,7 +8,7 @@ export default function ProtectedDashboard({ authUser}) {
   // const user = authUser
   // console.log(user);
   return (
-      authUser ? ( <Link className="navbar-item" to="/dashboard">
+      authUser ? ( <Link className="navbar-item" to="/:username/dashboard">
       Dashboard
     </Link>) : null  
   )

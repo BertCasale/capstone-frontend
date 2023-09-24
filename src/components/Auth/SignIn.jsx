@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
 import { auth, googleProvider } from "../../services/config/firebase"
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 
 // import axios from "axios"
 // const API = import.meta.env.VITE_API_URL;
@@ -12,32 +12,32 @@ import { useParams } from "react-router-dom"
 // eslint-disable-next-line react/prop-types
 export default function SignIn(
   {
-    clientList,
-    isModalActive,
-    closeModal,
-    setIsModalActive,
     errorMessage,
     setErrorMessage,
-    authUser,
-    user,
+    clientList,
     setUser,
-    userId,
-    setUserId,
-    userName,
+    closeModal,
+    setIsModalActive,
+    // isModalActive,
+    // authUser,
+    // user,
+    // userId,
+    // setUserId,
+    // userName,
     setUserName,
-    userEmail,
-    setUserEmail,
-    userProfilePicture,
-    setUserProfilePicture,
-    userRole,
-    setUserRole,
+    // userEmail,
+    // setUserEmail,
+    // userProfilePicture,
+    // setUserProfilePicture,
+    // userRole,
+    // setUserRole,
   }
 ) {
   //props passed from Modal
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { client_id } = useParams()
+  // const { client_id } = useParams()
 
   const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ export default function SignIn(
       await clientList.map((el) => {
         if (auth.currentUser.email === el.email) {
           // setUserId(el.id)
-          // setUserName(el.username)
+          setUserName(el.username)
           // setUserEmail(el.email)
           // setUserProfilePicture(el.profile_picture)
           // setUserRole(el.role)
