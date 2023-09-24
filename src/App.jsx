@@ -10,8 +10,8 @@ import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
 import Hamster from './pages/Hamster'
-import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
-import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
+// import { db } from './services/config/firebase' //---Comment setup for firestore DB - may need to move this
+// import { getDocs, collection} from 'firebase/firestore' //---Comment retrieving data to firestore DB
 import { useEffect, useState } from 'react'
 import useAthState from './services/config/useAuthState'
 import axios from 'axios'
@@ -68,7 +68,7 @@ console.log(clientList);
       />
       <Routes>
         <Route path='/' element={<Landing/>} />
-        <Route path='/:userName/dashboard' element={<Dashboard/>} />
+        <Route path='/:username/dashboard' element={<Dashboard/>} />
         <Route path='/lesson/:lessonId' element={<Lesson/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}

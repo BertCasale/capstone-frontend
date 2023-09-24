@@ -2,7 +2,7 @@ import SignIn from "../Auth/SignIn"
 
 
 // eslint-disable-next-line react/prop-types
-export default function Modal({ isModalActive, closeModal, setIsModalActive, setUser, authUser, errorMessage, setErrorMessage, clientList}) {
+export default function Modal({ isModalActive, closeModal, setIsModalActive, setUser, authUser, errorMessage, setErrorMessage, clientList, userName, setUserName}) {
     //props passed from Navbar component
 
     return (
@@ -16,6 +16,7 @@ export default function Modal({ isModalActive, closeModal, setIsModalActive, set
                             setIsModalActive={setIsModalActive} 
                             closeModal={closeModal} 
                             setUser={setUser} 
+                            userName={userName} setUserName={setUserName}
                             authUser={authUser} 
                             clientList={clientList}
                             errorMessage={errorMessage} setErrorMessage={setErrorMessage}/>
