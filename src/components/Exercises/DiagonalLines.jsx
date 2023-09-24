@@ -70,11 +70,11 @@ export default function DiagonalLines({ setCompleted }) {
       <div className="starting-box is-flex is-justify-content-center">
         {/* disable the draggability if the line was placed */}
         {/* remove the rotation angle and the margins when placed */}
-        <img draggable={!linesPlaced.line1} src={line} alt="diagonal line" id="line-1" className="line-1 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line1 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
+        <img draggable={!linesPlaced.line1} src={line} alt="diagonal line" id="line-1" className="line-1 line is-clickable" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line1 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
 
-        <img draggable={!linesPlaced.line2} src={line} alt="diagonal line" id="line-2" className="line-2 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line2 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
+        <img draggable={!linesPlaced.line2} src={line} alt="diagonal line" id="line-2" className="line-2 line is-clickable" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line2 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
 
-        <img draggable={!linesPlaced.line3} src={line} alt="diagonal line" id="line-3" className="line-3 line" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line3 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
+        <img draggable={!linesPlaced.line3} src={line} alt="diagonal line" id="line-3" className="line-3 line is-clickable" onDragStart={(e) => handleDragStart(e)} style={linesPlaced.line3 ? {transform: "rotate(0deg)", margin: "0px"} : {}}/>
       </div>
 
     </div>
