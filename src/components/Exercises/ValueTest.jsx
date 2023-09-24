@@ -154,15 +154,15 @@ export default function ValueTest({ setCompleted, setAttempted }) {
       {/* the box the contains the shades at the start */}
       <div className="starting-box is-flex is-justify-content-center">
 
-        <div className="shade white" title="White" id="#FFFFFF" draggable onDragStart={(e) => handleDragStart(e)}></div>
+        <div className="shade white is-clickable" title="White" id="#FFFFFF" draggable onDragStart={(e) => handleDragStart(e)}></div>
 
-        <div className="shade light-gray" title="Light Gray" id="#BFBFBF" draggable onDragStart={(e) => handleDragStart(e)}></div>
+        <div className="shade light-gray is-clickable" title="Light Gray" id="#BFBFBF" draggable onDragStart={(e) => handleDragStart(e)}></div>
 
-        <div className="shade middle-gray" title="Middle Gray" id="#7F7F7F" draggable onDragStart={(e) => handleDragStart(e)}></div>
+        <div className="shade middle-gray is-clickable" title="Middle Gray" id="#7F7F7F" draggable onDragStart={(e) => handleDragStart(e)}></div>
 
-        <div className="shade dark-gray" title="Dark Gray" id="#3F3F3F" draggable onDragStart={(e) => handleDragStart(e)}></div>
+        <div className="shade dark-gray is-clickable" title="Dark Gray" id="#3F3F3F" draggable onDragStart={(e) => handleDragStart(e)}></div>
 
-        <div className="shade black" title="Black" id="#000000" draggable onDragStart={(e) => handleDragStart(e)}></div>
+        <div className="shade black is-clickable" title="Black" id="#000000" draggable onDragStart={(e) => handleDragStart(e)}></div>
 
       </div>
 

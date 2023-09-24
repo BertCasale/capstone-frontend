@@ -43,7 +43,7 @@ export default function HorizontalLines({ setCompleted }) {
 
       {/* the box the contains the line at the start */}
       <div className="starting-box is-flex is-justify-content-center">
-        <img draggable src={line} alt="horizontal line" id="draggable-line" className="line" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable src={line} alt="horizontal line" id="draggable-line" className="line is-clickable" onDragStart={(e) => handleDragStart(e)} />
       </div>
 
     </div>
