@@ -1,50 +1,91 @@
-import { useState } from "react"
+/* eslint-disable react/prop-types */
+import { useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
 import { auth, googleProvider } from "../../services/config/firebase"
 import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
+import { useParams } from "react-router-dom"
+
+// import axios from "axios"
+// const API = import.meta.env.VITE_API_URL;
 
 // eslint-disable-next-line react/prop-types
-export default function SignIn({ authUser, setUser, setIsModalActive, closeModal, errorMessage, setErrorMessage}) {
-//props passed from Modal
+export default function SignIn(
+  {
+    clientList,
+    isModalActive,
+    closeModal,
+    setIsModalActive,
+    errorMessage,
+    setErrorMessage,
+    authUser,
+    user,
+    setUser,
+    userId,
+    setUserId,
+    userName,
+    setUserName,
+    userEmail,
+    setUserEmail,
+    userProfilePicture,
+    setUserProfilePicture,
+    userRole,
+    setUserRole,
+  }
+) {
+  //props passed from Modal
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
-  // const [user, setUser] = useState(null);
-
-  //variable to capture current auth user
-  // const currentUser = auth.currentUser
-  // const user = authUser
+  const { client_id } = useParams()
 
   const navigate = useNavigate()
-  
-  // console.log(currentUser); // log for testing - can be cleaned up later
 
 
   const logIn = async (e) => {
+
     e.preventDefault();
     try {
-      // const result = 
-      // await signInWithEmailAndPassword(auth, `${username}@domain.com`, password);
-      await signInWithEmailAndPassword(auth, `${username}`, password);
-      setIsModalActive(false)
-      setUser(authUser);
-      navigate('/dashboard');
-      setUsername('');
-      setPassword('')
-      setErrorMessage('')
-      // console.log(`${authUser.email} login successful`);
-      // console.log (result)
+      await signInWithEmailAndPassword(auth, username, password)
+      await setUser(auth.currentUser.email);
+      await clientList.map((el) => {
+        if (auth.currentUser.email === el.email) {
+          // setUserId(el.id)
+          // setUserName(el.username)
+          // setUserEmail(el.email)
+          // setUserProfilePicture(el.profile_picture)
+          // setUserRole(el.role)
+
+          setIsModalActive(false);
+          navigate(`/${el.username}/dashboard`);
+          setUsername('');
+          setPassword('')
+          setErrorMessage('')
+        }
+      })
+
       // console.log(auth.currentUser.getIdToken());
-      console.log(auth.currentUser);
-     
+      // console.log(auth.currentUser.email);
+
+
     } catch (error) {
       setErrorMessage('Invalid username or password');
       setPassword('')
       console.error('login error', error.message);
     }
   };
+
+  // const logIn = async (e) => {
+  //   e.preventDefault();
+  //   await authenticate();
+
+  //   // await fetchLoggedUserData; 
+  //   await setIsModalActive(false);
+  //   setUsername('');
+  //   setPassword('')
+  //   setErrorMessage('')  
+  //   navigateToDashboard()
+  // }
 
 
   const googleLogIn = async () => {
@@ -107,4 +148,3 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
     </div>
   )
 }
-

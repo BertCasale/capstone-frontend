@@ -14,14 +14,26 @@ import { db } from './services/config/firebase' // setup for firestore DB - may 
 import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
 import { useEffect, useState } from 'react'
 import useAthState from './services/config/useAuthState'
+import axios from 'axios'
 
 
-
+const API = import.meta.env.VITE_API_URL;
 
 function App() {
 
   const [user, setUser] = useState(null)
   const authUser = useAthState();
+  const [clientList, setClientList] = useState([])
+
+useEffect(() => {
+    axios
+    .get(`${API}/clients`)
+    .then((resp) => {
+      setClientList( resp.data)
+    })
+},[])
+
+
   // const [usersList, setUsersList] = useState([]);
   // const userCollectionRef = collection(db, "users")
   // useEffect(() => {
@@ -43,15 +55,20 @@ function App() {
   // console.log(authUser.auth.currentUser.uid);
   // console.log(authUser.auth.currentUser.email);
 
-
+console.log(clientList);
  
 
   return (
     <div className="App">
-      <NavBar user={user} setUser={setUser} authUser={authUser}/>
+      <NavBar 
+      user={user} 
+      setUser={setUser} 
+      authUser={authUser}
+      clientList={clientList}
+      />
       <Routes>
         <Route path='/' element={<Landing/>} />
-        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/:userName/dashboard' element={<Dashboard/>} />
         <Route path='/lesson/:lessonId' element={<Lesson/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}
