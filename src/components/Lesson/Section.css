@@ -1,6 +1,12 @@
 .exercise .artwork {
+  border: solid #FF6C20 3px;
+  border-radius: 5%;
   max-width: 100%;
   position: relative;
+}
+
+.exercise .starting-box {
+  border: solid #442FEB 3px;
 }
 
 .exercise .artwork-div {

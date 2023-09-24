@@ -52,7 +52,7 @@ export default function CurvedLines({ setCompleted }) {
 
       <div className="artwork-div">
 
-        <img src={artwork} alt="The Great Wave off Kanagawa" />
+        <img src={artwork} alt="The Great Wave off Kanagawa" className="artwork" />
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
