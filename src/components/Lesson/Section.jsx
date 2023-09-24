@@ -3,6 +3,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Section.css"
+import Confetti from "react-confetti";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
@@ -27,6 +28,7 @@ export default function Section({ lessonSections }) {
   });
   const [sectionIndex, setSectionIndex] = useState(0);
   const [exercise, setExercise] = useState([]);
+  const [confettiRan, setConfettiRan] = useState(false);
   const navigate = useNavigate();
 
   function importExercise(exerciseName) {
@@ -41,6 +43,7 @@ export default function Section({ lessonSections }) {
     }
     setCompleted(false);
     setAttempted(false);
+    setConfettiRan(false);
   }, [sectionIndex, lessonSections]);
 
   //if theres an interactive element set import it into the page
@@ -48,7 +51,7 @@ export default function Section({ lessonSections }) {
   useEffect(() => {
     if (sectionData.interactive_element && sectionData.interactive_element !== "none") {
       async function loadExercise() {
-        const ExerciseLoaded = await importExercise(sectionData.interactive_element);
+        const ExerciseLoaded = importExercise(sectionData.interactive_element);
 
         return <ExerciseLoaded setCompleted={setCompleted} setAttempted={setAttempted} completed={completed} />
       }
@@ -92,8 +95,8 @@ export default function Section({ lessonSections }) {
         <h1 className="title is-2">{sectionData.title}</h1>
 
         {/* testing buttons */}
-        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
+        <button onClick={() => changeSectionIndex(1)}>+1</button>
+        <button onClick={() => changeSectionIndex(-1)}>-1</button>
 
       </div>
 
@@ -123,10 +126,17 @@ export default function Section({ lessonSections }) {
 
       </div>
 
+      {/* div for confetti on final exercise completion */}
+      {!lessonSections[sectionIndex + 1] && completed && !confettiRan ? <div className="confetti-div">
+
+        <Confetti className="confetti" recycle={false} numberOfPieces={500} onConfettiComplete={() => setConfettiRan(true)}/> 
+
+      </div> : null}
+      
     </div>
 
     {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
     {/* should start disabled until the user completes an exercise */}
-    <button disabled={!completed} className="button" onClick={handleNextClick}>Next</button>
+    <button disabled={!completed} className="button" onClick={handleNextClick}>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</button>
   </div>)
 }
