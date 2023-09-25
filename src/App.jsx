@@ -17,7 +17,7 @@ import useAthState from './services/config/useAuthState'
 import axios from 'axios'
 
 
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 function App() {
 
