@@ -32,27 +32,14 @@ export default function Dashboard() {
   return (
     <main className="section">
       
-      <div className="columns is-centered">
+      <NextLesson nextLesson={nextLesson} />
 
-        <div className="column is-half">
-          <div className="box">
-            
-          </div>
-        </div>
+      {/* <GrowingTree/> */}
 
-        {/* <GrowingTree/> */}
-        
-      </div>
-      
-      <div className="columns">
+      {/* <OtherLessons otherLessons={otherLessons} /> */}
 
-        {/* <NextLesson nextLesson={nextLesson} /> */}
+      <Syllabus />
 
-        {/* <OtherLessons otherLessons={otherLessons} /> */}
-
-        <Syllabus />
-
-      </div>
     </main>
   )
 }
