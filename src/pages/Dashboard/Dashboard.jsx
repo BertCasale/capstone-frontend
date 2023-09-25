@@ -3,9 +3,11 @@ import axios from "axios";
 // import { useParams } from "react-router-dom";
 import './Dashboard.css'
 import NextLesson from "../../components/Dashboard/NextLesson";
-import OtherLessons from "../../components/Dashboard/OtherLessons";
-import GrowingTree from "../../components/Dashboard/GrowingTree";
+// import LearningPath from "../../components/Dashboard/LearningPath";
+// import GrowingTree from "../../components/Dashboard/GrowingTree";
+import LearningPath from "../../components/Dashboard/LearningPath";
 import Syllabus from "../../components/Dashboard/Syllabus";
+
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 export default function Dashboard() {
@@ -36,7 +38,7 @@ export default function Dashboard() {
 
       {/* <GrowingTree/> */}
 
-      {/* <OtherLessons otherLessons={otherLessons} /> */}
+      <LearningPath allLessons={allLessons}/>
 
       <Syllabus />
 

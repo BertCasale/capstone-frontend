@@ -1,29 +1,26 @@
-import { useState } from "react";
 import LessonInCategory from "./LessonInCategory";
 
-export default function OtherLessons({ otherLessons }) {
+export default function LearningPath({ allLessons }) {
 
   return (
-    <div className="column is-half">
+    <div className="columns is-centered">
 
-      <div className="card">
-        
-        <header className="card-header">
-          <p className="card-header-title">
-            Other Lessons
-          </p>
-        </header>
+      <div className="column is-two-thirds">
 
-        <div className="card-content">
-          {
-            otherLessons.map((lesson) => {
-              return <LessonInCategory key={lesson.id} lesson={lesson} />
-            })
-          }
+        <div className="section has-background-white is-flex is-flex-direction-column is-align-items-center">
+
+          <div className="pt-5">
+            {
+              allLessons.map((lesson) => {
+                return <LessonInCategory key={lesson.id} lesson={lesson} />
+              })
+            }
+          </div>
+
         </div>
 
       </div>
-
+      
     </div>
   )
 }
