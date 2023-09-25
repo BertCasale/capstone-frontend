@@ -19,7 +19,7 @@ export default function Dashboard() {
   useEffect(() => {
     axios.get(`${API}/lessons`)
       .then((res) => {
-        setAllLessons(res.data);
+        setAllLessons([res.data[0], res.data[1], res.data[2]]);
         setNextLesson(res.data[0]);
         setOtherLessons([res.data[1], res.data[2]])
       })
@@ -31,42 +31,24 @@ export default function Dashboard() {
 
   return (
     <main className="section">
+      
+      <div className="columns is-centered">
 
-      <div className="level">
-        <div className="level-left">
-          <div className="level-item">
-            <div className="title">Dashboard</div>
+        <div className="column is-half">
+          <div className="box">
+            
           </div>
         </div>
+
+        {/* <GrowingTree/> */}
+        
       </div>
       
       <div className="columns">
 
-        <div className="column">
-          <div className="box">
-            <div className="title">Welcome to your art journey!</div>
-            <div className="level">
-              <div className="level-item">
-                  <div className="title">Profile Pic</div>
-              </div>
-              <div className="level-item">
-                <div className="">
-                  <div className="title">Username</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* <NextLesson nextLesson={nextLesson} /> */}
 
-        <GrowingTree/>
-        
-      </div>
-      
-      <div className="columns is-multiline">
-
-        <NextLesson nextLesson={nextLesson} />
-
-        <OtherLessons otherLessons={otherLessons} />
+        {/* <OtherLessons otherLessons={otherLessons} /> */}
 
         <Syllabus />
 
