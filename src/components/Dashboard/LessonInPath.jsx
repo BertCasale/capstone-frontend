@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function LessonInCategory({ lesson }) {
+export default function LessonInPath({ lesson }) {
   return (
     <div className="level"> 
 
       <div className="level-left">
-        {/* module icon */}
         <figure className="image level-item is-24x24">
           <img src="https://bulma.io/images/placeholders/96x96.png" alt="Module Icon"/>
         </figure>        
         <h6 className="level-item">{lesson.title}</h6>
-        {/* <p className="level-item">{otherLesson.description}</p> */}
       </div>
       
       <div className="level-right">

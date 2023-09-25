@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LessonInCategory from "./LessonInCategory";
 import { FaPlus, FaMinus } from "react-icons/fa"
+import LessonInPath from "./LessonInPath";
 
 export default function CategoryCard({ category }) {
 
@@ -42,7 +42,7 @@ export default function CategoryCard({ category }) {
           <div className="content accordion-content is-flex is-flex-direction-column">
             {
               category.lessons.map((lesson) => {
-                return <LessonInCategory key={lesson.id} lesson={lesson} />
+                return <LessonInPath key={lesson.id} lesson={lesson} />
               })
             }
           </div>

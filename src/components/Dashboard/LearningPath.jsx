@@ -1,4 +1,5 @@
-import LessonInCategory from "./LessonInCategory";
+import LessonInPath from "./LessonInPath";
+
 
 export default function LearningPath({ allLessons }) {
 
@@ -12,7 +13,7 @@ export default function LearningPath({ allLessons }) {
           <div className="pt-5">
             {
               allLessons.map((lesson) => {
-                return <LessonInCategory key={lesson.id} lesson={lesson} />
+                return <LessonInPath key={lesson.id} lesson={lesson} />
               })
             }
           </div>
@@ -20,28 +21,8 @@ export default function LearningPath({ allLessons }) {
         </div>
 
       </div>
-      
+
     </div>
   )
 }
 
-{/* <div className="panel">
-  <p className="panel-heading">
-    Module Name
-  </p>
-  <div className="panel-block">
-    <figure className="image is-16x9">
-      <img src="https://placehold.it/1280x720"/>
-    </figure>
-    map all other lessons within the same module/category as the suggested next lesson
-    <section className="menu">
-      <ul className="menu-list">
-        {
-          otherLessons.map((otherLesson) => {
-            return <LessonInModule key={otherLesson.id} otherLesson={otherLesson} />
-          })
-        }
-      </ul>
-    </section>
-  </div>
-</div> */}
