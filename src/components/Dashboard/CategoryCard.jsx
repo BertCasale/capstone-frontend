@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa"
-import LessonInPath from "./LessonInPath";
+import SyllabusLesson from "./SyllabusLesson";
+
 
 export default function CategoryCard({ category }) {
 
@@ -20,9 +21,9 @@ export default function CategoryCard({ category }) {
           onClick={toggleSelected}
         >
           {/* Category Icon */}
-          <figure className="image level-item is-24x24">
+          {/* <figure className="image level-item is-24x24">
             <img src="https://bulma.io/images/placeholders/96x96.png" alt="Module Icon" />
-          </figure>
+          </figure> */}
 
           <p className="p-4 has-text-weight-medium is-size-5">{category.title}</p>
 
@@ -42,7 +43,7 @@ export default function CategoryCard({ category }) {
           <div className="content accordion-content is-flex is-flex-direction-column">
             {
               category.lessons.map((lesson) => {
-                return <LessonInPath key={lesson.id} lesson={lesson} />
+                return <SyllabusLesson key={lesson.id} lesson={lesson} />
               })
             }
           </div>
