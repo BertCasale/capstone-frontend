@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
-import { auth, googleProvider } from "../../services/config/firebase"
-import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
+import { auth  } from "../../services/config/firebase"
+import { useAuth } from "../../contexts/AuthContext"
 
 // eslint-disable-next-line react/prop-types
 export default function SignIn({ authUser, setUser, setIsModalActive, closeModal, errorMessage, setErrorMessage}) {
@@ -11,12 +11,8 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
-  // const [user, setUser] = useState(null);
-
-  //variable to capture current auth user
-  // const currentUser = auth.currentUser
-  // const user = authUser
-
+  // get value from context - they don't need to live in the component
+  const { signInWithGoogle, user, token } =  useAuth();
   const navigate = useNavigate()
   
   // console.log(currentUser); // log for testing - can be cleaned up later
@@ -48,7 +44,7 @@ export default function SignIn({ authUser, setUser, setIsModalActive, closeModal
 
 
   const googleLogIn = async () => {
-    await signInWithPopup(auth, googleProvider)
+    await signInWithGoogle()
   };
 
   return (

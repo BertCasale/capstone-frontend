@@ -1,10 +1,6 @@
 import { Button, Form } from 'react-bulma-components'
 import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
-import { auth } from "../../services/config/firebase"
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { addDoc, collection } from 'firebase/firestore'
-import { db } from '../../services/config/firebase'
 import axios from 'axios'
 const API = import.meta.env.VITE_API_URL;
 
@@ -13,9 +9,7 @@ const API = import.meta.env.VITE_API_URL;
 console.log(API)
 export default function SignUp() {
 
-  
-  
-  const userCollectionRef = collection(db, "users");
+
   const navigate = useNavigate()
 
   const [username, setUsername] = useState('');
@@ -45,44 +39,7 @@ export default function SignUp() {
 
 
   //---------------------------------------
-  const handleSignUp = async (e) => {
-    e.preventDefault();
-   
-    try {
-      // Treat the username as the email and create a user account in firebase Auth
-      // await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
-      await createUserWithEmailAndPassword(auth, `${client.username}@domain.com`, client.password)
-      // console.log(`Signup successful`);
-      .then((userCredential) => {
-        const user = userCredential.user;
-        const uid = user.uid;
-        const registrationDate = user.metadata.creationTime
-        const dateObj = new Date(registrationDate)
-        const registered = dateObj.toISOString();
-        const userEmail = user.email
-        // const recordDate = {...client, registration_datetime: registered}
-      
-        console.log(`new user created with UID: ${uid} Username: ${userEmail} registed on ${registered}`);
  
-        console.log(client)
-        
-      });
-
-      await newClient();
-      //add the new user data to firestore db
-      await addDoc(userCollectionRef, { username: username, password: password });
-      //clear fields
-      setUsername('');
-      setPassword('')
-      setConfirmPassword('')
-      //redirect user
-      navigate('/')
-
-    } catch (error) {
-      console.error('Signup error', error.message);
-      // Look into prompt if error relates to username already in use
-    }
-  };
 //-------------------------------------------------
 //used for testing
 
@@ -94,7 +51,7 @@ export default function SignUp() {
   }
 
   return (
-    <form className='form' onSubmit={handleSignUp}>
+    <form className='form' onSubmit={null}>
       <Form.Control>
         <Form.Field>
           <Form.Input
@@ -124,7 +81,7 @@ export default function SignUp() {
             value={confirmPassword}
             color="link"
             placeholder='Confirm password'
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={() => null}
           />
         </Form.Field>
         <Form.Field>
