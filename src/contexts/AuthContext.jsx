@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../services/config/firebase'; // Import your Firebase authentication instance
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+// export const useAuth = () => {
+//   return useContext(AuthContext);
+// };
 
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -28,12 +28,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    // const unsubscribe = 
+    auth.onAuthStateChanged((user) => {
+      console.log("context Auth");
+      // debugger
       setCurrentUser(user);
       setLoading(false);
     });
 
-    return unsubscribe;
+    // return unsubscribe;
   }, []);
 
   const contextValue = {

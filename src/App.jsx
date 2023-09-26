@@ -13,8 +13,9 @@ import Hamster from './pages/Hamster'
 // import { db } from './services/config/firebase' //---Comment setup for firestore DB - may need to move this
 // import { getDocs, collection} from 'firebase/firestore' //---Comment retrieving data to firestore DB
 import { useEffect, useState } from 'react'
-import useAthState from './services/config/useAuthState'
+// import useAthState from './services/config/useAuthState'
 import axios from 'axios'
+
 
 
 const API = import.meta.env.VITE_API_URL;
@@ -22,8 +23,9 @@ const API = import.meta.env.VITE_API_URL;
 function App() {
 
   const [user, setUser] = useState(null)
-  const authUser = useAthState();
+  // const authUser = useAthState();
   const [clientList, setClientList] = useState([])
+  const [userName, setUserName] = useState(null)
 
 useEffect(() => {
     axios
@@ -63,12 +65,14 @@ console.log(clientList);
       <NavBar 
       user={user} 
       setUser={setUser} 
-      authUser={authUser}
+      // authUser={authUser}
       clientList={clientList}
+      userName={userName}
+      setUserName={setUserName}
       />
       <Routes>
         <Route path='/' element={<Landing/>} />
-        <Route path='/:username/dashboard' element={<Dashboard/>} />
+        <Route path='/:username/dashboard' element={<Dashboard userName={userName}/>} />
         <Route path='/lesson/:lessonId' element={<Lesson/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}

@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom"
 
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-export default function SignOut({user, setUser}) {
+export default function SignOut({user, setUser, setIsProfilePicMenuActive}) {
  const navigate = useNavigate()
 
   async function logOut() {
@@ -13,6 +13,7 @@ export default function SignOut({user, setUser}) {
       await signOut(auth);
       setUser(null)
       navigate('/')
+      setIsProfilePicMenuActive(false)
       console.log('User has been logged out');
     } catch (error) {
       console.error ('Error while logging out', error);

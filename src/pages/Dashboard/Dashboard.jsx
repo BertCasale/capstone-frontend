@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
 // import { useParams } from "react-router-dom";
 import './Dashboard.css'
@@ -8,7 +8,8 @@ import GrowingTree from "../../components/Dashboard/GrowingTree";
 import Syllabus from "../../components/Dashboard/Syllabus";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-export default function Dashboard() {
+// eslint-disable-next-line react/prop-types
+export default function Dashboard({userName}) {
 
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
@@ -51,7 +52,7 @@ export default function Dashboard() {
               </div>
               <div className="level-item">
                 <div className="">
-                  <div className="title">Username</div>
+                  <div className="title">user:{userName}</div>
                 </div>
               </div>
             </div>

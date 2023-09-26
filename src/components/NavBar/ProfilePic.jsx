@@ -1,6 +1,10 @@
-import { Menu } from 'react-bulma-components';
+import { useState, useEffect } from 'react';
 import profileImage from '../../../src/assets/avatar-placeholder.png'
 import defaultProfileImage from '../../../src/assets/avatar-placeholder.png'
+import Portal from '../Portal';
+import { Link } from 'react-router-dom';
+import SignOut from '../Auth/SignOut';
+
 
 export default function ProfilePic() {
 
@@ -14,30 +18,95 @@ export default function ProfilePic() {
     objectFit: 'cover', // Ensure the image covers the entire circle
   };
 
-  const handleClick = () => {
+  const [isProfilePicMenuActive, setIsProfilePicMenuActive] = useState(false)
+
+  const handleProfilePicToggle = () => {
+    setIsProfilePicMenuActive(!isProfilePicMenuActive)
+    console.log('menu toggle status', isProfilePicMenuActive)
 
   }
 
-
+  //Close profile Menu on outide click------------------
+  useEffect(() => {
+    const closeMenuOnOutsideClick = (e) => {
+      if (isProfilePicMenuActive && !e.target.closest('.image-container')) {
+        setIsProfilePicMenuActive(false);
+      }
+    };
+    document.addEventListener('click', closeMenuOnOutsideClick);
+  
+    return () => {
+      document.removeEventListener('click', closeMenuOnOutsideClick);
+    };
+  }, [isProfilePicMenuActive]);
+  
 
   return (
-    <div>
-      <div
-      // style={{
-      //   width: imageSize,
-      //   height: imageSize,
-      //   borderRadius: '50%',
-      //   overflow: 'hidden', // Clip the image to the circle
-      // }}
-      >
-        <img
-          src={profileImage}
-          alt={defaultProfileImage}
-          style={imageStyle}
-          onClick={handleClick}
-        />
-      </div>
 
-    </div>
+<div className='image-container'>
+  
+    <img
+      src={profileImage}
+      alt={defaultProfileImage}
+      style={imageStyle}
+      onClick={handleProfilePicToggle}
+    />
+    {isProfilePicMenuActive && (
+      <Portal>
+       <div className="popup-menu">
+       {/* Popup menu content */}
+       <ul>
+         <li>
+          <Link>Profile</Link>
+         </li>
+         <li>
+          <Link>Notifications</Link>
+         </li>
+         <li>
+          {<SignOut/>}
+          </li>
+         {/* Add more menu items as needed */}
+       </ul>
+     </div>
+     </Portal>
+   )}
+</div>
+
   )
 }
+
+// {isProfilePicMenuActive && (
+  //   <div className="dropdown-container">
+  //       {/* <div className="dropdown">  */}
+  //       {/* Your collapsible menu content */}
+
+  //       <Dropdown className="mt-5">
+  //           <Dropdown.Item
+  //               label={'Dropdown label'}
+  //           >
+  //               A Button</Dropdown.Item>
+  //           {/* <Menu.List> */}
+  //           <Dropdown.Item
+  //           // renderAs="a"
+  //           // value={"profile"}
+  //           >
+  //               <Link to="/:username/profile">Profile</Link>
+  //           </Dropdown.Item>
+  //           <Dropdown.Divider />
+  //           <Dropdown.Item
+  //               // renderAs="a"
+  //               value={"signOut"}
+  //           >
+  //               <SignOut user={user} setUser={setUser} setIsProfilePicMenuActive={setIsProfilePicMenuActive} />
+  //           </Dropdown.Item>
+  //           <Dropdown.Item
+  //               renderAs="a"
+  //               value={"last Item"}
+  //           >
+  //               Last Item
+  //           </Dropdown.Item>
+  //           {/* </Menu.List> */}
+  //       </Dropdown>
+  //   </div>
+  //   // </div>
+  // )}
