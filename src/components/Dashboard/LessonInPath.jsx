@@ -1,24 +1,24 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsStar, BsStarFill } from 'react-icons/bs'
+import './LessonInPath.css'
 
 export default function LessonInPath({ lesson }) {
 
-  const [isPressed, setIsPressed] = useState(false);
+  // const [isPressed, setIsPressed] = useState(false);
 
-  const handleButtonClick = () => {
-    setIsPressed(true);
-    setTimeout(() => {
-      setIsPressed(false);
-    }, 100); // Resets the pressed state after a short delay 
-  }
+  // const handleButtonClick = () => {
+  //   setIsPressed(true);
+  //   setTimeout(() => {
+  //     setIsPressed(false);
+  //   }, 100); // Resets the pressed state after a short delay 
+  // }
 
   return (
     <div className="level pb-5"> 
       
         <button 
           className="pushable"
-          onClick={handleButtonClick}
         >
           <span className="shadow"></span>
           <span className="edge"></span>

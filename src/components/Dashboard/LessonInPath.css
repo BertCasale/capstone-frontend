@@ -1,0 +1,67 @@
+/* .lp-button {
+  height: 150px;
+  width: 150px;
+  background-color: orange;
+  border: none;
+  border-radius: 70%;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.pressed {
+  background-color: #5E17EB;
+} */
+
+.pushable {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  transform: translateY(2px);
+}
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(340deg 100% 32%);
+}
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  color: white;
+  background: orange;
+  transform: translateY(-4px);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+}
+.pushable:hover .shadow {
+  transform: translateY(4px);
+}
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+.pushable:active .shadow {
+  transform: translateY(1px);
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}
