@@ -1,12 +1,10 @@
 import { useState } from "react"
 import UserAuthBtn from "./UserAuthBtn";
 import ProtectedDashboard from "./ProtectedDashboard";
-// import useAuthState from "../../services/config/useAuthState";
 import "../../Styles/Navbar.css"
 import Modal from "./Modal";
-import SignOut from "../Auth/SignOut";
 import { Link } from "react-router-dom";
-import { Menu, Dropdown, DropdownItem, Button } from "react-bulma-components";
+
 
 //Prop imports from App.js
 // eslint-disable-next-line react/prop-types
@@ -66,12 +64,9 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                         </span>
                     </div>
 
-                    <div
-                        className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}
-                    >
+                    <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
                         <div className="navbar-end">
                             <ProtectedDashboard
-                                // authUser={authUser}
                                 user={user}
                                 setUser={setUser}
                             />
@@ -86,39 +81,19 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                                 </Link>
                             </li>
                             <li>
-                                {/* <Link> */}
                             <UserAuthBtn 
-                            
-                                // setIsModalActive={setIsModalActive}
-                                // setIsProfilePicMenuActive={setIsProfilePicMenuActive}
-                                // authUser={authUser}
                                 user={user}
                                 setUser={setUser}
                                 userName={userName}
                                 setUserName={setUserName}
                             />
-                            {/* </Link> */}
                             </li>
                         </div>
                     </div>
-
-                    <div className="profilePic">
-                        
-                        {/* <div > className="menu-burger" onClick={handleProfilePicToggle} */}
-                           
-                        {/* </div> */}
-                    </div>
                 </div>
             </nav>
-
-            {/* Separate Menu Container */}
-            
         </div>
     );
-
-
 }
-//--------------------------------------------
-// const burgerMenu = document.querySelector('#navbar-menu');
-// onClick={navbarMenu.classList.toggle('is-active')}
+
 

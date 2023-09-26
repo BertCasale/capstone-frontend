@@ -7,8 +7,8 @@ import {useNavigate} from "react-router-dom"
 export default function SignOut({user, setUser, setIsProfilePicMenuActive}) {
  const navigate = useNavigate()
 
+// Signout/Logout function ------------------- 
   async function logOut() {
-
     try {
       await signOut(auth);
       setUser(null)
@@ -20,13 +20,16 @@ export default function SignOut({user, setUser, setIsProfilePicMenuActive}) {
     }
   }
 
+// handle click function ------------------  
   const handleSignOut = async () => {
     await logOut()
   };
 
   return (
-    
-      <div className="button is-rounded" onClick={handleSignOut}>Log Out</div>
-    
+      <div 
+      className="button is-rounded" 
+      onClick={handleSignOut}>
+        Log Out
+        </div>
   )
 }

@@ -3,10 +3,6 @@ import { auth } from '../services/config/firebase'; // Import your Firebase auth
 
 const AuthContext = createContext(null);
 
-// export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
-
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);

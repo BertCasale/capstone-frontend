@@ -1,23 +1,17 @@
-// import { auth } from "../../services/config/firebase"
-import SignOut from "../Auth/SignOut";
-import { Link } from "react-router-dom";
+
 import ProfilePic from "./ProfilePic";
 import { auth } from "../../services/config/firebase";
-import { useState } from "react";
 
+// setIsModalActive prop being passed from NavBar component
 // eslint-disable-next-line react/prop-types
 export default function UserAuthBtn({ setIsModalActive, user, setUser, userName, setUserName }) {
-  // setIsModalActive prop being passed from NavBar component
-
- 
-
+  
+// handles the state of the nav-item login/profile Avatar button--------
   const handleButtonState = () => {
 
     if (auth.currentUser) {
       return (
-      
           <ProfilePic />
-         
       );
     } else {
       return (
@@ -31,12 +25,12 @@ export default function UserAuthBtn({ setIsModalActive, user, setUser, userName,
         </button>
       );
     }
-  }
+  };
 
+
+  //RENDERED return below----------------
   return (
-    
-      handleButtonState()
-   
+      handleButtonState()  
   )
 }
 
