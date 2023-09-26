@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
+import { auth } from "../../services/config/firebase";
 
 
 // eslint-disable-next-line react/prop-types
-export default function ProtectedDashboard({ authUser}) {
+export default function ProtectedDashboard() {
   //props passed from Navbar
 
-  // const user = authUser
-  // console.log(user);
   return (
-      authUser ? ( <Link className="navbar-item" to="/:username/dashboard">
-      Dashboard
-    </Link>) : null  
+    auth.currentUser ? (
+      <li className="navbar-item">
+        <Link to="/:username/dashboard">
+          Dashboard
+        </Link>
+      </li>
+      ) : null
   )
 }
