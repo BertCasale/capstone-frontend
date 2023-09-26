@@ -96,4 +96,3 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
     );
 }
 
-

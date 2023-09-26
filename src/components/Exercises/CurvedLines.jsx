@@ -52,7 +52,7 @@ export default function CurvedLines({ setCompleted }) {
 
       <div className="artwork-div">
 
-        <img src={artwork} alt="The Great Wave off Kanagawa" />
+        <img src={artwork} alt="The Great Wave off Kanagawa" className="artwork" />
 
         {/* the box where the line can be drag and dropped into */}
         {/* once the line is dropped in, the next button will enable */}
@@ -68,8 +68,8 @@ export default function CurvedLines({ setCompleted }) {
       {/* the box the contains the line at the start */}
       <div className="starting-box is-flex is-justify-content-center">
         {/* disable the draggability if the line was placed */}
-        <img draggable={!linesPlaced.line1} src={lineOne} alt="curved line" id="line-1" className="line-1" onDragStart={(e) => handleDragStart(e)} />
-        <img draggable={!linesPlaced.line2} src={lineTwo} alt="curved line" id="line-2" className="line-2" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line1} src={lineOne} alt="curved line" id="line-1" className="line-1 is-clickable" onDragStart={(e) => handleDragStart(e)} />
+        <img draggable={!linesPlaced.line2} src={lineTwo} alt="curved line" id="line-2" className="line-2 is-clickable" onDragStart={(e) => handleDragStart(e)} />
       </div>
 
     </div>
