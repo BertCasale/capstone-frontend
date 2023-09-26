@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { openai } from '../../services/config/dalleAPI'
+// import { openai } from '../../services/config/dalleAPI'
 
 
 export default function ImageGenerator() {
