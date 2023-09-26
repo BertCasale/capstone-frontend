@@ -36,16 +36,16 @@
   width: 100%;
   height: 100%;
   border-radius: 12px;
-  background: hsl(340deg 100% 32%);
+  background: #5E17EB;
 }
 .front {
   display: block;
   position: relative;
-  padding: 12px 42px;
+  padding: 30px 50px;
   border-radius: 12px;
   font-size: 1.25rem;
   color: white;
-  background: orange;
+  background: #FF914D;
   transform: translateY(-4px);
 }
 

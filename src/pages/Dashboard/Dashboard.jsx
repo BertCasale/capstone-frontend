@@ -32,7 +32,7 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <main className="section">
+    <main className="section has-background-light">
       
       <NextLesson nextLesson={nextLesson} />
 
