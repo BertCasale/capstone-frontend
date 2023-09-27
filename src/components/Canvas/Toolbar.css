@@ -1,3 +1,4 @@
+/* Toolbar, rows and options layout */
 .toolbar{
   width: 210px;
   padding: 15px 22px 0;
@@ -9,13 +10,14 @@
   list-style: none;
   margin: 10px 0 0 5px;
 }
-
 .row .options .option{
   display: flex;
   cursor: pointer;
   align-items: center;
   margin-bottom: 10px;
 }
+
+/* Options on hover and is active */
 .option:is(:hover, .active) img{
   filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
 }
@@ -27,6 +29,8 @@
 .option:is(:hover, .active) :where(span, label){
   color: #4A98F7;
 }
+
+/* Options */
 .option #fill-color{
   cursor: pointer;
   height: 14px;
@@ -45,6 +49,7 @@
   margin-left: 15px;
 }
 
+/* Buttons */
 .buttons button{
   width: 100%;
   color: #fff;

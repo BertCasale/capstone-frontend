@@ -11,24 +11,15 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
         <label className="label-title">Shapes</label>
         <ul className="options">
 
-          <li className="option tool" id="rectangle">
-            {/* <button onClick={toggleRectangleMode}>
-              Rectangle Mode: {rectangleMode ? 'On': 'Off'}
-            </button> */}
+          <li className={`option tool ${rectangleMode && 'active'}`} onClick={toggleRectangleMode}>
             <span>Rectangle</span>
           </li>
 
-          <li className="option tool" id="circle">
-            {/* <button onClick={toggleCircleMode}>
-              Circle Mode: {circleMode ? 'On': 'Off'}
-            </button> */}
+          <li className={`option tool ${circleMode && 'active'}`} onClick={toggleCircleMode}>
             <span>Circle</span>
           </li>
 
-          <li className="option tool" id="line">
-            {/* <button onClick={toggleLineMode}>
-              Line Mode: {lineMode ? 'On': 'Off'}
-            </button> */}
+          <li className={`option tool ${lineMode && 'active'}`} onClick={toggleLineMode}>
             <span>Line</span>
           </li>
 
@@ -59,11 +50,8 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
             />
           </li>
 
-          <li className='option tool' id='eraser'>
+          <li className={`option tool ${eraseMode && 'active'}`} onClick={toggleEraseMode}>
             <span>Eraser</span>
-            {/* <button onClick={toggleEraseMode}>
-              Erase Mode: {eraseMode ? 'On': 'Off'}
-            </button> */}
           </li>
 
           <li className='option'>
