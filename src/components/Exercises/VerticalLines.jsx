@@ -167,7 +167,7 @@ export default function VerticalLines({ setCompleted }) {
           src={line} 
           alt="vertical line" 
           id="line1" 
-          className="line-1 line is-clickable"  
+          className={`line-1 line ${linesPlaced.line1 ? null : "is-clickable"}`}  
           onMouseDown={linesPlaced.line1 ? null : (e) => handleMouseDown(e)}
           onTouchStart={linesPlaced.line1 ? null : (e) => handleTouch(e)}
         />
@@ -177,7 +177,7 @@ export default function VerticalLines({ setCompleted }) {
           src={line} 
           alt="vertical line" 
           id="line2" 
-          className="line-2 line is-clickable" 
+          className={`line-2 line ${linesPlaced.line2 ? null : "is-clickable"}`} 
           onMouseDown={linesPlaced.line2 ? null : (e) => handleMouseDown(e)}
           onTouchStart={linesPlaced.line2 ? null : (e) => handleTouch(e)}
         />

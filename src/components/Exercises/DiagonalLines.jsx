@@ -168,7 +168,7 @@ export default function DiagonalLines({ setCompleted }) {
           src={line} 
           alt="diagonal line" 
           id="line1" 
-          className="line-1 line is-clickable" 
+          className={`line-1 line ${linesPlaced.line1 ? null : "is-clickable"}`} 
           onMouseDown={linesPlaced.line1 ? null : (e) => handleMouseDown(e)}
           onTouchStart={linesPlaced.line1 ? null : (e) => handleTouch(e)}
           //style={linesPlaced.line1 ? {transform: "rotate(0deg)", margin: "0px"} : {}}
@@ -179,7 +179,7 @@ export default function DiagonalLines({ setCompleted }) {
           src={line} 
           alt="diagonal line" 
           id="line2" 
-          className="line-2 line is-clickable" 
+          className={`line-2 line ${linesPlaced.line2 ? null : "is-clickable"}`} 
           onMouseDown={linesPlaced.line2 ? null : (e) => handleMouseDown(e)}
           onTouchStart={linesPlaced.line2 ? null : (e) => handleTouch(e)}
           //style={linesPlaced.line2 ? {transform: "rotate(0deg)", margin: "0px"} : {}}
@@ -190,7 +190,7 @@ export default function DiagonalLines({ setCompleted }) {
           src={line} 
           alt="diagonal line" 
           id="line3" 
-          className="line-3 line is-clickable" 
+          className={`line-3 line ${linesPlaced.line3 ? null : "is-clickable"}`} 
           onMouseDown={linesPlaced.line3 ? null : (e) => handleMouseDown(e)}
           onTouchStart={linesPlaced.line3 ? null : (e) => handleTouch(e)}
           //style={linesPlaced.line3 ? {transform: "rotate(0deg)", margin: "0px"} : {}}

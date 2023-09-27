@@ -141,7 +141,7 @@ export default function HorizontalLines({ setCompleted }) {
           src={line} 
           alt="horizontal line" 
           id="draggable-line" 
-          className="line is-clickable" 
+          className={`line ${linePlaced ? null : "is-clickable"}`} 
           onMouseDown={linePlaced ? null : (e) => handleMouseDown(e)}
           onTouchStart={linePlaced ? null : (e) => handleTouch(e)}
         />
