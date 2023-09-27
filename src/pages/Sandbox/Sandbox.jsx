@@ -7,7 +7,7 @@ export default function Sandbox() {
     <div className="page-container">
       <div className="div-container">
 
-        <Canvas canvasWidth={1000} canvasHeight={600}/>
+        <Canvas canvasWidth={900} canvasHeight={650}/>
       
         <ImageGenerator />
 
