@@ -48,7 +48,7 @@ export default function ImageGenerator() {
           value={textPrompt}
           onChange={(e) => setTextPrompt(e.target.value)}
         />
-        <button onClick={generateImage}>Generate Image</button>
+        <button className="gen-button" onClick={generateImage}>Generate Image</button>
       </div>
 
       <div className="generated-image">

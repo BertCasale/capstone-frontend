@@ -3,7 +3,7 @@
   padding: 15px 22px;
 }
 
-button{
+.gen-button{
   width: 100%;
   color: #fff;
   border: none;
@@ -18,7 +18,7 @@ button{
   border: 1px solid #4a5157;
   transition: all 0.3s ease;
 }
-button:hover{
+.gen-button:hover{
   color: #fff;
   background: #ff690b;
   font-weight: bold;
