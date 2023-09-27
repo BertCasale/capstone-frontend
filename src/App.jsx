@@ -10,18 +10,31 @@ import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
 import Hamster from './pages/Hamster'
-import { db } from './services/config/firebase' // setup for firestore DB - may need to move this
-import { getDocs, collection} from 'firebase/firestore' // retrieving data to firestore DB
+// import { db } from './services/config/firebase' //---Comment setup for firestore DB - may need to move this
+// import { getDocs, collection} from 'firebase/firestore' //---Comment retrieving data to firestore DB
 import { useEffect, useState } from 'react'
-import useAthState from './services/config/useAuthState'
+// import useAthState from './services/config/useAuthState'
+import axios from 'axios'
 
 
-
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 function App() {
 
   const [user, setUser] = useState(null)
-  const authUser = useAthState();
+  // const authUser = useAthState();
+  const [clientList, setClientList] = useState([])
+  const [userName, setUserName] = useState(null)
+
+useEffect(() => {
+    axios
+    .get(`${API}/clients`)
+    .then((resp) => {
+      setClientList( resp.data)
+    })
+},[])
+
+
   // const [usersList, setUsersList] = useState([]);
   // const userCollectionRef = collection(db, "users")
   // useEffect(() => {
@@ -43,15 +56,22 @@ function App() {
   // console.log(authUser.auth.currentUser.uid);
   // console.log(authUser.auth.currentUser.email);
 
-
+console.log(clientList);
  
 
   return (
     <div className="App">
-      <NavBar user={user} setUser={setUser} authUser={authUser}/>
+      <NavBar 
+      user={user} 
+      setUser={setUser} 
+      // authUser={authUser}
+      clientList={clientList}
+      userName={userName}
+      setUserName={setUserName}
+      />
       <Routes>
         <Route path='/' element={<Landing/>} />
-        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/:username/dashboard' element={<Dashboard userName={userName}/>} />
         <Route path='/lesson/:lessonId' element={<Lesson/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}

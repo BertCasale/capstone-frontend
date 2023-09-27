@@ -17,6 +17,7 @@
     "openai": "^4.8.0",
     "react": "^18.2.0",
     "react-bulma-components": "^4.1.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-jigsaw-puzzle": "^1.0.5",

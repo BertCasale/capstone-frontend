@@ -1,15 +1,18 @@
 import Canvas from "../../components/Canvas/Canvas";
 import ImageGenerator from "../../components/Canvas/ImageGenerator";
+import './Sandbox.css'
 
 export default function Sandbox() {
   return(
-    <section key={1} className="section is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+    <div className="page-container">
+      <div className="div-container">
 
-      <Canvas canvasWidth={1000} canvasHeight={600}/>
-    
-      <ImageGenerator />
+        <Canvas canvasWidth={900} canvasHeight={650}/>
+      
+        <ImageGenerator />
 
-    </section>
+      </div>
+    </div>
   )
 }
 

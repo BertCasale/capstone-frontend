@@ -3,6 +3,7 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Section.css"
+import Confetti from "react-confetti";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
@@ -27,6 +28,7 @@ export default function Section({ lessonSections }) {
   });
   const [sectionIndex, setSectionIndex] = useState(0);
   const [exercise, setExercise] = useState([]);
+  const [confettiRan, setConfettiRan] = useState(false);
   const navigate = useNavigate();
 
   function importExercise(exerciseName) {
@@ -41,6 +43,7 @@ export default function Section({ lessonSections }) {
     }
     setCompleted(false);
     setAttempted(false);
+    setConfettiRan(false);
   }, [sectionIndex, lessonSections]);
 
   //if theres an interactive element set import it into the page
@@ -48,7 +51,7 @@ export default function Section({ lessonSections }) {
   useEffect(() => {
     if (sectionData.interactive_element && sectionData.interactive_element !== "none") {
       async function loadExercise() {
-        const ExerciseLoaded = await importExercise(sectionData.interactive_element);
+        const ExerciseLoaded = importExercise(sectionData.interactive_element);
 
         return <ExerciseLoaded setCompleted={setCompleted} setAttempted={setAttempted} completed={completed} />
       }
@@ -70,13 +73,13 @@ export default function Section({ lessonSections }) {
   //move to the next section when clicked 
   //if theres no next section in the lesson, set the users completion status
   function handleNextClick() {
-    if (lessonSections[sectionIndex + 1]){
+    if (lessonSections[sectionIndex + 1]) {
       setSectionIndex(sectionIndex + 1);
     } else {
       //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
       //axios.post(`${API}/clientLessonsProgress`, progress)
       //  .then(() => {
-          navigate("/dashboard")
+      navigate("/dashboard")
       //  })
       //  .catch((e) => console.warn(e))
     }
@@ -92,16 +95,16 @@ export default function Section({ lessonSections }) {
         <h1 className="title is-2">{sectionData.title}</h1>
 
         {/* testing buttons */}
-        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
+        <button onClick={() => changeSectionIndex(1)}>+1</button>
+        <button onClick={() => changeSectionIndex(-1)}>-1</button>
 
       </div>
 
       {/* hide the content div if theres no content to show */}
-      <div className="content column is-half" style={sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? null : { display: "none" }}>
+      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column is-half">
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
-        <h2 className="learning-info" style={{whiteSpace:"pre-wrap"}}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
+        <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
         <div className="feedback" style={attempted || completed ? null : { display: "none" }}>
@@ -109,9 +112,10 @@ export default function Section({ lessonSections }) {
           <h3 style={completed ? { color: "green" } : { color: "red" }}>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
         </div>
 
-      </div>
+      </div> : null}
 
-      <div className="column exercise content" style={sectionData.interactive_element && sectionData.interactive_element !== "none" ? null : { display: "none" }}>
+      {/* dont show the interactive element div if there isnt one */}
+      {sectionData.interactive_element && sectionData.interactive_element !== "none" ? <div className="column exercise content is-flex-direction-column is-flex is-align-items-center">
 
         <h3 className="question">{sectionData.question}</h3>
 
@@ -119,14 +123,21 @@ export default function Section({ lessonSections }) {
           {exercise}
         </Suspense>
 
-        <p className="credit" style={{whiteSpace:"pre-wrap"}}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </p>
+        <p className="credit" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </p>
 
-      </div>
+      </div> : null}
+
+      {/* div for confetti on final exercise completion */}
+      {!lessonSections[sectionIndex + 1] && completed && !confettiRan ? <div className="confetti-div">
+
+        <Confetti className="confetti" recycle={false} numberOfPieces={500} onConfettiComplete={() => setConfettiRan(true)} />
+
+      </div> : null}
 
     </div>
 
     {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
     {/* should start disabled until the user completes an exercise */}
-    <button disabled={!completed} className="button" onClick={handleNextClick}>Next</button>
+    <button disabled={!completed} className="button" onClick={handleNextClick}>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</button>
   </div>)
 }
