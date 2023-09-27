@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
 // import { useParams } from "react-router-dom";
 import './Dashboard.css'
@@ -10,7 +10,8 @@ import Syllabus from "../../components/Dashboard/Syllabus";
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-export default function Dashboard() {
+// eslint-disable-next-line react/prop-types
+export default function Dashboard({userName}) {
 
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);

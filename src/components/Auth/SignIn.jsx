@@ -3,17 +3,21 @@ import { useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
 import { auth, googleProvider } from "../../services/config/firebase"
-import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth"
+import { signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth"
 // import { useParams } from "react-router-dom"
 
 // import axios from "axios"
 // const API = import.meta.env.VITE_API_URL;
 
+// signInWithRedirect(auth, new GoogleAuthProvider())
+// const provider = new GoogleAuthProvider();
+
+//Prop imports from Modal.jsx
 // eslint-disable-next-line react/prop-types
 export default function SignIn(
   {
     errorMessage,
-    setErrorMessage,
+    setErrorMessage,  
     clientList,
     setUser,
     closeModal,
@@ -23,7 +27,7 @@ export default function SignIn(
     // user,
     // userId,
     // setUserId,
-    // userName,
+    userName,
     setUserName,
     // userEmail,
     // setUserEmail,
@@ -33,31 +37,31 @@ export default function SignIn(
     // setUserRole,
   }
 ) {
-  //props passed from Modal
 
+// State variables for username and password capture-----------
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const { client_id } = useParams()
 
   const navigate = useNavigate()
 
-
+// LogIn function -------------------------
   const logIn = async (e) => {
 
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, username, password)
-      await setUser(auth.currentUser.email);
+      // await signInWithEmailAndPassword(auth, username, password)
+      // await setUser(auth.currentUser.email);
       await clientList.map((el) => {
         if (auth.currentUser.email === el.email) {
           // setUserId(el.id)
-          setUserName(el.username)
+          // setUserName(el.username)
           // setUserEmail(el.email)
           // setUserProfilePicture(el.profile_picture)
           // setUserRole(el.role)
 
           setIsModalActive(false);
-          navigate(`/${el.username}/dashboard`);
+          navigate(`/${userName}/dashboard`);
           setUsername('');
           setPassword('')
           setErrorMessage('')
@@ -75,6 +79,7 @@ export default function SignIn(
     }
   };
 
+// Attempt to resolved delayed state update for username ---------
   // const logIn = async (e) => {
   //   e.preventDefault();
   //   await authenticate();
@@ -87,11 +92,46 @@ export default function SignIn(
   //   navigateToDashboard()
   // }
 
-
+// Google provider login ------------------------
   const googleLogIn = async () => {
-    await signInWithPopup(auth, googleProvider)
-  };
+    // const userCred = await getRedirectResult(auth);
+    // debugger
+    await signInWithRedirect(auth, new GoogleAuthProvider())
+    // await signInWithPopup(auth, new GoogleAuthProvider())
 
+    getRedirectResult(auth)
+    
+  .then((result) => {
+ 
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    console.log(token);
+    console.log(user);
+ 
+  })
+  .catch((error) => {
+
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    const credential = GoogleAuthProvider.credentialFromError(error);
+
+    // .then((result)=> {
+    //   debugger
+    //   const credential = GoogleAuthProvider.credentialFromResult(result);
+    //   const token = credential.accessToken
+    //   const user = result.user
+
+    //   console.log(token);
+    //   console.log(user);
+    // })
+    // .catch((error)=> {
+    //   console.error(error)
+    // })
+  })};
+
+ //RENDERED content below -------------------------------- 
   return (
     <div>
       <form className="form" onSubmit={logIn}>

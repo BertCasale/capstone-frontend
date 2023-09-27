@@ -10,7 +10,7 @@ const API = import.meta.env.VITE_API_URL;
 
 // import { useAuth } from '../../contexts/AuthContexts'
 
-console.log(API)
+// console.log(API)
 export default function SignUp() {
 
   
