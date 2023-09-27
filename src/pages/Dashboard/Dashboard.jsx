@@ -26,9 +26,6 @@ export default function Dashboard() {
         setOtherLessons([res.data[1], res.data[2]])
       })
       .catch((e) => console.warn('catch', e))
-      console.log(allLessons)
-      console.log(nextLesson)
-      console.log(otherLessons)
   }, [])
 
   return (
