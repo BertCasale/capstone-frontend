@@ -15,6 +15,7 @@ export default function SignOut({user, setUser, setIsProfilePicMenuActive}) {
       navigate('/')
       setIsProfilePicMenuActive(false)
       console.log('User has been logged out');
+      console.log(auth);
     } catch (error) {
       console.error ('Error while logging out', error);
     }
@@ -27,7 +28,7 @@ export default function SignOut({user, setUser, setIsProfilePicMenuActive}) {
 
   return (
       <div 
-      className="button is-rounded" 
+       
       onClick={handleSignOut}>
         Log Out
         </div>

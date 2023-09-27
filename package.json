@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
     "bulma": "^0.9.4",
     "dotenv": "^16.3.1",
@@ -21,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-jigsaw-puzzle": "^1.0.5",
+    "react-popper": "^2.3.0",
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
