@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../services/config/firebase'; // Import your Firebase authentication instance
-import axios from 'axios';
+// import axios from 'axios';
 import { getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
 
-const API = import.meta.env.VITE_API_URL;
+// const API = import.meta.env.VITE_API_URL;
 
 const AuthContext = createContext(null);
 
@@ -13,22 +13,22 @@ export function useAuth(){
 
 export const signUp = async (email, password) => {
   await createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredentials) => {
-    const user = userCredentials.user
-  })
-  .catch((error) => {
-    console.error(error)
-  })
+  // .then((userCredentials) => {
+  //   const user = userCredentials.user
+  // })
+  // .catch((error) => {
+  //   console.error(error)
+  // })
 };
 
 export const signIn = async (email, password) => {
   auth.signInWithEmailAndPassword(email, password)
-  .then((userCredentials) => {
-    const user = userCredentials.user;
-  })
-  .catch((error) => {
-    console.error(error)
-  })
+  // .then((userCredentials) => {
+  //   const user = userCredentials.user;
+  // })
+  // .catch((error) => {
+  //   console.error(error)
+  // })
 };
 
 const signOut = () => {
@@ -40,6 +40,9 @@ const resetPassword = (email) => {
 };
 
 //--------------------------------------------------
+
+
+
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -55,19 +58,20 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
     });
     //------------------------ Google Auth using redirect
-    getRedirectResult(auth)
-    .then((result) => {
-      // This gives you a Google Access Token. You can use it to access Google APIs.
-      // const credential = GoogleAuthProvider.credentialFromResult(result);
-      // const token = credential.accessToken; 
-      // set state variable for currentUser 
-      setCurrentUser(user)
-       // The signed-in user info.
-    const user = result.user;
-    })
-    .catch((error) =>{
-      console.error(error)
-    })
+    // getRedirectResult(auth)
+    // .then((result) => {
+    //   const user = result.user;
+    //   // This gives you a Google Access Token. You can use it to access Google APIs.
+    //   // const credential = GoogleAuthProvider.credentialFromResult(result);
+    //   // const token = credential.accessToken; 
+    //   // set state variable for currentUser 
+    //   setCurrentUser(user)
+    //    // The signed-in user info.
+   
+    // })
+    // .catch((error) =>{
+    //   console.error(error)
+    // })
     //--------------------
  // axios.get((`${API}/clients`) )
 

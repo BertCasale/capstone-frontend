@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 import { Card } from "react-bulma-components"
 import SignOut from "../Auth/SignOut"
+import { useAuth } from "../../contexts/AuthContext"; 
 
 // eslint-disable-next-line react/prop-types
 export default function DropdownMenu({setUser, setIsProfilePicMenuActive }) {
+  
+  // const auth = useAuth()
+ 
+  // console.log(auth.currentUser.displayName);
 
   return (
     <div className="dropdown">
@@ -11,7 +16,7 @@ export default function DropdownMenu({setUser, setIsProfilePicMenuActive }) {
      <div>
        <ul>
          <li>
-          <h4>User Name</h4>
+          <h4>{}</h4>
          </li>
          <hr/>
          <li>

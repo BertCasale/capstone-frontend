@@ -8,7 +8,9 @@ export default function ProtectedDashboard() {
   //props passed from Navbar
 const auth = useAuth(); 
 
-  console.log(auth.currentUser);
+// if(auth ? console.log(auth.currentUser.displayName): null)
+
+// console.log(auth.currentUser.displayName);
 
   return (
     auth.currentUser ? (
