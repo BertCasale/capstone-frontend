@@ -1,31 +1,39 @@
 .vertical-lines .empty-box {
   position: absolute;
   text-align: center;
-  width: 16%;
+  width: 17%;
 }
 
 .vertical-lines .first-box {
   height: 97%;
-  left: 13%;
+  left: 5%;
+  padding-left: 10%;
   top: 0%;
+  width: 20%;
 }
 
 .vertical-lines .second-box {
   height: 45%;
-  left: 28%;
+  left: 24%;
+  padding-left: 3%;
   top: 43%;
+  width: 20%;
 }
 
 .vertical-lines .third-box {
   height: 45%;
   left: 53%;
+  padding-right: 4%;
   top: 43%;
+  width: 20%;
 }
 
 .vertical-lines .fourth-box {
   height: 97%;
-  left: 71%;
+  left: 73%;
+  padding-right:8%;
   top: 0%;
+  width: 20%;
 }
 
 .vertical-lines .line {
