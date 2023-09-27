@@ -86,6 +86,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                                 setUser={setUser}
                                 userName={userName}
                                 setUserName={setUserName}
+                                setIsModalActive={setIsModalActive}
                             />
                             </li>
                         </div>

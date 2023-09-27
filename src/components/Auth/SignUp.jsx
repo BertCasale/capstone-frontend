@@ -54,8 +54,6 @@ export default function SignUp() {
     e.preventDefault();
    
     try {
-      // Treat the username as the email and create a user account in firebase Auth
-      // await createUserWithEmailAndPassword(auth, `${username}@domain.com`, password)
       
       //uses firebase creatUserWithEmailAndPassword builtin function
       await createUserWithEmailAndPassword(auth, client.email, client.password)
