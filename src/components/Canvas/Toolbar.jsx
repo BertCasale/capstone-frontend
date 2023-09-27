@@ -1,3 +1,4 @@
+import './Toolbar.css'
 
 
 export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, eraseMode, undoAction, lineMode, toggleLineMode, rectangleMode, toggleRectangleMode, circleMode, toggleCircleMode, fillMode, toggleFillMode }) {
@@ -11,23 +12,23 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
         <ul className="options">
 
           <li className="option tool" id="rectangle">
-            <button onClick={toggleRectangleMode}>
+            {/* <button onClick={toggleRectangleMode}>
               Rectangle Mode: {rectangleMode ? 'On': 'Off'}
-            </button>
+            </button> */}
             <span>Rectangle</span>
           </li>
 
           <li className="option tool" id="circle">
-            <button onClick={toggleCircleMode}>
+            {/* <button onClick={toggleCircleMode}>
               Circle Mode: {circleMode ? 'On': 'Off'}
-            </button>
+            </button> */}
             <span>Circle</span>
           </li>
 
           <li className="option tool" id="line">
-            <button onClick={toggleLineMode}>
+            {/* <button onClick={toggleLineMode}>
               Line Mode: {lineMode ? 'On': 'Off'}
-            </button>
+            </button> */}
             <span>Line</span>
           </li>
 
@@ -48,27 +49,26 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
         <label className="label-title">Options</label>
         <ul className="options">
           
-          <li>
-            <label htmlFor="stroke">Color:</label>
+          <li className='option'>
+            <label htmlFor="color-picker">Color </label>
             <input 
-              name="stroke" 
-              id="stroke" 
+              name="color-picker" 
+              id="color-picker" 
               type={"color"} 
               onChange={(e) => handleColorChange(e)}
             />
           </li>
 
-          <li>
-            <button onClick={toggleEraseMode}>
+          <li className='option tool' id='eraser'>
+            <span>Eraser</span>
+            {/* <button onClick={toggleEraseMode}>
               Erase Mode: {eraseMode ? 'On': 'Off'}
-            </button>
+            </button> */}
           </li>
 
-          <li>
-            <label htmlFor="lineWidth">Line Width:</label>
-            <input 
-              name="lineWidth" 
-              id="lineWidth" 
+          <li className='option'>
+            <input  
+              id="line-width" 
               type="range" 
               defaultValue="5" 
               onChange={handleLineWidthChange} 

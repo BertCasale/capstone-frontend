@@ -6,7 +6,7 @@
   background: #5E17EB;
 }
 
-.section-container {
+.div-container {
   display: flex;
   width: 100%;
   gap: 10px;
@@ -18,3 +18,5 @@ section {
   background: #fff;
   border-radius: 7px;
 }
+
+

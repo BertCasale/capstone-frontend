@@ -5,13 +5,13 @@ import './Sandbox.css'
 export default function Sandbox() {
   return(
     <div className="page-container">
-      <section key={1} className="section-container">
+      <div className="div-container">
 
         <Canvas canvasWidth={1000} canvasHeight={600}/>
       
         <ImageGenerator />
 
-      </section>
+      </div>
     </div>
   )
 }
