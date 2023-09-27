@@ -7,7 +7,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false); // signals when user is drawing or not
-  const [brushColor, setBrushColor] = useState('black');
+  const [brushColor, setBrushColor] = useState('#ff690b');
   const [eraseMode, setEraseMode] = useState(false); // controls erase mode
   const [restoreArray, setRestoreArray] = useState([]); // holds actions made in the canvas to be undone
   const [index, setIndex] = useState(-1); // holds the index of last action in the restoreArray
