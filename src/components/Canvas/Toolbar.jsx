@@ -3,9 +3,33 @@
 export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidthChange, toggleEraseMode, eraseMode, undoAction, lineMode, toggleLineMode, rectangleMode, toggleRectangleMode, circleMode, toggleCircleMode, fillMode, toggleFillMode }) {
 
   return (
-    <div>
-      <aside className="menu">
-        <ul className="menu-list">
+    <section className="toolbar">
+
+      <div className="row">
+
+        <label className="title">Shapes</label>
+        <ul className="options">
+
+          <li className="option">
+            <button onClick={toggleRectangleMode}>
+              Rectangle Mode: {rectangleMode ? 'On': 'Off'}
+            </button>
+            <span>Rectangle</span>
+          </li>
+
+          <li className="option">
+            <button onClick={toggleCircleMode}>
+              Circle Mode: {circleMode ? 'On': 'Off'}
+            </button>
+            <span>Circle</span>
+          </li>
+
+          <li className="option">
+            <button onClick={toggleLineMode}>
+              Line Mode: {lineMode ? 'On': 'Off'}
+            </button>
+            <span>Line</span>
+          </li>
 
           <label htmlFor="stroke">Color:</label>
           <li>
@@ -37,24 +61,6 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           </li>
 
           <li>
-            <button onClick={toggleLineMode}>
-              Line Mode: {lineMode ? 'On': 'Off'}
-            </button>
-          </li>
-
-          <li>
-            <button onClick={toggleRectangleMode}>
-              Rectangle Mode: {rectangleMode ? 'On': 'Off'}
-            </button>
-          </li>
-
-          <li>
-            <button onClick={toggleCircleMode}>
-              Circle Mode: {circleMode ? 'On': 'Off'}
-            </button>
-          </li>
-
-          <li>
             <button onClick={toggleFillMode}>
               Fill Color: {fillMode ? 'On': 'Off'}
             </button>
@@ -65,7 +71,9 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           <li><button onClick={clearCanvas}>Clear</button></li>
 
         </ul>
-      </aside>
-    </div>
+
+      </div>
+
+    </section>
   )
 }
