@@ -24,7 +24,7 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           </li>
 
           <li className="option">
-            <input type="checkbox" id="fill-color"/>
+            <input type="checkbox" id="fill-color" onClick={toggleFillMode}/>
             <label htmlFor="fill-color">Fill color</label>
             {/* <button onClick={toggleFillMode}>
               Fill Color: {fillMode ? 'On': 'Off'}
