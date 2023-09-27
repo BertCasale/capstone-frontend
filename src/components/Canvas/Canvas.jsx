@@ -198,7 +198,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   return (
-    <div className="">
+    <>
       <Toolbar 
         clearCanvas={clearCanvas} 
         undoAction={undoAction}
@@ -227,6 +227,6 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         />
       </section>
 
-    </div>
+    </>
   )
 }

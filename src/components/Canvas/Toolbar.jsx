@@ -72,7 +72,7 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
               type="range" 
               defaultValue="5" 
               onChange={handleLineWidthChange} 
-              max="50" 
+              max="30" 
               min="1"
             />
           </li>
