@@ -36,11 +36,7 @@ export default function LessonInPath({ lesson }) {
             </span>
           </div> 
         : null}
-
         
-          
-        
-
     </div>
   )
 }

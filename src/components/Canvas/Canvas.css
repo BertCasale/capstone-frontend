@@ -1,0 +1,8 @@
+.canvas{
+  flex: 1;
+  overflow: hidden;
+}
+.canvas canvas{
+  width: 100%;
+  height: 100%;
+}

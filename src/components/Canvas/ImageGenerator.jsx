@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { openai } from '../../services/config/dalleAPI'
+import './ImageGenerator.css'
 
 
 export default function ImageGenerator() {
@@ -36,32 +37,36 @@ export default function ImageGenerator() {
   }
 
   return (
-    <div className='field'>
+    <section className='img-generator'>
 
-      <label className='label is-large'>Generate an Image using Dall-E</label>
+      <label className='label-title'>Generate an image with Dall-E:</label>
 
-      <div className="control">
+      <div className="prompt-box">
         <input
-          className='input is-large'
           type="text"
           placeholder="Enter a prompt for inspiration"
           value={textPrompt}
           onChange={(e) => setTextPrompt(e.target.value)}
         />
+        <button className="gen-button" onClick={generateImage}>Generate Image</button>
       </div>
 
-      <button className='button' onClick={generateImage}>Generate Image</button>
+      <div className="generated-image">
 
-      {loading && (
-        <h2>Generating Image... Please wait...</h2>
-      )}
+        {loading && (
+          <h2>Generating Image... Please wait...</h2>
+        )}
 
-      {generatedImage && (
-        <div className='mt-4'>
-          <img src={generatedImage} alt='Generated Image' />
-        </div>
-      )}
+        {generatedImage && (
+          <div>
+            <img src={generatedImage} alt='Generated Image' />
+          </div>
+        )}
 
-    </div>
+      </div>
+
+      
+
+    </section>
   )
 }
