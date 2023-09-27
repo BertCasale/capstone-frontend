@@ -77,11 +77,17 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
             </button>
           </li>
 
-          <li><button onClick={() => undoAction()}>Undo</button></li>
-
-          <li><button onClick={clearCanvas}>Clear</button></li>
-
         </ul>
+
+      </div>
+
+      <div className="row">
+
+        <button className="clear-canvas" onClick={() => undoAction()}>Undo</button>
+
+        <button onClick={clearCanvas}>Clear</button>
+
+        {/* <button className="save-img">Save as Image</button> */}
 
       </div>
 
