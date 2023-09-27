@@ -50,7 +50,7 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
         <ul className="options">
           
           <li className='option'>
-            <label htmlFor="color-picker">Color </label>
+            <label htmlFor="color-picker">Color</label>
             <input 
               name="color-picker" 
               id="color-picker" 
