@@ -24,11 +24,10 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           </li>
 
           <li className="option">
-            <input type="checkbox" id="fill-color" onClick={toggleFillMode}/>
+            <input type="checkbox" id="fill-color" onClick={toggleFillMode}/> 
+            {/* have to uncheck checkbox when eraseMode is toggled on */}
             <label htmlFor="fill-color">Fill color</label>
-            {/* <button onClick={toggleFillMode}>
-              Fill Color: {fillMode ? 'On': 'Off'}
-            </button> */}
+            
           </li>
 
         </ul>
@@ -51,6 +50,7 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           </li>
 
           <li className={`option tool ${eraseMode && 'active'}`} onClick={toggleEraseMode}>
+            {/* have to uncheck fill color checkbox when eraseMode is toggled on */}
             <span>Eraser</span>
           </li>
 
