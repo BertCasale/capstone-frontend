@@ -149,7 +149,7 @@ export default function ZigzagLines({ setCompleted }) {
 
       {/* the box the contains the line at the start */}
       <div className="starting-box is-flex is-justify-content-center">
-        {/* remove the rotation angle and the margins when placed */}
+        
         <img 
           draggable="false"
           src={line} 
