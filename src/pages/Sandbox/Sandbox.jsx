@@ -3,7 +3,7 @@ import ImageGenerator from "../../components/Canvas/ImageGenerator";
 
 export default function Sandbox() {
   return(
-    <section key={1} className="container">
+    <section key={1} className="section-container">
 
       <Canvas canvasWidth={1000} canvasHeight={600}/>
     
