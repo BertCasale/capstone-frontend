@@ -198,7 +198,7 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
   }
 
   return (
-    <div>
+    <div className="container">
       <Toolbar 
         clearCanvas={clearCanvas} 
         undoAction={undoAction}
@@ -216,14 +216,16 @@ export default function Canvas({ canvasWidth, canvasHeight }) {
         fillMode={fillMode}        
       />
 
-      <canvas
-        onMouseDown={startDrawing}
-        onMouseMove={draw}
-        onMouseUp={stopDrawing}
-        onMouseLeave={stopDrawing}
-        ref={canvasRef}
-        style={{ border: '1px solid black' }}
-      />
+      <section className="canvas">
+        <canvas
+          onMouseDown={startDrawing}
+          onMouseMove={draw}
+          onMouseUp={stopDrawing}
+          onMouseLeave={stopDrawing}
+          ref={canvasRef}
+          style={{ border: '1px solid black' }}
+        />
+      </section>
 
     </div>
   )

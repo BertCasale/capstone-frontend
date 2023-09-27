@@ -31,8 +31,25 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
             <span>Line</span>
           </li>
 
-          <label htmlFor="stroke">Color:</label>
+          <li className="option">
+            <input type="checkbox" id="fill-color" />
+            <label htmlFor="fill-color">Fill color</label>
+            <button onClick={toggleFillMode}>
+              Fill Color: {fillMode ? 'On': 'Off'}
+            </button>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div className="row">
+
+        <label className="title">Options</label>
+        <ul className="options">
+          
           <li>
+            <label htmlFor="stroke">Color:</label>
             <input 
               name="stroke" 
               id="stroke" 
@@ -41,8 +58,8 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
             />
           </li>
 
-          <label htmlFor="lineWidth">Line Width:</label>
           <li>
+            <label htmlFor="lineWidth">Line Width:</label>
             <input 
               name="lineWidth" 
               id="lineWidth" 
@@ -57,12 +74,6 @@ export default function Toolbar({ clearCanvas, handleColorChange, handleLineWidt
           <li>
             <button onClick={toggleEraseMode}>
               Erase Mode: {eraseMode ? 'On': 'Off'}
-            </button>
-          </li>
-
-          <li>
-            <button onClick={toggleFillMode}>
-              Fill Color: {fillMode ? 'On': 'Off'}
             </button>
           </li>
 
