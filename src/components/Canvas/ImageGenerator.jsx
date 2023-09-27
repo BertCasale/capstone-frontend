@@ -39,7 +39,7 @@ export default function ImageGenerator() {
   return (
     <section className='img-generator'>
 
-      <label className='label-title'>Generate an Image using Dall-E:</label>
+      <label className='label-title'>Generate an image with Dall-E:</label>
 
       <div className="prompt-box">
         <input
