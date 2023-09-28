@@ -16,7 +16,7 @@ export default function Dashboard({userName, language}) {
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
   const [nextLesson, setNextLesson] = useState({});
-  const [otherLessons, setOtherLessons] = useState([]);
+  // const [otherLessons, setOtherLessons] = useState([]);
   // const { id } = useParams();
 
   useEffect(() => {
@@ -32,9 +32,9 @@ export default function Dashboard({userName, language}) {
   return (
     <main className="section has-background-light">
       
-      <NextLesson nextLesson={nextLesson} />
+      <NextLesson allLessons={allLessons} nextLesson={nextLesson} setNextLesson={setNextLesson} />
 
-      <LearningPath allLessons={allLessons}/>
+      <LearningPath allLessons={allLessons} setNextLesson={setNextLesson}/>
 
       <Syllabus />
 

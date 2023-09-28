@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom'
 import { BsStar, BsStarFill } from 'react-icons/bs'
 import './LessonInPath.css'
 
-export default function LessonInPath({ lesson }) {
+export default function LessonInPath({ lesson, setNextLesson }) {
 
   const [selected, setSelected] = useState(false);
 
   function toggleSelected() {
     setSelected(!selected);
+    setNextLesson(lesson);
   }
 
   return (

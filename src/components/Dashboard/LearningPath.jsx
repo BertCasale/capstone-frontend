@@ -1,7 +1,7 @@
 import LessonInPath from "./LessonInPath";
 
 
-export default function LearningPath({ allLessons }) {
+export default function LearningPath({ allLessons, setNextLesson }) {
 
   return (
     <div className="columns is-centered">
