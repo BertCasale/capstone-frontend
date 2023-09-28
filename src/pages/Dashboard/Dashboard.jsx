@@ -21,6 +21,8 @@ export default function Dashboard({userName, language}) {
       .then((res) => {
         setAllLessons([res.data[0], res.data[1], res.data[2]]);
         setNextLesson(res.data[0]);
+        // setNextLesson([res.data[0], res.data[1], res.data[2]].find((lesson) => lesson.completion_status == 'false'))
+        // Need to access lesson completion status to determine the next lesson
       })
       .catch((e) => console.warn('catch', e))
   }, [language])
