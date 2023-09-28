@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsStar, BsStarFill } from 'react-icons/bs'
 import './LessonInPath.css'
