@@ -1,0 +1,38 @@
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.language-icon {
+  width: 30px;
+}
+
+.language-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.language-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.language-selector:hover .language-dropdown {
+  display: block;
+}
