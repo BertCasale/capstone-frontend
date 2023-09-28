@@ -7,6 +7,9 @@ Reference above for size options.
 https://www.w3schools.com/html/html_filepaths.asp
 img filepath
 Altered code to work with state; Bulma documentation does not reflect toggling visibility by default.
+Bulma column is-vcentered or such apparently only works for columns.
+css absolute positioning requires defining containers.
+Therefore I simply resized button - jl.
 */
 import { useState, useEffect } from 'react';
 import './LanguageButton.css';
@@ -33,7 +36,7 @@ export default function LanguageButton() {
     <div className={renderIfActive()}>
       <div className="dropdown-trigger">
         <button className="button is-medium globeIcon" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleDropdown}>
-          <FontAwesomeIcon icon={faGlobe} />
+          <FontAwesomeIcon className="vertical-center" icon={faGlobe} />
           {/* <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'\u2304'}</span> */}
           {/* <span className="icon is-small">
             <i className="fas fa-globe"></i>
