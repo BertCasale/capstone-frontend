@@ -1,6 +1,6 @@
 
 
-export default function NextLesson({ allLessons, nextLesson, setNextLesson }) {
+export default function NextLesson({ nextLesson }) {
 
   return (
     <div className="columns is-centered">

@@ -22,7 +22,7 @@ export default function LessonInPath({ lesson, setNextLesson }) {
           <span className="shadow"></span>
           <span className="edge"></span>
           <span className="front">
-            {selected ? <BsStarFill/> : <BsStar height={300}/>}
+            {selected ? <BsStarFill size={30}/> : <BsStar size={30} />}
           </span>
         </button>
 

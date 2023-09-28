@@ -1,7 +1,10 @@
 import LessonInPath from "./LessonInPath";
+import { useState } from "react";
 
 
-export default function LearningPath({ allLessons, setNextLesson }) {
+export default function LearningPath({ allLessons, nextLesson, setNextLesson }) {
+
+  const [selectedLesson, setSelectedLesson] = useState(nextLesson);
 
   return (
     <div className="columns is-centered">
