@@ -4,6 +4,7 @@ import ProtectedDashboard from "./ProtectedDashboard";
 import "../../Styles/Navbar.css"
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
+import LanguageButton from "./LanguageButton";
 
 
 //Prop imports from App.js
@@ -66,6 +67,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
 
                     <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
                         <div className="navbar-end">
+                            <LanguageButton/>
                             <ProtectedDashboard
                                 user={user}
                                 setUser={setUser}
