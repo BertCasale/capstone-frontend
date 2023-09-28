@@ -24,7 +24,7 @@ export default function Dashboard({userName, language}) {
       .then((res) => {
         setAllLessons([res.data[0], res.data[1], res.data[2]]);
         setNextLesson(res.data[0]);
-        setOtherLessons([res.data[1], res.data[2]])
+        // setOtherLessons([res.data[1], res.data[2]])
       })
       .catch((e) => console.warn('catch', e))
   }, [language])
@@ -33,8 +33,6 @@ export default function Dashboard({userName, language}) {
     <main className="section has-background-light">
       
       <NextLesson nextLesson={nextLesson} />
-
-      {/* <GrowingTree/> */}
 
       <LearningPath allLessons={allLessons}/>
 
