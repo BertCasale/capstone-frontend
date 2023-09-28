@@ -32,15 +32,16 @@ export default function LanguageButton() {
   return (
     <div className={renderIfActive()}>
       <div className="dropdown-trigger">
-        <button className="button is-small" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleDropdown}>
+        <button className="button is-medium globeIcon" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleDropdown}>
           <FontAwesomeIcon icon={faGlobe} />
+          {/* <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'\u2304'}</span> */}
           {/* <span className="icon is-small">
             <i className="fas fa-globe"></i>
           </span> */}
           {/* <figure className="image is-32x32">
             <i className="fas fa-solid fa-globe globeIcon"></i>
           </figure> */}
-          <span className="icon is-small">
+          <span className="icon is-medium">
             <i className="fas fa-angle-down" aria-hidden="true"></i>
           </span>
         </button>
