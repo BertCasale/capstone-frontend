@@ -4,7 +4,12 @@ import { useState } from "react";
 
 export default function LearningPath({ allLessons, nextLesson, setNextLesson }) {
 
-  const [selectedLesson, setSelectedLesson] = useState(nextLesson);
+  const [selectedLesson, setSelectedLesson] = useState(nextLesson.id);
+
+  const handleLessonSelect = (id) => {
+    setSelectedLesson(id);
+    setNextLesson(allLessons[id - 1]);
+  }
 
   return (
     <div className="columns is-centered">

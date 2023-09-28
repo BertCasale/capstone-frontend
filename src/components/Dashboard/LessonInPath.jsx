@@ -3,30 +3,23 @@ import { Link } from 'react-router-dom'
 import { BsStar, BsStarFill } from 'react-icons/bs'
 import './LessonInPath.css'
 
-export default function LessonInPath({ lesson, setNextLesson }) {
-
-  const [selected, setSelected] = useState(false);
-
-  function toggleSelected() {
-    setSelected(!selected);
-    setNextLesson(lesson);
-  }
+export default function LessonInPath({ lesson, selectedLesson, handleLessonSelect }) {
 
   return (
     <div className="level pb-5"> 
       
         <button 
           className="pushable"
-          onClick={toggleSelected}
+          onClick={() => handleLessonSelect(lesson.id)}
         >
           <span className="shadow"></span>
           <span className="edge"></span>
           <span className="front">
-            {selected ? <BsStarFill size={30}/> : <BsStar size={30} />}
+            {selectedLesson === lesson.id ? <BsStarFill size={30}/> : <BsStar size={30} />}
           </span>
         </button>
 
-        {selected ? 
+        {selectedLesson === lesson.id ? 
           <div className='popup'>
             <span className={`popuptext ${selected ? 'show': ''}`}>
               <Link to={`/lesson/${lesson.lessons2_id}`} >
