@@ -48,7 +48,15 @@
 
 .globeIcon {
   width: 62px;
-  height: 50px;
+  height: 62px;
   /* color: #3b64ab;
   background-color: black; */
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
