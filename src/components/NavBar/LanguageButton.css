@@ -36,3 +36,7 @@
 .language-selector:hover .language-dropdown {
   display: block;
 }
+
+.dropdown-item {
+  color: #000;
+}
