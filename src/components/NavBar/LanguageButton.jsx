@@ -8,9 +8,11 @@ https://www.w3schools.com/html/html_filepaths.asp
 img filepath
 Altered code to work with state; Bulma documentation does not reflect toggling visibility by default.
 */
-import {useState} from 'react';
-import './globe.jpg';
+import { useState, useEffect } from 'react';
 import './LanguageButton.css';
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 export default function LanguageButton() {
   const [isActive, setIsActive] = useState(false);
@@ -18,13 +20,26 @@ export default function LanguageButton() {
   const toggleDropdown = () => {
     setIsActive(!isActive);
   };
+
+  const renderIfActive = () => {
+    console.log("output", `dropdown ${isActive ? 'is-active' : ''}`)
+    return `dropdown ${isActive ? 'is-active' : ''}`
+  }
+
+  useEffect(() => {
+    setIsActive(false)
+  }, [])
   return (
-    <div className={`dropdown ${isActive ? 'is-active' : ''}`}>
+    <div className={renderIfActive()}>
       <div className="dropdown-trigger">
-        <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-          <figure className="image is-32x32">
-            <img src="globe.jpg"/>
-          </figure>
+        <button className="button is-small" aria-haspopup="true" aria-controls="dropdown-menu" onClick={toggleDropdown}>
+          <FontAwesomeIcon icon={faGlobe} />
+          {/* <span className="icon is-small">
+            <i className="fas fa-globe"></i>
+          </span> */}
+          {/* <figure className="image is-32x32">
+            <i className="fas fa-solid fa-globe globeIcon"></i>
+          </figure> */}
           <span className="icon is-small">
             <i className="fas fa-angle-down" aria-hidden="true"></i>
           </span>
