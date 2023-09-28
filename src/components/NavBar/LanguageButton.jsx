@@ -25,7 +25,7 @@ export default function LanguageButton() {
   };
 
   const renderIfActive = () => {
-    console.log("output", `dropdown ${isActive ? 'is-active' : ''}`)
+    //console.log("output", `dropdown ${isActive ? 'is-active' : ''}`)
     return `dropdown ${isActive ? 'is-active' : ''}`
   }
 
