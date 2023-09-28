@@ -26,13 +26,13 @@ function App() {
   const [userName, setUserName] = useState(null)
   const [language, setLanguage] = useState(1);
 
-useEffect(() => {
-    axios
-    .get(`${API}/clients`)
-    .then((resp) => {
-      setClientList( resp.data)
-    })
-},[])
+// useEffect(() => {
+//     axios
+//     .get(`${API}/clients`)
+//     .then((resp) => {
+//       setClientList( resp.data)
+//     })
+// },[])
 
 
   // const [usersList, setUsersList] = useState([]);
