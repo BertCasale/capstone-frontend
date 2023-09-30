@@ -17,7 +17,7 @@ import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 
-export default function LanguageButton() {
+export default function LanguageButton( {language, setLanguage}) {
   const [isActive, setIsActive] = useState(false);
 
   const toggleDropdown = () => {
