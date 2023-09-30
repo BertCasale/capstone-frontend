@@ -92,7 +92,7 @@ export default function Section({ lessonSections }) {
 
       <div className="column is-full has-text-centered">
 
-        <h1 className="title is-2">{sectionData.title}</h1>
+        <h1 className="title">{sectionData.title}</h1>
 
         {/* testing buttons */}
         <button onClick={() => changeSectionIndex(1)}>+1</button>
@@ -129,7 +129,7 @@ export default function Section({ lessonSections }) {
           {exercise}
         </Suspense>
 
-        <p className="credit" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </p>
+        {sectionData.image_credit ? <span className="credit notification" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </span> : null}
 
       </div> : null}
 

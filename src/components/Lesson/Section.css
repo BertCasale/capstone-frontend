@@ -63,6 +63,14 @@
   display: none;
 }
 
+.lesson-section .main-content {
+  margin: 0 30px;
+}
+
+.lesson-section .exercise {
+  margin: 0 30px;
+}
+
 @media (max-width: 1023px) {
   .exercise .artwork-div {
     width: 400px;
