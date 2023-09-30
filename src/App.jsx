@@ -9,13 +9,12 @@ import Profile from './pages/Profile/Profile'
 import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
-import Hamster from './pages/Hamster'
+
 // import { db } from './services/config/firebase' //---Comment setup for firestore DB - may need to move this
 // import { getDocs, collection} from 'firebase/firestore' //---Comment retrieving data to firestore DB
 import { useEffect, useState } from 'react'
 // import useAthState from './services/config/useAuthState'
 import axios from 'axios'
-
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -79,7 +78,6 @@ console.log(clientList);
         <Route path='/sandbox' element={<Sandbox/>} />
         <Route path='*' element={<NotFound/>} />
         <Route path='/signup' element={<SignUpPage/>} />
-        <Route path='/hamster' element={<Hamster/>} />
       </Routes>
     </div>
   )
