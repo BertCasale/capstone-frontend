@@ -50,14 +50,37 @@
   width: 100%;
 }
 
-@media (max-width: 950px) {
+.lesson-section .learning-info {
+  color: #442FEB;
+}
+
+.lesson-section .button-div .next-button {
+  background-color: #FF6C20;
+  color: #442FEB;
+}
+
+.lesson-section .small-screen-button {
+  display: none;
+}
+
+@media (max-width: 1023px) {
   .exercise .artwork-div {
     width: 400px;
   }
+
+  .lesson-section .large-screen-button {
+    display: none;
+  }
+
+  .lesson-section .small-screen-button {
+    display: block;
+  }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .exercise .artwork-div {
     width: 300px;
   }
+
+
 }
