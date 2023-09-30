@@ -9,7 +9,7 @@ import LanguageButton from "./LanguageButton";
 
 //Prop imports from App.js
 // eslint-disable-next-line react/prop-types
-export default function NavBar({ user, setUser, clientList, userName, setUserName }) {
+export default function NavBar({ user, setUser, clientList, userName, setUserName, language, setLanguage }) {
 
     //usestate functions for login modal and hamburger menu ------------
     const [isModalActive, setIsModalActive] = useState(false)
@@ -54,7 +54,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                 <div className="container">
                     <div className="navbar-brand is-size-3">
                         <li className="navbar-item">
-                            <Link  to="/">
+                            <Link to="/">
                                 Art Acorn
                             </Link>
                         </li>
@@ -67,7 +67,10 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
 
                     <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
                         <div className="navbar-end">
-                            <LanguageButton/>
+                            <LanguageButton
+                                language={language}
+                                setLanguage={setLanguage}
+                            />
                             <ProtectedDashboard
                                 user={user}
                                 setUser={setUser}
@@ -83,13 +86,13 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                                 </Link>
                             </li>
                             <li>
-                            <UserAuthBtn 
-                                user={user}
-                                setUser={setUser}
-                                userName={userName}
-                                setUserName={setUserName}
-                                setIsModalActive={setIsModalActive}
-                            />
+                                <UserAuthBtn
+                                    user={user}
+                                    setUser={setUser}
+                                    userName={userName}
+                                    setUserName={setUserName}
+                                    setIsModalActive={setIsModalActive}
+                                />
                             </li>
                         </div>
                     </div>

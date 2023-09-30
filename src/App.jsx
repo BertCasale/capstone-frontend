@@ -24,6 +24,7 @@ function App() {
   // const authUser = useAthState();
   const [clientList, setClientList] = useState([])
   const [userName, setUserName] = useState(null)
+  const [language, setLanguage] = useState(1);
 
 useEffect(() => {
     axios
@@ -67,6 +68,8 @@ console.log(clientList);
       clientList={clientList}
       userName={userName}
       setUserName={setUserName}
+      language={language}
+      setLanguage={setLanguage}
       />
       <Routes>
         <Route path='/' element={<Landing/>} />
