@@ -46,17 +46,17 @@ export default function Lesson() {
   return (<div className="lesson columns is-multiline">
     <div className="content lesson-details has-text-centered is-centered column is-half is-offset-one-quarter">
 
-      <h1 className="title">{lesson.title}</h1>
+      <h3 className="title">{lesson.title}</h3>
 
       <div className="materials">
-        <h3><strong>Materials to Practice:</strong></h3>
-        <p>{lesson.materials}</p>
+        <h4>Materials to Practice:</h4>
+        <p><strong>{lesson.materials}</strong></p>
       </div>
 
     </div>
     
     
-    <div className="column is-full">
+    <div className="column is-full section-div">
       <Section lessonSections={lessonSections} />
     </div>
     

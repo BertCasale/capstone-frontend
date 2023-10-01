@@ -86,17 +86,15 @@ export default function Section({ lessonSections }) {
   }
 
 
-  return (<div className="lesson-section">
+  return (<div className="lesson-section columns is-multiline is-centered is-desktop">
 
-    <div className="columns is-multiline is-centered is-desktop">
-
-      <div className="column is-full has-text-centered">
+      <div className="column is-full has-text-centered title-div">
 
         <h1 className="title">{sectionData.title}</h1>
 
         {/* testing buttons */}
-        <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button>
+        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
+        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
 
       </div>
 
@@ -129,7 +127,7 @@ export default function Section({ lessonSections }) {
           {exercise}
         </Suspense>
 
-        {sectionData.image_credit ? <span className="credit notification" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </span> : null}
+        {sectionData.image_credit ? <span className="credit notification has-text-centered is-centered" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </span> : null}
 
       </div> : null}
 
@@ -143,10 +141,8 @@ export default function Section({ lessonSections }) {
       <div className="button-div column is-full has-text-centered small-screen-button">
         {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
         {/* should start disabled until the user completes an exercise */}
-        <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</button>
+        <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
       </div>
-
-    </div>
     
   </div>)
 }

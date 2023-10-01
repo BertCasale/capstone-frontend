@@ -9,7 +9,7 @@
   border: solid #442FEB 3px;
 }
 
-.exercise .artwork-div, .exercise .question {
+.exercise .artwork-div, .exercise .question, .exercise .credit {
   position: relative;
   width: 450px;
 }
@@ -75,16 +75,17 @@
   display: none;
 }
 
-.lesson-section .main-content {
+.lesson-section {
+  padding: 0px;
   margin: 0 50px;
 }
 
-.lesson-section .exercise {
-  margin: 0 30px;
+.lesson-section .title-div {
+  padding: 0;
 }
 
 @media (max-width: 1023px) {
-  .exercise .artwork-div {
+  .exercise .artwork-div, .exercise .question, .exercise .credit {
     width: 400px;
   }
 
@@ -98,9 +99,7 @@
 }
 
 @media (max-width: 768px) {
-  .exercise .artwork-div {
+  .exercise .artwork-div, .exercise .question, .exercise .credit {
     width: 300px;
   }
-
-
 }
