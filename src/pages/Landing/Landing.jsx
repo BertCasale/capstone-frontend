@@ -1,10 +1,10 @@
 
 import Hero from '../../components/Hero'
 
-export default function Landing() {
+export default function Landing({language}) {
   return (
     <div>
-     <Hero /> 
+     <Hero language={language}/> 
     </div>
   )
 }

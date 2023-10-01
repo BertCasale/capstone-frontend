@@ -72,7 +72,7 @@ console.log(clientList);
       setLanguage={setLanguage}
       />
       <Routes>
-        <Route path='/' element={<Landing/>} />
+        <Route path='/' element={<Landing language={language}/>} />
         <Route path='/:username/dashboard' element={<Dashboard userName={userName}/>} />
         <Route path='/lesson/:lessonId' element={<Lesson/>} />
         <Route path='/:username/profile' element={<Profile/>} />
