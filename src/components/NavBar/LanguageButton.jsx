@@ -38,7 +38,7 @@ export default function LanguageButton({ language, setLanguage }) {
     setIsActive(false)
   }, [])
 
-  //console.log(`Language: ${language}`);
+  console.log(`Language: ${language}`);
   return (
     <div className={renderIfActive()}>
       <div className="dropdown-trigger">
