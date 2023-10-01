@@ -1,8 +1,8 @@
 import HeroImage from "../assets/acorn_squirrel.png"
 import {useNavigate} from "react-router-dom"
 
-
-export default function Hero() {
+// {language} state from Landing.jsx
+export default function Hero({language}) {
 
     // this function handles the start your first lesson button
     // needs to adjust useNav to correct route, /dashboard is a place holder
