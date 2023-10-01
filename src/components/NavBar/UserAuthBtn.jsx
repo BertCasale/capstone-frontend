@@ -5,16 +5,30 @@ import { useAuth } from "../../contexts/AuthContext";
 
 // setIsModalActive prop being passed from NavBar component
 // eslint-disable-next-line react/prop-types
-export default function UserAuthBtn({ setIsModalActive, user, setUser, userName, setUserName }) {
-  
-const auth = useAuth()
+export default function UserAuthBtn({ setIsModalActive, user, setUser, userName, setUserName, language }) {
 
-// handles the state of the nav-item login/profile Avatar button--------
+  const auth = useAuth()
+
+  const textArray1 = [
+    "Sign in",
+    "登录",
+    "登入",
+    "Iniciar Sesión",
+    "تسجيل الدخول",
+    "Entrar",
+    "Masuk",
+    "Se Connecter",
+    "サインイン",
+    "Войти",
+    "Anmelden",
+  ];
+
+  // handles the state of the nav-item login/profile Avatar button--------
   const handleButtonState = () => {
 
     if (auth.currentUser) {
       return (
-          <ProfilePic setUser={setUser} />
+        <ProfilePic setUser={setUser} />
       );
     } else {
       return (
@@ -24,7 +38,7 @@ const auth = useAuth()
             setIsModalActive(true)
           }}
         >
-          <span>Sign in</span>
+          <span>{textArray1[language - 1]}</span>
         </button>
       );
     }
@@ -33,9 +47,8 @@ const auth = useAuth()
 
   //RENDERED return below----------------
   return (
-      handleButtonState()  
+    handleButtonState()
   )
 }
 
 
-  
