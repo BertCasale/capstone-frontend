@@ -1,0 +1,18 @@
+.progress-bar progress{
+
+}
+
+.progress-bar .progress-label {
+  width: 120px;
+}
+
+.progress-bar {
+  padding: 5px 5px 0;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .progress-bar {
+    width: 100%;
+  }
+}

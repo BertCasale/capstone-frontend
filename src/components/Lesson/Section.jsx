@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Section.css"
 import Confetti from "react-confetti";
+import ProgressBar from "../../components/Lesson/ProgressBar";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
@@ -85,8 +86,14 @@ export default function Section({ lessonSections }) {
     }
   }
 
+  return (<div className="lesson-section">
 
-  return (<div className="lesson-section columns is-multiline is-centered is-desktop">
+    <div className="progress-div">
+      {/* show the progress of the current lesson */}
+      <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1}/>
+    </div>
+      
+    <div className=" columns is-multiline is-centered is-desktop">
 
       <div className="column is-full has-text-centered title-div">
 
@@ -110,10 +117,10 @@ export default function Section({ lessonSections }) {
           <h3 style={completed ? { color: "green" } : { color: "red" }}>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
         </div> : null}
 
-        <div className="button-div has-text-centered large-screen-button">
+        <div className="button-div has-text-centered is-hidden-touch">
           {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
           {/* should start disabled until the user completes an exercise */}
-          <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</button>
+          <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
         </div>
 
       </div> : null}
@@ -138,11 +145,13 @@ export default function Section({ lessonSections }) {
 
       </div> : null}
 
-      <div className="button-div column is-full has-text-centered small-screen-button">
+      <div className="button-div column is-full has-text-centered is-hidden-desktop">
         {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
         {/* should start disabled until the user completes an exercise */}
         <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
       </div>
+
+    </div>
     
   </div>)
 }

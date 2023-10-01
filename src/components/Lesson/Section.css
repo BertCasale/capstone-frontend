@@ -1,12 +1,12 @@
 .exercise .artwork {
-  border: solid #FF6C20 3px;
+  border: solid #FF914D 3px;
   border-radius: 25px;
   max-width: 100%;
   position: relative;
 }
 
 .exercise .starting-box {
-  border: solid #442FEB 3px;
+  border: solid #5E17EB 3px;
 }
 
 .exercise .artwork-div, .exercise .question, .exercise .credit {
@@ -51,14 +51,14 @@
 }
 
 .lesson-section .learning-info {
-  color: #442FEB;
+  color: #5E17EB;
 }
 
 .lesson-section .button-div .next-button {
-  background-color: #FFA500;
+  background-color: #FF914D;
   border: none;
   box-shadow: 0 9px #6250e6;
-  color: #442FEB;
+  color: #5E17EB;
 }
 
 .lesson-section .button-div .next-button:hover {
@@ -67,12 +67,8 @@
 
 .lesson-section .button-div .next-button:active {
   background-color: #FF6C20;
-  box-shadow: 0 4px #442FEB;
+  box-shadow: 0 4px #5E17EB;
   transform: translateY(5px);
-}
-
-.lesson-section .small-screen-button {
-  display: none;
 }
 
 .lesson-section {
@@ -82,19 +78,16 @@
 
 .lesson-section .title-div {
   padding: 0;
+  margin: 15px 0;
+}
+
+.lesson-section .progress-div {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1023px) {
   .exercise .artwork-div, .exercise .question, .exercise .credit {
     width: 400px;
-  }
-
-  .lesson-section .large-screen-button {
-    display: none;
-  }
-
-  .lesson-section .small-screen-button {
-    display: block;
   }
 }
 
@@ -103,3 +96,4 @@
     width: 300px;
   }
 }
+
