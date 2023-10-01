@@ -1,3 +1,13 @@
 .mood-value .selected{
   background-color: orange;
 }
+
+.mood-value .button-div .button:enabled {
+  border: solid 2px #FE6C20;
+}
+
+@media (max-width: 768px) {
+  .mood-value .button-div .button {
+    font-size: smaller;
+  }
+}

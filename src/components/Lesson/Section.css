@@ -1,6 +1,6 @@
 .exercise .artwork {
   border: solid #FF6C20 3px;
-  border-radius: 5%;
+  border-radius: 25px;
   max-width: 100%;
   position: relative;
 }
@@ -23,11 +23,11 @@
 }
 
 .exercise .completed-correct-selection {
-  border: green 3px solid;
+  border: green 2px solid;
 }
 
 .exercise .completed-incorrect-selection {
-  border: red 3px solid;
+  border: red 2px solid;
 }
 
 .exercise .correct-selection {

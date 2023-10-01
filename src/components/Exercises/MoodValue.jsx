@@ -58,7 +58,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
 
         <img src={artwork} alt="Sad forebodings of what is to happen" className="artwork" />
 
-        <div className="button-div column">
+        <div className="button-div column starting-box">
 
           <div className="level is-mobile">
 
