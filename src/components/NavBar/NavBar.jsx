@@ -9,6 +9,7 @@ import LanguageButton from "./LanguageButton";
 
 //Prop imports from App.js
 // eslint-disable-next-line react/prop-types
+// language state from App.js
 export default function NavBar({ user, setUser, clientList, userName, setUserName, language, setLanguage }) {
 
     //usestate functions for login modal and hamburger menu ------------
@@ -31,6 +32,46 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
     }
 
     //RENDERED Return Below -------------------------
+
+    const textArray1 = [
+        "Art Acorn",
+        "艺术橡果",
+        "藝術橡果",
+        "Bellota de Arte",
+        "بلف الفن",
+        "Bolota de Arte",
+        "Biji Akar Seni",
+        "Gland d'Art",
+        "アート・エイコーン",
+        "Искусство желудя",
+        "Kunst-Eichel",
+    ];
+    const textArray2 = [
+        "About Us",
+        "关于我们",
+        "關於我們",
+        "Acerca de Nosotros",
+        "حولنا",
+        "Sobre Nós",
+        "Tentang Kami",
+        "À Propos de Nous",
+        "私たちについて",
+        "О Нас",
+        "Über Uns",
+    ];
+    const textArray3 = [
+        "Sandbox",
+        "沙盒",
+        "沙盒",
+        "Caja de Arena",
+        "صندوق الرمل",
+        "Caixa de Areia",
+        "Kotak Pasir",
+        "Bac à Sable",
+        "砂場",
+        "Песочница",
+        "Sandkasten",
+    ];
 
     return (
         <div>
@@ -55,7 +96,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                     <div className="navbar-brand is-size-3">
                         <li className="navbar-item">
                             <Link to="/">
-                                Art Acorn
+                                {textArray1[language - 1]}
                             </Link>
                         </li>
                         <span className="navbar-burger" onClick={handleMenuToggle}>
@@ -77,12 +118,12 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                             />
                             <li className="navbar-item">
                                 <Link >
-                                    About Us
+                                    {textArray2[language - 1]}
                                 </Link>
                             </li>
                             <li className="navbar-item">
                                 <Link to="/sandbox">
-                                    Sandbox
+                                    {textArray3[language - 1]}
                                 </Link>
                             </li>
                             <li>
@@ -92,6 +133,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                                     userName={userName}
                                     setUserName={setUserName}
                                     setIsModalActive={setIsModalActive}
+                                    language={language}
                                 />
                             </li>
                         </div>
@@ -101,4 +143,3 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
         </div>
     );
 }
-
