@@ -9,7 +9,7 @@
   border: solid #442FEB 3px;
 }
 
-.exercise .artwork-div {
+.exercise .artwork-div, .exercise .question {
   position: relative;
   width: 450px;
 }
@@ -55,8 +55,20 @@
 }
 
 .lesson-section .button-div .next-button {
-  background-color: #FF6C20;
+  background-color: #FFA500;
+  border: none;
+  box-shadow: 0 9px #6250e6;
   color: #442FEB;
+}
+
+.lesson-section .button-div .next-button:hover {
+  background-color: #FF6C20
+}
+
+.lesson-section .button-div .next-button:active {
+  background-color: #FF6C20;
+  box-shadow: 0 4px #442FEB;
+  transform: translateY(5px);
 }
 
 .lesson-section .small-screen-button {
@@ -64,7 +76,7 @@
 }
 
 .lesson-section .main-content {
-  margin: 0 30px;
+  margin: 0 50px;
 }
 
 .lesson-section .exercise {
