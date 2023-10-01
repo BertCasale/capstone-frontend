@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Section.css"
 import Confetti from "react-confetti";
+import ProgressBar from "../../components/Lesson/ProgressBar";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
@@ -79,37 +80,47 @@ export default function Section({ lessonSections }) {
       //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
       //axios.post(`${API}/clientLessonsProgress`, progress)
       //  .then(() => {
-      navigate("/dashboard")
+      navigate("/user/dashboard")
       //  })
       //  .catch((e) => console.warn(e))
     }
   }
 
-
   return (<div className="lesson-section">
 
-    <div className="columns is-multiline is-centered">
+    <div className="progress-div">
+      {/* show the progress of the current lesson */}
+      <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1}/>
+    </div>
+      
+    <div className=" columns is-multiline is-centered is-desktop">
 
-      <div className="column is-full">
+      <div className="column is-full has-text-centered title-div">
 
-        <h1 className="title is-2">{sectionData.title}</h1>
+        <h1 className="title">{sectionData.title}</h1>
 
         {/* testing buttons */}
-        <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button>
+        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
+        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
 
       </div>
 
       {/* hide the content div if theres no content to show */}
-      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column is-half">
+      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column main-content is-flex-direction-column is-flex is-align-items-center">
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
-        <div className="feedback" style={attempted || completed ? null : { display: "none" }}>
+        {attempted || completed ? <div className="feedback">
           {/* chenge the color of the feedback based on whether it's completed successfully or not */}
           <h3 style={completed ? { color: "green" } : { color: "red" }}>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
+        </div> : null}
+
+        <div className="button-div has-text-centered is-hidden-touch">
+          {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
+          {/* should start disabled until the user completes an exercise */}
+          <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
         </div>
 
       </div> : null}
@@ -123,7 +134,7 @@ export default function Section({ lessonSections }) {
           {exercise}
         </Suspense>
 
-        <p className="credit" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </p>
+        {sectionData.image_credit ? <span className="credit notification has-text-centered is-centered" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </span> : null}
 
       </div> : null}
 
@@ -134,10 +145,13 @@ export default function Section({ lessonSections }) {
 
       </div> : null}
 
-    </div>
+      <div className="button-div column is-full has-text-centered is-hidden-desktop">
+        {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
+        {/* should start disabled until the user completes an exercise */}
+        <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
+      </div>
 
-    {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
-    {/* should start disabled until the user completes an exercise */}
-    <button disabled={!completed} className="button" onClick={handleNextClick}>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</button>
+    </div>
+    
   </div>)
 }

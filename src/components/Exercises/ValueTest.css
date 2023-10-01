@@ -4,54 +4,54 @@
 
 .value-test .first-area {
   clip-path: polygon(4% 50%, 50% 4%, 96% 50%, 50% 96%);
-  height: 17%;
+  height: 17.5%;
   left: 34%;
-  top: 30%;
+  top: 29.5%;
   width: 32%;
   z-index: 5;
 }
 
 .value-test .first-background-area {
   clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
-  height: 17%;
+  height: 17.5%;
   left: 34%;
-  top: 30%;
+  top: 29.5%;
   width: 32%;
   z-index: 1;
 }
 
 .value-test .second-area {
   clip-path: polygon(6% 7%, 97% 31%, 97% 93%, 6% 69%);
-  height: 32%;
+  height: 32.5%;
   left: 34%;
-  top: 37%;
+  top: 36.5%;
   width: 16%;
   z-index: 5;
 }
 
 .value-test .second-background-area {
   clip-path: polygon(0% 3%, 100% 30%, 100% 96%, 0% 69%);
-  height: 32%;
+  height: 32.5%;
   left: 34%;
-  top: 37%;
+  top: 36.5%;
   width: 16%;
   z-index: 1;
 }
 
 .value-test .third-area {
   clip-path: polygon(3% 31%, 94% 7%, 94% 69%, 3% 94%);
-  height: 32%;
+  height: 32.5%;
   left: 50%;
-  top: 37%;
+  top: 36.5%;
   width: 16%;
   z-index: 5;
 }
 
 .value-test .third-background-area {
   clip-path: polygon(0% 30%, 100% 3%, 100% 69%, 0% 96%);
-  height: 32%;
+  height: 32.5%;
   left: 50%;
-  top: 37%;
+  top: 36.5%;
   width: 16%;
   z-index: 1;
 }
@@ -61,7 +61,7 @@
   clip-path: polygon(0% 0%, 59% 1%, 83% 100%, 0% 100%);
   height: 19%;
   left: 20.5%;
-  top: 60%;
+  top: 59.5%;
   transform: rotate(-38deg);
   width: 34%;
   z-index: 5;
@@ -72,7 +72,7 @@
   clip-path: polygon(0% 0%, 59% 1%, 85% 100%, 0% 100%);
   height: 21%;
   left: 19%;
-  top: 59%;
+  top: 58.5%;
   transform: rotate(-38deg);
   width: 37%;
   z-index: 1;
@@ -83,7 +83,7 @@
   clip-path: polygon(41% 1%, 100% 0%, 100% 100%, 17% 100%);
   height: 19%;
   left: 46%;
-  top: 60%;
+  top: 59.5%;
   transform: rotate(38deg);
   width: 34%;
   z-index: 5;
@@ -94,7 +94,7 @@
   clip-path: polygon(41% 1%, 100% 0%, 100% 100%, 15% 100%);
   height: 21%;
   left: 44.5%;
-  top: 59%;
+  top: 58.5%;
   transform: rotate(38deg);
   width: 37%;
   z-index: 1;
@@ -128,7 +128,7 @@
   background-color: black;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1023px) {
   .value-test .shade {
     border: solid gray 3px;
     height: 30px;

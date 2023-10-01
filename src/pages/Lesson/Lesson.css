@@ -1,0 +1,22 @@
+.lesson .lesson-details {
+  background-color: #FF914D;
+  border: solid 2px #6250e6;
+  border-radius: 15px;
+  padding: 0px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.lesson .lesson-details .materials h4, .lesson .lesson-details h3{
+  margin: 0;
+}
+
+.lesson .section-div {
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  .lesson .lesson-details {
+    margin: 20px 30px 0;
+  }
+}

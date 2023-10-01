@@ -46,7 +46,7 @@
   transform: rotate(-45deg);
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1023px) {
   .diagonal-lines .line-1 {
     height: 200px;
   }
@@ -64,7 +64,7 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
 
   .diagonal-lines .line-1 {
     height: 151px;

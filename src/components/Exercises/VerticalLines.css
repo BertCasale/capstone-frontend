@@ -48,7 +48,7 @@
   max-height: 195px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   .vertical-lines .line-1 {
     max-height: 375px;
   }
@@ -58,7 +58,7 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
   .vertical-lines .line-1 {
     max-height: 285px;
   }
