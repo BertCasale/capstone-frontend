@@ -9,18 +9,18 @@ export default function LessonInPath({ lesson, selectedLesson, handleLessonSelec
       
         <button 
           className="pushable"
-          onClick={() => handleLessonSelect(lesson.id)}
+          onClick={() => handleLessonSelect(lesson.lessons2_id)}
         >
           <span className="shadow"></span>
           <span className="edge"></span>
           <span className="front">
-            {selectedLesson === lesson.id ? <BsStarFill size={30}/> : <BsStar size={30} />}
+            {selectedLesson === lesson.lessons2_id ? <BsStarFill size={30}/> : <BsStar size={30} />}
           </span>
         </button>
 
-        {selectedLesson === lesson.id ? 
+        {selectedLesson === lesson.lessons2_id ? 
           <div className='popup'>
-            <span className={`popuptext ${selected ? 'show': ''}`}>
+            <span className={`popuptext ${selectedLesson === lesson.lessons2_id ? 'show': ''}`}>
               <Link to={`/lesson/${lesson.lessons2_id}`} >
                 <button className='button is-rounded is-link'>
                   <p className='has-text-weight-bold'>Start Lesson</p>
