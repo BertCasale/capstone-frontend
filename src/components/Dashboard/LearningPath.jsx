@@ -13,7 +13,7 @@ export default function LearningPath({ allLessons }) {
           <div className="pt-5">
             {
               allLessons.map((lesson) => {
-                return <LessonInPath key={lesson.id} lesson={lesson} />
+                return <LessonInPath key={lesson.lessons2_id} lesson={lesson} />
               })
             }
           </div>
