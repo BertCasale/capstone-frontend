@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function LearningPath({ allLessons, nextLesson, setNextLesson }) {
 
-  const [selectedLesson, setSelectedLesson] = useState(nextLesson.id);
+  const [selectedLesson, setSelectedLesson] = useState(nextLesson.lessons2_id);
 
   const handleLessonSelect = (id) => {
     setSelectedLesson(id);
@@ -21,7 +21,15 @@ export default function LearningPath({ allLessons, nextLesson, setNextLesson }) 
           <div className="pt-5">
             {
               allLessons.map((lesson) => {
-                return <LessonInPath key={lesson.lessons2_id} lesson={lesson} />
+                return (
+                  <LessonInPath 
+                    key={lesson.lessons2_id} 
+                    lesson={lesson} 
+                    setNextLesson={setNextLesson} 
+                    selectedLesson={selectedLesson}
+                    handleLessonSelect={handleLessonSelect}
+                  />
+                )
               })
             }
           </div>
