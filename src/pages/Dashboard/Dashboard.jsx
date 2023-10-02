@@ -11,7 +11,7 @@ import Syllabus from "../../components/Dashboard/Syllabus";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 // eslint-disable-next-line react/prop-types
-export default function Dashboard({userName}) {
+export default function Dashboard({userName, language}) {
 
   // const [client, setClient] = useState({})
   const [allLessons, setAllLessons] = useState([]);
@@ -20,7 +20,7 @@ export default function Dashboard({userName}) {
   // const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`${API}/lessons`)
+    axios.get(`${API}/lessonTopContent2/${language}`)
       .then((res) => {
         setAllLessons([res.data[0], res.data[1], res.data[2]]);
         setNextLesson(res.data[0]);
