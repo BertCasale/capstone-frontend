@@ -5,7 +5,8 @@ import Section from "../../components/Lesson/Section";
 import "./Lesson.css"
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-export default function Lesson() {
+//language from app.jsx
+export default function Lesson({language}) {
   //create state for the lesson and all sections in the lesson
   const [lesson, setLesson] = useState({
     id: 0,
@@ -24,22 +25,22 @@ export default function Lesson() {
 
   useEffect(() => {
     //get the lesson for the page we are on
-    axios.get(`${API}/lessons/${lessonId}`)
+    axios.get(`${API}/lessonTopContent2/${language}/${lessonId}`)
       .then((res) => {
         setLesson(res.data);
       })
       .catch((e) => console.warn(e));
       
-  }, [lessonId]);
+  }, [lessonId, language]);
 
   useEffect(() => {
     //get the sections for the lesson we are on
-    axios.get(`${API}/lessonSections/${lessonId}`)
+    axios.get(`${API}/lessonSections2/${language}/${lessonId}`)
       .then((res) => {
         setLessonSections(res.data)
       })
       .catch((e) => console.warn(e))
-  }, [lessonId])
+  }, [lessonId, language])
 
 
 
