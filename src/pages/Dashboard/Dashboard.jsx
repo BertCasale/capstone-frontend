@@ -27,7 +27,7 @@ export default function Dashboard({userName, language}) {
         setOtherLessons([res.data[1], res.data[2]])
       })
       .catch((e) => console.warn('catch', e))
-  }, [])
+  }, [language])
 
   return (
     <main className="section has-background-light">

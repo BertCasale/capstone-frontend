@@ -73,7 +73,7 @@ console.log(clientList);
       />
       <Routes>
         <Route path='/' element={<Landing language={language}/>} />
-        <Route path='/:username/dashboard' element={<Dashboard userName={userName}/>} />
+        <Route path='/:username/dashboard' element={<Dashboard userName={userName} language={language}/>} />
         <Route path='/lesson/:lessonId' element={<Lesson language={language}/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}
