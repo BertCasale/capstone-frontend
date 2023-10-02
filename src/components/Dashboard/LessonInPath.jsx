@@ -1,33 +1,26 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BsStar, BsStarFill } from 'react-icons/bs'
 import './LessonInPath.css'
 
-export default function LessonInPath({ lesson }) {
-
-  const [selected, setSelected] = useState(false);
-
-  function toggleSelected() {
-    setSelected(!selected);
-  }
+export default function LessonInPath({ lesson, selectedLesson, handleLessonSelect }) {
 
   return (
     <div className="level pb-5"> 
       
         <button 
           className="pushable"
-          onClick={toggleSelected}
+          onClick={() => handleLessonSelect(lesson.lessons2_id)}
         >
           <span className="shadow"></span>
           <span className="edge"></span>
           <span className="front">
-            {selected ? <BsStarFill/> : <BsStar height={300}/>}
+            {selectedLesson === lesson.lessons2_id ? <BsStarFill size={30}/> : <BsStar size={30} />}
           </span>
         </button>
 
-        {selected ? 
+        {selectedLesson === lesson.lessons2_id ? 
           <div className='popup'>
-            <span className={`popuptext ${selected ? 'show': ''}`}>
+            <span className={`popuptext ${selectedLesson === lesson.lessons2_id ? 'show': ''}`}>
               <Link to={`/lesson/${lesson.lessons2_id}`} >
                 <button className='button is-rounded is-link'>
                   <p className='has-text-weight-bold'>Start Lesson</p>
