@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../services/config/firebase'; // Import your Firebase authentication instance
 // import axios from 'axios';
-import { getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getRedirectResult, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithRedirect } from 'firebase/auth';
 
 // const API = import.meta.env.VITE_API_URL;
 
@@ -31,6 +31,13 @@ export const signIn = async (email, password) => {
   // })
 };
 
+export const googleLogIn = async () => {
+  // const userCred = await getRedirectResult(auth);
+  // debugger
+  await signInWithRedirect(auth, new GoogleAuthProvider())
+
+}
+
 const signOut = () => {
   return auth.signOut();
 };
@@ -51,11 +58,10 @@ export const AuthProvider = ({ children }) => {
     // const unsubscribe = 
     auth.onAuthStateChanged((user) => {
       console.log("context Auth");
+      // console.log(AuthContext);
       // debugger
       setCurrentUser(user);
-      
-     
-    setLoading(false);
+      setLoading(false);
     });
     //------------------------ Google Auth using redirect
     // getRedirectResult(auth)

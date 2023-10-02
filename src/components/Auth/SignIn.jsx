@@ -2,9 +2,9 @@
 import { useState} from "react"
 import { useNavigate } from "react-router-dom"
 import { FcGoogle } from "react-icons/fc"
-import { auth, googleProvider } from "../../services/config/firebase"
+import { auth,googleProvider } from "../../services/config/firebase"
 import { signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth"
-// import { useParams } from "react-router-dom"
+import { googleLogIn } from "../../contexts/AuthContext"
 
 // import axios from "axios"
 // const API = import.meta.env.VITE_API_URL;
@@ -14,8 +14,11 @@ import { signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, signIn
 
 //Prop imports from Modal.jsx
 // eslint-disable-next-line react/prop-types
+
+
 export default function SignIn(
   {
+    // auth,
     errorMessage,
     setErrorMessage,  
     clientList,
@@ -79,26 +82,7 @@ export default function SignIn(
     }
   };
 
-// Attempt to resolved delayed state update for username ---------
-  // const logIn = async (e) => {
-  //   e.preventDefault();
-  //   await authenticate();
 
-  //   // await fetchLoggedUserData; 
-  //   await setIsModalActive(false);
-  //   setUsername('');
-  //   setPassword('')
-  //   setErrorMessage('')  
-  //   navigateToDashboard()
-  // }
-
-// Google provider login ------------------------
-  const googleLogIn = async () => {
-    // const userCred = await getRedirectResult(auth);
-    // debugger
-    await signInWithRedirect(auth, new GoogleAuthProvider())
-
-  }
 
  //RENDERED content below -------------------------------- 
   return (

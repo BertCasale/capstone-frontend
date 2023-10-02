@@ -10,7 +10,7 @@ import LanguageButton from "./LanguageButton";
 //Prop imports from App.js
 // eslint-disable-next-line react/prop-types
 // language state from App.js
-export default function NavBar({ user, setUser, clientList, userName, setUserName, language, setLanguage }) {
+export default function NavBar({ auth,user, setUser, clientList, userName, setUserName, language, setLanguage }) {
 
     //usestate functions for login modal and hamburger menu ------------
     const [isModalActive, setIsModalActive] = useState(false)
@@ -80,7 +80,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                     isModalActive={isModalActive}
                     setIsModalActive={setIsModalActive}
                     closeModal={closeModal}
-                    //   authUser={authUser}
+                    auth={auth}
                     user={user}
                     setUser={setUser}
                     clientList={clientList}
@@ -128,6 +128,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                             </li>
                             <li>
                                 <UserAuthBtn
+                                    auth={auth}
                                     user={user}
                                     setUser={setUser}
                                     userName={userName}
