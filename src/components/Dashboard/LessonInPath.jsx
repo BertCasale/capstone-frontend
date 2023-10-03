@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BsStar, BsStarFill } from 'react-icons/bs'
 import './LessonInPath.css'
+import preview from "../../assets/images/Preview_Lines.png"
 
 export default function LessonInPath({ lesson, selectedLesson, handleLessonSelect }) {
 
@@ -21,7 +22,7 @@ export default function LessonInPath({ lesson, selectedLesson, handleLessonSelec
         {selectedLesson === lesson.lessons2_id ? 
           <div className='popup'>
             <span className={`popupcontent ${selectedLesson === lesson.lessons2_id ? 'show': ''}`}>
-              <img className="pop-image" src={lesson.preview} alt="lesson preview image" />
+              <img className="pop-image" src={preview} alt="lesson preview image" />
               <Link to={`/lesson/${lesson.lessons2_id}`} >
                 <button className='pushable'>
                   <span className="front-pop">Start Lesson</span>    
