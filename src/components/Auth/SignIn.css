@@ -11,6 +11,7 @@
 
 .sign-in-heading {
   font-size: 24px;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -25,6 +26,8 @@
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
@@ -48,12 +51,12 @@
   display:flex;
   justify-content: center;
   align-items: center;
-  background-color: #007bff;
+  background-color: #92049f;
   width:40%;
   color: #fff;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s;
 }

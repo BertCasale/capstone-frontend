@@ -18,7 +18,7 @@ import { useAuth } from './contexts/AuthContext'
 function App() {
 
 //set auth variable
-  const auth = useAuth()
+  const {currentUser} = useAuth()
 
   const [user, setUser] = useState(null)
 
@@ -26,12 +26,17 @@ function App() {
   const [userName, setUserName] = useState(null)
   const [language, setLanguage] = useState(1); 
 
+  if(currentUser){
+    console.log(`user UID: ${currentUser.uid}`);
+
+  }else console.log(null);
+
   return (
     <div className="App">
       <NavBar 
       user={user} 
       setUser={setUser} 
-      auth={auth}
+      // auth={auth}
       userName={userName}
       setUserName={setUserName}
       language={language}
