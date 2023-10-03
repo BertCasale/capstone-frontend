@@ -112,9 +112,11 @@ export default function Section({ lessonSections }) {
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
-        {attempted || completed ? <div className="feedback">
-          {/* chenge the color of the feedback based on whether it's completed successfully or not */}
-          <h3 style={completed ? { color: "green" } : { color: "red" }}>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
+        {/* chenge the color of the feedback based on whether it's completed successfully or not */}
+        {(attempted || completed) && (sectionData.correct_feedback || sectionData.incorrect_feedback) ? <div className={`${completed ? "correct-feedback" : "incorrect-feedback"} feedback`}>
+          
+          <h3>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
+          
         </div> : null}
 
         <div className="button-div is-hidden-touch">
