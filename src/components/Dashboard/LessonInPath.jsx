@@ -20,7 +20,8 @@ export default function LessonInPath({ lesson, selectedLesson, handleLessonSelec
 
         {selectedLesson === lesson.lessons2_id ? 
           <div className='popup'>
-            <span className={`popuptext ${selectedLesson === lesson.lessons2_id ? 'show': ''}`}>
+            <span className={`popupcontent ${selectedLesson === lesson.lessons2_id ? 'show': ''}`}>
+              <img className="pop-image" src={lesson.preview} alt="lesson preview image" />
               <Link to={`/lesson/${lesson.lessons2_id}`} >
                 <button className='pushable'>
                   <span className="front-pop">Start Lesson</span>    

@@ -57,13 +57,13 @@
 /* Popup container */
 .popup {
   position: relative;
+  display: inline-block;
   right: 235px;
   top: 130px;
-  display: inline-block;
 }
 
 /* The actual popup (appears on bottom) */
-.popup .popuptext {
+.popup .popupcontent {
   visibility: hidden;
   width: 500px;
   background-color: #555;
@@ -79,7 +79,7 @@
 }
 
 /* Popup arrow */
-.popup .popuptext::after {
+.popup .popupcontent::after {
   content: "";
   position: absolute;
   bottom: 100%;
