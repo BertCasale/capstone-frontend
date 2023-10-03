@@ -7,7 +7,6 @@ export default function LearningPath({ allLessons, nextLesson, setNextLesson }) 
   const [selectedLesson, setSelectedLesson] = useState('');
 
   const handleLessonSelect = (id) => {
-    console.log(nextLesson.lessons2_id)
     if (id === selectedLesson) {
       setSelectedLesson('');
     } else {
