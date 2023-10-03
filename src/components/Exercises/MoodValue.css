@@ -6,6 +6,10 @@
   border: solid 2px #FE6C20;
 }
 
+.mood-value .button-div .button:disabled {
+  color: black;
+}
+
 @media (max-width: 768px) {
   .mood-value .button-div .button {
     font-size: smaller;
