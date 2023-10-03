@@ -15,7 +15,7 @@ const auth = useAuth();
   return (
     auth.currentUser ? (
       <li className="navbar-item">
-        <Link to="/:username/dashboard">
+        <Link to="/dashboard">
           Dashboard
         </Link>
       </li>

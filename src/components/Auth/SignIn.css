@@ -1,0 +1,77 @@
+/* SignIn.css */
+.sign-in-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sign-in-heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 10px;
+  margin-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+.submit-button {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #92049f;
+  width:40%;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.sign-up-link {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sign-up-link a {
+  color: #007bff;
+  text-decoration: none;
+}

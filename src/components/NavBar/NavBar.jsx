@@ -5,12 +5,13 @@ import "../../Styles/Navbar.css"
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
 import LanguageButton from "./LanguageButton";
+import "./NavBar.css"
 
 
 //Prop imports from App.js
 // eslint-disable-next-line react/prop-types
 // language state from App.js
-export default function NavBar({ user, setUser, clientList, userName, setUserName, language, setLanguage }) {
+export default function NavBar({ auth, user, setUser, clientList, userName, setUserName, language, setLanguage }) {
 
     //usestate functions for login modal and hamburger menu ------------
     const [isModalActive, setIsModalActive] = useState(false)
@@ -80,7 +81,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                     isModalActive={isModalActive}
                     setIsModalActive={setIsModalActive}
                     closeModal={closeModal}
-                    //   authUser={authUser}
+                    auth={auth}
                     user={user}
                     setUser={setUser}
                     clientList={clientList}
@@ -93,7 +94,7 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
 
             <nav className="navbar">
                 <div className="container">
-                    <div className="navbar-brand is-size-3">
+                    <div className="navbar-brand is-size-5">
                         <li className="navbar-item">
                             <Link to="/">
                                 {textArray1[language - 1]}
@@ -108,10 +109,6 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
 
                     <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
                         <div className="navbar-end">
-                            <LanguageButton
-                                language={language}
-                                setLanguage={setLanguage}
-                            />
                             <ProtectedDashboard
                                 user={user}
                                 setUser={setUser}
@@ -126,8 +123,16 @@ export default function NavBar({ user, setUser, clientList, userName, setUserNam
                                     {textArray3[language - 1]}
                                 </Link>
                             </li>
-                            <li>
+                            <li className="lang">
+                                    <LanguageButton
+                                        className="button"
+                                        language={language}
+                                        setLanguage={setLanguage}
+                                    />
+                            </li>
+                            <li className="navbar-end">
                                 <UserAuthBtn
+                                    auth={auth}
                                     user={user}
                                     setUser={setUser}
                                     userName={userName}
