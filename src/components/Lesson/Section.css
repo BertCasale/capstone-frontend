@@ -89,6 +89,19 @@
   margin-top: 100px;
 }
 
+.lesson-section .main-content .learning-info {
+  border: solid 2px #363636;
+  border-radius: 50px;
+  padding: 10px;
+  box-shadow: 3px 3px 5px #363636;
+} 
+
+.lesson-section .exercise {
+  border: solid 2px #363636;
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px #363636;
+}
+
 @media (max-width: 1023px) {
   .exercise .artwork-div, .exercise .question, .exercise .credit {
     width: 400px;
