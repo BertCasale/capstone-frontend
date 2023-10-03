@@ -9,13 +9,12 @@ import Profile from './pages/Profile/Profile'
 import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
-import Hamster from './pages/Hamster'
+
 // import { db } from './services/config/firebase' //---Comment setup for firestore DB - may need to move this
 // import { getDocs, collection} from 'firebase/firestore' //---Comment retrieving data to firestore DB
 import { useEffect, useState } from 'react'
 // import useAthState from './services/config/useAuthState'
 import axios from 'axios'
-
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -25,6 +24,7 @@ function App() {
   // const authUser = useAthState();
   const [clientList, setClientList] = useState([])
   const [userName, setUserName] = useState(null)
+  const [language, setLanguage] = useState(1);
 
 useEffect(() => {
     axios
@@ -68,18 +68,19 @@ console.log(clientList);
       clientList={clientList}
       userName={userName}
       setUserName={setUserName}
+      language={language}
+      setLanguage={setLanguage}
       />
       <Routes>
-        <Route path='/' element={<Landing/>} />
-        <Route path='/:username/dashboard' element={<Dashboard userName={userName}/>} />
-        <Route path='/lesson/:lessonId' element={<Lesson/>} />
+        <Route path='/' element={<Landing language={language}/>} />
+        <Route path='/:username/dashboard' element={<Dashboard userName={userName} language={language}/>} />
+        <Route path='/lesson/:lessonId' element={<Lesson language={language}/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}
         <Route path='/profile' element={<Profile/>} />
         <Route path='/sandbox' element={<Sandbox/>} />
         <Route path='*' element={<NotFound/>} />
         <Route path='/signup' element={<SignUpPage/>} />
-        <Route path='/hamster' element={<Hamster/>} />
       </Routes>
     </div>
   )

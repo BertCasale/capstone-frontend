@@ -1,0 +1,67 @@
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#languageButton {
+  width: "200px";
+  height: "200px"
+}
+
+.language-icon {
+  width: 30px;
+}
+
+.language-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.language-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.language-dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.language-selector:hover .language-dropdown {
+  display: block;
+}
+
+.dropdown-item {
+  background-color: rgb(68, 31, 235);
+}
+
+.globeIcon {
+  width: 62px;
+  height: 62px;
+  color: white;
+  background-color: rgb(68, 31, 235);
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+a {
+  padding-top: 0;
+  padding-bottom: 0;
+}

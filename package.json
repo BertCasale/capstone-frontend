@@ -10,6 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
     "bulma": "^0.9.4",
     "dotenv": "^16.3.1",
@@ -21,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-jigsaw-puzzle": "^1.0.5",
+    "react-popper": "^2.3.0",
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {
