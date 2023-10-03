@@ -61,11 +61,11 @@
   color: #5E17EB;
 }
 
-.lesson-section .button-div .next-button:hover {
+.lesson-section .button-div .next-button:hover:enabled {
   background-color: #FF6C20
 }
 
-.lesson-section .button-div .next-button:active {
+.lesson-section .button-div .next-button:active:enabled {
   background-color: #FF6C20;
   box-shadow: 0 4px #5E17EB;
   transform: translateY(5px);

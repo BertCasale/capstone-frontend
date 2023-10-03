@@ -65,7 +65,7 @@ export default function Section({ lessonSections }) {
 
   //for the testing buttons to change the index of the sections
   function changeSectionIndex(num) {
-    console.log(sectionIndex + num)
+    //console.log(sectionIndex + num)
     setSectionIndex(sectionIndex + num)
   }
 
@@ -93,20 +93,20 @@ export default function Section({ lessonSections }) {
       <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1}/>
     </div>
       
-    <div className=" columns is-multiline is-centered is-desktop">
+    <div className="columns is-multiline is-centered is-desktop">
 
       <div className="column is-full title-div">
 
         <h1 className="title">{sectionData.title}</h1>
 
         {/* testing buttons */}
-        <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button>
+        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
+        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
 
       </div>
 
       {/* hide the content div if theres no content to show */}
-      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column main-content is-flex-direction-column is-flex is-align-items-center">
+      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column main-content">
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
