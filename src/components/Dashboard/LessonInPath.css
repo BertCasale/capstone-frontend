@@ -30,8 +30,9 @@
   padding: 30px 50px;
   border-radius: 12px;
   font-size: 1.25rem;
+  font-weight: bolder;
   color: white;
-  background: #FF914D;
+  background: #ff690b;
   transform: translateY(-4px);
 }
 
@@ -56,15 +57,16 @@
 /* Popup container */
 .popup {
   position: relative;
+  right: 235px;
+  top: 120px;
   display: inline-block;
-  cursor: pointer;
 }
 
 /* The actual popup (appears on top) */
 .popup .popuptext {
   visibility: hidden;
-  width: 160px;
-  background-color: #555;
+  width: 500px;
+  background-color: #5E17EB;
   color: #fff;
   text-align: center;
   border-radius: 6px;

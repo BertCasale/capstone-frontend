@@ -22,8 +22,8 @@ export default function LessonInPath({ lesson, selectedLesson, handleLessonSelec
           <div className='popup'>
             <span className={`popuptext ${selectedLesson === lesson.lessons2_id ? 'show': ''}`}>
               <Link to={`/lesson/${lesson.lessons2_id}`} >
-                <button className='button is-rounded is-link'>
-                  <p className='has-text-weight-bold'>Start Lesson</p>
+                <button className='pushable'>
+                  <span className="front">Start Lesson</span>    
                 </button>
               </Link>
             </span>
