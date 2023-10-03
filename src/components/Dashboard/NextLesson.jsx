@@ -4,7 +4,7 @@ export default function NextLesson({ nextLesson }) {
 
   return (
     <div className="columns is-centered">
-      <div className="column is-half">
+      <div className="column is-two-thirds">
 
         <div className="box">
         
