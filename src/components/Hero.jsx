@@ -1,5 +1,6 @@
 import HeroImage from "../assets/acorn_squirrel.png"
 import {useNavigate} from "react-router-dom"
+import "./Hero.css"
 
 // {language} state from Landing.jsx
 export default function Hero({language}) {
@@ -120,7 +121,7 @@ export default function Hero({language}) {
                                 </section>
                                 <br />
                                 <section className="callToAction is-flex">
-                                <button className="button is-link is-rounded" onClick={handleOnClick}>{textArray6[language-1]}</button>
+                                <button className="button is-rounded orange-button" onClick={handleOnClick}>{textArray6[language-1]}</button>
                                 </section>
                             </div>
                             <div>

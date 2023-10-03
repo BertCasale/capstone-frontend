@@ -113,14 +113,15 @@ export default function NavBar({ auth, user, setUser, clientList, userName, setU
                                 user={user}
                                 setUser={setUser}
                             />
-                            <li className="navbar-item">
-                                <Link >
-                                    {textArray2[language - 1]}
-                                </Link>
-                            </li>
+                            
                             <li className="navbar-item">
                                 <Link to="/sandbox">
                                     {textArray3[language - 1]}
+                                </Link>
+                            </li>
+                            <li className="navbar-item">
+                                <Link >
+                                    {textArray2[language - 1]}
                                 </Link>
                             </li>
                             <li className="lang">

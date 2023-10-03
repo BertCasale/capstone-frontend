@@ -1,0 +1,22 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  } */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the columns horizontally */
+}
+
+.column{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+}
+
+
