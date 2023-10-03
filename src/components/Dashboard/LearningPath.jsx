@@ -1,22 +1,27 @@
 import LessonInPath from "./LessonInPath";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function LearningPath({ allLessons, nextLesson, setNextLesson }) {
 
-  const [selectedLesson, setSelectedLesson] = useState(nextLesson.lessons2_id);
+  const [selectedLesson, setSelectedLesson] = useState('');
 
   const handleLessonSelect = (id) => {
-    setSelectedLesson(id);
-    setNextLesson(allLessons[id - 1]);
+    console.log(nextLesson.lessons2_id)
+    if (id === selectedLesson) {
+      setSelectedLesson('');
+    } else {
+      setSelectedLesson(id)
+      setNextLesson(allLessons[id - 1]);
+    }
   }
 
   return (
     <div className="columns is-centered">
 
-      <div className="column is-two-thirds">
+      <div className="column is-half">
 
-        <div className="section has-background-white is-flex is-flex-direction-column is-align-items-center">
+        <div className="section has-background-white is-flex is-flex-direction-column">
 
           <div className="pt-5">
             {
