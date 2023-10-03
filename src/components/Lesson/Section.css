@@ -85,6 +85,10 @@
   margin-bottom: 10px;
 }
 
+.lesson-section .feedback {
+  margin-top: 100px;
+}
+
 @media (max-width: 1023px) {
   .exercise .artwork-div, .exercise .question, .exercise .credit {
     width: 400px;

@@ -44,8 +44,8 @@ export default function Lesson({language}) {
 
 
 
-  return (<div className="lesson columns is-multiline">
-    <div className="content lesson-details has-text-centered is-centered column is-half is-offset-one-quarter">
+  return (<div className="lesson columns is-multiline has-text-centered">
+    <div className="content lesson-details is-centered column is-half is-offset-one-quarter">
 
       <h3 className="title">{lesson.title}</h3>
 
