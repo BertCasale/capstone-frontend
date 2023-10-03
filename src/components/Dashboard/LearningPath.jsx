@@ -21,7 +21,7 @@ export default function LearningPath({ allLessons, nextLesson, setNextLesson }) 
 
       <div className="column is-two-thirds">
 
-        <div className="section has-background-white is-flex is-flex-direction-column">
+        <div className="section has-background-white is-flex is-flex-direction-column box">
 
           <div className="pt-5">
             {

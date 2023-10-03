@@ -5,7 +5,7 @@ import NextLesson from "../../components/Dashboard/NextLesson";
 import LearningPath from "../../components/Dashboard/LearningPath";
 import Syllabus from "../../components/Dashboard/Syllabus";
 // import GrowingTree from "../../components/Dashboard/GrowingTree";
-import LessonPreview from "../../components/Dashboard/LessonPreview";
+// import LessonPreview from "../../components/Dashboard/LessonPreview";
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -38,7 +38,7 @@ export default function Dashboard({userName, language}) {
           <LearningPath allLessons={allLessons} nextLesson={nextLesson} setNextLesson={setNextLesson}/>
         </div>
         <div className="is-flex is-flex-direction-column">
-          <LessonPreview nextLesson={nextLesson} />
+          {/* <LessonPreview nextLesson={nextLesson} /> */}
           <Syllabus />
         </div>
       </div>

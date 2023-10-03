@@ -1,9 +1,9 @@
 
 
-export default function LessonPreview() {
+export default function LessonPreview({ nextLesson }) {
   return (
-    <div>
-      
+    <div className="box">
+      {/* {nextLesson.preview} */}
     </div>
   )
 }

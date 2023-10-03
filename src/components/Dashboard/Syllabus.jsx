@@ -31,11 +31,11 @@ export default function Syllabus() {
   ]
 
   return (
-    <div className="columns">
+    <div className="columns box mt-1 pt-1">
       <div className="column is-full">
 
         <header className="is-flex is-align-items-center is-justify-content-center">
-          <p className="p-4 is-size-3">Syllabus</p>
+          <p className="pb-1 is-size-3">Syllabus</p>
         </header>
 
         <div className="container">
