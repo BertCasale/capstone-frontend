@@ -1,10 +1,10 @@
 import UserProfile from "../../components/Auth/UserProfile"
 
-export default function Profile() {
+// eslint-disable-next-line react/prop-types
+export default function Profile({auth}) {
   return(
-    <div>
-      <UserProfile />
+    <div >
+      <UserProfile auth={auth}/>
     </div>
   )
 }
-

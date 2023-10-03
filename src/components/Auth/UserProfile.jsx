@@ -4,18 +4,56 @@ import FriendsList from "../../pages/Profile/FriendsList"
 import ProfileCard from "../../pages/Profile/ProfileCard"
 import { Tabs, Container, Content } from "react-bulma-components"
 import { useState } from "react"
+import profileImage from '../../../src/assets/avatar-placeholder.png'
+import defaultProfileImage from '../../../src/assets/avatar-placeholder.png'
 
-export default function UserProfile() {
+// eslint-disable-next-line react/prop-types
+export default function UserProfile({auth}) {
+
+  
+
+  const imageSize = '150px'; // Default size is 50px, but you can customize it
+
+  const imageStyle = {
+    width: imageSize,
+    height: imageSize,
+    padding: 9,
+    borderRadius: '50%',
+    objectFit: 'cover', // Ensure the image covers the entire circle
+  };
+
   const [activeTab, setActiveTab] = useState('profile')
 
   const toggleTab = (index) => {
     setActiveTab(index)
     console.log(`current active tab is ${index}`);
+
+   
+
   }
 
   return (
     <div>
-      <Container className="mt-6">
+      
+        <header className="header" style={{height: '80px', width:'100%', backgroundColor: 'gray'}} >
+         
+          <img
+      src={profileImage}
+      alt={defaultProfileImage}
+      style={imageStyle}
+
+        />
+        <h3>{auth}</h3>
+        </header>
+        <header className="header" style={{height: '80px', width:'100%', backgroundColor: 'lightgrey'}}>
+          <br></br>
+          <br></br>
+          <br></br>
+         
+        </header>
+     
+      <div style={{ height:'70%',width:'100%', backgroundColor: 'lightblue'}}>
+       
         <Tabs className="is-centered is-boxed is-toggle">
           <div className="is-flex">
             <Tabs.Tab className={activeTab === 'profile' ? "tabs is-active" : "tabs"} onClick={() => toggleTab('profile')}>Profile</Tabs.Tab>
@@ -40,7 +78,7 @@ export default function UserProfile() {
             </div>
           )}
         </Content>
-      </Container>
+      </div>
 
     </div>
   )
