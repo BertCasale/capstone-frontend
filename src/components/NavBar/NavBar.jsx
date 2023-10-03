@@ -108,10 +108,6 @@ export default function NavBar({ auth,user, setUser, clientList, userName, setUs
 
                     <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
                         <div className="navbar-end">
-                            <LanguageButton
-                                language={language}
-                                setLanguage={setLanguage}
-                            />
                             <ProtectedDashboard
                                 user={user}
                                 setUser={setUser}
@@ -126,7 +122,13 @@ export default function NavBar({ auth,user, setUser, clientList, userName, setUs
                                     {textArray3[language - 1]}
                                 </Link>
                             </li>
-                            <li>
+                            <li className="navbar-end">
+                            <LanguageButton
+                                language={language}
+                                setLanguage={setLanguage}
+                            />
+                            </li>
+                            <li className="navbar-end">
                                 <UserAuthBtn
                                     auth={auth}
                                     user={user}
@@ -137,6 +139,7 @@ export default function NavBar({ auth,user, setUser, clientList, userName, setUs
                                     language={language}
                                 />
                             </li>
+                           
                         </div>
                     </div>
                 </div>
