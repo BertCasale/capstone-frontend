@@ -20,7 +20,7 @@ export default function DropdownMenu({setUser, setIsProfilePicMenuActive }) {
          </li>
          <hr/>
          <li>
-          <Link>Profile</Link>
+          <Link to="/profile">Profile</Link>
          </li>
          <li>
           <Link>Notifications</Link>

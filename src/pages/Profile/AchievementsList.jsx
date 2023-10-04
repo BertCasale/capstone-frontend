@@ -16,14 +16,15 @@ export default function AchievementsList() {
   ];
 
   return (
-    <div className="container">
-     
+    <div className="achievement-container">
+     {/* <div className="item"> */}
       {achievements.map((el, index) => {
-        return <div className="column" key={index}>
+        return <div className="item" key={index}>
           <AchievementCard el={el}/>
           </div>
        })}
-      
+
+      {/* </div> */}
     </div>
   );
 }

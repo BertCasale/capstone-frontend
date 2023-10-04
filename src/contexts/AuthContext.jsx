@@ -143,6 +143,7 @@ export function AuthProvider({ children }) {
       throw error;
     }
   }
+  
   async function googleLogIn() {
     try {
          await signInWithRedirect(auth, new GoogleAuthProvider())

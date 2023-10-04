@@ -5,7 +5,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 // setIsModalActive prop being passed from NavBar component
 // eslint-disable-next-line react/prop-types
-export default function UserAuthBtn({ setIsModalActive, user, setUser, userName, setUserName, language }) {
+export default function UserAuthBtn({ setIsModalActive, user, userDetails, setUser, userName, setUserName, language }) {
 
   const auth = useAuth()
 

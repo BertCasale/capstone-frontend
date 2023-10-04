@@ -1,14 +1,12 @@
-/* * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-} */
 
-.card {
+.card-container .card {
   display: flex;
   flex-direction: column;
-  background-color: antiquewhite;
-  padding: 5px;
-  width: 30dvh;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(250, 235, 215);
+  padding: 10px;
+  margin: 10px;
+  /* width: 30dvw; */
  
 }

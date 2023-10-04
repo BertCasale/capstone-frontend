@@ -11,25 +11,33 @@ import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
 import { useEffect, useState } from 'react'
 import { useAuth } from './contexts/AuthContext'
-// import axios from 'axios'
+import axios from 'axios'
 
-// const API = import.meta.env.VITE_REACT_APP_API_URL;
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 function App() {
 
 //set auth variable
-  const {currentUser} = useAuth()
+  // const {currentUser} = useAuth()
 
   const [user, setUser] = useState(null)
+  const [userDetails, setUserDetails] = useState({})
 
 
   const [userName, setUserName] = useState(null)
   const [language, setLanguage] = useState(1); 
 
-  if(currentUser){
-    console.log(`user UID: ${currentUser.uid}`);
+//   useEffect(()=>{
+//   if(currentUser){
+//     axios.get(`${API}/clients/${currentUser.uid}`)
+//     .then((results)=>{
+//       setUserDetails(results.data.username)
+//       console.log(userDetails);
+//     })
+//     console.log(`user UID: ${currentUser.uid}`);
 
-  }else console.log(null);
+//   }else console.log(null);
+// },[currentUser])
 
   return (
     <div className="App">
@@ -41,6 +49,7 @@ function App() {
       setUserName={setUserName}
       language={language}
       setLanguage={setLanguage}
+      userDetails={userDetails}
       />
       <Routes>
         <Route path='/' element={<Landing language={language}/>} />
@@ -48,7 +57,7 @@ function App() {
         <Route path='/lesson/:lessonId' element={<Lesson language={language}/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}
-        <Route path='/profile' element={<Profile/>} />
+        <Route path='/profile' element={<Profile userDetails={userDetails}/>} />
         <Route path='/sandbox' element={<Sandbox/>} />
         <Route path='*' element={<NotFound/>} />
         <Route path='/signup' element={<SignUpPage/>} />

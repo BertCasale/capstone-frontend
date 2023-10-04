@@ -37,7 +37,7 @@ export default function SignUp() {
    
     try {
       await axios.post(`${API}/clients`, newUserDetails) //  Use client object directly
-      .then(navigate('/:userName/dashboard'));
+      .then(navigate('/dashboard'));
     } catch (error) {
       console.log(error);
       console.log(newUserDetails);

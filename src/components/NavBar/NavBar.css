@@ -1,48 +1,50 @@
 /* Navbar styles */
-.navbar {
-  background-color: #92049f; /* Change to your preferred background color */
-  color: #fff; /* Change text color as needed */
-  padding: 15px 0;
+.navbar{
+  background-color: #92049f; 
+  /* position:absolute; */
+  color: #fff;
+  height: 80px;
+  /* padding: 15px 0; */
 }
 
-.container {
+.navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 /* Navbar Brand */
-.navbar-brand {
+/* .navbar .navbar-brand {
   display: flex;
   align-items: center;
-}
+} */
 
-.navbar-item {
+.navbar .navbar-item {
   margin-right: 20px; /* Adjust spacing between items */
   list-style-type: none; /* Remove bullets from list items */
 }
 
-.navbar-item a {
+.navbar .navbar-item a {
   text-decoration: none;
   color: white;
   font-size: 1.2rem; /* Adjust font size as needed */
   font-weight: bold;
 }
 
-.lang{
+.navbar .lang{
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 /* Navbar Burger (Hamburger) Icon */
-.navbar-burger {
+.navbar .navbar-burger {
   display: none; /* Hide the burger icon by default on larger screens */
   flex-direction: column;
   cursor: pointer;
 }
 
-.navbar-burger span {
+.navbar .navbar-burger span {
   width: 25px;
   height: 3px;
   background-color: #fff; /* Color of burger lines */
@@ -51,27 +53,27 @@
 }
 
 /* Navbar Menu */
-.navbar-menu {
+.navbar .navbar-menu {
   display: flex;
   align-items: center;
 }
 
-.navbar-menu.is-active .navbar-burger span {
+.navbar .navbar-menu.is-active .navbar-burger span {
   background-color: #fff; /* Color of burger lines when menu is active */
 }
 
 /* Navbar End Items */
-.navbar-end {
+.navbar .navbar-end {
   display: flex;
   align-items: center;
 }
 
-.navbar-end .navbar-item:last-child {
+.navbar .navbar-end .navbar-item:last-child {
   margin-left: 20px; /* Adjust spacing between the last item and the language button */
 }
 
 /* Language Button */
-.button {
+.navbar .button {
   background-color: #92049f;
   border: none;
   /* cursor: pointer; */
@@ -79,12 +81,12 @@
   transition: color 0.3s;
 }
 
-.button:hover {
+.navbar .button:hover {
   color: #ccc; /* Text color on hover */
 }
 
 /* User Authentication Button */
-.user-auth-btn {
+.navbar .user-auth-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -93,6 +95,6 @@
   transition: color 0.3s;
 }
 
-.user-auth-btn:hover {
+.navbar .user-auth-btn:hover {
   color: #ccc; /* Text color on hover */
 }
