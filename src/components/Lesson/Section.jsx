@@ -80,7 +80,7 @@ export default function Section({ lessonSections }) {
       //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
       //axios.post(`${API}/clientLessonsProgress`, progress)
       //  .then(() => {
-      navigate("/user/dashboard")
+      navigate("/dashboard")
       //  })
       //  .catch((e) => console.warn(e))
     }
@@ -116,7 +116,7 @@ export default function Section({ lessonSections }) {
         {(attempted || completed) && (sectionData.correct_feedback || sectionData.incorrect_feedback) ? <div className={`${completed ? "correct-feedback" : "incorrect-feedback"} feedback`}>
           
           <h3>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
-          
+
         </div> : null}
 
         <div className="button-div is-hidden-touch">
