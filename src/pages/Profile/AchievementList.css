@@ -1,22 +1,17 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  } */
 
-.container {
+.achievement-container {
   display: flex;
   flex-direction: row;
-  width: auto;
-  flex-wrap: wrap;
-  justify-content: center; /* Center the columns horizontally */
-}
-
-.column{
-  display: flex;
-  width: 100%;
-  justify-content: center;
+  flex-wrap:wrap;
+  justify-content:space-evenly; /* Distribute columns evenly */
   padding: 10px;
+  align-items: center;
 }
 
+.achievement-container .item {
+  padding: 30px;
+  margin: 10px;
+  width: 30vw;
+  box-sizing: border-box;
+}
 

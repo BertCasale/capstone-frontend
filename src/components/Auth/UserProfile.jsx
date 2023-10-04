@@ -8,7 +8,7 @@ import profileImage from '../../../src/assets/avatar-placeholder.png'
 import defaultProfileImage from '../../../src/assets/avatar-placeholder.png'
 
 // eslint-disable-next-line react/prop-types
-export default function UserProfile({auth}) {
+export default function UserProfile({auth, userDetails}) {
 
   
 
@@ -49,8 +49,11 @@ export default function UserProfile({auth}) {
           <br></br>
           <br></br>
           <br></br>
-         
+        
         </header>
+        <div>
+        <ProfileCard userDetails={userDetails}/>
+        </div>
      
       <div style={{ height:'70%',width:'100%', backgroundColor: 'lightblue'}}>
        

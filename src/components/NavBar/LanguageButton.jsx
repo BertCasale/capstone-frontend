@@ -16,6 +16,7 @@ import './LanguageButton.css';
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 export default function LanguageButton({ language, setLanguage }) {
   const [isActive, setIsActive] = useState(false);
@@ -58,83 +59,83 @@ export default function LanguageButton({ language, setLanguage }) {
       </div>
       <div className="dropdown-menu" id="dropdown-menu" role="menu">
         <div className="dropdown-content">
-          <a
+          <Link
             href="#"
             className={`dropdown-item ${language === "1" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("1")}
           >
             English (US)
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "2" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("2")}
           >
             简体中文
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "3" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("3")}
           >
             中國傳統的
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "4" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("4")}
           >
             Español
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "5" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("5")}
           >
             عربي
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "6" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("6")}
           >
             Português
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "7" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("7")}
           >
             bahasa Indonesia
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "8" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("8")}
           >
             Français
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "9" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("9")}
           >
             日本語
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "10" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("10")}
           >
             Русский
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className={`dropdown-item ${language === "11" ? "is-active" : ""}`}
             onClick={() => handleLanguageChange("11")}
           >
             Deutsch
-          </a>
+          </Link>
         </div>
       </div>
     </div>
