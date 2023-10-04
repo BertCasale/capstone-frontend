@@ -3,19 +3,16 @@ import { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 import { auth } from "../../services/config/firebase"
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { addDoc, collection } from 'firebase/firestore'
-import { db } from '../../services/config/firebase'
+// import { addDoc, collection } from 'firebase/firestore'
+// import { db } from '../../services/config/firebase'
 import axios from 'axios'
-const API = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_REACT_APP_API_URL;
 
-// import { useAuth } from '../../contexts/AuthContexts'
-
-// console.log(API)
 export default function SignUp() {
 
   
   
-  const userCollectionRef = collection(db, "users");
+  // const userCollectionRef = collection(db, "users");
   const navigate = useNavigate()
 
   const [username, setUsername] = useState('');
@@ -40,7 +37,7 @@ export default function SignUp() {
    
     try {
       await axios.post(`${API}/clients`, newUserDetails) //  Use client object directly
-      .then(navigate('/:userName/dashboard'));
+      .then(navigate('/dashboard'));
     } catch (error) {
       console.log(error);
       console.log(newUserDetails);
@@ -77,7 +74,7 @@ export default function SignUp() {
 
       await newClient();
       //add the new user data to firestore db
-      await addDoc(userCollectionRef, { username: username, password: password });
+      // await addDoc(userCollectionRef, { username: username, password: password });
       //clear fields
       setUsername('');
       setPassword('')

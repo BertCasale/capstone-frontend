@@ -4,7 +4,7 @@ import './Dashboard.css'
 import NextLesson from "../../components/Dashboard/NextLesson";
 import LearningPath from "../../components/Dashboard/LearningPath";
 import Syllabus from "../../components/Dashboard/Syllabus";
-// import GrowingTree from "../../components/Dashboard/GrowingTree";
+import GrowingTree from "../../components/Dashboard/GrowingTree";
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -29,14 +29,18 @@ export default function Dashboard({userName, language}) {
   }, [language])
 
   return (
-    <main className="section has-background-light">
-      
-      <NextLesson nextLesson={nextLesson} />
+    <main className="section has-background-light is-flex">
+      <div className="is-flex is-flex-direction-row">
+        <div className="is-flex is-flex-direction-column">
+          <NextLesson nextLesson={nextLesson} />
 
-      <LearningPath allLessons={allLessons} nextLesson={nextLesson} setNextLesson={setNextLesson}/>
-
-      <Syllabus />
-
+          <LearningPath allLessons={allLessons} nextLesson={nextLesson} setNextLesson={setNextLesson}/>
+        </div>
+        <div className="is-flex is-flex-direction-column">
+          <GrowingTree />
+          <Syllabus />
+        </div>
+      </div>
     </main>
   )
 }

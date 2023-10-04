@@ -61,11 +61,11 @@
   color: #5E17EB;
 }
 
-.lesson-section .button-div .next-button:hover {
+.lesson-section .button-div .next-button:hover:enabled {
   background-color: #FF6C20
 }
 
-.lesson-section .button-div .next-button:active {
+.lesson-section .button-div .next-button:active:enabled {
   background-color: #FF6C20;
   box-shadow: 0 4px #5E17EB;
   transform: translateY(5px);
@@ -83,6 +83,47 @@
 
 .lesson-section .progress-div {
   margin-bottom: 10px;
+}
+
+.lesson-section .feedback {
+  padding: 10px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.lesson-section .correct-feedback {
+  border: solid 3px rgb(91, 199, 91);
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px rgb(91, 199, 91);
+} 
+
+.lesson-section .correct-feedback h3 {
+  color: green;
+  margin-bottom: 0;
+}
+
+.lesson-section .incorrect-feedback {
+  border: solid 3px rgb(227, 92, 92);
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px rgb(227, 92, 92);
+}
+
+.lesson-section .incorrect-feedback h3 {
+  color: red;
+  margin-bottom: 0;
+}
+
+.lesson-section .main-content .learning-info {
+  border: solid 2px #363636;
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px #363636;
+  padding: 10px;
+} 
+
+.lesson-section .exercise {
+  border: solid 2px #363636;
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px #363636;
 }
 
 @media (max-width: 1023px) {

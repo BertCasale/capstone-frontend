@@ -13,12 +13,13 @@ export default function LearningPath({ allLessons, nextLesson, setNextLesson }) 
       setSelectedLesson(id)
       setNextLesson(allLessons[id - 1]);
     }
+    console.log(allLessons)
   }
-
+  
   return (
     <div className="columns is-centered">
 
-      <div className="column is-half">
+      <div className="column is-two-thirds">
 
         <div className="section has-background-white is-flex is-flex-direction-column">
 

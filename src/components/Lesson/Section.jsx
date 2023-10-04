@@ -65,7 +65,7 @@ export default function Section({ lessonSections }) {
 
   //for the testing buttons to change the index of the sections
   function changeSectionIndex(num) {
-    console.log(sectionIndex + num)
+    //console.log(sectionIndex + num)
     setSectionIndex(sectionIndex + num)
   }
 
@@ -80,7 +80,7 @@ export default function Section({ lessonSections }) {
       //let progress = {client_id: , lesson_id: sectionData.lesson_id, lesson_completion_status: true}
       //axios.post(`${API}/clientLessonsProgress`, progress)
       //  .then(() => {
-      navigate("/user/dashboard")
+      navigate("/dashboard")
       //  })
       //  .catch((e) => console.warn(e))
     }
@@ -93,9 +93,9 @@ export default function Section({ lessonSections }) {
       <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1}/>
     </div>
       
-    <div className=" columns is-multiline is-centered is-desktop">
+    <div className="columns is-multiline is-centered is-desktop">
 
-      <div className="column is-full has-text-centered title-div">
+      <div className="column is-full title-div">
 
         <h1 className="title">{sectionData.title}</h1>
 
@@ -106,18 +106,20 @@ export default function Section({ lessonSections }) {
       </div>
 
       {/* hide the content div if theres no content to show */}
-      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column main-content is-flex-direction-column is-flex is-align-items-center">
+      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column main-content">
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
-        {attempted || completed ? <div className="feedback">
-          {/* chenge the color of the feedback based on whether it's completed successfully or not */}
-          <h3 style={completed ? { color: "green" } : { color: "red" }}>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
+        {/* chenge the color of the feedback based on whether it's completed successfully or not */}
+        {(attempted || completed) && (sectionData.correct_feedback || sectionData.incorrect_feedback) ? <div className={`${completed ? "correct-feedback" : "incorrect-feedback"} feedback`}>
+          
+          <h3>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
+
         </div> : null}
 
-        <div className="button-div has-text-centered is-hidden-touch">
+        <div className="button-div is-hidden-touch">
           {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
           {/* should start disabled until the user completes an exercise */}
           <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
@@ -134,7 +136,7 @@ export default function Section({ lessonSections }) {
           {exercise}
         </Suspense>
 
-        {sectionData.image_credit ? <span className="credit notification has-text-centered is-centered" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </span> : null}
+        {sectionData.image_credit ? <span className="credit notification is-centered" style={{ whiteSpace: "pre-wrap" }}>{sectionData.image_credit ? sectionData.image_credit.replaceAll("\\n", "\n") : null} </span> : null}
 
       </div> : null}
 
@@ -145,7 +147,7 @@ export default function Section({ lessonSections }) {
 
       </div> : null}
 
-      <div className="button-div column is-full has-text-centered is-hidden-desktop">
+      <div className="button-div column is-full is-hidden-desktop">
         {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
         {/* should start disabled until the user completes an exercise */}
         <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>

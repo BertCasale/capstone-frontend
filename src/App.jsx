@@ -9,75 +9,55 @@ import Profile from './pages/Profile/Profile'
 import Sandbox from './pages/Sandbox/Sandbox'
 import NotFound from './pages/NotFound/NotFound'
 import SignUpPage from './pages/SignUpPage'
-
-// import { db } from './services/config/firebase' //---Comment setup for firestore DB - may need to move this
-// import { getDocs, collection} from 'firebase/firestore' //---Comment retrieving data to firestore DB
 import { useEffect, useState } from 'react'
-// import useAthState from './services/config/useAuthState'
+import { useAuth } from './contexts/AuthContext'
 import axios from 'axios'
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 function App() {
 
+//set auth variable
+  // const {currentUser} = useAuth()
+
   const [user, setUser] = useState(null)
-  // const authUser = useAthState();
-  const [clientList, setClientList] = useState([])
+  const [userDetails, setUserDetails] = useState({})
+
+
   const [userName, setUserName] = useState(null)
-  const [language, setLanguage] = useState(1);
+  const [language, setLanguage] = useState(1); 
 
-useEffect(() => {
-    axios
-    .get(`${API}/clients`)
-    .then((resp) => {
-      setClientList( resp.data)
-    })
-},[])
+//   useEffect(()=>{
+//   if(currentUser){
+//     axios.get(`${API}/clients/${currentUser.uid}`)
+//     .then((results)=>{
+//       setUserDetails(results.data.username)
+//       console.log(userDetails);
+//     })
+//     console.log(`user UID: ${currentUser.uid}`);
 
-
-  // const [usersList, setUsersList] = useState([]);
-  // const userCollectionRef = collection(db, "users")
-  // useEffect(() => {
-  //    const getUserList = async () => {
-  //     //read db data
-  //     try{
-  //     const data = await getDocs(userCollectionRef)
-  //       const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id}));
-  //     setUsersList(filteredData);
-  //     console.log(usersList);
-  //     }catch(err) {
-  //       console.error(err);
-  //     }
-  // };
-  // getUserList()
-  // },[]);
-
-  //console log of created users on firestore db
-  // console.log(authUser.auth.currentUser.uid);
-  // console.log(authUser.auth.currentUser.email);
-
-console.log(clientList);
- 
+//   }else console.log(null);
+// },[currentUser])
 
   return (
     <div className="App">
       <NavBar 
       user={user} 
       setUser={setUser} 
-      // authUser={authUser}
-      clientList={clientList}
+      // auth={auth}
       userName={userName}
       setUserName={setUserName}
       language={language}
       setLanguage={setLanguage}
+      userDetails={userDetails}
       />
       <Routes>
         <Route path='/' element={<Landing language={language}/>} />
-        <Route path='/:username/dashboard' element={<Dashboard userName={userName} language={language}/>} />
+        <Route path='/dashboard' element={<Dashboard userName={userName} language={language}/>} />
         <Route path='/lesson/:lessonId' element={<Lesson language={language}/>} />
         <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}
-        <Route path='/profile' element={<Profile/>} />
+        <Route path='/profile' element={<Profile userDetails={userDetails}/>} />
         <Route path='/sandbox' element={<Sandbox/>} />
         <Route path='*' element={<NotFound/>} />
         <Route path='/signup' element={<SignUpPage/>} />
