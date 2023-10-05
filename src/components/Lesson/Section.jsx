@@ -90,23 +90,25 @@ export default function Section({ lessonSections }) {
 
     <div className="progress-div">
       {/* show the progress of the current lesson */}
-      <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1}/>
+      <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1} sectionTitle={sectionData.title}/>
     </div>
       
     <div className="columns is-multiline is-centered is-desktop">
 
       <div className="column is-full title-div">
 
-        <h1 className="title">{sectionData.title}</h1>
+        {/* <h1 className="title">{sectionData.title}</h1> */}
 
         {/* testing buttons */}
-        {/* <button onClick={() => changeSectionIndex(1)}>+1</button>
-        <button onClick={() => changeSectionIndex(-1)}>-1</button> */}
+        <div className="testing-buttons">
+          <button onClick={() => changeSectionIndex(1)}>+1</button>
+          <button onClick={() => changeSectionIndex(-1)}>-1</button>
+        </div>
+        
 
       </div>
 
-      {/* hide the content div if theres no content to show */}
-      {sectionData.information_text || (attempted && sectionData.incorrect_feedback) || (completed && sectionData.correct_feedback) ? <div className="content column main-content">
+      <div className="content column main-content">
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
@@ -115,7 +117,7 @@ export default function Section({ lessonSections }) {
         {/* chenge the color of the feedback based on whether it's completed successfully or not */}
         {(attempted || completed) && (sectionData.correct_feedback || sectionData.incorrect_feedback) ? <div className={`${completed ? "correct-feedback" : "incorrect-feedback"} feedback`}>
           
-          <h3>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
+          <h2>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h2>
 
         </div> : null}
 
@@ -125,7 +127,9 @@ export default function Section({ lessonSections }) {
           <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
         </div>
 
-      </div> : null}
+      </div>
+
+      
 
       {/* dont show the interactive element div if there isnt one */}
       {sectionData.interactive_element && sectionData.interactive_element !== "none" ? <div className="column exercise content is-flex-direction-column is-flex is-align-items-center">

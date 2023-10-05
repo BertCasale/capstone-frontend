@@ -52,13 +52,17 @@ export default function MoodValue({ setCompleted, setAttempted }) {
 
   return (<div className="mood-value">
 
-    <div className="interactive is-flex is-justify-content-center">
+    <div className="interactive is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
       <div className="artwork-div">
 
         <img src={artwork} alt="Sad forebodings of what is to happen" className="artwork" />
 
-        <div className="button-div column starting-box">
+        
+
+      </div>
+      
+<div className="button-div column starting-box">
 
           <div className="level is-mobile">
 
@@ -154,9 +158,6 @@ export default function MoodValue({ setCompleted, setAttempted }) {
           </div>
 
         </div>
-
-      </div>
-
     </div>
 
   </div>)

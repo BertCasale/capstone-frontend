@@ -1,17 +1,34 @@
 .exercise .artwork {
   border: solid #FF914D 3px;
   border-radius: 25px;
-  max-width: 100%;
+  max-width: 300px;
   position: relative;
 }
 
-.exercise .starting-box {
-  border: solid #5E17EB 3px;
+.exercise .starting-box{
+  /* border: solid #5E17EB 2px; */
+  border-radius: 25px;
+  margin-top: 5px;
+  width: 550px;
 }
 
-.exercise .artwork-div, .exercise .question, .exercise .credit {
+.exercise .credit {
+  border-radius: 25px;
+  margin-top: 5px;
+  width: 600px;
+}
+
+
+.exercise .artwork-div  {
   position: relative;
+  margin: 0 auto;
   width: 450px;
+}
+
+
+.exercise .question {
+  padding: 15px 0px 10px;
+  width: 550px;
 }
 
 .exercise .completed-area {
@@ -52,6 +69,7 @@
 
 .lesson-section .learning-info {
   color: #5E17EB;
+  line-height: 1.4em;
 }
 
 .lesson-section .button-div .next-button {
@@ -59,6 +77,7 @@
   border: none;
   box-shadow: 0 9px #6250e6;
   color: #5E17EB;
+  font-size: 20px;
 }
 
 .lesson-section .button-div .next-button:hover:enabled {
@@ -82,13 +101,15 @@
 }
 
 .lesson-section .progress-div {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .lesson-section .feedback {
-  padding: 10px;
-  margin-top: 100px;
+  padding: 20px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  line-height: 1.4em;
+  font-size: 15px;
 }
 
 .lesson-section .correct-feedback {
@@ -97,7 +118,7 @@
   box-shadow: 3px 3px 5px rgb(91, 199, 91);
 } 
 
-.lesson-section .correct-feedback h3 {
+.lesson-section .correct-feedback h2 {
   color: green;
   margin-bottom: 0;
 }
@@ -108,7 +129,7 @@
   box-shadow: 3px 3px 5px rgb(227, 92, 92);
 }
 
-.lesson-section .incorrect-feedback h3 {
+.lesson-section .incorrect-feedback h2 {
   color: red;
   margin-bottom: 0;
 }
@@ -117,13 +138,23 @@
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
-  padding: 10px;
+  
+  font-size: 20px;
+  padding: 20px;
+  /* max-width: 500px; */
 } 
 
 .lesson-section .exercise {
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
+
+  /* max-width: 600px; */
+}
+
+.lesson-section .question {
+  font-size: 20px;
+  line-height: 1.4em;
 }
 
 @media (max-width: 1023px) {
@@ -138,3 +169,10 @@
   }
 }
 
+.lesson-section .testing-buttons {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+
+  z-index: 100;
+}
