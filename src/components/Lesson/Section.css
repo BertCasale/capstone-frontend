@@ -1,13 +1,12 @@
 .exercise .artwork {
   border: solid #FF914D 3px;
   border-radius: 25px;
+  margin: 0 auto;
   max-width: 300px;
   position: relative;
-  margin: 0 auto;
 }
 
 .exercise .starting-box{
-  /* border: solid #5E17EB 2px; */
   border-radius: 25px;
   margin-top: 5px;
   width: 550px;
@@ -16,20 +15,24 @@
 .exercise .credit {
   border-radius: 25px;
   margin-top: 5px;
-  width: 600px;
 }
 
 
 .exercise .artwork-div  {
   position: relative;
   margin: 0 auto;
-  width: 300px;
+  width: auto;
+
+  /* border: black solid 2px; */
 }
 
 
 .exercise .question {
-  padding: 15px 0px 10px;
-  width: 550px;
+  font-size: 20px;
+  line-height: 1.4em;
+  padding: 15px 10px 10px;
+
+  /* border: solid black 1px; */
 }
 
 .exercise .completed-area {
@@ -56,6 +59,16 @@
   background-color: red;
 }
 
+.lesson-section {
+  padding: 0px;
+  margin: 0 50px;
+  width: auto;
+}
+
+.lesson-section .exercise {
+  margin: 0 auto;
+}
+
 .lesson-section .confetti-div {
   z-index: 5;
 }
@@ -79,6 +92,7 @@
   box-shadow: 0 9px #6250e6;
   color: #5E17EB;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .lesson-section .button-div .next-button:hover:enabled {
@@ -91,26 +105,14 @@
   transform: translateY(5px);
 }
 
-.lesson-section {
-  padding: 0px;
-  margin: 0 50px;
+.lesson-section .main-content .section-title {
+  padding-left: 15px;
 }
 
-.lesson-section .title-div {
-  padding: 0;
-  margin: 15px 0;
-}
-
-.lesson-section .progress-div {
-  margin-bottom: 5px;
-}
-
-.lesson-section .feedback {
-  padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.lesson-section .feedback h3 {
+  font-size: 20px;
   line-height: 1.4em;
-  font-size: 15px;
+  padding: 20px;
 }
 
 .lesson-section .correct-feedback {
@@ -119,7 +121,7 @@
   box-shadow: 3px 3px 5px rgb(91, 199, 91);
 } 
 
-.lesson-section .correct-feedback h2 {
+.lesson-section .correct-feedback h3 {
   color: green;
   margin-bottom: 0;
 }
@@ -130,9 +132,17 @@
   box-shadow: 3px 3px 5px rgb(227, 92, 92);
 }
 
-.lesson-section .incorrect-feedback h2 {
+.lesson-section .incorrect-feedback h3 {
   color: red;
   margin-bottom: 0;
+}
+
+.lesson-section .main-content {
+  margin: 0 auto;
+  max-width: 100%;
+  min-width: 40%;
+  border: solid 2px black;
+  border-radius: 50px;
 }
 
 .lesson-section .main-content .learning-info {
@@ -142,31 +152,38 @@
   
   font-size: 20px;
   padding: 20px;
+  margin: 0 0 10px;
   /* max-width: 500px; */
 } 
+
+.lesson-section .main-content .materials {
+  background-color: #FF914D;
+  line-height: 1.4em;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
 
 .lesson-section .exercise {
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
+  max-width: 100%;
+  min-width: 55%;
+  margin-left: 10px;
 
   /* max-width: 600px; */
 }
 
-.lesson-section .question {
-  font-size: 20px;
-  line-height: 1.4em;
-}
-
 @media (max-width: 1023px) {
-  .exercise .artwork-div, .exercise .question, .exercise .credit {
-    width: 400px;
+  .lesson-section .exercise {
+    margin-left: 0;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .exercise .artwork-div, .exercise .question, .exercise .credit {
-    width: 300px;
+  .lesson-section .exercise  {
+    width: auto;
   }
 }
 

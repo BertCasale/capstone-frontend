@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Section.css"
 import Confetti from "react-confetti";
-import ProgressBar from "../../components/Lesson/ProgressBar";
+// import ProgressBar from "../../components/Lesson/ProgressBar";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
-export default function Section({ lessonSections }) {
+export default function Section({ lessonSections, materials, sectionIndex, setSectionIndex }) {
 
   //create state for the next button, which changes based on if the exercise was successfully completed or not
   const [completed, setCompleted] = useState(false);
@@ -27,7 +27,6 @@ export default function Section({ lessonSections }) {
     question: "",
     image_credit: ""
   });
-  const [sectionIndex, setSectionIndex] = useState(0);
   const [exercise, setExercise] = useState([]);
   const [confettiRan, setConfettiRan] = useState(false);
   const navigate = useNavigate();
@@ -88,10 +87,7 @@ export default function Section({ lessonSections }) {
 
   return (<div className="lesson-section">
 
-    <div className="progress-div">
-      {/* show the progress of the current lesson */}
-      <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1} sectionTitle={sectionData.title}/>
-    </div>
+  
       
     <div className="columns is-multiline is-centered is-desktop">
 
@@ -110,14 +106,18 @@ export default function Section({ lessonSections }) {
 
       <div className="content column main-content">
 
+        <h1 className="section-title has-text-left">{sectionData.title}</h1>
+
+        <p className="materials has-text-left"><strong>Materials:</strong> {materials}</p>
+
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
 
         {/* hide the feedback until the user attempts the exercise*/}
-        {/* chenge the color of the feedback based on whether it's completed successfully or not */}
+        {/* change the color of the feedback based on whether it's completed successfully or not */}
         {(attempted || completed) && (sectionData.correct_feedback || sectionData.incorrect_feedback) ? <div className={`${completed ? "correct-feedback" : "incorrect-feedback"} feedback`}>
           
-          <h2>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h2>
+          <h3>{completed ? sectionData.correct_feedback : sectionData.incorrect_feedback}</h3>
 
         </div> : null}
 
@@ -130,7 +130,6 @@ export default function Section({ lessonSections }) {
       </div>
 
       
-
       {/* dont show the interactive element div if there isnt one */}
       {sectionData.interactive_element && sectionData.interactive_element !== "none" ? <div className="column exercise content is-flex-direction-column is-flex is-align-items-center">
 
