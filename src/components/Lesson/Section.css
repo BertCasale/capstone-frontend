@@ -60,8 +60,8 @@
 }
 
 .lesson-section {
-  padding: 0px;
   margin: 0 50px;
+  padding: 0px;
   width: auto;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .lesson-section .main-content .section-title {
-  padding-left: 15px;
+  padding: 15px 0px 0 15px;
 }
 
 .lesson-section .feedback h3 {
@@ -138,28 +138,27 @@
 }
 
 .lesson-section .main-content {
+  border: solid 2px black;
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px #363636;
   margin: 0 auto;
   max-width: 100%;
   min-width: 40%;
-  border: solid 2px black;
-  border-radius: 50px;
 }
 
 .lesson-section .main-content .learning-info {
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
-  
   font-size: 20px;
-  padding: 20px;
   margin: 0 0 10px;
-  /* max-width: 500px; */
+  padding: 20px;
 } 
 
 .lesson-section .main-content .materials {
   background-color: #FF914D;
-  line-height: 1.4em;
   border-radius: 5px;
+  line-height: 1.4em;
   padding: 5px 15px;
 }
 
@@ -167,11 +166,9 @@
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
+  margin-left: 10px;
   max-width: 100%;
   min-width: 55%;
-  margin-left: 10px;
-
-  /* max-width: 600px; */
 }
 
 @media (max-width: 1023px) {
@@ -188,9 +185,8 @@
 }
 
 .lesson-section .testing-buttons {
+  left: 20px;
   position: fixed;
   top: 20px;
-  left: 20px;
-
   z-index: 100;
 }

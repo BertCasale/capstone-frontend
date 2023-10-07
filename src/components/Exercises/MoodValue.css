@@ -4,16 +4,13 @@
   border: 2px solid transparent;
 }
 
-.mood-value .button-div .button:disabled {
-  
-}
-
 .mood-value .button {
-  border-radius: 50px;
   background-color: #FE6C20;
+  border-radius: 50px;
   color: white;
-  font-weight: 600;
   font-size: 18px;
+  font-weight: 600;
+  width: 100px;
 }
 
 .mood-value .selected{
