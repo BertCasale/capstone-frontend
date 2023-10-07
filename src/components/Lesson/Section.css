@@ -3,6 +3,7 @@
   border-radius: 25px;
   max-width: 300px;
   position: relative;
+  margin: 0 auto;
 }
 
 .exercise .starting-box{
@@ -22,7 +23,7 @@
 .exercise .artwork-div  {
   position: relative;
   margin: 0 auto;
-  width: 450px;
+  width: 300px;
 }
 
 
