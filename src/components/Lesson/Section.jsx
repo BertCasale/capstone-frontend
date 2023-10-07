@@ -96,10 +96,10 @@ export default function Section({ lessonSections, materials, sectionIndex, setSe
         {/* <h1 className="title">{sectionData.title}</h1> */}
 
         {/* testing buttons */}
-        <div className="testing-buttons">
+        {/* <div className="testing-buttons">
           <button onClick={() => changeSectionIndex(1)}>+1</button>
           <button onClick={() => changeSectionIndex(-1)}>-1</button>
-        </div>
+        </div> */}
         
 
       </div>
