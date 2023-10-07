@@ -146,7 +146,7 @@ export default function Section({ lessonSections, materials, sectionIndex, setSe
       {/* div for confetti on final exercise completion */}
       {!lessonSections[sectionIndex + 1] && completed && !confettiRan ? <div className="confetti-div">
 
-        <Confetti className="confetti" recycle={false} numberOfPieces={500} onConfettiComplete={() => setConfettiRan(true)} />
+        <Confetti className="confetti" recycle={false} numberOfPieces={300} gravity={.35} onConfettiComplete={() => setConfettiRan(true)} />
 
       </div> : null}
 
