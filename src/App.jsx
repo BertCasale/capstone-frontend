@@ -55,7 +55,6 @@ function App() {
         <Route path='/' element={<Landing language={language}/>} />
         <Route path='/dashboard' element={<Dashboard userName={userName} language={language}/>} />
         <Route path='/lesson/:lessonId' element={<Lesson language={language}/>} />
-        <Route path='/:username/profile' element={<Profile/>} />
         {/* Below test route for working on profile page before backend username params*/}
         <Route path='/profile' element={<Profile userDetails={userDetails}/>} />
         <Route path='/sandbox' element={<Sandbox/>} />

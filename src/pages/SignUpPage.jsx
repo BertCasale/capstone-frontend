@@ -4,9 +4,9 @@ import SignUp from "../components/Auth/SignUp"
 
 export default function SignUpPage() {
   return (
-    <div>
+    <div className='signup-container'>
       
-        <h1>Sign Up</h1>
+        <h1 className='title ml-6'>Sign Up</h1>
  
       <Container className="p-3">
         <SignUp />

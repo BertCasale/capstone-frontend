@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import profileImage from '../../../src/assets/avatar-placeholder.png'
 import defaultProfileImage from '../../../src/assets/avatar-placeholder.png'
-import Portal from '../Portal';
-import { Link } from 'react-router-dom';
-import SignOut from '../Auth/SignOut';
-import { usePopper} from 'react-popper'
-import { Card } from 'react-bulma-components';
-import DropdownMenu from './DropdownMenu';
+// import Portal from '../Portal';
+// import { Link } from 'react-router-dom';
+// import SignOut from '../Auth/SignOut';
+// import { usePopper} from 'react-popper'
+// import { Card } from 'react-bulma-components';
+// import DropdownMenu from './DropdownMenu';
 // import { auth } from '../../services/config/firebase';
 
 
-export default function ProfilePic({setUser}) {
+export default function ProfilePic() {
 
   const imageSize = '60px'; // Default size is 50px, but you can customize it
 
@@ -22,10 +22,6 @@ export default function ProfilePic({setUser}) {
     objectFit: 'cover', // Ensure the image covers the entire circle
   };
 
-  const [referenceElement, setReferenceElement] = useState();
-  const [popperElement, setPopperElement] = useState();
-
-  const {styles, attributes} = usePopper(referenceElement, popperElement, {placement: 'bottom-start'})
 
   // toggle state for profile avatar menu-------------------
   const [isProfilePicMenuActive, setIsProfilePicMenuActive] = useState(false)
@@ -53,31 +49,15 @@ export default function ProfilePic({setUser}) {
 //RENDERED Return below------------------
   return (
 
-<div className='image-container' ref={setReferenceElement}> 
+<div className='image-container'> 
     <img
       src={profileImage}
       alt={defaultProfileImage}
       style={imageStyle}
       onClick={handleProfilePicToggle}
     />
-    {isProfilePicMenuActive && (
-      <Portal>
-       <div className='card' style={{backgroundColor: 'lightseagreen', width: '100%'}}> 
-       <div className="popup-menu" 
-       ref={setPopperElement}
-       style={styles.popper}
-       {... attributes.popper}
-       >
-       <DropdownMenu 
-       setUser={setUser}
-       setIsProfilePicMenuActive={setIsProfilePicMenuActive}
-       />
-       </div>
-       </div>
-       
-       </Portal>
-     
-   )}
 </div>
 
 )}
+
+

@@ -1,10 +1,17 @@
 /* Navbar styles */
 .navbar{
-  background-color: #92049f; 
+  background-color: #8c5ceb; 
   /* position:absolute; */
   color: #fff;
   height: 80px;
   /* padding: 15px 0; */
+}
+
+.navbar .container .img{
+  /* background-color: antiquewhite; */
+  width: 6rem;
+  height: 4rem;
+  padding: 0.25rem;
 }
 
 .navbar .container {
@@ -74,7 +81,7 @@
 
 /* Language Button */
 .navbar .button {
-  background-color: #92049f;
+  
   border: none;
   /* cursor: pointer; */
   color: #ffffff; /* Text color for language button */
@@ -98,3 +105,5 @@
 .navbar .user-auth-btn:hover {
   color: #ccc; /* Text color on hover */
 }
+
+

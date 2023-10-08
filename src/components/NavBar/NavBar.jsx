@@ -1,16 +1,19 @@
 import { useState } from "react"
-import UserAuthBtn from "./UserAuthBtn";
+// import UserAuthBtn from "./UserAuthBtn";
 import ProtectedDashboard from "./ProtectedDashboard";
 import "../../Styles/Navbar.css"
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
 import LanguageButton from "./LanguageButton";
 import "./NavBar.css"
+import logo from "../../assets/images/logo.png"
+import DropdownMenu from "./DropdownMenu";
 
 
 //Prop imports from App.js
 // eslint-disable-next-line react/prop-types
 // language state from App.js
+// eslint-disable-next-line react/prop-types
 export default function NavBar({ auth, user, userDetails, setUser, clientList, userName, setUserName, language, setLanguage }) {
 
     //usestate functions for login modal and hamburger menu ------------
@@ -18,7 +21,7 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
     const [isMenuActive, setIsMenuActive] = useState(false)
     const [errorMessage, setErrorMessage] = useState("");
 
-    
+
     //close modal function ----------------
     const closeModal = () => {
         setIsModalActive(false);
@@ -31,6 +34,14 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
         console.log('menu toggle status', isMenuActive)
         //    console.log(authUser.email);
     }
+
+    // State to manage the visibility of the dropdown menu
+    // const [isDropdownActive, setIsDropdownActive] = useState(false);
+
+    // Function to toggle the dropdown menu
+    // const toggleDropdown = () => {
+    //     setIsDropdownActive(!isDropdownActive);
+    // };
 
     //RENDERED Return Below -------------------------
 
@@ -95,6 +106,9 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
             <nav className="navbar">
                 <div className="container">
                     <div className="navbar-brand is-size-5">
+                        {/* <li className="navbar-item"> */}
+                        <img className="img" src={logo} alt='logo' />
+                        {/* </li> */}
                         <li className="navbar-item">
                             <Link to="/">
                                 {textArray1[language - 1]}
@@ -113,7 +127,7 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
                                 user={user}
                                 setUser={setUser}
                             />
-                            
+
                             <li className="navbar-item">
                                 <Link to="/sandbox">
                                     {textArray3[language - 1]}
@@ -125,26 +139,22 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
                                 </Link>
                             </li>
                             <li className="lang">
-                                    <LanguageButton
-                                        className="button"
-                                        language={language}
-                                        setLanguage={setLanguage}
-                                    />
-                            </li>
-                            <li className="navbar-end">
-                                <UserAuthBtn
-                                    auth={auth}
-                                    user={user}
-                                    userDetails={userDetails}
-                                    setUser={setUser}
-                                    userName={userName}
-                                    setUserName={setUserName}
-                                    setIsModalActive={setIsModalActive}
+                                <LanguageButton
+                                    className="button"
                                     language={language}
+                                    setLanguage={setLanguage}
                                 />
                             </li>
                         </div>
                     </div>
+                    <DropdownMenu auth={auth}
+                user={user}
+                userDetails={userDetails}
+                setUser={setUser}
+                userName={userName}
+                setUserName={setUserName}
+                setIsModalActive={setIsModalActive}
+                language={language}/>
                 </div>
             </nav>
         </div>
