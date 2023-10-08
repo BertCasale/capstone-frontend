@@ -23,7 +23,7 @@ export default function LearningPath({ allLessons, nextLesson, setNextLesson }) 
 
         <div className="section has-background-white is-flex is-flex-direction-column box">
 
-          <div className="pt-5">
+          <div>
             {
               allLessons.map((lesson) => {
                 return (

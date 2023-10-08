@@ -39,9 +39,8 @@ export default function Dashboard({userName, language}) {
         </div>
         <div className="is-flex is-flex-direction-column">
           {/* <LessonPreview nextLesson={nextLesson} /> */}
-          <GrowingTree/>
           <Syllabus />
-          
+          <GrowingTree/>
         </div>
       </div>
     </main>
