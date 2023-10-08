@@ -1,5 +1,7 @@
 .grayscale-value .jigsaw-puzzle {
   border: solid #FF6C20 3px;
+  margin: 0 auto;
+  width: 300px;
 }
 
 .grayscale-value .jigsaw-puzzle__piece.jigsaw-puzzle__piece--solved {

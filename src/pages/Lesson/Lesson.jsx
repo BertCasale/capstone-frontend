@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Section from "../../components/Lesson/Section";
+import ProgressBar from "../../components/Lesson/ProgressBar";
 import "./Lesson.css"
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
@@ -20,6 +21,7 @@ export default function Lesson({language}) {
     preview: ""
   });
   const [lessonSections, setLessonSections] = useState([]);
+  const [sectionIndex, setSectionIndex] = useState(0);
   const { lessonId } = useParams();
 
 
@@ -45,20 +47,14 @@ export default function Lesson({language}) {
 
 
   return (<div className="lesson columns is-multiline has-text-centered">
-    <div className="content lesson-details is-centered column is-half is-offset-one-quarter">
 
-      <h3 className="title">{lesson.title}</h3>
-
-      <div className="materials">
-        <h4>Materials to Practice:</h4>
-        <p><strong>{lesson.materials}</strong></p>
-      </div>
-
+    <div className="column progress-div">
+      {/* show the progress of the current lesson */}
+      <ProgressBar numberOfSections={lessonSections.length} currentSection={sectionIndex + 1} lessonTitle={lesson.title}/>
     </div>
     
-    
     <div className="column is-full section-div">
-      <Section lessonSections={lessonSections} />
+      <Section lessonSections={lessonSections} materials={lesson.materials} sectionIndex={sectionIndex} setSectionIndex={setSectionIndex} language={language} />
     </div>
     
   </div>);
