@@ -43,14 +43,16 @@
 }
 
 .dropdown-item {
-  background-color: rgb(68, 31, 235);
+  background-color:  #8c5ceb; 
+  ;
 }
 
 .globeIcon {
   width: 62px;
   height: 62px;
   color: white;
-  background-color: rgb(68, 31, 235);
+  background-color: #8c5ceb; 
+  ;
 }
 
 .vertical-center {

@@ -13,11 +13,11 @@ Therefore I simply resized button - jl.
 */
 import { useState, useEffect } from 'react';
 import './LanguageButton.css';
-import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 export default function LanguageButton({ language, setLanguage }) {
   const [isActive, setIsActive] = useState(false);
 
@@ -38,6 +38,21 @@ export default function LanguageButton({ language, setLanguage }) {
   useEffect(() => {
     setIsActive(false)
   }, [])
+
+
+   //Close profile Menu on outide click------------------
+   useEffect(() => {
+    const closeMenuOnOutsideClick = (e) => {
+      if (isActive && !e.target.closest('.dropdown-trigger')) {
+        setIsActive(false);
+      }
+    };
+    document.addEventListener('click', closeMenuOnOutsideClick);
+
+    return () => {
+      document.removeEventListener('click', closeMenuOnOutsideClick);
+    };
+  }, [isActive]);
 
   //console.log(`Language: ${language}`);
   return (

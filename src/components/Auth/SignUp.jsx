@@ -97,6 +97,10 @@ export default function SignUp() {
     setClient({...client, [e.target.id]: e.target.value })
   }
 
+  const handleCancel = () => {
+    navigate('/')
+  }
+
 
   return (
     <form className='form' onSubmit={handleSignUp}>
@@ -165,6 +169,7 @@ export default function SignUp() {
         </Form.Field>
         <Form.Field>
           <Button className='is-link'>Sign Up</Button>
+          <Button className='is-link ml-3' onClick={handleCancel}>Cancel</Button>
         </Form.Field>
       </Form.Control>
     </form>

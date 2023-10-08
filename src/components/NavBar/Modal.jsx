@@ -15,6 +15,7 @@ export default function Modal({ auth,isModalActive, closeModal, setIsModalActive
                             <SignIn 
                             auth={auth}
                             setIsModalActive={setIsModalActive} 
+                            isModalActive={isModalActive}
                             closeModal={closeModal} 
                             setUser={setUser} 
                             userName={userName} setUserName={setUserName}

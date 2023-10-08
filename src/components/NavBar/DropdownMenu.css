@@ -1,0 +1,31 @@
+.nav-link-container .dropdown{
+  position: relative;
+  align-self: center;
+  padding: 0 0.4rem;
+}
+
+.nav-link-container .dropdown .dropdown-item{
+color: white;
+background-color: #8c5ceb; 
+}
+
+.nav-link-container .dropdown .dropdown-menu{
+  position: absolute;
+  display: none;
+  left: -9rem;
+  top: calc(100% + 1.8rem);
+  background-color: #8c5ceb; 
+  padding: .75 rem;
+  border-radius: .3rem;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0, .1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  pointer-events: none;
+
+}
+ .nav-link-container .dropdown .dropdown-menu.active {
+  display:block;
+  opacity: 1;
+  pointer-events: auto;
+} 
