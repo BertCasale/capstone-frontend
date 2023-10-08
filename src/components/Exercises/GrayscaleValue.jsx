@@ -18,7 +18,7 @@ export default function GrayscaleValue({ setCompleted }) {
           <JigsawPuzzle
             imageSrc={artwork}
             rows={1}
-            columns={9}
+            columns={5}
             onSolved={handlePuzzleSolved}
             className="artwork"
           />
