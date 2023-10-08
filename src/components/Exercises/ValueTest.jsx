@@ -3,7 +3,7 @@ import artwork from "../../assets/images/ValueTest.jpg";
 import "./ValueTest.css";
 
 //setCompleted from Section
-export default function ValueTest({ setCompleted, setAttempted }) {
+export default function ValueTest({ setCompleted, setAttempted, language }) {
   //keep track of the colors in each area, along with their correct color
   const [areasFilled, setAreasFilled] = useState([
     {correctColor: "#BFBFBF", correct: false},
@@ -30,7 +30,7 @@ export default function ValueTest({ setCompleted, setAttempted }) {
       }
     }
     
-  }, [areaFilledAmount, areasFilled])
+  }, [areaFilledAmount, areasFilled, language])
 
   //allow the divs on the image to recieve a dropped element
   function handleDragOver(event) {

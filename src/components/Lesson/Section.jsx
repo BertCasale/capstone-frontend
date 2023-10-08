@@ -53,7 +53,7 @@ export default function Section({ lessonSections, materials, sectionIndex, setSe
       async function loadExercise() {
         const ExerciseLoaded = importExercise(sectionData.interactive_element);
 
-        return <ExerciseLoaded setCompleted={setCompleted} setAttempted={setAttempted} completed={completed} />
+        return <ExerciseLoaded setCompleted={setCompleted} setAttempted={setAttempted} completed={completed} language={language}/>
       }
       loadExercise().then((res) => setExercise(res))
     } else {
