@@ -93,6 +93,7 @@
   color: #5E17EB;
   font-size: 20px;
   margin-top: 10px;
+  transition: transform .2s, box-shadow .2s, background-color .2s;
 }
 
 .lesson-section .button-div .next-button:hover:enabled {
@@ -138,7 +139,7 @@
 }
 
 .lesson-section .main-content {
-  border: solid 2px black;
+  border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
   margin: 0 auto;

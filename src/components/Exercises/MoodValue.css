@@ -10,6 +10,7 @@
   color: white;
   font-size: 18px;
   font-weight: 600;
+  transition: background-color .3s, border .4s;
   width: 100px;
 }
 
