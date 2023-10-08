@@ -34,16 +34,7 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
         console.log('menu toggle status', isMenuActive)
         //    console.log(authUser.email);
     }
-
-    // State to manage the visibility of the dropdown menu
-    // const [isDropdownActive, setIsDropdownActive] = useState(false);
-
-    // Function to toggle the dropdown menu
-    // const toggleDropdown = () => {
-    //     setIsDropdownActive(!isDropdownActive);
-    // };
-
-    //RENDERED Return Below -------------------------
+    
 
     const textArray1 = [
         "Art Acorn",
@@ -84,6 +75,21 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
         "Песочница",
         "Sandkasten",
     ];
+    const textArray4 = [
+        "Dashboard",
+        "仪表板",
+        "儀表板",
+        "Panel de Control",
+        "لوحة القيادة",
+        "Painel de Controle",
+        "Dasbor",
+        "Tableau de Bord",
+        "ダッシュボード",
+        "Панель управления",
+        "Dashboard"
+    ]
+
+    //RENDERED Return Below -------------------------
 
     return (
         <div>
@@ -126,6 +132,8 @@ export default function NavBar({ auth, user, userDetails, setUser, clientList, u
                             <ProtectedDashboard
                                 user={user}
                                 setUser={setUser}
+                                textArray4={textArray4}
+                                language={language}
                             />
 
                             <li className="navbar-item">

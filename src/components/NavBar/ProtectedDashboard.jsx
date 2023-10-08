@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 
 // eslint-disable-next-line react/prop-types
-export default function ProtectedDashboard() {
+export default function ProtectedDashboard({ textArray4, language }) {
   //props passed from Navbar
 const auth = useAuth(); 
 
@@ -15,8 +15,8 @@ const auth = useAuth();
   return (
     auth.currentUser ? (
       <li className="navbar-item">
-        <Link to="/dashboard">
-          Dashboard
+       <Link to="/dashboard">
+          {textArray4[language - 1]}
         </Link>
       </li>
       ) : null

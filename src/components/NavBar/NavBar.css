@@ -7,6 +7,10 @@
   /* padding: 15px 0; */
 }
 
+.navbar .container{
+  justify-content: space-between ;
+}
+
 .navbar .container .img{
   /* background-color: antiquewhite; */
   width: 6rem;
