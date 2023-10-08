@@ -4,7 +4,7 @@ import './Dashboard.css'
 import NextLesson from "../../components/Dashboard/NextLesson";
 import LearningPath from "../../components/Dashboard/LearningPath";
 import Syllabus from "../../components/Dashboard/Syllabus";
-// import GrowingTree from "../../components/Dashboard/GrowingTree";
+import GrowingTree from "../../components/Dashboard/GrowingTree";
 // import LessonPreview from "../../components/Dashboard/LessonPreview";
 
 const API = import.meta.env.VITE_REACT_APP_API_URL;
@@ -39,7 +39,9 @@ export default function Dashboard({userName, language}) {
         </div>
         <div className="is-flex is-flex-direction-column">
           {/* <LessonPreview nextLesson={nextLesson} /> */}
+          <GrowingTree/>
           <Syllabus />
+          
         </div>
       </div>
     </main>
