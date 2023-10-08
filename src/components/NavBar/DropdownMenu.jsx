@@ -3,7 +3,7 @@ import SignOut from "../Auth/SignOut"
 // import { useAuth } from "../../contexts/AuthContext"; 
 import { useState, useEffect } from "react";
 import UserAuthBtn from "./UserAuthBtn";
-import "./DropDownMenu.css"
+import "./DropdownMenu.css"
 
 // eslint-disable-next-line react/prop-types
 export default function DropdownMenu({setUser, setIsProfilePicMenuActive, auth,user,userDetails,userName,setUserName,setIsModalActive,language}) {
