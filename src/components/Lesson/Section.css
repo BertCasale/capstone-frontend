@@ -1,17 +1,38 @@
 .exercise .artwork {
   border: solid #FF914D 3px;
   border-radius: 25px;
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 300px;
   position: relative;
 }
 
-.exercise .starting-box {
-  border: solid #5E17EB 3px;
+.exercise .starting-box{
+  border-radius: 25px;
+  margin-top: 5px;
+  width: 550px;
 }
 
-.exercise .artwork-div, .exercise .question, .exercise .credit {
+.exercise .credit {
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+
+.exercise .artwork-div  {
   position: relative;
-  width: 450px;
+  margin: 0 auto;
+  width: auto;
+
+  /* border: black solid 2px; */
+}
+
+
+.exercise .question {
+  font-size: 20px;
+  line-height: 1.4em;
+  padding: 15px 10px 10px;
+
+  /* border: solid black 1px; */
 }
 
 .exercise .completed-area {
@@ -38,6 +59,16 @@
   background-color: red;
 }
 
+.lesson-section {
+  margin: 0 50px;
+  padding: 0px;
+  width: auto;
+}
+
+.lesson-section .exercise {
+  margin: 0 auto;
+}
+
 .lesson-section .confetti-div {
   z-index: 5;
 }
@@ -52,6 +83,7 @@
 
 .lesson-section .learning-info {
   color: #5E17EB;
+  line-height: 1.4em;
 }
 
 .lesson-section .button-div .next-button {
@@ -59,6 +91,9 @@
   border: none;
   box-shadow: 0 9px #6250e6;
   color: #5E17EB;
+  font-size: 20px;
+  margin-top: 10px;
+  transition: transform .2s, box-shadow .2s, background-color .2s;
 }
 
 .lesson-section .button-div .next-button:hover:enabled {
@@ -71,24 +106,14 @@
   transform: translateY(5px);
 }
 
-.lesson-section {
-  padding: 0px;
-  margin: 0 50px;
+.lesson-section .main-content .section-title {
+  padding: 15px 0px 0 15px;
 }
 
-.lesson-section .title-div {
-  padding: 0;
-  margin: 15px 0;
-}
-
-.lesson-section .progress-div {
-  margin-bottom: 10px;
-}
-
-.lesson-section .feedback {
-  padding: 10px;
-  margin-top: 100px;
-  margin-bottom: 20px;
+.lesson-section .feedback h3 {
+  font-size: 20px;
+  line-height: 1.4em;
+  padding: 20px;
 }
 
 .lesson-section .correct-feedback {
@@ -113,28 +138,56 @@
   margin-bottom: 0;
 }
 
+.lesson-section .main-content {
+  border: solid 2px #363636;
+  border-radius: 50px;
+  box-shadow: 3px 3px 5px #363636;
+  margin: 0 auto;
+  max-width: 100%;
+  min-width: 40%;
+}
+
 .lesson-section .main-content .learning-info {
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
-  padding: 10px;
+  font-size: 20px;
+  margin: 0 0 10px;
+  padding: 20px;
 } 
+
+.lesson-section .main-content .materials {
+  background-color: #FF914D;
+  border-radius: 5px;
+  line-height: 1.4em;
+  padding: 5px 15px;
+}
 
 .lesson-section .exercise {
   border: solid 2px #363636;
   border-radius: 50px;
   box-shadow: 3px 3px 5px #363636;
+  margin-left: 10px;
+  max-width: 100%;
+  min-width: 55%;
 }
 
 @media (max-width: 1023px) {
-  .exercise .artwork-div, .exercise .question, .exercise .credit {
-    width: 400px;
+  .lesson-section .exercise {
+    margin-left: 0;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .exercise .artwork-div, .exercise .question, .exercise .credit {
-    width: 300px;
+  .lesson-section .exercise  {
+    width: auto;
   }
 }
 
+.lesson-section .testing-buttons {
+  left: 20px;
+  position: fixed;
+  top: 20px;
+  z-index: 100;
+}

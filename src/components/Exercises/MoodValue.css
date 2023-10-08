@@ -1,13 +1,25 @@
+
+
+.mood-value .button-div .incomplete{
+  border: 2px solid transparent;
+}
+
+.mood-value .button {
+  background-color: #FE6C20;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color .3s, border .4s;
+  width: 100px;
+}
+
 .mood-value .selected{
   background-color: orange;
 }
 
-.mood-value .button-div .button:enabled {
-  border: solid 2px #FE6C20;
-}
-
-.mood-value .button-div .button:disabled {
-  color: black;
+.mood-value .button-div .button:enabled:hover {
+  border: solid 2px #5E17EB;
 }
 
 @media (max-width: 768px) {

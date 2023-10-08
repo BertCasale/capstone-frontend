@@ -52,13 +52,17 @@ export default function MoodValue({ setCompleted, setAttempted }) {
 
   return (<div className="mood-value">
 
-    <div className="interactive is-flex is-justify-content-center">
+    <div className="interactive is-flex is-justify-content-center is-align-items-center is-flex-direction-column">
 
       <div className="artwork-div">
 
         <img src={artwork} alt="Sad forebodings of what is to happen" className="artwork" />
 
-        <div className="button-div column starting-box">
+        
+
+      </div>
+      
+<div className="button-div column starting-box">
 
           <div className="level is-mobile">
 
@@ -67,7 +71,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion1 ? "selected" : ""} 
-                ${success ? "completed-incorrect-selection" : ""}`}
+                ${success ? "completed-incorrect-selection" : "incomplete"}`}
               id="emotion1"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion1) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -76,7 +80,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button
                 ${buttonsSelected.emotion2 ? "selected" : ""} 
-                ${success ? "completed-incorrect-selection" : ""}`}
+                ${success ? "completed-incorrect-selection" : "incomplete"}`}
               id="emotion2"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion2) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -85,7 +89,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion3 ? "selected" : ""} 
-                ${success ? "completed-correct-selection" : ""}`}
+                ${success ? "completed-correct-selection" : "incomplete"}`}
               id="emotion3"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion3) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -97,7 +101,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion4 ? "selected" : ""} 
-                ${success ? "completed-correct-selection" : ""}`}
+                ${success ? "completed-correct-selection" : "incomplete"}`}
               id="emotion4"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion4) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -106,7 +110,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion5 ? "selected" : ""} 
-                ${success ? "completed-incorrect-selection" : ""}`}
+                ${success ? "completed-incorrect-selection" : "incomplete"}`}
               id="emotion5"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion5) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -115,7 +119,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion6 ? "selected" : ""} 
-                ${success ? "completed-incorrect-selection" : ""}`}
+                ${success ? "completed-incorrect-selection" : "incomplete"}`}
               id="emotion6"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion6) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -127,7 +131,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion7 ? "selected" : ""} 
-                ${success ? "completed-incorrect-selection" : ""}`}
+                ${success ? "completed-incorrect-selection" : "incomplete"}`}
               id="emotion7"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion7) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -136,7 +140,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button
                 ${buttonsSelected.emotion8 ? "selected" : ""} 
-                ${success ? "completed-correct-selection" : ""}`}
+                ${success ? "completed-correct-selection" : "incomplete"}`}
               id="emotion8"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion8) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -145,7 +149,7 @@ export default function MoodValue({ setCompleted, setAttempted }) {
             <button
               className={`level-item button 
                 ${buttonsSelected.emotion9 ? "selected" : ""} 
-                ${success ? "completed-correct-selection" : ""}`}
+                ${success ? "completed-correct-selection" : "incomplete"}`}
               id="emotion9"
               disabled={(selectedAmount === 2 && !buttonsSelected.emotion9) || (success) ? true : false}
               onClick={handleButtonToggle}
@@ -154,9 +158,6 @@ export default function MoodValue({ setCompleted, setAttempted }) {
           </div>
 
         </div>
-
-      </div>
-
     </div>
 
   </div>)
