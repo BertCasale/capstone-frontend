@@ -8,7 +8,7 @@ import Confetti from "react-confetti";
 const API = import.meta.env.VITE_REACT_APP_API_URL;
 
 //lessonSections from lesson
-export default function Section({ lessonSections, materials, sectionIndex, setSectionIndex }) {
+export default function Section({ lessonSections, materials, sectionIndex, setSectionIndex, language }) {
 
   //create state for the next button, which changes based on if the exercise was successfully completed or not
   const [completed, setCompleted] = useState(false);
@@ -108,7 +108,7 @@ export default function Section({ lessonSections, materials, sectionIndex, setSe
 
         <h1 className="section-title has-text-left">{sectionData.title}</h1>
 
-        <p className="materials has-text-left"><strong>Materials:</strong> {materials}</p>
+        <p className="materials has-text-left"><strong>{(language === "4" ? "Materiales" : "Materials")}:</strong> {materials}</p>
 
         {/* shown or hidden depending on if theres information. If there's no information, only the exercise will show  */}
         <h2 className="learning-info" style={{ whiteSpace: "pre-wrap" }}>{sectionData.information_text ? sectionData.information_text.replaceAll("\\n", "\n") : null}</h2>
@@ -124,7 +124,7 @@ export default function Section({ lessonSections, materials, sectionIndex, setSe
         <div className="button-div is-hidden-touch">
           {/* button directs to the next section within the lesson, or to the next lesson if the user is on the last section */}
           {/* should start disabled until the user completes an exercise */}
-          <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : "Finish"}</strong></button>
+          <button disabled={!completed} className="next-button button is-rounded is-large" onClick={handleNextClick}><strong>{lessonSections[sectionIndex + 1] ? "Next" : (language === "4" ? "Terminar" : "Finish") }</strong></button>
         </div>
 
       </div>

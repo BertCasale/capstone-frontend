@@ -54,7 +54,7 @@ export default function Lesson({language}) {
     </div>
     
     <div className="column is-full section-div">
-      <Section lessonSections={lessonSections} materials={lesson.materials} sectionIndex={sectionIndex} setSectionIndex={setSectionIndex}/>
+      <Section lessonSections={lessonSections} materials={lesson.materials} sectionIndex={sectionIndex} setSectionIndex={setSectionIndex} language={language} />
     </div>
     
   </div>);
