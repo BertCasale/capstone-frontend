@@ -1,11 +1,11 @@
 
 import ProfilePic from "./ProfilePic";
-import { auth } from "../../services/config/firebase";
+// import { auth } from "../../services/config/firebase";
 import { useAuth } from "../../contexts/AuthContext";
 
 // setIsModalActive prop being passed from NavBar component
 // eslint-disable-next-line react/prop-types
-export default function UserAuthBtn({ setIsModalActive, user, userDetails, setUser, userName, setUserName, language }) {
+export default function UserAuthBtn({ setIsModalActive, setUser, language }) {
 
   const auth = useAuth()
 
@@ -32,14 +32,15 @@ export default function UserAuthBtn({ setIsModalActive, user, userDetails, setUs
       );
     } else {
       return (
-        <button
-          className={`button is-link-outlined is-rounded`}
+        <div
+          className="signin"
           onClick={() => {
             setIsModalActive(true)
           }}
         >
           <span>{textArray1[language - 1]}</span>
-        </button>
+          </div>
+       
       );
     }
   };

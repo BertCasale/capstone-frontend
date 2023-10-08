@@ -2,7 +2,7 @@
 import AchievementsList from "../../pages/Profile/AchievementsList"
 import FriendsList from "../../pages/Profile/FriendsList"
 import ProfileCard from "../../pages/Profile/ProfileCard"
-import { Tabs, Container, Content } from "react-bulma-components"
+import { Tabs, Content } from "react-bulma-components"
 import { useState } from "react"
 import profileImage from '../../../src/assets/avatar-placeholder.png'
 import defaultProfileImage from '../../../src/assets/avatar-placeholder.png'
