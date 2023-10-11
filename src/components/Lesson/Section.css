@@ -159,8 +159,13 @@
 .lesson-section .main-content .materials {
   background-color: #FF914D;
   border-radius: 5px;
+  color: white;
   line-height: 1.4em;
   padding: 5px 15px;
+}
+
+.lesson-section .main-content .materials strong {
+  color: white;
 }
 
 .lesson-section .exercise {
